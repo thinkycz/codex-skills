@@ -1,7 +1,7 @@
 ---
 name: design-to-prd
 description: Turn design source material such as Figma or Google Stitch into a Product Requirements Document before implementation. Use when the agent needs to read screens, flows, and UI states from a design source, infer the intended product behavior, resolve ambiguities, and write a polished PRD under `/docs/specs/` that can hand off to planning or implementation.
-version: 1.2.0
+version: 1.3.0
 category: product-design
 sources:
   - normalized design source material
@@ -126,24 +126,7 @@ When handing off to `spec-driven-development`, treat the PRD as the normalized w
 
 ## Suggested PRD Structure
 
-Use this structure unless the project already has a stronger house style:
-
-```markdown
-# <Feature Name> PRD
-
-## Summary
-## Goal
-## Users / Audience
-## Source Inputs
-## Core User Flows
-## Functional Requirements
-## Product and Behavioral Rules
-## States, Edge Cases, and Failure Handling
-## Dependencies and Integration Notes
-## Out of Scope
-## Open Questions / Assumptions
-## Validation Expectations
-```
+Use the structure and section intent in [references/prd-structure.md](references/prd-structure.md) unless the project already has a stronger house style.
 
 ## Quality Bar
 
