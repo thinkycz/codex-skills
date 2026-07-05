@@ -83,10 +83,10 @@ def main() -> int:
             "",
             "## Commands",
             "",
-            "- `python3 /Users/longdo/.agents/skills/scripts/check_skill_routing.py`",
-            "- `python3 /Users/longdo/.agents/skills/scripts/generate_skill_catalog.py`",
-            "- `python3 /Users/longdo/.agents/skills/scripts/generate_stocktake_report.py`",
-            "- `python3 /Users/longdo/.agents/skills/scripts/generate_usage_review.py`",
+            "- `python3 ~/.agents/skills/scripts/check_skill_routing.py`",
+            "- `python3 ~/.agents/skills/scripts/generate_skill_catalog.py`",
+            "- `python3 ~/.agents/skills/scripts/generate_stocktake_report.py`",
+            "- `python3 ~/.agents/skills/scripts/generate_usage_review.py`",
             "",
         ]
     )

@@ -9,7 +9,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 
-SOURCE_ROOT = Path("/Users/longdo/.agents/skills")
+SOURCE_ROOT = Path.home() / ".agents" / "skills"
 TEXT_SUFFIXES = {
     ".md": "markdown",
     ".yaml": "yaml",

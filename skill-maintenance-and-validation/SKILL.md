@@ -1,11 +1,11 @@
 ---
 name: skill-maintenance-and-validation
 description: Use when creating, updating, or reviewing skills that need to stay linted, internally consistent, reference-safe, and realistically testable.
-version: 2.0.0
+version: 2.0.1
 category: skill-ops
 sources:
   - local skill packages and their support files
-  - /Users/longdo/.agents/skills/SKILL_STANDARD.md
+  - ~/.agents/skills/SKILL_STANDARD.md
 use_when:
   - The task is to create, update, or review skills without letting triggers, references, or handoffs drift.
   - A validator-backed maintenance pass is needed on the skill library itself.
@@ -54,8 +54,8 @@ Use this skill when the user:
    - Read `SKILL.md`, `agents/openai.yaml`, and any referenced files that matter for the change.
    - Confirm the skill directory shape is intentional and minimal.
    - Check whether the skill overlaps with or should hand off to another existing skill.
-   - Use `/Users/longdo/.agents/skills/SKILL_STANDARD.md` as the source of truth for metadata and optional layout.
-   - Keep editable user skills in `/Users/longdo/.agents/skills`; treat `/Users/longdo/.codex/skills/.system` as vendor-managed.
+   - Use `~/.agents/skills/SKILL_STANDARD.md` as the source of truth for metadata and optional layout.
+   - Keep editable user skills in `~/.agents/skills`; treat `~/.codex/skills/.system` as vendor-managed.
 
 2. Check trigger quality.
    - Ensure frontmatter `name` and `description` clearly say when the skill should be used.
@@ -77,7 +77,7 @@ Use this skill when the user:
    - Keep validator-backed package correctness checks separate from library-level portfolio judgments.
 
 5. Validate progressively.
-   - Run `python3 /Users/longdo/.agents/skills/scripts/validate_skills.py` after meaningful skill changes when the local environment supports it.
+   - Run `python3 ~/.agents/skills/scripts/validate_skills.py` after meaningful skill changes when the local environment supports it.
    - Use `--include-system` only when intentionally auditing vendor-managed `.system` skills too.
    - Run the bundled validator if the local environment supports it.
    - If the validator is blocked by missing dependencies or environment gaps, perform a manual fallback pass:
@@ -132,7 +132,7 @@ Use these defaults unless the user overrides them:
 - keep `SKILL.md` procedural and concise
 - keep detailed examples or checklists in references
 - run validator-based checks when possible
-- preserve one canonical editable copy under `/Users/longdo/.agents/skills`
+- preserve one canonical editable copy under `~/.agents/skills`
 - if validator dependencies are missing, do a documented fallback validation instead of pretending validation succeeded
 - keep shared-root-cause guidance centralized in the primary owner skill and mirrored lightly in related skills rather than copy-pasting the full workflow
 - prefer realistic scenario validation over metadata-only review when a skill governs behavior, discipline, or quality gates
@@ -151,7 +151,7 @@ Read these only as needed:
   Use when deciding whether to update, split, or hand off between skills.
 - `references/pressure-testing.md`
   Use when validating skills through realistic prompts, workflow pressure, or discipline-enforcement scenarios.
-- `/Users/longdo/.agents/skills/SKILL_STANDARD.md`
+- `~/.agents/skills/SKILL_STANDARD.md`
   Use for the shared metadata schema, optional layout rules, and authoring defaults for this library.
 - `skill-stocktake`
   Use when the problem is portfolio health, overlap, skill sprawl, or keep versus retire decisions rather than package correctness alone.

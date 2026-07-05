@@ -81,7 +81,7 @@ Every listed artifact should either exist or be intentionally omitted from `arti
 Run:
 
 ```bash
-python3 /Users/longdo/.agents/skills/scripts/validate_skills.py
+python3 ~/.agents/skills/scripts/validate_skills.py
 ```
 
 That command validates the editable local skill library by default. Add `--include-system` only when you intentionally want to audit vendor-managed `.system` skills too.
@@ -89,43 +89,43 @@ That command validates the editable local skill library by default. Add `--inclu
 Use the scaffold helper for new skills:
 
 ```bash
-python3 /Users/longdo/.agents/skills/scripts/init_skill.py --help
+python3 ~/.agents/skills/scripts/init_skill.py --help
 ```
 
 Generate the machine-readable catalog and manifest with:
 
 ```bash
-python3 /Users/longdo/.agents/skills/scripts/generate_skill_catalog.py
+python3 ~/.agents/skills/scripts/generate_skill_catalog.py
 ```
 
 Pressure-test overlap-prone routing examples with:
 
 ```bash
-python3 /Users/longdo/.agents/skills/scripts/check_skill_routing.py
+python3 ~/.agents/skills/scripts/check_skill_routing.py
 ```
 
 Generate a current stocktake report with:
 
 ```bash
-python3 /Users/longdo/.agents/skills/scripts/generate_stocktake_report.py
+python3 ~/.agents/skills/scripts/generate_stocktake_report.py
 ```
 
 Generate the current usage-review prompt and cadence report with:
 
 ```bash
-python3 /Users/longdo/.agents/skills/scripts/generate_usage_review.py
+python3 ~/.agents/skills/scripts/generate_usage_review.py
 ```
 
 Check that no editable skills remain in the legacy root with:
 
 ```bash
-python3 /Users/longdo/.agents/skills/scripts/check_mirror_parity.py
+python3 ~/.agents/skills/scripts/check_mirror_parity.py
 ```
 
 Run the full sequential skill-library check with:
 
 ```bash
-python3 /Users/longdo/.agents/skills/scripts/check_all_skills.py
+python3 ~/.agents/skills/scripts/check_all_skills.py
 ```
 
 ## Feedback Loop

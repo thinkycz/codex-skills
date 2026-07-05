@@ -27,5 +27,5 @@ Add new routing fixtures after real work, not just hypothetical examples.
 1. Add the prompt to the right cluster in `skill-routing-fixtures.json`.
 2. Keep the prompt short, realistic, and close to the user's phrasing.
 3. Record the expected owner, not a whole skill chain.
-4. Run `python3 /Users/longdo/.agents/skills/scripts/check_skill_routing.py`.
+4. Run `python3 ~/.agents/skills/scripts/check_skill_routing.py`.
 5. Regenerate the catalog and stocktake after meaningful fixture growth.

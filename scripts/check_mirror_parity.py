@@ -6,8 +6,8 @@ import argparse
 from pathlib import Path
 
 
-DEFAULT_AGENTS_ROOT = Path("/Users/longdo/.agents/skills")
-DEFAULT_CODEX_ROOT = Path("/Users/longdo/.codex/skills")
+DEFAULT_AGENTS_ROOT = Path.home() / ".agents" / "skills"
+DEFAULT_CODEX_ROOT = Path.home() / ".codex" / "skills"
 
 
 def skill_packages(root: Path) -> set[str]:
