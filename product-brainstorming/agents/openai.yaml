@@ -1,0 +1,4 @@
+interface:
+  display_name: "Product Brainstorming"
+  short_description: "Shape features and redesigns with intentional anti-slop direction"
+  default_prompt: "Use $product-brainstorming to turn this feature or redesign idea into a concise, implementation-ready design doc with a product-appropriate design direction, clear anti-patterns to avoid, anti-slop frontend guidance when relevant, and accessibility-sensitive constraints."

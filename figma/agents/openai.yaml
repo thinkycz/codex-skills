@@ -1,0 +1,14 @@
+interface:
+  display_name: "Figma"
+  short_description: "Use Figma as a design-source adapter"
+  icon_small: "./assets/figma-small.svg"
+  icon_large: "./assets/figma.png"
+  default_prompt: "Use $figma to gather the relevant Figma context, assets, and source notes, then hand off cleanly into the shared design implementation or polish workflow."
+
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "figma"
+      description: "Figma MCP server"
+      transport: "streamable_http"
+      url: "https://mcp.figma.com/mcp"

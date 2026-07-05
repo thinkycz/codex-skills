@@ -1,0 +1,7 @@
+interface:
+  display_name: "Throwaway Prototype"
+  short_description: "Build disposable logic/state or UI-variant prototypes to answer one question quickly"
+  default_prompt: "Use $throwaway-prototype to build a clearly marked disposable prototype, choose the logic/state or UI-variant branch, provide one way to run it, and delete, isolate, or absorb it after the question is answered."
+
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,7 @@
+interface:
+  display_name: "Subagent Driven Development"
+  short_description: "Execute through lead-worker slices with clear approval boundaries"
+  default_prompt: "Use $subagent-driven-development to keep planning, integration, approvals, and verification with the lead agent while delegating bounded implementation slices to worker agents with explicit ownership."
+
+policy:
+  allow_implicit_invocation: true

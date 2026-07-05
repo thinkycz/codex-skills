@@ -1,0 +1,7 @@
+interface:
+  display_name: "Task Decomposition And Resume"
+  short_description: "Split broad work into resumable slices"
+  default_prompt: "Use $task-decomposition-and-resume to break this work into ordered, resumable slices with explicit dependencies, one active slice by default, and safe parallel boundaries."
+
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,7 @@
+interface:
+  display_name: "Design To Traversable App"
+  short_description: "Turn multi-screen designs into traversable apps"
+  default_prompt: "Use $design-to-traversable-app as the shared orchestration layer for a normalized design source, then pair it with the correct platform delivery skill to build a traversable, high-fidelity app with phased docs and verification."
+
+policy:
+  allow_implicit_invocation: true

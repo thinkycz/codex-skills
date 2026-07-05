@@ -1,0 +1,7 @@
+interface:
+  display_name: "Design To PRD"
+  short_description: "Turn design sources into a Product Requirements Document"
+  default_prompt: "Use $design-to-prd to turn the provided design source into a polished PRD under /docs/specs/, while separating clear requirements from inferences and unresolved questions."
+
+policy:
+  allow_implicit_invocation: true

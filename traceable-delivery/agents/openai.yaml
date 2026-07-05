@@ -1,0 +1,4 @@
+interface:
+  display_name: "Traceable Delivery"
+  short_description: "Keep delivery progress and audit gaps visible in docs"
+  default_prompt: "Use $traceable-delivery to keep this multi-step implementation traceable through phased docs, progress tracking, blockers, verification evidence, and explicit gap notes when parts of the history are missing."

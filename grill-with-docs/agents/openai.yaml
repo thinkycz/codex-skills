@@ -1,0 +1,7 @@
+interface:
+  display_name: "Grill With Docs"
+  short_description: "Stress-test plans one interactive question at a time against repo code, domain language, CONTEXT.md, and ADRs"
+  default_prompt: "Use $grill-with-docs to challenge this plan one question at a time against the repo, domain docs, terminology, durable decisions, lifecycle success signals, and hard enforcement layers before implementation."
+
+policy:
+  allow_implicit_invocation: true

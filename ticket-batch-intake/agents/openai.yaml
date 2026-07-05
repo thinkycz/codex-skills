@@ -1,0 +1,7 @@
+interface:
+  display_name: "Ticket Batch Intake"
+  short_description: "Normalize ticket batches into evidence-based plans, summaries, contracts, and handoffs"
+  default_prompt: "Use $ticket-batch-intake to read all ticket evidence, preserve board order, detect prior-agent changes, classify implementable versus handoff-only work, and produce ordered plans, summaries, and contract notes before implementation."
+
+policy:
+  allow_implicit_invocation: true

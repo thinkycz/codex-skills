@@ -1,0 +1,4 @@
+interface:
+  display_name: "Repo Convention Discovery"
+  short_description: "Inspect repo patterns and safe starting points"
+  default_prompt: "Use $repo-convention-discovery to inspect this repository, summarize the implementation conventions we should follow, and identify likely entrypoints and safe starting places when onboarding matters."

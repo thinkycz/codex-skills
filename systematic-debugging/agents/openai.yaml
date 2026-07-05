@@ -1,0 +1,4 @@
+interface:
+  display_name: "Systematic Debugging"
+  short_description: "Root-cause debugging across the full lifecycle with traceable docs"
+  default_prompt: "Use $systematic-debugging to investigate this bug systematically, trace the full lifecycle across boundaries, keep the evidence traceable in docs, and only fix it after the root cause is proven."

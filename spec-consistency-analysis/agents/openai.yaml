@@ -1,0 +1,7 @@
+interface:
+  display_name: "Spec Consistency Analysis"
+  short_description: "Run a read-only consistency pass across spec, plan, and tasks"
+  default_prompt: "Use $spec-consistency-analysis to compare the active spec, plan, tasks, and any checklist artifacts, classify contradictions or coverage gaps, and recommend the next pre-implementation action without rewriting the docs."
+
+policy:
+  allow_implicit_invocation: true

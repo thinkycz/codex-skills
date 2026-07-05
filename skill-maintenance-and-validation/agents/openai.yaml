@@ -1,0 +1,7 @@
+interface:
+  display_name: "Skill Maintenance And Validation"
+  short_description: "Keep skills consistent and testable"
+  default_prompt: "Use $skill-maintenance-and-validation to review or update skills for narrow triggers, clean handoffs, lean context footprint, and realistic validation under pressure."
+
+policy:
+  allow_implicit_invocation: true

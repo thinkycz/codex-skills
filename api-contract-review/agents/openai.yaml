@@ -1,0 +1,7 @@
+interface:
+  display_name: "Api Contract Review"
+  short_description: "Review API contracts and missing-consumer handoffs before integration starts"
+  default_prompt: "Use $api-contract-review to compare frontend/mobile expectations against real contract evidence, classify mismatches or ambiguities, call out missing consumer repos or payload evidence, and recommend the safest next action before implementation."
+
+policy:
+  allow_implicit_invocation: true

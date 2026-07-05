@@ -1,0 +1,4 @@
+interface:
+  display_name: "Spec-Driven Development"
+  short_description: "Deliver from client specs"
+  default_prompt: "Use $spec-driven-development to implement this client specification and design with phased docs, traceable progress, and verification."

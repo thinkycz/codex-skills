@@ -1,0 +1,7 @@
+interface:
+  display_name: "Session Handoff"
+  short_description: "Create a compact continuation handoff for another agent or future session"
+  default_prompt: "Use $session-handoff to compact the current conversation and work state into a continuation handoff, write to OS temp by default, include suggested skills, evidence, blockers, touched files, and next step, and redact secrets or private details."
+
+policy:
+  allow_implicit_invocation: true

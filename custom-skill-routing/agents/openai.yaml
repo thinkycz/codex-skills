@@ -1,0 +1,4 @@
+interface:
+  display_name: "Custom Skill Routing"
+  short_description: "Choose the right custom skill combination"
+  default_prompt: "Use $custom-skill-routing to choose the right local custom skill or handoff path for this task."

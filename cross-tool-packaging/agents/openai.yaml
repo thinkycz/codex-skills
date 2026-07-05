@@ -1,0 +1,7 @@
+interface:
+  display_name: "Cross Tool Packaging"
+  short_description: "Package the skill library across Codex and universal formats"
+  default_prompt: "Use $cross-tool-packaging to inspect the current packaging surface, choose the right target format, regenerate the artifacts reproducibly, and document the compatibility assumptions honestly."
+
+policy:
+  allow_implicit_invocation: true

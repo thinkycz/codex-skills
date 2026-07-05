@@ -1,0 +1,7 @@
+interface:
+  display_name: "Reflection And Learning"
+  short_description: "Capture durable lessons from completed work"
+  default_prompt: "Use $reflection-and-learning to extract the highest-value lessons from this completed work, decide where they should live, and record only the reusable guardrails."
+
+policy:
+  allow_implicit_invocation: true

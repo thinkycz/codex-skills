@@ -1,0 +1,7 @@
+interface:
+  display_name: "Design Fidelity Polish"
+  short_description: "Polish to visual parity and remove generic UI slop"
+  default_prompt: "Use $design-fidelity-polish to turn an already-implemented design-driven app into a high-fidelity result with exact assets, correct overlays, stronger accessibility and interaction QA, sane motion, anti-slop layout checks, and honest fidelity tracking."
+
+policy:
+  allow_implicit_invocation: true

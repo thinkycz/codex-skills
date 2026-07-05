@@ -1,0 +1,7 @@
+interface:
+  display_name: "Artifact Resume Audit"
+  short_description: "Audit artifacts to find the safest restart point"
+  default_prompt: "Use $artifact-resume-audit to inspect the existing plans, progress docs, exports, and verification notes, classify which artifacts are trustworthy, and identify the safest restart point without replanning everything."
+
+policy:
+  allow_implicit_invocation: true

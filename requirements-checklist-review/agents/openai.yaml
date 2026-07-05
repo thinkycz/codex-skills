@@ -1,0 +1,7 @@
+interface:
+  display_name: "Requirements Checklist Review"
+  short_description: "Review a written spec like a requirements test suite"
+  default_prompt: "Use $requirements-checklist-review to assess the active spec for completeness, clarity, consistency, and coverage, and report the few high-impact requirement-quality issues that should be fixed before planning or implementation."
+
+policy:
+  allow_implicit_invocation: true

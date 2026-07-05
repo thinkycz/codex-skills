@@ -1,0 +1,4 @@
+interface:
+  display_name: "Backend API Integration"
+  short_description: "Phase backend integration with blockers and QA"
+  default_prompt: "Use $integrating-backend-api-into-frontend to connect an existing frontend to a real backend contract in phases, keep unsupported behavior explicit, and verify the result in the browser."

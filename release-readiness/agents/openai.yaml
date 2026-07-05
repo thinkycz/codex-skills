@@ -1,0 +1,4 @@
+interface:
+  display_name: "Release Readiness"
+  short_description: "Decide if work is truly ready"
+  default_prompt: "Use $release-readiness to assess whether this implementation is actually ready for handoff or release."

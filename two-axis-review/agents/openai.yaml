@@ -1,0 +1,7 @@
+interface:
+  display_name: "Two-Axis Review"
+  short_description: "Review diffs separately against repo standards and the originating spec"
+  default_prompt: "Use $two-axis-review to review changed work since a fixed point, separate findings into Standards and Spec axes, include severity with file and line evidence, and avoid turning the review into release readiness or implementation unless asked."
+
+policy:
+  allow_implicit_invocation: true

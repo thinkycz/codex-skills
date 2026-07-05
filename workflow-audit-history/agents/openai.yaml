@@ -1,0 +1,7 @@
+interface:
+  display_name: "Workflow Audit History"
+  short_description: "Record actions, approvals, gaps, and evidence compactly"
+  default_prompt: "Use $workflow-audit-history to summarize the durable action history for this work, explicitly separate approvals from actions, record any gaps honestly, and point to the evidence that still supports the current state."
+
+policy:
+  allow_implicit_invocation: true

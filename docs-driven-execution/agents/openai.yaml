@@ -1,0 +1,4 @@
+interface:
+  display_name: "Docs Driven Execution"
+  short_description: "Execute work from plans while keeping trackers honest"
+  default_prompt: "Use $docs-driven-execution to execute the next slice from the active docs plan while keeping progress, blockers, verification, dirty-worktree state, and handoff-only scope in sync."

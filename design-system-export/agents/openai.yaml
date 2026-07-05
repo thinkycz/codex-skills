@@ -1,0 +1,7 @@
+interface:
+  display_name: "Design System Export"
+  short_description: "Export reusable design-system guidance from a stable product direction"
+  default_prompt: "Use $design-system-export to extract stable tokens, component rules, layout principles, anti-patterns, and reusable guidance from the current product or agreed design direction."
+
+policy:
+  allow_implicit_invocation: true

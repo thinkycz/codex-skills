@@ -1,0 +1,7 @@
+interface:
+  display_name: "Architecture Deepening Audit"
+  short_description: "Audit codebases for shallow modules, leaky seams, and deepening opportunities"
+  default_prompt: "Use $architecture-deepening-audit to inspect repo code and docs, identify shallow modules or leaky seams, compare deepening candidates, and hand off to grilling, TDD, migration audit, or implementation planning without changing code by default."
+
+policy:
+  allow_implicit_invocation: true

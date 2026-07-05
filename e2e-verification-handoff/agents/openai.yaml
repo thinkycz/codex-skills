@@ -1,0 +1,7 @@
+interface:
+  display_name: "E2E Verification Handoff"
+  short_description: "Prepare executable browser/API/manual verification plans for another agent"
+  default_prompt: "Use $e2e-verification-handoff to turn implemented scope into concrete end-to-end browser, API, payment, upload, role, webhook, and parity verification scenarios for another agent."
+
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,7 @@
+interface:
+  display_name: "Search First"
+  short_description: "Do a bounded evidence-gathering pass before asserting"
+  default_prompt: "Use $search-first to resolve the key unknown with bounded repo-first research, explicit source quality, and a short confirmed-versus-inferred summary."
+
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,7 @@
+interface:
+  display_name: "Migration Risk Audit"
+  short_description: "Audit migration and upgrade risk before changing code"
+  default_prompt: "Use $migration-risk-audit to inspect the proposed migration surface, map blast radius and shared hazards, and recommend the safest sequencing and verification posture before implementation."
+
+policy:
+  allow_implicit_invocation: true

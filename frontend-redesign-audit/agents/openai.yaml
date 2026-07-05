@@ -1,0 +1,7 @@
+interface:
+  display_name: "Frontend Redesign Audit"
+  short_description: "Audit an existing frontend before redesigning it"
+  default_prompt: "Use $frontend-redesign-audit to inspect the current frontend, classify the main design and UX problems, prioritize the highest-impact fixes, and recommend the right redesign path before broad edits begin."
+
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,7 @@
+interface:
+  display_name: "Clarify Before Plan"
+  short_description: "Resolve the highest-impact spec ambiguities before planning"
+  default_prompt: "Use $clarify-before-plan to inspect the active spec, identify the few ambiguities that would materially change planning or validation, and summarize the resolved decisions before handoff."
+
+policy:
+  allow_implicit_invocation: true

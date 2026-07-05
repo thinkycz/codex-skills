@@ -1,0 +1,7 @@
+interface:
+  display_name: "Skill Stocktake"
+  short_description: "Audit the skill library for overlap, drift, and bloat"
+  default_prompt: "Use $skill-stocktake to inventory the skill library, separate package correctness from portfolio-level issues, and recommend keep, refresh, merge, split, or retire actions."
+
+policy:
+  allow_implicit_invocation: true
