@@ -355,6 +355,7 @@
           "required_mentions": [
             "spec-driven-development",
             "task-decomposition-and-resume",
+            "ticket-driven-delivery",
             "docs-driven-execution",
             "api-contract-review"
           ],
@@ -370,6 +371,32 @@
             {
               "prompt": "From these Todo cards, tell me which are verification-only because another agent may already have implemented them.",
               "expected_owner": "ticket-batch-intake"
+            },
+            {
+              "prompt": "The Trello evidence and fix plan are approved; implement the cards, verify each affected repo, and post concise closeout comments.",
+              "expected_owner": "ticket-driven-delivery"
+            },
+            {
+              "prompt": "Resume this approved ticket batch from the active /docs plan and progress tracker, keeping blockers and verification evidence current.",
+              "expected_owner": "docs-driven-execution"
+            }
+          ]
+        },
+        {
+          "id": "ticket-driven-delivery",
+          "required_mentions": [
+            "ticket-batch-intake",
+            "docs-driven-execution",
+            "traceable-delivery"
+          ],
+          "fixtures": [
+            {
+              "prompt": "Implement this approved Jira batch, verify the user-visible behavior, and write the stakeholder ticket comments afterward.",
+              "expected_owner": "ticket-driven-delivery"
+            },
+            {
+              "prompt": "The ticket changes touch generated Flutter clients; regenerate them using repo tooling and report whether the outputs are tracked or ignored.",
+              "expected_owner": "ticket-driven-delivery"
             }
           ]
         },

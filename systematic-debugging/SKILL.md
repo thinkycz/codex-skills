@@ -1,7 +1,7 @@
 ---
 name: systematic-debugging
 description: Investigate bugs, test failures, flaky behavior, build issues, runtime regressions, and integration problems by proving root cause before fixing anything. Use when the agent needs a disciplined debugging workflow with evidence gathering, traceable markdown notes under `/docs`, hypothesis tracking, helper-skill routing, and verification that the final fix actually resolves the underlying issue.
-version: 1.3.0
+version: 1.4.0
 category: debugging
 sources:
   - failure evidence, logs, and reproduction steps
@@ -48,6 +48,9 @@ Use this skill when something is broken or unstable and the fastest path is to f
 - Reproduce the issue consistently before proposing fixes.
 - Explore the repo, nearby code, recent changes, and existing docs to understand where the failure lives.
 - If the user has logs, screenshots, failing commands, bug reports, or source specs/designs, ask for them directly.
+- Confirm the actual product surface and repository before deep investigation: web, mobile, backend, worker, build pipeline, or deployment. If the user corrects the target surface, explicitly discard hypotheses derived from the wrong surface and re-ground from the corrected code path.
+
+Before interpreting build or tooling failures as product defects, read the repository's declared runtime and package-manager requirements such as `.nvmrc`, `.tool-versions`, `engines`, lockfiles, or project scripts. Re-run the failing command with the supported toolchain when one is locally available, and keep toolchain mismatch separate from application behavior.
 
 If the issue cannot yet be reproduced reliably, keep gathering evidence instead of jumping to a fix.
 
@@ -84,6 +87,7 @@ Use [references/docs-layout.md](references/docs-layout.md) and [references/evide
 - For async or external-service flows, trace every handoff: incoming request, persisted state, queue/job creation, worker pickup, provider call, callback/webhook if present, stored result, and final user-visible behavior.
 - Treat `2xx`, `204`, queued, or "sent" responses as intermediate signals until the intended lifecycle outcome is observed.
 - Check runtime and deployment facts when code appears correct: route list, build artifact, migrations, worker process, queue name, environment, framework/runtime version, and stale server state.
+- When the first failure comes from an unsupported local runtime or package manager, prove whether the same command passes under the repo-declared toolchain before investigating downstream application hypotheses.
 - When an integration is intentionally caught by a test tool or sandbox, distinguish "captured in the test inbox" from "delivered to the real user."
 
 Do not propose fixes before a concrete hypothesis exists.

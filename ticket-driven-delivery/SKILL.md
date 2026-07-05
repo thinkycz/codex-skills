@@ -1,7 +1,7 @@
 ---
 name: ticket-driven-delivery
 description: Use when implementing, verifying, or finishing code changes from Trello, Jira, Linear, GitHub Issues, or similar tickets, especially when the work includes prior-agent validation and stakeholder ticket comments after delivery.
-version: 1.1.0
+version: 1.2.0
 category: execution
 sources:
   - ticket evidence, acceptance criteria, QA comments, and current repo state
@@ -55,6 +55,7 @@ Use this skill after ticket evidence is known and the user wants implementation,
 
 - Start from the ticket plan, comments, attachments, and acceptance criteria already gathered.
 - Inspect current repo state, dirty files, relevant code paths, and existing tests.
+- Identify generated clients, serializers, localization outputs, codegen files, or other derived artifacts touched by the ticket. Check repository conventions to determine whether they are tracked, ignored, or regenerated only in CI.
 - If another agent may have worked first, identify what is already implemented, what is partial, and what is still missing.
 - Confirm which repos are present before claiming a web, mobile, admin, backend, or API change is implemented.
 - Preserve unrelated dirty work; do not revert changes you did not make.
@@ -64,11 +65,13 @@ Use this skill after ticket evidence is known and the user wants implementation,
 - Follow repo conventions and nearby patterns.
 - Keep changes scoped to the ticket behavior and shared contract implied by the evidence.
 - When several tickets overlap, fix the shared root cause once and map it back to each ticket.
+- Regenerate required derived outputs with the repository's canonical tooling. Do not hand-edit generated files unless the repository explicitly uses that workflow; if outputs are ignored, still regenerate them locally when needed to prove the source annotations and runtime contract are coherent.
 - Do not encode ticket-system IDs into product code unless the repo already has that convention.
 
 ### 3. Verify Freshly
 
 - Run focused checks for the changed surface.
+- Verify generated output consistency when code generation is part of the touched surface, and report whether regenerated files are tracked, ignored, or expected from CI.
 - Verify the user-visible lifecycle when practical, not only the lowest-level helper. For example, prefer the route/page/API flow that reproduces the ticket over a narrower unit assertion alone.
 - Separate new failures from pre-existing repo warnings or broken starter tests.
 - If full test suites are blocked, record the exact blocking failure and still run smaller useful checks when possible.

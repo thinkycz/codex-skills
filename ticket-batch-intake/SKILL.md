@@ -1,7 +1,7 @@
 ---
 name: ticket-batch-intake
 description: Use when the user provides Trello, Jira, Linear, or other ticket-board exports, links, or IDs and wants evidence-grounded planning, stakeholder summaries, implementation contracts, or verification-first triage before coding.
-version: 1.2.0
+version: 1.3.0
 category: execution-planning
 sources:
   - ticket-board exports, card descriptions, comments, labels, and existing repo state
@@ -12,7 +12,7 @@ use_when:
   - Ticket comments, prior-agent changes, contract summaries, or stakeholder-facing summaries materially affect the plan.
 avoid_when:
   - A single already-clarified ticket can be implemented directly by the relevant domain owner.
-  - Active execution from an approved plan is already underway; use docs-driven-execution instead.
+  - Active execution from an approved ticket plan is underway; use ticket-driven-delivery unless existing `/docs` plans and trackers already control execution.
 artifacts:
   - SKILL.md
   - agents/openai.yaml
@@ -32,14 +32,15 @@ Turn ticket-board exports into reliable implementation intake.
 
 Use this skill before implementation when the user provides Trello, Jira, Linear, or similar card batches and asks for plans, summaries, contract notes, or ordered sprint work.
 
-This skill owns intake and planning normalization. It does not execute the tickets. Hand off to `spec-driven-development`, `task-decomposition-and-resume`, or `docs-driven-execution` once the batch is clear.
+This skill owns intake and planning normalization. It does not execute the tickets. Hand off to `ticket-driven-delivery`, `spec-driven-development`, `task-decomposition-and-resume`, or `docs-driven-execution` once the batch is clear.
 
 ## Boundary
 
 - Own ticket-board intake, ordering, summaries, contract notes, and verification-first classification.
 - Do not execute approved ticket plans; hand off to the implementation owner.
 - Do not replace `api-contract-review` when the next step is only read-only API comparison.
-- Do not replace `docs-driven-execution` once a trusted implementation plan already exists.
+- Do not replace `ticket-driven-delivery` once an approved ticket plan is ready for ordinary implementation, verification, and tracker closeout.
+- Do not replace `docs-driven-execution` when trusted `/docs` plans and progress trackers already control the work.
 
 ## Core Promise
 
@@ -60,6 +61,7 @@ This skill owns intake and planning normalization. It does not execute the ticke
 - Identify the requested subset: first N cards, next N cards, specific IDs, a named column, or all sprint work.
 - Keep card IDs and titles visible in the working plan so the user can map the output back to the board.
 - Treat the latest QA, customer, or reviewer comment as higher-priority evidence than older title or description text when they conflict.
+- Follow linked, blocking, duplicate, or dependency cards when the requested card relies on them for terminology, enum values, acceptance criteria, or current status. Keep this traversal bounded to dependencies that materially change the implementation contract.
 - If the user asks for Czech output, write stakeholder summaries and contract notes in Czech.
 
 Use `references/card-contract-notes.md` when producing implementation contracts.
@@ -99,7 +101,8 @@ Do not invent precise payload fields when the ticket does not establish them and
 - Use `spec-driven-development` when the batch becomes a traceable implementation plan from source artifacts.
 - Use `task-decomposition-and-resume` when the main problem is ordering, safe slice boundaries, or prior-agent resume.
 - Use `api-contract-review` when the next safe step is read-only contract comparison.
-- Use `docs-driven-execution` only after an approved plan already exists.
+- Use `ticket-driven-delivery` when ticket evidence is normalized and the user approves implementation, verification, or ticket closeout.
+- Use `docs-driven-execution` only when existing `/docs` plans and progress artifacts are the active execution control surface.
 
 ## Output
 

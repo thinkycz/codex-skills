@@ -11,13 +11,15 @@ Use this reference when ticket evidence comes from Trello and MCP tools are avai
 3. Read comments with `trello_get_card_actions(filter: "commentCard")`.
 4. Read attachments with `trello_get_card_attachments`.
 5. Read checklists with `trello_get_card_checklists` when checklist state could affect acceptance.
-6. Only after evidence gathering, inspect the repo and classify the card as implementation-needed, verification-only, blocked, or needs clarification.
+6. Follow related cards only when the requested card explicitly depends on them or their evidence is required to interpret acceptance. Read the related card's current details, comments, attachments, and checklists using the same evidence order.
+7. Only after evidence gathering, inspect the repo and classify the card as implementation-needed, verification-only, blocked, or needs clarification.
 
 ## Prioritization
 
 - Latest QA, customer, or reviewer comments override older descriptions when they conflict.
 - Card titles are often shorthand; do not infer full acceptance from title alone.
 - Attachments may contain the actual visual acceptance criteria even when the card description is empty.
+- A linked or dependency card may define the authoritative enum, terminology, or prerequisite implementation; do not invent that contract from the referring card alone.
 - If another agent may have implemented the work, verify against current repo state before writing a fix plan.
 
 ## Common Pitfalls
