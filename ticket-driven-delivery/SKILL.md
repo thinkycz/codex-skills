@@ -1,7 +1,7 @@
 ---
 name: ticket-driven-delivery
 description: Use when implementing, verifying, or finishing code changes from Trello, Jira, Linear, GitHub Issues, or similar tickets, especially when the work includes prior-agent validation and stakeholder ticket comments after delivery.
-version: 1.2.0
+version: 1.3.0
 category: execution
 sources:
   - ticket evidence, acceptance criteria, QA comments, and current repo state
@@ -110,6 +110,7 @@ When finishing in chat, include:
 ## Handoffs
 
 - Use `ticket-batch-intake` when ticket evidence still needs to be collected or normalized.
+- Use `docs-driven-execution` when the ticket work is already governed by a `/docs` plan or progress tracker; keep execution honest against those artifacts instead of re-planning from the ticket.
 - Use `two-axis-review` when the user asks for findings only.
 - Use `verification-before-completion` when the main risk is an unproven completion claim.
 - Use `traceable-delivery` when the ticket set is broad enough to need durable docs.

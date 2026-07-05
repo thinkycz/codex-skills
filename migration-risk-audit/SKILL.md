@@ -1,7 +1,7 @@
 ---
 name: migration-risk-audit
 description: Use when an upgrade, migration, or broad refactor needs a read-only risk audit before code changes begin.
-version: 1.1.0
+version: 1.2.0
 category: quality
 sources:
   - migration planning, shared-risk discovery, and rollout-aware preflight audits
@@ -40,6 +40,14 @@ Do not use this skill when:
 - the next step is already a safe, narrow implementation slice
 - the task is a debugging investigation rather than migration planning
 - the dominant question is architecture depth, shallow modules, leaky seams, or low-locality abstractions; use `architecture-deepening-audit`
+
+## Boundary
+
+- Own read-only risk audits for upgrades, migrations, broad refactors, and shared-layer changes before implementation begins.
+- Do not replace `architecture-deepening-audit` when the main concern is shallow modules, leaky seams, low-locality abstractions, or deepening opportunities rather than rollout risk.
+- Do not replace `repo-convention-discovery` when the user only needs to learn repo layout and local patterns before a change.
+- Do not replace `systematic-debugging` when an active failure already exists and needs root-cause proof before any migration planning.
+- Do not replace `release-readiness` when implementation and verification evidence already exist and the question is a go/no-go release decision.
 
 ## Core Workflow
 

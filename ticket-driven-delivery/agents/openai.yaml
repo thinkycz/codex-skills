@@ -1,7 +1,7 @@
 interface:
   display_name: "Ticket Driven Delivery"
   short_description: "Implement, verify, and close out ticket-driven changes without blurring handoffs"
-  default_prompt: "Use $ticket-driven-delivery to compare ticket evidence against the repo, implement the smallest correct fix, regenerate required derived outputs, verify the relevant user-visible path, and write stakeholder-friendly closeout comments with handoff-only work called out."
+  default_prompt: "Use $ticket-driven-delivery to compare ticket evidence against the repo, implement the smallest correct fix, regenerate required derived outputs, verify the relevant user-visible path, and write stakeholder-friendly closeout comments with handoff-only work called out. Hand off to docs-driven-execution when a /docs plan or progress tracker already governs the work."
 
 policy:
   allow_implicit_invocation: true
