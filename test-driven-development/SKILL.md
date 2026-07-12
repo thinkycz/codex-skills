@@ -1,7 +1,7 @@
 ---
 name: test-driven-development
 description: Drive implementation or bug fixing from failing tests instead of code-first changes. Use when the work can be expressed as automated checks, when regressions need protection, or when the safest path is to write or update a failing test first, make the smallest passing change, and verify the result before broader refactoring.
-version: 1.3.0
+version: 1.4.0
 category: quality-engineering
 sources:
   - existing test harnesses and nearby repo test patterns
@@ -20,6 +20,7 @@ artifacts:
   - references/
 quality_gates:
   - The workflow starts from a meaningful failing test when practical.
+  - The failing test exercises the public behavior that failed rather than only an implementation detail.
   - Production changes are the smallest ones needed to turn the test green.
   - Broader nearby verification runs before completion is claimed.
   - Mocks stay at system boundaries unless the repo's established pattern requires otherwise.
@@ -65,6 +66,7 @@ Do not force TDD when the behavior cannot yet be expressed meaningfully as an au
   - the failure should be specific enough to guide the fix
   - the test should fail for the right reason
 - When fixing a bug, reproduce the bug in a failing test if the harness makes that practical.
+- For visibility, color, sizing, or interaction bugs, prefer a component, widget, or browser-level test that observes rendered behavior. File-content checks for SVG attributes, mappings, classes, or snapshots are supporting assertions, not proof that the UI is visible and correct.
 - Be suspicious of false-green tests that pass because the assertion is weak, the fixture is unrealistic, or the wrong code path is being exercised.
 - Avoid horizontal TDD batches. Do not write all planned tests first and then all implementation afterward; that tends to test imagined behavior and unstable shapes.
 - Prefer a vertical tracer loop: one behavior test, the smallest passing change, then the next behavior test based on what was just learned.
@@ -107,6 +109,7 @@ Do not force TDD when the behavior cannot yet be expressed meaningfully as an au
 - Do not write broad implementation first and backfill tests afterward unless the harness makes true TDD impossible.
 - Do not treat RED as "write every test in the plan"; RED should usually mean the next focused behavior is failing for the right reason.
 - Do not keep a test that passes for the wrong reason.
+- Do not promote an asset-syntax or source-string assertion into the primary regression test when the reported failure only exists after rendering or interaction.
 - Do not over-mock behavior that should be exercised more directly.
 - Do not mock internal collaborators the repo controls when a behavior-level test can exercise them through the public surface.
 - Do not mistake backfilled regression coverage for true TDD; if you had to backfill, say so plainly.
@@ -119,6 +122,7 @@ Do not force TDD when the behavior cannot yet be expressed meaningfully as an au
 - Use `systematic-debugging` when you cannot yet explain or reproduce the failure well enough to write the right test.
 - Use `spec-driven-development` when the expected behavior itself is still unclear and needs source-of-truth normalization.
 - Use `release-readiness` near the end when passing tests are only one part of the readiness decision.
+- Use `verification-before-completion` after green when the claim still depends on an installed build, deployed environment, original runtime path, or cross-client parity.
 - Use `search-first` before TDD when the real blocker is unresolved evidence about how the system or external source actually behaves.
 
 ## References

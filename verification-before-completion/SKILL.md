@@ -1,7 +1,7 @@
 ---
 name: verification-before-completion
 description: Require fresh evidence before claiming work is done, fixed, passing, or matched. Use when implementation, debugging, or fidelity work is mostly complete and the agent needs to verify the relevant tests, runtime behavior, design expectations, docs, and blockers before making a success claim.
-version: 1.5.0
+version: 1.6.0
 category: quality
 sources:
   - fresh test, runtime, design, and docs evidence
@@ -20,6 +20,7 @@ artifacts:
 quality_gates:
   - The completion claim is restated before verification begins.
   - The right verification layers run for the claim instead of the easiest checks.
+  - Runtime and parity claims are checked against the exact artifact, path, consumers, and final outcome they name.
   - User-visible lifecycle paths are exercised when the claim depends on runtime flow, async work, or integration behavior.
   - Missing evidence is reported plainly instead of softened into success.
 ---
@@ -77,6 +78,16 @@ Do not stop at static checks when the claim is about runtime behavior or visual 
 
 Build a claim-specific rubric before or during verification when the acceptance bar is non-trivial. The rubric can stay lightweight, but it should make the evidence standard explicit.
 
+Use a balanced evidence matrix when the claim crosses source and runtime boundaries:
+
+1. source changed
+2. targeted tests and required build checks pass
+3. the intended artifact is installed or deployed
+4. the original user path is replayed
+5. the final user-visible outcome is observed
+
+Not every claim requires all five levels. Static copy, schema, or pure-logic changes may stop earlier; device, browser, deployment, queue, payment, and rendering claims require the relevant later levels. Use `references/exact-path-and-parity.md` to choose and report the stopping point.
+
 ### 3. Run Fresh Evidence
 
 - Prefer running the exact command or test that proves the changed behavior.
@@ -87,6 +98,8 @@ Build a claim-specific rubric before or during verification when the acceptance 
 - If a claim depends on a design or spec, verify against that source explicitly.
 - Prefer the repo's own verification commands when they are documented or supplied by the user, such as `make fix`, `make check`, framework builds, local dev servers, and seeded login users.
 - For frontend work, run a browser or runtime smoke on the touched route when the claim involves clicks, redirects, loading states, uploads, responsive layout, or language switching.
+- For mobile or installed-app fixes, distinguish `build succeeded` from `the new artifact is installed and running`; verify the installed build identity when observable before replaying the original path.
+- For `same`, `matched`, or cross-client parity claims, compare semantic mapping, asset content, rendered color and dimensions, and all named consumer surfaces. Do not infer full parity from byte-identical files or one shared mapping alone.
 
 ### 4. Compare Evidence To The Claim
 
@@ -108,6 +121,7 @@ Build a claim-specific rubric before or during verification when the acceptance 
 ### 5. Close Honestly
 
 - If the evidence is sufficient, say exactly what was verified.
+- If source and checks are green but deployment or runtime replay is missing, use `implemented, deployment required` or `implemented, runtime verification pending`, not `fixed`.
 - If the evidence is incomplete, say what is still missing.
 - If the evidence fails, do not soften the result into a near-success.
 - After major work, capture any reusable verification lesson in the relevant docs or closeout artifact instead of leaving it only in chat.
@@ -125,6 +139,7 @@ Build a claim-specific rubric before or during verification when the acceptance 
 
 - Use `release-readiness` when broader go/no-go judgment is needed after verification.
 - Use `systematic-debugging` when the verification fails and the result is not actually explained yet.
+- Use `test-driven-development` when the failure is understood but durable behavior-level regression coverage is still missing.
 - Use `design-fidelity-polish` when the remaining failure is mostly visual parity.
 
 ## References
@@ -135,3 +150,5 @@ Read these only as needed:
   Use for choosing the right mix of checks for the claim.
 - `references/closeout-language.md`
   Use for reporting verified, partially verified, and not verified outcomes clearly.
+- `references/exact-path-and-parity.md`
+  Use for installed/deployed artifact checks, original-path replay, and cross-client or visual parity claims.

@@ -1,7 +1,7 @@
 interface:
   display_name: "Ticket Batch Intake"
   short_description: "Normalize ticket batches into evidence-based plans, summaries, contracts, and handoffs"
-  default_prompt: "Use $ticket-batch-intake to read all ticket evidence and material dependency cards, preserve board order, detect prior-agent changes, classify implementable versus handoff-only work, and hand the normalized plan to the correct execution owner."
+  default_prompt: "Use $ticket-batch-intake to resolve ticket IDs with valid tool parameters, gather independent evidence concurrently, read material dependency cards, detect prior-agent changes, and hand the normalized plan to the correct execution owner."
 
 policy:
   allow_implicit_invocation: true

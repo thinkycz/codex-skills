@@ -1,7 +1,7 @@
 ---
 name: ticket-driven-delivery
 description: Use when implementing, verifying, or finishing code changes from Trello, Jira, Linear, GitHub Issues, or similar tickets, especially when the work includes prior-agent validation and stakeholder ticket comments after delivery.
-version: 1.3.0
+version: 1.4.0
 category: execution
 sources:
   - ticket evidence, acceptance criteria, QA comments, and current repo state
@@ -22,6 +22,7 @@ artifacts:
 quality_gates:
   - Ticket evidence is compared against current repo behavior before coding or commenting.
   - Newest QA or customer comments override older assumptions.
+  - Each ticket and affected app has a compact acceptance row tied to the newest QA scenario.
   - Current-workspace fixes and handoff-only responsibilities are not blurred together.
   - Implementation, verification, and ticket closeout comments are kept distinct.
   - Ticket comments are stakeholder-friendly and written in the requested language.
@@ -54,6 +55,7 @@ Use this skill after ticket evidence is known and the user wants implementation,
 ### 1. Confirm Evidence And Current State
 
 - Start from the ticket plan, comments, attachments, and acceptance criteria already gathered.
+- Build a compact acceptance matrix before editing: ticket, newest QA scenario, affected repos or apps, exact reproduction path, and evidence required for closeout.
 - Inspect current repo state, dirty files, relevant code paths, and existing tests.
 - Identify generated clients, serializers, localization outputs, codegen files, or other derived artifacts touched by the ticket. Check repository conventions to determine whether they are tracked, ignored, or regenerated only in CI.
 - If another agent may have worked first, identify what is already implemented, what is partial, and what is still missing.
@@ -72,10 +74,12 @@ Use this skill after ticket evidence is known and the user wants implementation,
 
 - Run focused checks for the changed surface.
 - Verify generated output consistency when code generation is part of the touched surface, and report whether regenerated files are tracked, ignored, or expected from CI.
+- Verify the exact newest QA scenario in the acceptance matrix before marking its row fixed. A nearby route, a lower-level helper, or a source-only assertion does not close the row.
 - Verify the user-visible lifecycle when practical, not only the lowest-level helper. For example, prefer the route/page/API flow that reproduces the ticket over a narrower unit assertion alone.
 - Separate new failures from pre-existing repo warnings or broken starter tests.
 - If full test suites are blocked, record the exact blocking failure and still run smaller useful checks when possible.
 - Do not claim a ticket is fixed from code inspection alone when a cheap automated or manual check is available.
+- Before closeout, inspect status and untracked files in every touched repo. Remove task-created one-time scripts, temporary captures, disposable reproduction tests, and generated debris; preserve established tooling, durable regression tests, user files, and unrelated work.
 
 ### 4. Close Out Tickets
 
@@ -86,6 +90,7 @@ Use this skill after ticket evidence is known and the user wants implementation,
   - how it was fixed
   - relevant verification or caveat
 - For mixed-scope tickets, include what was fixed in this repo and what remains for another repo/team.
+- If the fix still requires a deployment, migration, worker restart, or new mobile build, say so explicitly and use an implementation-pending-verification status rather than claiming the live ticket is fixed.
 - Avoid internal patch dumps, stack traces, private paths, credentials, or speculative claims.
 
 Use `references/ticket-closeout-comments.md` for reusable Czech and English comment templates.
@@ -106,6 +111,7 @@ When finishing in chat, include:
 - Do not let old ticket descriptions override newer QA comments.
 - Do not comment "fixed" on tickets before the implementation and verification status is known.
 - Do not paste long diffs or sensitive internal details into ticket comments.
+- Do not leave task-created throwaway artifacts behind merely because they are untracked or ignored.
 
 ## Handoffs
 

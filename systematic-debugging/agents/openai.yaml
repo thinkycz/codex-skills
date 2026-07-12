@@ -1,4 +1,4 @@
 interface:
   display_name: "Systematic Debugging"
   short_description: "Root-cause debugging across the full lifecycle with traceable docs"
-  default_prompt: "Use $systematic-debugging to confirm the affected surface and supported toolchain, reproduce the bug, trace the full lifecycle across boundaries, and only fix it after the root cause is proven."
+  default_prompt: "Use $systematic-debugging to confirm the affected surface and running artifact, escalate repeated failures with exact runtime evidence and an A/B control, trace the lifecycle, and only fix after the root cause is proven."

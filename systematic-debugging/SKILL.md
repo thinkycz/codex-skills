@@ -1,7 +1,7 @@
 ---
 name: systematic-debugging
 description: Investigate bugs, test failures, flaky behavior, build issues, runtime regressions, and integration problems by proving root cause before fixing anything. Use when the agent needs a disciplined debugging workflow with evidence gathering, traceable markdown notes under `/docs`, hypothesis tracking, helper-skill routing, and verification that the final fix actually resolves the underlying issue.
-version: 1.4.0
+version: 1.5.0
 category: debugging
 sources:
   - failure evidence, logs, and reproduction steps
@@ -19,6 +19,7 @@ artifacts:
   - references/
 quality_gates:
   - The failure is reproduced or evidenced before fix proposals escalate.
+  - A repeated failure invalidates the prior success claim and is re-grounded in the exact running artifact.
   - Async, external-service, deployment, and lifecycle bugs are traced across every boundary before root cause is assigned.
   - Shared-versus-local root cause is checked after the first credible hypothesis.
   - Final fixes are verified and documented instead of assumed from inspection.
@@ -63,6 +64,18 @@ If the issue cannot yet be reproduced reliably, keep gathering evidence instead 
 
 Do not stare at code or stack speculative fixes when the missing piece is a reliable signal.
 
+### 1.6 Escalate Repeated Failures
+
+When the user reports that a supposedly fixed issue still fails:
+
+- withdraw the earlier `fixed` or `verified` claim
+- treat prior tests and source inspection as insufficient evidence for the live failure
+- identify the exact running artifact and environment before another edit
+- capture the live request, response, stack trace, device log, deployed schema, or installed build fingerprint that distinguishes this failure
+- prefer an A/B control that changes one boundary while holding the rest constant
+
+Treat a proposed root cause as provisional until the failing path and a control path demonstrate the claimed difference. Use `references/repeated-failure-escalation.md` for the evidence ladder and stopping rules.
+
 ### 2. Create The Debugging Doc Set
 
 Write markdown files under the project’s `/docs` folder only.
@@ -82,6 +95,7 @@ Use [references/docs-layout.md](references/docs-layout.md) and [references/evide
 - Read error output carefully.
 - Trace the data flow backward from the failure point to the source.
 - Compare the broken path to a working example when one exists.
+- Prefer the highest-information available probe in this order: exact runtime log or trace, direct boundary/API reproduction, focused regression test, then full runtime or device replay. Reorder only when a cheaper probe can prove the same boundary.
 - Add the smallest instrumentation needed to learn where the behavior diverges.
 - For multi-layer problems, gather evidence at each boundary instead of blaming the deepest symptom.
 - For async or external-service flows, trace every handoff: incoming request, persisted state, queue/job creation, worker pickup, provider call, callback/webhook if present, stored result, and final user-visible behavior.
@@ -96,6 +110,7 @@ Read these references when useful:
 
 - [references/root-cause-tracing.md](references/root-cause-tracing.md)
 - [references/flaky-and-async-debugging.md](references/flaky-and-async-debugging.md)
+- [references/repeated-failure-escalation.md](references/repeated-failure-escalation.md)
 
 ### 4. Run A Globalization Check Before Fixing
 
@@ -112,6 +127,7 @@ Do not widen scope blindly. Widen only when the evidence shows a shared root cau
 ### 5. Form And Test One Hypothesis At A Time
 
 - Write down the current hypothesis in the debugging journal.
+- Label it `provisional` until a controlled check supports it; reserve `root cause` for the hypothesis that explains the observed failure and survives the relevant counter-check.
 - Make the smallest possible change or diagnostic check to test that hypothesis.
 - Change one variable at a time.
 - If the hypothesis fails, update the evidence and form a new one instead of layering fixes.

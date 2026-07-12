@@ -373,6 +373,10 @@
               "expected_owner": "ticket-batch-intake"
             },
             {
+              "prompt": "Resolve these six Trello shortlinks with valid positive search limits, reuse their internal IDs, and gather independent comments, attachments, and checklists concurrently.",
+              "expected_owner": "ticket-batch-intake"
+            },
+            {
               "prompt": "The Trello evidence and fix plan are approved; implement the cards, verify each affected repo, and post concise closeout comments.",
               "expected_owner": "ticket-driven-delivery"
             },
@@ -520,6 +524,58 @@
             {
               "prompt": "The review findings are fixed and verification evidence exists; decide if this is ready for release.",
               "expected_owner": "release-readiness"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "repeated debugging vs tdd vs verification",
+      "skills": [
+        {
+          "id": "systematic-debugging",
+          "required_mentions": [
+            "test-driven-development",
+            "verification-before-completion"
+          ],
+          "fixtures": [
+            {
+              "prompt": "The mobile booking still fails after two claimed fixes; inspect the exact installed build and live request before changing code again.",
+              "expected_owner": "systematic-debugging"
+            }
+          ]
+        },
+        {
+          "id": "test-driven-development",
+          "required_mentions": [
+            "systematic-debugging",
+            "verification-before-completion"
+          ],
+          "fixtures": [
+            {
+              "prompt": "We understand the serializer regression now; capture the public behavior in a failing test before implementing the fix.",
+              "expected_owner": "test-driven-development"
+            },
+            {
+              "prompt": "The icon is invisible after rendering; add a component-level regression instead of only checking SVG attributes.",
+              "expected_owner": "test-driven-development"
+            }
+          ]
+        },
+        {
+          "id": "verification-before-completion",
+          "required_mentions": [
+            "systematic-debugging",
+            "test-driven-development"
+          ],
+          "fixtures": [
+            {
+              "prompt": "The app compiles; prove the new build is installed and the original simulator flow succeeds before saying it is fixed.",
+              "expected_owner": "verification-before-completion"
+            },
+            {
+              "prompt": "Verify web and mobile icon parity across semantic mapping, asset contents, rendered color and size, and every consumer screen.",
+              "expected_owner": "verification-before-completion"
             }
           ]
         }

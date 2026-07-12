@@ -1,7 +1,7 @@
 interface:
   display_name: "Test Driven Development"
   short_description: "Implement changes from failing tests and reusable regressions"
-  default_prompt: "Use $test-driven-development to express the intended behavior as a failing test first, make the smallest passing change, and add reusable regression coverage when the failure pattern affects a shared parser, serializer, model boundary, or workflow transition."
+  default_prompt: "Use $test-driven-development to reproduce the failed public behavior in the smallest meaningful test, prefer rendered/component checks for visual regressions, make the smallest passing change, and verify beyond source-level assertions."
 
 policy:
   allow_implicit_invocation: true

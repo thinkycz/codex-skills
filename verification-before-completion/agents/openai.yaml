@@ -1,7 +1,7 @@
 interface:
   display_name: "Verification Before Completion"
   short_description: "Require fresh lifecycle evidence and report missing provenance honestly"
-  default_prompt: "Use $verification-before-completion to verify the relevant tests, runtime/user-visible lifecycle behavior, design expectations, docs, and blockers before claiming the work is done, fixed, or matched, and record any missing evidence chain as an explicit gap."
+  default_prompt: "Use $verification-before-completion to choose the cheapest sufficient evidence layers, verify the exact installed or deployed path for runtime claims, check every parity dimension, and use precise status language for missing deployment or runtime evidence."
 
 policy:
   allow_implicit_invocation: true

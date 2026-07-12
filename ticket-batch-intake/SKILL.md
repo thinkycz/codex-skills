@@ -1,7 +1,7 @@
 ---
 name: ticket-batch-intake
 description: Use when the user provides Trello, Jira, Linear, or other ticket-board exports, links, or IDs and wants evidence-grounded planning, stakeholder summaries, implementation contracts, or verification-first triage before coding.
-version: 1.3.0
+version: 1.4.0
 category: execution-planning
 sources:
   - ticket-board exports, card descriptions, comments, labels, and existing repo state
@@ -57,6 +57,8 @@ This skill owns intake and planning normalization. It does not execute the ticke
 
 - Read the full export or ticket source, including all descriptions, comments, labels, attachments, IDs, and column names.
 - For Trello MCP links, resolve shortlinks with `trello_search` when a tool needs the internal 24-character card ID, then read card detail, comments/actions, attachments, and checklists before planning.
+- Resolve independent cards concurrently, retain a shortlink-to-internal-ID map for the thread, and reuse those IDs for every later Trello call instead of searching again.
+- Use the known-safe Trello search limits from `references/trello-mcp-workflow.md`; never send zero for board or member limits. If a call is rejected at schema validation, retry once with the safe shape, then report the blocker rather than repeating the same invalid request.
 - If direct attachment content cannot be opened, record the available metadata and avoid claiming visual verification from the attachment.
 - Identify the requested subset: first N cards, next N cards, specific IDs, a named column, or all sprint work.
 - Keep card IDs and titles visible in the working plan so the user can map the output back to the board.
@@ -124,6 +126,7 @@ Produce a concise intake result with:
 - Do not rework prior-agent changes before verifying them.
 - Do not turn stakeholder summaries into implementation detail dumps.
 - Do not let ticket intake swallow active implementation.
+- Do not repeat successful shortlink resolution or serialize independent evidence requests without a real dependency.
 
 ## References
 
