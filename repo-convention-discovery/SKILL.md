@@ -1,7 +1,7 @@
 ---
 name: repo-convention-discovery
 description: Discover the implementation conventions of the current repository before planning or coding. Use when the agent needs to inspect routing, feature structure, API helpers, forms, state, styling, i18n, docs, tests, or other local patterns so later work follows the repo instead of inventing a new architecture.
-version: 1.2.0
+version: 1.3.0
 category: repo-analysis
 sources:
   - current repository structure and nearby implementation patterns
@@ -18,6 +18,7 @@ artifacts:
   - agents/
 quality_gates:
   - Exploration happens before questions that the repo can answer.
+  - Repository-wide validation and architecture gates are discovered before implementation begins.
   - The summary stays short, actionable, and convention-focused.
   - Strong local patterns are preferred over cleaner invented abstractions.
 ---
@@ -42,6 +43,7 @@ Apply this skill before planning or implementation when matching existing conven
 - repo-specific agent guides such as `AGENTS.md`, `guidelines.md`, client specifications, OpenAPI files, and architecture notes
 - sibling frontend/backend/admin repos when the user request explicitly spans more than the current checkout
 - project command conventions such as `make fix`, `make check`, local server commands, seeded users, and environment overrides
+- the implementation rules enforced by those commands: custom architecture tests, required per-controller tests, model or enum conventions, generated artifacts, and CI-only checks
 - shell-level ownership of global overlays, drawers, and slideovers
 - whether overlays are viewport-level or mistakenly clipped to local containers
 - current asset strategy such as remote URLs, `public/` assets, SVG registries, or icon libraries
@@ -56,6 +58,7 @@ Produce a short working summary of:
 - the key conventions that matter for the task
 - the likely files or subsystems involved
 - any strong repo patterns that should be reused
+- the exact full-project gate and any non-obvious conventions it enforces beyond ordinary linting or tests
 - any missing or conflicting patterns worth surfacing early
 - any shell, overlay, asset, icon, or font constraints that could affect fidelity-sensitive work
 - when the user needs a higher-level view, a map of the relevant modules, callers, entrypoints, and shared helpers using the repo's own domain vocabulary
@@ -70,6 +73,8 @@ When the user is new to the repo or needs fast onboarding, also include:
 ## Rules
 
 - Explore first, ask second.
+- Inspect the full-project gate before the first production edit. Read the commands or scripts it invokes far enough to identify repository-specific contracts that targeted tests will not expose.
+- Turn discovered gate rules into a short preflight checklist for the current task; do not wait for the final validation run to discover predictable controller, model, enum, documentation, or generated-artifact requirements.
 - Prefer existing patterns over cleaner new abstractions unless the current task clearly justifies a change.
 - Keep the summary short and actionable.
 - Keep onboarding guidance repo-grounded and concrete rather than generic architecture advice.

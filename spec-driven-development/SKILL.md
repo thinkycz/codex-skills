@@ -1,7 +1,7 @@
 ---
 name: spec-driven-development
 description: Turn a written client specification, design input such as Figma or Google Stitch, or both into a traceable implementation workflow and delivered code. Use when the agent needs to implement backend/API work, admin panels, frontend screens, or mixed product slices from provided source artifacts while keeping markdown docs under `/docs`, splitting work into visible phases, routing to the right helper skills, and verifying the result against the specification and design before claiming completion.
-version: 1.5.0
+version: 1.6.0
 category: execution
 sources:
   - client specifications and confirmed design inputs
@@ -19,6 +19,7 @@ artifacts:
   - references/
 quality_gates:
   - Source conflicts are resolved before implementation proceeds.
+  - Delivery ceremony is proportional to task size and resume needs.
   - Docs under `/docs` stay current as the execution control surface.
   - Final claims are verified against the specification and design, not just local code inspection.
 ---
@@ -76,11 +77,15 @@ Read these references when needed:
 - [references/mvp-vs-deferred.md](references/mvp-vs-deferred.md)
 - Use `clarify-before-plan` after this step when the spec exists but a few unresolved ambiguities would materially change planning or validation.
 
-### 3. Create The Traceable Doc Set
+### 3. Choose A Proportional Delivery Tier
 
-Write markdown files under the project’s `/docs` folder only.
+Classify the work before creating artifacts:
 
-Use [references/traceability-and-progress.md](references/traceability-and-progress.md) for the doc-set structure, state language, and traceability matrix.
+- **Small:** a bounded change with one obvious execution slice and no meaningful resume problem. Hand directly to the relevant implementation owner, usually `test-driven-development`, and keep traceability in tests and the final verification note. Do not create a four-file `/docs` set.
+- **Medium:** several related surfaces or phases, but one agent can retain the execution shape safely. Use one combined plan/progress document when durable tracking adds value, plus verification evidence.
+- **Large:** multiple phases, cross-surface contracts, migrations, external prerequisites, or likely session handoffs. Use the full spec, plan, progress/matrix, and verification set.
+
+Use [references/delivery-scale.md](references/delivery-scale.md) for the decision rules. When docs are needed, write markdown files only under the project’s `/docs` folder and use [references/traceability-and-progress.md](references/traceability-and-progress.md) for their structure.
 
 ### 4. Plan In Small Visible Phases
 
@@ -100,7 +105,7 @@ Before implementation starts, use `spec-consistency-analysis` when spec, plan, a
 
 Do not treat all implementation work as the same kind of task.
 
-Apply `custom-skill-routing` first to choose the right high-level owner and helper stack for the task.
+Apply `custom-skill-routing` only when more than one high-level owner is genuinely plausible. If this skill is already the explicit owner and the next handoff is obvious, route directly without ceremonially invoking the router.
 
 Use [references/skill-routing.md](references/skill-routing.md) for the spec-driven delivery rules that layer on top of that shared routing.
 
@@ -108,7 +113,7 @@ Use [references/skill-routing.md](references/skill-routing.md) for the full help
 
 ### 6. Execute With Visible Progress
 
-- Keep `/docs/progress/` current as phases move from planned to active to verified.
+- Keep the selected tracking artifact current as phases move from planned to active to verified.
 - Mark blockers explicitly instead of hiding them in prose.
 - Apply `docs-driven-execution` when moving from the written plan into active implementation so execution stays synced with the docs.
 - Use `migration-risk-audit` before broad upgrades, refactors, or shared-layer migrations when the blast radius is not yet mapped.
@@ -150,13 +155,13 @@ Before a final handoff or “done” claim on broader work, apply `release-readi
 - Do not silently choose between conflicting written and visual sources.
 - Do not write non-markdown status artifacts outside `/docs`.
 - Do not collapse the entire project into one monolithic plan if phases can be separated.
-- Do not skip TDD, traceability, or verification because a phase seems small.
+- Do not skip behavior-level regression coverage or verification because a phase seems small; scale documentation and handoffs instead of scaling away evidence.
 - Do not trust agent success reports without independent verification evidence.
 - Do not let planning quality gates and implementation quality gates blur together; both should be explicit in docs and closeout.
 
 ## Output Expectations
 
-At the end of a successful run, the project should have:
+At the end of a successful large delivery, the project should have:
 
 - a normalized spec summary under `/docs/specs/`
 - a phased implementation plan under `/docs/plans/`
@@ -165,3 +170,5 @@ At the end of a successful run, the project should have:
 - implementation routed through the right helper skills for the relevant domain
 - explicit resolution of any source-of-truth conflicts
 - Use [references/output-artifacts.md](references/output-artifacts.md) when you need a concrete closeout shape for the expected `/docs` outputs.
+
+For small and medium deliveries, produce only the artifacts selected by the delivery tier. Do not backfill empty documents to imitate the large-delivery shape.

@@ -1,7 +1,7 @@
 ---
 name: skill-stocktake
 description: Use when auditing the local skill library for overlap, drift, stale triggers, and merge or retire candidates.
-version: 1.3.0
+version: 1.4.0
 category: skill-ops
 sources:
   - local skill metadata, validator output, and package structure
@@ -17,6 +17,7 @@ artifacts:
   - references/
 quality_gates:
   - Stocktake output separates package correctness issues from portfolio-level redundancy and drift.
+  - Real usage evidence is distinguished from routing fixtures and static catalog signals.
 ---
 
 # Skill Stocktake
@@ -56,6 +57,7 @@ Do not use this skill when:
    - Gather current validator, catalog, manifest, and export signals when those artifacts exist.
    - Include packaging and export workflows when the health question touches cross-tool distribution, flattened bundles, or compatibility drift.
    - If the library exists in mirrored editable roots, identify shared packages, root-specific packages, and any drift before recommending portfolio actions.
+   - When recent-conversation evidence exists, summarize it as aggregate usage signals: owner mentions, multi-skill cascades, follow-up corrections, late gate discoveries, context compactions, and environment-only blockers. Keep project-specific content and private prompts out of reusable skill files.
 
 2. Separate correctness from portfolio quality.
    - Package correctness includes missing files, bad metadata, stale references, and broken prompts.
@@ -64,6 +66,7 @@ Do not use this skill when:
 3. Check trigger and ownership overlap.
    - Identify skills whose `description`, `use_when`, or workflow body appear to compete for the same prompts.
    - Distinguish healthy handoff chains from accidental duplication.
+   - Compare fixture-predicted routing with observed usage. A fixture proves a documented boundary; it does not prove that real sessions route efficiently.
 
 4. Check context efficiency.
    - Flag bloated `SKILL.md` files.
@@ -85,6 +88,7 @@ Do not use this skill when:
 Produce a concise stocktake report with:
 
 - current inventory summary
+- observed usage summary when conversation evidence is available
 - correctness issues versus portfolio issues
 - major overlap or boundary findings
 - context-budget findings
@@ -96,6 +100,7 @@ Produce a concise stocktake report with:
 - Prefer explicit handoffs over overlapping mega-skills.
 - Flag repetition that should move into `references/` instead of growing `SKILL.md`.
 - Keep the report actionable and prioritized.
+- Label conclusions as static, fixture-based, or observed so maintainers can tell what kind of evidence supports them.
 
 ## References
 

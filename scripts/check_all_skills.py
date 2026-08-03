@@ -2,11 +2,14 @@
 
 from __future__ import annotations
 
+import argparse
 import json
 import re
 import subprocess
 import sys
 from pathlib import Path
+
+from generate_skill_catalog import compute_source_fingerprint
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -38,20 +41,54 @@ def validate_generated_reports() -> None:
         )
     if "Fixture Coverage By Cluster" not in usage:
         raise SystemExit("usage-review.report.md is missing fixture coverage")
+    if "Observed Conversation Evidence" not in usage:
+        raise SystemExit("usage-review.report.md is missing observed conversation evidence")
+    fingerprint = str(catalog.get("source_fingerprint", ""))
+    if not fingerprint:
+        raise SystemExit("skills.catalog.json is missing source_fingerprint")
+    if fingerprint not in stocktake or fingerprint not in usage:
+        raise SystemExit("generated reports do not contain the catalog source fingerprint")
     print(f"Generated reports are internally consistent for {skill_count} skill(s).")
 
 
+def validate_generated_freshness() -> None:
+    catalog = json.loads(CATALOG_PATH.read_text(encoding="utf-8"))
+    recorded = str(catalog.get("source_fingerprint", ""))
+    current = compute_source_fingerprint()
+    if recorded != current:
+        raise SystemExit(
+            "Generated skill artifacts are stale. Run python3 ~/.agents/skills/scripts/check_all_skills.py."
+        )
+    print(f"Generated artifacts match source fingerprint {current}.")
+
+
 def main() -> int:
+    parser = argparse.ArgumentParser(description="Validate and regenerate the editable skill library.")
+    parser.add_argument(
+        "--check-generated",
+        action="store_true",
+        help="Check current generated artifacts without rewriting them.",
+    )
+    args = parser.parse_args()
     py = sys.executable
     run_step("validate skills", [py, str(SCRIPTS / "validate_skills.py")])
     run_step("routing checks", [py, str(SCRIPTS / "check_skill_routing.py")])
     run_step("mirror parity", [py, str(SCRIPTS / "check_mirror_parity.py")])
+    if args.check_generated:
+        print("\n== validate generated reports ==")
+        validate_generated_reports()
+        print("\n== validate generated freshness ==")
+        validate_generated_freshness()
+        print("\nAll skill checks passed without rewriting generated artifacts.")
+        return 0
     run_step("generate catalog", [py, str(SCRIPTS / "generate_skill_catalog.py")])
     run_step("generate stocktake", [py, str(SCRIPTS / "generate_stocktake_report.py")])
     run_step("generate usage review", [py, str(SCRIPTS / "generate_usage_review.py")])
     run_step("validate skills after generation", [py, str(SCRIPTS / "validate_skills.py")])
     print("\n== validate generated reports ==")
     validate_generated_reports()
+    print("\n== validate generated freshness ==")
+    validate_generated_freshness()
     print("\nAll skill checks passed.")
     return 0
 

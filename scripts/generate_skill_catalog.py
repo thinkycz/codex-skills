@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import re
 from datetime import datetime, timezone
@@ -11,6 +12,29 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 FIXTURES_PATH = ROOT / "scripts" / "fixtures" / "skill-routing-fixtures.json"
+USAGE_EVIDENCE_PATH = ROOT / "scripts" / "fixtures" / "skill-usage-evidence.json"
+
+
+def compute_source_fingerprint() -> str:
+    paths: list[Path] = [
+        FIXTURES_PATH,
+        ROOT / "templates" / "usage-review-template.md",
+        ROOT / "scripts" / "generate_skill_catalog.py",
+        ROOT / "scripts" / "generate_stocktake_report.py",
+        ROOT / "scripts" / "generate_usage_review.py",
+    ]
+    if USAGE_EVIDENCE_PATH.exists():
+        paths.append(USAGE_EVIDENCE_PATH)
+    for skill_dir in iter_skill_dirs(include_system=False):
+        paths.extend(path for path in skill_dir.rglob("*") if path.is_file())
+
+    digest = hashlib.sha256()
+    for path in sorted(paths):
+        digest.update(str(path.relative_to(ROOT)).encode("utf-8"))
+        digest.update(b"\0")
+        digest.update(path.read_bytes())
+        digest.update(b"\0")
+    return digest.hexdigest()
 
 
 def iter_skill_dirs(include_system: bool) -> list[Path]:
@@ -188,6 +212,7 @@ def main() -> int:
     args = parser.parse_args()
 
     generated_at = datetime.now(timezone.utc).replace(microsecond=0).isoformat()
+    source_fingerprint = compute_source_fingerprint()
     skill_dirs = iter_skill_dirs(include_system=args.include_system)
     skill_ids = {skill_dir.name for skill_dir in skill_dirs}
     overlap_clusters = load_overlap_clusters()
@@ -204,6 +229,7 @@ def main() -> int:
 
     catalog_payload = {
         "generated_at": generated_at,
+        "source_fingerprint": source_fingerprint,
         "root": str(ROOT),
         "include_system": args.include_system,
         "skill_count": len(skills),
@@ -213,6 +239,7 @@ def main() -> int:
         "pack_name": "codex-skills",
         "pack_version": "1.0.0",
         "generated_at": generated_at,
+        "source_fingerprint": source_fingerprint,
         "root": str(ROOT),
         "default_validation_command": "python3 ~/.agents/skills/scripts/validate_skills.py",
         "default_catalog_command": "python3 ~/.agents/skills/scripts/generate_skill_catalog.py",

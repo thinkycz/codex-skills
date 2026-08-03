@@ -85,6 +85,7 @@ def main() -> int:
             "",
             f"- Generated at: `{generated_at}`",
             f"- Catalog source: `{CATALOG_PATH}`",
+            f"- Source fingerprint: `{catalog.get('source_fingerprint', 'missing')}`",
             f"- Local skills reviewed: `{len(skills)}`",
             "",
             "## Current Shape",

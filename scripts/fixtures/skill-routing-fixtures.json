@@ -8,7 +8,8 @@
           "required_mentions": [
             "docs-driven-execution",
             "clarify-before-plan",
-            "spec-consistency-analysis"
+            "spec-consistency-analysis",
+            "test-driven-development"
           ],
           "fixtures": [
             {
@@ -26,6 +27,10 @@
             {
               "prompt": "The design and written requirements disagree on onboarding fields, so normalize the sources before coding.",
               "expected_owner": "spec-driven-development"
+            },
+            {
+              "prompt": "The approved request is one bounded toggle with an obvious regression test; implement it without creating a four-file docs set.",
+              "expected_owner": "test-driven-development"
             }
           ]
         },
@@ -33,7 +38,8 @@
           "id": "docs-driven-execution",
           "required_mentions": [
             "spec-driven-development",
-            "release-readiness"
+            "release-readiness",
+            "test-driven-development"
           ],
           "fixtures": [
             {
@@ -43,6 +49,10 @@
             {
               "prompt": "The roadmap already exists; keep progress, verification, and deferred work honest while we keep building.",
               "expected_owner": "docs-driven-execution"
+            },
+            {
+              "prompt": "A detailed plan was pasted into chat, but it is only one bounded implementation slice and no durable tracker exists.",
+              "expected_owner": "test-driven-development"
             }
           ]
         }
@@ -329,6 +339,10 @@
             {
               "prompt": "Challenge this ticket plan before implementation and tell me where the terminology or tradeoffs are weak.",
               "expected_owner": "grill-with-docs"
+            },
+            {
+              "prompt": "Grill this small feature, but checkpoint before adding schedulers, archives, audit systems, or other scope beyond the requested MVP.",
+              "expected_owner": "grill-with-docs"
             }
           ]
         },
@@ -576,6 +590,14 @@
             {
               "prompt": "Verify web and mobile icon parity across semantic mapping, asset contents, rendered color and size, and every consumer screen.",
               "expected_owner": "verification-before-completion"
+            },
+            {
+              "prompt": "The build and browser tests both rewrite the Vite manifest; serialize them or isolate their outputs before trusting the result.",
+              "expected_owner": "verification-before-completion"
+            },
+            {
+              "prompt": "Verify a printable voucher batch with a partially filled final PDF page and inspect the rendered output for clipping.",
+              "expected_owner": "verification-before-completion"
             }
           ]
         }
@@ -659,6 +681,57 @@
             {
               "prompt": "The API contract is confirmed; implement the frontend integration and verify the real browser flows.",
               "expected_owner": "integrating-backend-api-into-frontend"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "repo discovery vs implementation",
+      "skills": [
+        {
+          "id": "repo-convention-discovery",
+          "required_mentions": [
+            "make check"
+          ],
+          "fixtures": [
+            {
+              "prompt": "Before coding in this unfamiliar repo, inspect the full project gate and summarize non-obvious controller, model, enum, test, and generated-artifact rules.",
+              "expected_owner": "repo-convention-discovery"
+            }
+          ]
+        },
+        {
+          "id": "test-driven-development",
+          "required_mentions": [
+            "systematic-debugging",
+            "verification-before-completion"
+          ],
+          "fixtures": [
+            {
+              "prompt": "The repo conventions and full gate are already known; start the bounded behavior change from a failing test.",
+              "expected_owner": "test-driven-development"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ambiguous routing vs obvious owner",
+      "skills": [
+        {
+          "id": "custom-skill-routing",
+          "required_mentions": [
+            "obvious owner"
+          ],
+          "fixtures": [
+            {
+              "prompt": "This request plausibly belongs to either API contract review or implementation; choose one owner and a clean handoff.",
+              "expected_owner": "custom-skill-routing"
+            },
+            {
+              "prompt": "The user explicitly asked for test-driven development on a bounded fix; do not invoke a router as ceremony.",
+              "expected_owner": "test-driven-development"
             }
           ]
         }

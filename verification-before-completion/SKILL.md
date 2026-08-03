@@ -1,7 +1,7 @@
 ---
 name: verification-before-completion
 description: Require fresh evidence before claiming work is done, fixed, passing, or matched. Use when implementation, debugging, or fidelity work is mostly complete and the agent needs to verify the relevant tests, runtime behavior, design expectations, docs, and blockers before making a success claim.
-version: 1.6.0
+version: 1.7.0
 category: quality
 sources:
   - fresh test, runtime, design, and docs evidence
@@ -22,6 +22,7 @@ quality_gates:
   - The right verification layers run for the claim instead of the easiest checks.
   - Runtime and parity claims are checked against the exact artifact, path, consumers, and final outcome they name.
   - User-visible lifecycle paths are exercised when the claim depends on runtime flow, async work, or integration behavior.
+  - Verification commands that mutate shared state are serialized or isolated before their results are trusted.
   - Missing evidence is reported plainly instead of softened into success.
 ---
 
@@ -90,6 +91,7 @@ Not every claim requires all five levels. Static copy, schema, or pure-logic cha
 
 ### 3. Run Fresh Evidence
 
+- Before parallelizing checks, identify shared mutable state: test databases, Vite or framework manifests, caches, snapshots, generated clients, coverage files, local servers, queues, and filesystem fixtures. Run conflicting commands serially or give them isolated state. A race-corrupted failure is not valid product evidence, and a race-corrupted pass is not trustworthy either.
 - Prefer running the exact command or test that proves the changed behavior.
 - Then run the smallest broader confidence pass that makes regressions less likely.
 - If a claim depends on browser or manual behavior, exercise the real flow.
@@ -98,6 +100,7 @@ Not every claim requires all five levels. Static copy, schema, or pure-logic cha
 - If a claim depends on a design or spec, verify against that source explicitly.
 - Prefer the repo's own verification commands when they are documented or supplied by the user, such as `make fix`, `make check`, framework builds, local dev servers, and seeded login users.
 - For frontend work, run a browser or runtime smoke on the touched route when the claim involves clicks, redirects, loading states, uploads, responsive layout, or language switching.
+- For printable or rendered artifacts such as PDF, labels, tickets, or paginated reports, inspect the rendered output rather than relying on source CSS or generation success. Cover every distinct page shape, including the final partially filled page where clipping and overflow often differ.
 - For mobile or installed-app fixes, distinguish `build succeeded` from `the new artifact is installed and running`; verify the installed build identity when observable before replaying the original path.
 - For `same`, `matched`, or cross-client parity claims, compare semantic mapping, asset content, rendered color and dimensions, and all named consumer surfaces. Do not infer full parity from byte-identical files or one shared mapping alone.
 
@@ -131,6 +134,7 @@ Not every claim requires all five levels. Static copy, schema, or pure-logic cha
 
 - Do not claim success from code inspection alone.
 - Do not rely on stale command output from before the latest changes.
+- Do not run state-sharing build, test, or browser commands concurrently unless their databases, manifests, caches, and generated outputs are isolated.
 - Do not collapse “implemented”, “verified”, and “ready” into the same status.
 - Do not ignore docs or blocker state when the workflow is traceable and multi-phase.
 - Do not imply complete audit history when part of the evidence chain is missing.

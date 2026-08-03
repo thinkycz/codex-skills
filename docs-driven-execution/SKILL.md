@@ -1,7 +1,7 @@
 ---
 name: docs-driven-execution
 description: Execute multi-phase implementation work from markdown plans and progress docs while keeping `/docs` artifacts current as the source of truth. Use when the agent already has a plan or tracker and needs to carry work through phase-by-phase execution, status updates, blocker maintenance, and verification handoff without letting the docs drift from reality.
-version: 1.5.0
+version: 1.6.0
 category: execution
 sources:
   - active markdown plans and progress docs under `/docs`
@@ -18,6 +18,7 @@ artifacts:
   - agents/
 quality_gates:
   - Plans, progress, blockers, and verification are updated after each meaningful slice.
+  - Existing docs justify docs-driven control; the skill does not create ceremony for bounded work.
   - Only one active slice exists by default unless parallel work is clearly safe.
   - Dirty worktree, interrupted commands, missing repos, and pre-existing failures are recorded before status changes.
   - Docs stay aligned with reality before any phase is marked complete.
@@ -32,15 +33,18 @@ Apply this skill when a plan already exists under `/docs` and the work should pr
 ## Boundary
 
 - Own active execution from existing `/docs` artifacts.
+- Once the docs are trustworthy and execution begins, this skill is the primary owner; do not keep `spec-driven-development` or a routing skill active as parallel ceremony.
 - Do not replace `spec-driven-development` when source normalization, phased planning, or requirement shaping still needs to happen.
 - Do not replace `task-decomposition-and-resume` when the real problem is finding cleaner slice boundaries or explicit dependency order before execution continues.
 - Do not replace `traceable-delivery` when the repo lacks durable plans, progress trackers, blocker records, or verification artifact structure.
 - Use `traceable-delivery` first when the missing piece is the tracking system itself; use this skill after the plan and tracker are trustworthy enough to execute from.
+- If no durable plan exists and the task is one bounded slice, use the relevant implementation owner directly rather than creating docs just to qualify for this skill.
 - Hand off to `release-readiness` when the work is substantially done and the main question is whether the evidence is strong enough to close out.
 
 ## Core Workflow
 
 1. Read the active plan and progress docs before changing code.
+   Confirm that the work is still large or resumable enough to justify docs-driven control. If the active document describes only one bounded slice, execute it without adding more trackers or matrices.
 2. Resume from the latest valid plan and progress state instead of replanning from memory.
    If the previous turn was interrupted or commands may have partially executed, inspect process state, git/worktree changes, and the active tracker before choosing the next slice.
    If the worktree is dirty, distinguish inherited changes, current-slice changes, generated artifacts, and unrelated local state before editing.
@@ -76,9 +80,12 @@ Apply this skill when a plan already exists under `/docs` and the work should pr
 - during backend/frontend integration work with active phase trackers
 - whenever `/docs/plans` and `/docs/progress` already exist and should drive execution
 
+Do not use this skill merely because a detailed plan was pasted into chat. A plan can route straight to `test-driven-development` or another implementation owner when there is no durable tracking or resume need.
+
 ## Rules
 
 - Treat `/docs/plans` and `/docs/progress` as live artifacts, not stale notes.
+- Update the smallest existing artifact set that preserves trustworthy resume state; do not manufacture missing spec, matrix, and verification files when one combined tracker is sufficient.
 - Prefer one current phase and one next slice over broad parallel thrashing.
 - Keep blockers explicit.
 - Do not let generated artifacts, dirty-tree noise, or stale build outputs become invisible in the progress record.

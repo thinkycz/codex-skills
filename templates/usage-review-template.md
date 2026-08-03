@@ -22,6 +22,19 @@
   What felt unclear or heavy:
   Suggested improvement:
 
+## Aggregate Signals
+
+- Conversations reviewed:
+- Detailed turns reviewed:
+- Context compactions:
+- Turns with four or more workflow skills:
+- Defects first caught by browser or rendered output:
+- Defects first caught by the full repository gate:
+- Environment-only blockers:
+- Most-mentioned skills:
+
+Record aggregate counts only. Do not paste private prompts, client names, repository paths, secrets, or one-off project details.
+
 ## Example Output Gaps
 
 - Skill:

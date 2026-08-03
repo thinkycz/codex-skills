@@ -116,6 +116,8 @@ Generate the current usage-review prompt and cadence report with:
 python3 ~/.agents/skills/scripts/generate_usage_review.py
 ```
 
+The usage review reads sanitized aggregate evidence from `scripts/fixtures/skill-usage-evidence.json` when present. Store counts and routing signals only; never preserve private prompts, paths, secrets, or project-specific memory there.
+
 Check that no editable skills remain in the legacy root with:
 
 ```bash
@@ -126,6 +128,12 @@ Run the full sequential skill-library check with:
 
 ```bash
 python3 ~/.agents/skills/scripts/check_all_skills.py
+```
+
+To verify that checked-in catalog and report artifacts still match the current skill sources without rewriting them, run:
+
+```bash
+python3 ~/.agents/skills/scripts/check_all_skills.py --check-generated
 ```
 
 ## Feedback Loop

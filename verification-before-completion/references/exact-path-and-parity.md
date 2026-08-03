@@ -39,6 +39,26 @@ Reproduce the same meaningful conditions that produced the report:
 
 A nearby happy path is useful confidence, but it does not replace the reported path.
 
+## Shared-State Verification
+
+Before running checks concurrently, map the outputs they mutate:
+
+- test database or seeded fixtures
+- build or asset manifests
+- caches, snapshots, generated clients, or coverage files
+- local server and queue state
+
+Serialize commands that share these outputs, or configure isolated paths. If concurrency produces a failure, rerun from stable state before diagnosing application code. If concurrency produces a pass while outputs were being rewritten, repeat the claim-defining check serially before closing.
+
+## Rendered And Paginated Artifacts
+
+For print, PDF, labels, vouchers, or other paginated output:
+
+- inspect the rendered artifact, not only its HTML, CSS, or generator exit code
+- check first, middle, and final page shapes when they differ
+- include a partially filled final page in the test data
+- verify clipping, page breaks, dimensions, margins, and repeated headers or footers
+
 ## Parity Dimensions
 
 For `same`, `matching`, or parity claims, check every dimension named or implied by the request:

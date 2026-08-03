@@ -1,4 +1,4 @@
 interface:
   display_name: "Custom Skill Routing"
-  short_description: "Choose the right custom skill combination"
-  default_prompt: "Use $custom-skill-routing to choose the right local custom skill or handoff path for this task."
+  short_description: "Resolve genuinely ambiguous skill ownership"
+  default_prompt: "Use $custom-skill-routing only when multiple local skills plausibly own the current phase; choose one primary owner, name only necessary sequential handoffs, and exit immediately when ownership is already obvious."

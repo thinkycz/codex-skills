@@ -1,7 +1,7 @@
 ---
 name: custom-skill-routing
 description: Choose between the custom skills in this workspace and compose them cleanly when a task spans brainstorming, traceable delivery, design implementation, API integration, debugging, or verification. Use when the agent needs to decide which local custom skill or combination of skills should own a task.
-version: 1.6.0
+version: 1.7.0
 category: orchestration
 sources:
   - internal skill library
@@ -19,6 +19,7 @@ artifacts:
   - references/
 quality_gates:
   - Routing favors one primary owner skill over blended ownership.
+  - Obvious ownership exits immediately without ceremonial router invocation.
   - Handoffs stay explicit and dependency order stays clear.
   - The skill does not replace lifecycle-orchestrator when stage detection is the real need.
 ---
@@ -35,6 +36,8 @@ If the main question is where the project currently sits in the broader product 
 
 Route by dominant risk first, then layer supporting skills only where they materially help.
 
+If one skill is already the obvious owner from the user request, current phase, or approved plan, stop routing and use that skill directly. The router is a decision aid for ambiguity, not a mandatory ceremony before every workflow.
+
 Do not invoke multiple high-level skills in parallel just because they all seem relevant.
 Do not take ownership of top-level lifecycle stage detection when `lifecycle-orchestrator` is the better fit.
 Prefer specialized owner skills with fresh-context handoffs over blended ownership that keeps too many workflows alive at once.
@@ -50,6 +53,7 @@ Prefer specialized owner skills with fresh-context handoffs over blended ownersh
 
 - Choose one primary owner based on the dominant current risk:
   product ambiguity, source normalization, execution shape, debugging, or closeout.
+- First ask whether ownership is already explicit. If yes, return that owner and at most the next phase handoff; do not load a multi-skill stack.
 - Add supporting skills only when they materially change execution quality.
 - Keep the handoff direction forward-moving: shaping -> planning -> execution -> quality -> closeout.
 - When the work is large, decompose it into ordered slices before fanning out execution.
@@ -92,7 +96,9 @@ Read [references/routing-details.md](references/routing-details.md) when these q
 ## Routing Rules
 
 - Pick one primary skill to own the task.
+- Exit after one owner decision when the route is obvious; do not invoke this skill only because another skill lists routing as a generic workflow step.
 - Add supporting skills only when their specialized rules are actually needed.
+- Prefer sequential handoffs over keeping planning, execution, TDD, verification, and release skills simultaneously active.
 - Prefer handoffs over blended mega-workflows when one phase is clearly complete.
 - If the task shape changes midstream, re-route explicitly instead of quietly switching mental models.
 - Treat screen implementation and screen fidelity as separate completion stages when design accuracy is part of acceptance.

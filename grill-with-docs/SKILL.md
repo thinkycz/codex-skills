@@ -1,7 +1,7 @@
 ---
 name: grill-with-docs
 description: Stress-test a plan through a deep one-question-at-a-time grilling session grounded in the repo, domain language, CONTEXT.md, and ADRs. Use when the user wants to challenge a plan against code, docs, terminology, tradeoffs, and documented decisions before implementation.
-version: 1.1.0
+version: 1.2.0
 category: planning
 sources:
   - local repo code, docs, CONTEXT.md, CONTEXT-MAP.md, and ADRs
@@ -21,6 +21,7 @@ quality_gates:
   - Repo-discoverable answers are explored before asking the user.
   - Material questions use the native interactive user-input tool when available and suitable.
   - Questions are asked one at a time and include a recommended answer.
+  - The question tree preserves the requested MVP boundary and checkpoints material scope expansion.
   - Plans are grilled for lifecycle success signals, hard enforcement layers, and handoff-only work.
   - Terminology and durable decisions are captured only when mutation is allowed and the decision is worth preserving.
 ---
@@ -44,6 +45,7 @@ This is deeper than `clarify-before-plan`: it is a grilling session, not a short
 
 - Explore repo facts before asking questions the repo can answer.
 - Walk the decision tree one branch at a time.
+- Keep the question tree proportional to the requested change; depth should remove implementation risk, not invent adjacent product scope.
 - Ask one question at a time, with a recommended answer, using native interactive user input when available and suitable.
 - Challenge fuzzy, overloaded, or conflicting terminology.
 - Check claims against code, `CONTEXT.md`, `CONTEXT-MAP.md`, and ADRs.
@@ -63,7 +65,10 @@ This is deeper than `clarify-before-plan`: it is a grilling session, not a short
 ### 2. Build The Question Tree
 
 - Identify the decisions that could materially change implementation, UX, data shape, migration risk, test strategy, rollout, or verification.
+- Separate decisions required for the requested MVP from optional hardening, reporting, audit, automation, administration, or future lifecycle enhancements.
 - Order questions by dependency: ask the question whose answer unlocks the next branch.
+- For a bounded change, start with a budget of three to five material user decisions. Exceed it only when repository evidence exposes additional decisions that can change correctness or irreversible scope.
+- If the emerging plan adds a new durable subsystem, scheduler, archive, audit trail, role surface, or integration that was not implied by the request, pause and ask whether to include it now or defer it.
 - Do not dump the whole questionnaire at once.
 - In Plan Mode, prefer `request_user_input` for material user decisions when the tool is available and the question fits a multiple-choice shape.
 - When using `request_user_input`:
@@ -82,6 +87,8 @@ For each question:
 - summarize any repo or docs evidence already found
 - provide the recommended answer
 - wait for the user's answer before moving to the next decision
+
+After each resolved branch, remove downstream questions that no longer affect the requested outcome. Do not keep asking merely because a generic checklist contains more topics.
 
 If a question can be answered by code, docs, tests, schemas, or existing artifacts, inspect those sources instead of asking.
 
@@ -111,7 +118,10 @@ During the session, keep the conversation focused on the current question.
 
 At the end, produce a compact closeout with:
 
+- requested MVP scope
 - resolved decisions
+- optional safeguards or enhancements that were explicitly accepted
+- deferred ideas that should not silently enter implementation
 - remaining assumptions or open questions
 - any terminology added or proposed
 - any ADRs added or proposed
@@ -124,6 +134,8 @@ At the end, produce a compact closeout with:
 - Provide a recommended answer for every question.
 - Prefer native interactive user input for material Plan Mode decisions when available and suitable.
 - Do not batch unresolved decisions into a giant checklist.
+- Do not turn every safety or lifecycle idea into required scope. Label optional hardening and obtain an explicit scope decision before adding it to the plan.
+- When the proposed implementation surface has materially outgrown the original request, run a scope checkpoint before finalizing the plan.
 - Do not record secrets, private URLs, or one-off client facts in reusable docs.
 - Do not create docs just because directories are missing; create them lazily when there is something durable to capture.
 - Do not use this skill as a substitute for implementation, debugging, or final verification.
