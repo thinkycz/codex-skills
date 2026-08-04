@@ -22,6 +22,7 @@ quality_gates:
   - Delivery ceremony is proportional to task size and resume needs.
   - Docs under `/docs` stay current as the execution control surface.
   - Final claims are verified against the specification and design, not just local code inspection.
+  - Repeated UI and email patterns use shared components or templates and preserve one consistent visual language.
 ---
 
 # Spec Driven Development
@@ -54,6 +55,7 @@ Use this skill when the user already has a written specification, design files, 
 - Ask the user for the written client specification, Figma or Google Stitch links/files, and any API contract or admin requirements that already exist.
 - Accept partial inputs and keep moving with what exists.
 - Apply `repo-convention-discovery` before locking plans or file structure so the work follows the local repo instead of inventing a new pattern.
+- When UI or email HTML is in scope, inventory existing shared primitives, variants, email layouts, and template partials before planning new presentation code.
 - Explore the repo immediately to understand current architecture, conventions, feature boundaries, and likely implementation touchpoints.
 - When the prompt names sibling frontend, backend, admin, or mobile repos, inspect those boundaries early and plan the change across all affected surfaces.
 - Record missing artifacts explicitly instead of silently filling gaps.
@@ -130,6 +132,9 @@ Use [references/skill-routing.md](references/skill-routing.md) for the full help
 - When the user warns that another agent may have changed the work already, verify existing behavior first and avoid reworking completed items without evidence.
 - When the user asks for contract summaries for ticket owners or frontend/backend counterparts, produce concise endpoint, payload, response, state, and verification notes in the requested language.
 - Record in `/docs` whether the fix was intentionally applied app-wide or intentionally scoped after a wider search.
+- Do not implement the same semantic UI element independently across screens. Use one shared component and explicit variants for repeated buttons, links, tags, badges, inputs, cards, and states.
+- Do not duplicate email HTML across templates. Use a shared base layout and reusable components or partials for brand, typography, spacing, CTA, header, and footer behavior.
+- Keep application UI and transactional email visually consistent with the confirmed design system, while respecting the technical constraints of each renderer.
 
 ### 7. Verify Against The Right Source
 
@@ -144,6 +149,8 @@ Always verify:
 
 Do not say work is complete because code was written. Require evidence.
 Do not treat "screen exists" as sufficient completion if the relevant design, interaction, accessibility, or fidelity checks are still failing.
+Use Chrome through Computer Use for browser and visual verification. Do not use Playwright.
+When a shared UI or email primitive changes, verify every affected consumer and representative state/template.
 
 Read [references/verification.md](references/verification.md) for the required verification layers and reporting expectations.
 

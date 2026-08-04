@@ -101,6 +101,10 @@
             {
               "prompt": "Before we resume, audit which of these trackers and handoff notes are still trustworthy enough to rely on.",
               "expected_owner": "artifact-resume-audit"
+            },
+            {
+              "prompt": "Read Codex task 019f8e22-b59b-7103-bc17-6ceca152a140, reconcile its claims against the current repo, and find the safest point for applying those lessons here.",
+              "expected_owner": "artifact-resume-audit"
             }
           ]
         }
@@ -232,6 +236,14 @@
             },
             {
               "prompt": "We already built the routes; now make the UI match the handoff exactly and verify the states.",
+              "expected_owner": "design-fidelity-polish"
+            },
+            {
+              "prompt": "Audit every button and tag, consolidate duplicate implementations into shared components, and verify icon contrast and all states through Chrome Computer Use.",
+              "expected_owner": "design-fidelity-polish"
+            },
+            {
+              "prompt": "Make the application UI and transactional email HTML use one consistent design language with shared layouts and reusable primitives.",
               "expected_owner": "design-fidelity-polish"
             }
           ]
@@ -391,6 +403,10 @@
               "expected_owner": "ticket-batch-intake"
             },
             {
+              "prompt": "This copied Trello card refers to an older comment that is missing from the comment-only response; recover the bounded activity history and inspect the visual attachment without repeating any exposed credentials.",
+              "expected_owner": "ticket-batch-intake"
+            },
+            {
               "prompt": "The Trello evidence and fix plan are approved; implement the cards, verify each affected repo, and post concise closeout comments.",
               "expected_owner": "ticket-driven-delivery"
             },
@@ -405,7 +421,8 @@
           "required_mentions": [
             "ticket-batch-intake",
             "docs-driven-execution",
-            "traceable-delivery"
+            "traceable-delivery",
+            "systematic-debugging"
           ],
           "fixtures": [
             {
@@ -414,6 +431,14 @@
             },
             {
               "prompt": "The ticket changes touch generated Flutter clients; regenerate them using repo tooling and report whether the outputs are tracked or ignored.",
+              "expected_owner": "ticket-driven-delivery"
+            },
+            {
+              "prompt": "Implement the approved ticket fix, deploy the intended commit and migrations, replay the newest QA path in staging, and only then post the Czech closeout comment.",
+              "expected_owner": "ticket-driven-delivery"
+            },
+            {
+              "prompt": "Post the Czech implementation handoff to these tickets, but first check for an equivalent existing comment and read every new comment back from the correct card.",
               "expected_owner": "ticket-driven-delivery"
             }
           ]
@@ -556,6 +581,10 @@
             {
               "prompt": "The mobile booking still fails after two claimed fixes; inspect the exact installed build and live request before changing code again.",
               "expected_owner": "systematic-debugging"
+            },
+            {
+              "prompt": "Local tests pass but staging still fails; use a one-variable A/B request to find the real schema boundary and remove the speculative migration from the rejected hypothesis.",
+              "expected_owner": "systematic-debugging"
             }
           ]
         },
@@ -598,6 +627,10 @@
             {
               "prompt": "Verify a printable voucher batch with a partially filled final PDF page and inspect the rendered output for clipping.",
               "expected_owner": "verification-before-completion"
+            },
+            {
+              "prompt": "Verify the shared button and email-template changes across every consumer using Chrome Computer Use, not Playwright.",
+              "expected_owner": "verification-before-completion"
             }
           ]
         }
@@ -609,7 +642,6 @@
         {
           "id": "e2e-verification-handoff",
           "required_mentions": [
-            "playwright",
             "verification-before-completion",
             "release-readiness",
             "api-contract-review"
@@ -667,6 +699,10 @@
             },
             {
               "prompt": "Review this backend response shape and tell me where the mobile app contract has drifted, but do not change code.",
+              "expected_owner": "api-contract-review"
+            },
+            {
+              "prompt": "Read-only review the real multipart payload for omitted versus null fields, integer normalization, enum scalars, and internal discriminator leakage before the frontend integration changes.",
               "expected_owner": "api-contract-review"
             }
           ]

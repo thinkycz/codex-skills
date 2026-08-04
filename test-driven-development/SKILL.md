@@ -1,7 +1,7 @@
 ---
 name: test-driven-development
 description: Drive implementation or bug fixing from failing tests instead of code-first changes. Use when the work can be expressed as automated checks, when regressions need protection, or when the safest path is to write or update a failing test first, make the smallest passing change, and verify the result before broader refactoring.
-version: 1.4.0
+version: 1.5.0
 category: quality-engineering
 sources:
   - existing test harnesses and nearby repo test patterns
@@ -31,6 +31,13 @@ quality_gates:
 Use tests as the control surface for behavior changes.
 
 This skill is for work where the intended behavior can be captured as an automated test and the safest way to move is to prove failure first, then make the minimum change that turns the test green.
+
+## Boundary
+
+- Own the red-green-refactor loop when expected behavior and a meaningful automated test boundary are already clear.
+- Do not replace `systematic-debugging` when the observed failure, product surface, or root cause still needs investigation.
+- Do not replace `verification-before-completion` when the test is green but the remaining claim depends on runtime, deployment, installed-artifact, or parity evidence.
+- Use this skill to create durable regression protection, then hand off when wider diagnosis or claim-specific proof is still needed.
 
 ## Core Promise
 

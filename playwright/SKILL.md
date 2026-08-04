@@ -1,16 +1,14 @@
 ---
 name: playwright
-description: Use when the task requires automating a real browser from the terminal (navigation, form filling, snapshots, screenshots, data extraction, UI-flow debugging) via `playwright-cli` or the bundled wrapper script.
-version: 1.0.0
+description: Retired compatibility package. Do not use Playwright for browser work; use Chrome through Computer Use for navigation, interaction, screenshots, responsive verification, and UI debugging.
+version: 2.0.0
 category: browser-automation
 sources:
   - playwright-cli wrapper workflows and browser snapshots
 use_when:
-  - A real browser flow needs terminal-driven navigation, interaction, screenshots, traces, or data extraction.
-  - The task explicitly asks for headed browser verification through the CLI workflow.
+  - A maintainer is auditing or removing legacy Playwright skill references; do not execute Playwright.
 avoid_when:
-  - The user asks to write Playwright test files instead of driving the browser manually.
-  - The Codex in-app Browser plugin is explicitly requested for local interactive verification.
+  - Any browser navigation, form interaction, screenshot, UI-flow debugging, visual QA, responsive verification, or runtime evidence is required.
 artifacts:
   - SKILL.md
   - agents/openai.yaml
@@ -19,151 +17,22 @@ artifacts:
   - scripts/
   - references/
 quality_gates:
-  - A fresh snapshot is used before interacting with element refs.
-  - Browser evidence is captured when the claim depends on runtime or visual behavior.
+  - No Playwright command, wrapper, or test runner is invoked.
+  - Browser work is handed off to Chrome through Computer Use.
 ---
 
 
-# Playwright CLI Skill
+# Playwright CLI — Retired
 
-Drive a real browser from the terminal using `playwright-cli`. Prefer the bundled wrapper script so the CLI works even when it is not globally installed.
-Treat this skill as CLI-first automation. Do not pivot to `@playwright/test` unless the user explicitly asks for test files.
+The workspace browser default is Chrome through Computer Use.
 
-## Prerequisite check (required)
+Do not invoke Playwright for browser navigation, screenshots, responsive checks, local UI testing, data extraction, or debugging. Use the Chrome control skill and Computer Use instead.
 
-Before proposing commands, check whether `npx` is available (the wrapper depends on it):
+This package remains only as a compatibility tombstone so older catalogs and references fail safely. It does not own an executable browser workflow.
 
-```bash
-command -v npx >/dev/null 2>&1
-```
+When this skill is encountered:
 
-If it is not available, pause and ask the user to install Node.js/npm (which provides `npx`). Provide these steps verbatim:
-
-```bash
-# Verify Node/npm are installed
-node --version
-npm --version
-
-# If missing, install Node.js/npm, then:
-npm install -g @playwright/cli@latest
-playwright-cli --help
-```
-
-Once `npx` is present, proceed with the wrapper script. A global install of `playwright-cli` is optional.
-
-## Skill path (set once)
-
-```bash
-export SKILLS_HOME="${SKILLS_HOME:-$HOME/.agents/skills}"
-export PWCLI="$SKILLS_HOME/playwright/scripts/playwright_cli.sh"
-```
-
-This user-scoped skill lives under `~/.agents/skills`.
-
-## Quick start
-
-Use the wrapper script:
-
-```bash
-"$PWCLI" open https://playwright.dev --headed
-"$PWCLI" snapshot
-"$PWCLI" click e15
-"$PWCLI" type "Playwright"
-"$PWCLI" press Enter
-"$PWCLI" screenshot
-```
-
-If the user prefers a global install, this is also valid:
-
-```bash
-npm install -g @playwright/cli@latest
-playwright-cli --help
-```
-
-## Core workflow
-
-1. Open the page.
-2. Snapshot to get stable element refs.
-3. Interact using refs from the latest snapshot.
-4. Re-snapshot after navigation or significant DOM changes.
-5. Capture artifacts (screenshot, pdf, traces) when useful.
-
-When verifying recent frontend changes, prefer the actual local dev server, seeded login user, and route the user named. Static checks are not enough for claims about clicks, redirects, uploads, loading states, responsive layout, or language switching.
-
-Minimal loop:
-
-```bash
-"$PWCLI" open https://example.com
-"$PWCLI" snapshot
-"$PWCLI" click e3
-"$PWCLI" snapshot
-```
-
-## When to snapshot again
-
-Snapshot again after:
-
-- navigation
-- clicking elements that change the UI substantially
-- opening/closing modals or menus
-- tab switches
-
-Refs can go stale. When a command fails due to a missing ref, snapshot again.
-
-## Recommended patterns
-
-### Form fill and submit
-
-```bash
-"$PWCLI" open https://example.com/form
-"$PWCLI" snapshot
-"$PWCLI" fill e1 "user@example.com"
-"$PWCLI" fill e2 "password123"
-"$PWCLI" click e3
-"$PWCLI" snapshot
-```
-
-### Debug a UI flow with traces
-
-```bash
-"$PWCLI" open https://example.com --headed
-"$PWCLI" tracing-start
-# ...interactions...
-"$PWCLI" tracing-stop
-```
-
-### Multi-tab work
-
-```bash
-"$PWCLI" tab-new https://example.com
-"$PWCLI" tab-list
-"$PWCLI" tab-select 0
-"$PWCLI" snapshot
-```
-
-## Wrapper script
-
-The wrapper script uses `npx --package @playwright/cli playwright-cli` so the CLI can run without a global install:
-
-```bash
-"$PWCLI" --help
-```
-
-Prefer the wrapper unless the repository already standardizes on a global install.
-
-## References
-
-Open only what you need:
-
-- CLI command reference: `references/cli.md`
-- Practical workflows and troubleshooting: `references/workflows.md`
-
-## Guardrails
-
-- Always snapshot before referencing element ids like `e12`.
-- Re-snapshot when refs seem stale.
-- Prefer explicit commands over `eval` and `run-code` unless needed.
-- When you do not have a fresh snapshot, use placeholder refs like `eX` and say why; do not bypass refs with `run-code`.
-- Use `--headed` when a visual check will help.
-- When capturing artifacts in this repo, use `output/playwright/` and avoid introducing new top-level artifact folders.
-- Default to CLI commands and workflows, not Playwright test specs.
+1. Do not run the bundled wrapper or any Playwright command.
+2. Route interactive browser work to Chrome through Computer Use.
+3. Route completion evidence to `verification-before-completion`.
+4. Update stale neighboring skill references so they no longer recommend Playwright.

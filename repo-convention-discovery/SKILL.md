@@ -16,11 +16,13 @@ artifacts:
   - SKILL.md
   - agents/openai.yaml
   - agents/
+  - references/
 quality_gates:
   - Exploration happens before questions that the repo can answer.
   - Repository-wide validation and architecture gates are discovered before implementation begins.
   - The summary stays short, actionable, and convention-focused.
   - Strong local patterns are preferred over cleaner invented abstractions.
+  - Existing shared UI primitives and email template systems are inventoried before new presentation code is proposed.
 ---
 
 # Repo Convention Discovery
@@ -37,6 +39,8 @@ Apply this skill before planning or implementation when matching existing conven
 - form wrappers and validation
 - state management and providers
 - styling and design-system primitives
+- shared UI components and variant contracts for buttons, links, tags, badges, chips, inputs, cards, dialogs, and repeated states
+- email base layouts, reusable partials/components, typography, CTA, header/footer, and brand-token conventions
 - i18n and content structure
 - tests, fixtures, and QA helpers
 - existing docs that define delivery or architecture rules
@@ -59,6 +63,7 @@ Produce a short working summary of:
 - the likely files or subsystems involved
 - any strong repo patterns that should be reused
 - the exact full-project gate and any non-obvious conventions it enforces beyond ordinary linting or tests
+- the shared UI and email primitives that should own the requested presentation behavior
 - any missing or conflicting patterns worth surfacing early
 - any shell, overlay, asset, icon, or font constraints that could affect fidelity-sensitive work
 - when the user needs a higher-level view, a map of the relevant modules, callers, entrypoints, and shared helpers using the repo's own domain vocabulary
@@ -76,6 +81,10 @@ When the user is new to the repo or needs fast onboarding, also include:
 - Inspect the full-project gate before the first production edit. Read the commands or scripts it invokes far enough to identify repository-specific contracts that targeted tests will not expose.
 - Turn discovered gate rules into a short preflight checklist for the current task; do not wait for the final validation run to discover predictable controller, model, enum, documentation, or generated-artifact requirements.
 - Prefer existing patterns over cleaner new abstractions unless the current task clearly justifies a change.
+- Do not recommend a page-local UI element or standalone email markup until existing shared primitives and templates have been checked.
+- When several consumers need the same semantic behavior, recommend one shared component or template contract with variants rather than parallel implementations.
 - Keep the summary short and actionable.
 - Keep onboarding guidance repo-grounded and concrete rather than generic architecture advice.
 - When a repo guide names an authoritative source, such as `guidelines.md` or a client spec, treat that source as part of the discovery surface before planning.
+
+Use [references/presentation-primitives.md](references/presentation-primitives.md) when UI or email implementation is in scope.

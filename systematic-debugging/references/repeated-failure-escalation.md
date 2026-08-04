@@ -7,6 +7,7 @@ Use this reference when the same user-visible issue persists after a prior fix o
 - State that the previous evidence did not prove the live outcome.
 - Keep the previous hypothesis in the journal, but mark it rejected, partial, or superseded.
 - Do not stack another fix on top of an unobserved runtime path.
+- Remove or revert task-created speculative patches, migrations, fixtures, or diagnostics that were justified only by the rejected hypothesis. Preserve durable regression evidence and unrelated user work.
 
 ## High-Information Evidence Ladder
 

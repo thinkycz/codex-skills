@@ -1,7 +1,7 @@
 ---
 name: design-fidelity-polish
 description: Use when a design-driven app already has screen coverage and now needs a dedicated visual parity pass for exact assets, typography, spacing, overlays, states, and browser QA. Trigger when the source may come from Figma, Google Stitch, or another confirmed design handoff.
-version: 1.4.0
+version: 1.5.0
 category: design-quality
 sources:
   - confirmed design handoff from Figma, Google Stitch, or similar sources
@@ -21,6 +21,8 @@ quality_gates:
   - The implementation is re-grounded in the design source before broad edits.
   - Exact assets and shell ownership issues are fixed before ad hoc CSS tweaking.
   - Browser QA, accessibility, and interaction-state checks run before claiming parity.
+  - Shared component and email-template consumers are inventoried so one visual pattern is not implemented several different ways.
+  - Interactive browser QA uses Chrome through Computer Use, not Playwright.
 ---
 
 # Design Fidelity Polish
@@ -54,6 +56,7 @@ Do not use this skill for first-pass route creation or broad app planning. Use `
 
 1. Confirm the current implementation shape first.
    - Apply `repo-convention-discovery` before changing visual primitives or shell behavior.
+   - Inventory shared buttons, links, tags, badges, inputs, cards, style tokens, email layouts, and email partials before adding or editing presentation code.
    - Identify which screens are already routes versus parent-state interactions.
    - Identify whether current mismatches are asset problems, layout problems, state or interaction problems, or shell ownership problems.
 
@@ -77,6 +80,7 @@ Do not use this skill for first-pass route creation or broad app planning. Use `
      - typography and layout readability
      - motion and transition behavior
      - product-inappropriate anti-patterns
+   - Add a shared-component consumer matrix: primitive or email template, variants, states, routes/templates that consume it, responsive widths, and required evidence.
    - Explicitly check for generic AI-generated UI patterns such as centered-hero defaults, repeated card rows, placeholder copy, and decorative motion with no product value.
 
 4. Fix exact assets before tweaking CSS by hand.
@@ -86,12 +90,15 @@ Do not use this skill for first-pass route creation or broad app planning. Use `
    - Track exact active and inactive asset variants separately when the design uses different states.
    - Do not use emoji as structural icons when the product needs real iconography.
    - When the user provides a final logo, banner, menu image, favicon, or brand asset, use that asset directly or localize it rather than recreating an approximate decorative substitute.
+   - Verify icon color and visibility on the actual rendered background for every semantic variant; source SVG attributes alone are not enough.
 
 5. Fix ownership and behavior mismatches.
    - Move state-only routes into parent interactions if the design implies a dialog, drawer, tab state, or slideover.
    - Make overlays viewport-level when the design visually covers the viewport.
    - Put shell-owned panels such as notification drawers in the shell rather than behind separate pages when the design implies that ownership.
    - Make sure important interactions do not depend on hover alone when the target experience includes touch devices.
+   - Do not implement the same semantic element independently on multiple screens. Consolidate buttons, tags, badges, inputs, cards, and repeated states into one shared component with explicit variants.
+   - For email HTML in scope, use one shared base layout and reusable components or partials for repeated headers, footers, buttons, typography, spacing, and brand treatment.
 
 6. Fix layout and type mismatches after assets are correct.
    - Align spacing, sizing, content widths, card heights, text scale, and state variants to the design screenshots.
@@ -107,6 +114,9 @@ Do not use this skill for first-pass route creation or broad app planning. Use `
    - Validate motion timing and that transitions use meaning rather than decoration.
    - Validate that the product is not leaning on generic low-contrast, over-animated, or product-inappropriate visual defaults.
    - Validate that the implementation is fully resolved, not padded with placeholder comments, missing states, or obviously temporary UI substitutions unless those are explicitly documented as blockers.
+   - Use Chrome through Computer Use for interactive and visual browser QA. Do not use Playwright.
+   - Exercise every shared component variant and named consumer at the relevant desktop and mobile widths, including default, hover, focus, pressed, loading, disabled, destructive, and empty states where applicable.
+   - Render representative email templates and compare shared brand, typography, spacing, CTA, and responsive behavior consistently.
 
 8. Verify before claiming fidelity is done.
    - Run formatter if configured.
@@ -143,6 +153,8 @@ Use these defaults unless the user overrides them:
 - implement full-screen overlays at viewport level when the design behaves that way
 - use `exact`, `close`, `blocked`, and `unresolved` language in fidelity reporting
 - treat accessibility, interaction clarity, and motion sanity checks as part of fidelity, not optional extras
+- prefer one shared presentation primitive or email template system over repeated page-local implementations
+- use Chrome through Computer Use for browser QA; do not use Playwright
 - keep docs honest about remaining mismatches
 
 ## References
@@ -161,3 +173,5 @@ Read these only as needed:
   Use when the UI is functional but still feels generic, repetitive, or AI-default.
 - `references/output-completeness.md`
   Use when checking that the polish pass actually finished the UI instead of leaving placeholders or silent omissions.
+- `references/shared-components-and-email.md`
+  Use when consolidating repeated UI elements or email HTML into consistent shared primitives and verifying every consumer.

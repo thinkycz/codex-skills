@@ -1,7 +1,7 @@
 ---
 name: api-contract-review
 description: Use when frontend assumptions, backend docs, schemas, or payload examples need a read-only contract review before integration or refactor work.
-version: 1.3.0
+version: 1.4.0
 category: quality
 sources:
   - API contract comparison, payload review, and frontend-backend assumption checking
@@ -18,6 +18,7 @@ artifacts:
 quality_gates:
   - The review stays read-only, compares assumptions against real contract evidence, and reports mismatches explicitly.
   - Missing consumer repos or unavailable payload evidence are reported as review limits, not silently filled with guesses.
+  - Transport serialization is checked for omitted-versus-null fields, scalar types, helper-field leakage, and real multipart or form payload behavior.
 ---
 
 # API Contract Review
@@ -59,7 +60,8 @@ Do not use this skill when:
 2. Compare consumer assumptions against provider evidence.
    - Check routes, methods, payload shapes, enums, optionality, relationships, pagination, validation errors, and state transitions.
    - Identify where the frontend is assuming more than the contract guarantees.
-   - Pay special attention to enum backing types, JSON:API relationship shape, boolean values sent through `FormData`, nullable versus optional fields, and provider-prefixed namespaces that must not be merged into native fields.
+   - Pay special attention to enum backing types, JSON:API relationship shape, boolean and integer values sent through `FormData`, nullable versus optional versus omitted fields, internal routing fields that must not leave the client, and provider-prefixed namespaces that must not be merged into native fields.
+   - Compare the real transport representation when multipart, Inertia, generated clients, or request normalizers are involved. A simplified object-level test does not prove the serialized request shape.
    - When one field changes, check every consumer surface that can drift: create/edit forms, detail views, tables, admin resources, generated clients, locale keys, and notifications.
    - If a consumer repo is missing, translate the contract into an implementation handoff instead of implying the consumer behavior was verified.
 
@@ -92,6 +94,7 @@ Produce a concise contract review with:
 - Distinguish stale docs from actual backend behavior when possible.
 - Do not let guessed payload shapes quietly become implementation truth.
 - Do not treat a single successful payload as full contract coverage when nearby states, roles, or relation variants use the same shape.
+- Do not treat pre-serialization values as proof when the bug can occur during `FormData`, multipart, enum, integer, null, or helper-field conversion.
 - Do not claim frontend or mobile integration is done when only backend contracts or docs were reviewed.
 
 ## References

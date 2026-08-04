@@ -101,8 +101,17 @@ Remaining:
 
 ## Comment Checklist
 
+- Current ticket comments were read immediately before posting.
+- No existing comment already communicates the same completed scope, remaining work, contract, and verification status.
 - The comment maps clearly to the ticket's user-visible issue.
 - The fix summary is accurate even if the reader never sees the diff.
 - Any known caveat is stated plainly.
 - The wording does not overclaim if tests were blocked or only partial verification ran.
 - Deployment, migration, worker, or app-build requirements are explicit when the live environment was not verified.
+- The posted comment was read back from the intended ticket and checked for language, status wording, and requested ordering.
+
+## Idempotent Posting
+
+- Compare meaning rather than exact text. A differently worded comment is still a duplicate when it communicates the same fix, verification, handoff, and remaining work.
+- When an equivalent comment already exists, leave it unchanged and report that no new comment was needed.
+- When posting several comments, preserve the requested ticket order and read each one back before moving on.

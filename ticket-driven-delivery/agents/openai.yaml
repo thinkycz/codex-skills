@@ -1,7 +1,7 @@
 interface:
   display_name: "Ticket Driven Delivery"
   short_description: "Implement, verify, and close out ticket-driven changes without blurring handoffs"
-  default_prompt: "Use $ticket-driven-delivery to build a newest-QA acceptance matrix, implement the smallest correct fix, verify each exact scenario, clean task-created throwaway artifacts, and close out tickets with deployment and handoff requirements stated precisely."
+  default_prompt: "Use $ticket-driven-delivery to build a newest-QA acceptance matrix, reuse shared UI and email primitives, implement the smallest correct fix, verify the exact deployed or installed artifact through Chrome Computer Use when browser QA is needed, deduplicate existing tracker handoffs before posting, and read back each closeout with deployment and remaining client work stated precisely."
 
 policy:
   allow_implicit_invocation: true

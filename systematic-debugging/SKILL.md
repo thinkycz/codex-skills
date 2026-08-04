@@ -1,7 +1,7 @@
 ---
 name: systematic-debugging
-description: Investigate bugs, test failures, flaky behavior, build issues, runtime regressions, and integration problems by proving root cause before fixing anything. Use when the agent needs a disciplined debugging workflow with evidence gathering, traceable markdown notes under `/docs`, hypothesis tracking, helper-skill routing, and verification that the final fix actually resolves the underlying issue.
-version: 1.5.0
+description: Investigate bugs, test failures, flaky behavior, build issues, runtime regressions, and integration problems by proving root cause before fixing anything. Use when the agent needs a disciplined debugging workflow with evidence gathering, proportional investigation records, hypothesis tracking, helper-skill routing, and verification that the final fix actually resolves the underlying issue.
+version: 1.7.0
 category: debugging
 sources:
   - failure evidence, logs, and reproduction steps
@@ -22,7 +22,7 @@ quality_gates:
   - A repeated failure invalidates the prior success claim and is re-grounded in the exact running artifact.
   - Async, external-service, deployment, and lifecycle bugs are traced across every boundary before root cause is assigned.
   - Shared-versus-local root cause is checked after the first credible hypothesis.
-  - Final fixes are verified and documented instead of assumed from inspection.
+  - Final fixes are verified and recorded proportionally instead of assumed from inspection.
 ---
 
 # Systematic Debugging
@@ -30,6 +30,13 @@ quality_gates:
 Debug from evidence, not instinct.
 
 Use this skill when something is broken or unstable and the fastest path is to find the actual root cause, make the smallest justified fix, and verify the result instead of stacking guesses.
+
+## Boundary
+
+- Own root-cause investigation when a failure is observed but its cause is not yet proven.
+- Do not replace `test-driven-development` when the failure and intended behavior are already understood and the next safe step is a failing regression test.
+- Do not replace `verification-before-completion` when implementation is stable and the remaining task is proving a specific completion claim.
+- Use this skill to establish and test the cause; hand off to the specialized implementation or verification owner once the evidence makes that next step clear.
 
 ## Core Promise
 
@@ -76,19 +83,14 @@ When the user reports that a supposedly fixed issue still fails:
 
 Treat a proposed root cause as provisional until the failing path and a control path demonstrate the claimed difference. Use `references/repeated-failure-escalation.md` for the evidence ladder and stopping rules.
 
-### 2. Create The Debugging Doc Set
+### 2. Choose A Proportional Investigation Record
 
-Write markdown files under the project’s `/docs` folder only.
+- Keep a small, single-boundary investigation inline when it can be reproduced, explained, fixed, and verified in one bounded turn without likely context loss.
+- Create durable markdown under `/docs` when the failure is repeated, spans multiple runtime boundaries or repositories, is likely to cross context compaction, needs several hypotheses or handoffs, or already has disputed completion history.
+- For durable investigations, use `/docs/debugging/` for evidence and hypotheses, `/docs/progress/` when active state needs tracking, and `/docs/verification/` for the final proof.
+- Do not create documentation before concrete evidence exists, and do not create three files when one short journal is sufficient.
 
-Default structure:
-
-- `/docs/debugging/` for investigation journals, evidence, hypotheses, and root-cause notes
-- `/docs/progress/` for live debugging tracker and blocker state when the investigation is non-trivial
-- `/docs/verification/` for proof that the final fix resolves the issue without regressions
-
-Do not create the debugging docs in the very first reply unless the user already provided enough concrete evidence to start a real investigation immediately. Use the early turns to gather the failing command, logs, reproduction steps, screenshots, or source expectations first.
-
-Use [references/docs-layout.md](references/docs-layout.md) and [references/evidence-and-tracking.md](references/evidence-and-tracking.md) for the default structure and templates.
+Use [references/docs-layout.md](references/docs-layout.md) and [references/evidence-and-tracking.md](references/evidence-and-tracking.md) when durable records are justified.
 
 ### 3. Investigate Root Cause Before Fixing
 
@@ -130,7 +132,7 @@ Do not widen scope blindly. Widen only when the evidence shows a shared root cau
 - Label it `provisional` until a controlled check supports it; reserve `root cause` for the hypothesis that explains the observed failure and survives the relevant counter-check.
 - Make the smallest possible change or diagnostic check to test that hypothesis.
 - Change one variable at a time.
-- If the hypothesis fails, update the evidence and form a new one instead of layering fixes.
+- If the hypothesis fails, update the evidence, remove or revert only the task-created speculative patch or migration that depended on it, and form a new hypothesis instead of layering fixes. Preserve unrelated and user-owned changes.
 
 If multiple attempted fixes have already failed, slow down and question the architecture or assumptions before continuing.
 If the user says to try again after repeated failures, first compare the latest evidence against prior hypotheses so the next attempt is not just another speculative patch.
@@ -191,9 +193,9 @@ Read [references/verification.md](references/verification.md) for the required v
 
 At the end of a successful debugging run, the project should have:
 
-- a debugging journal under `/docs/debugging/`
-- a live tracker under `/docs/progress/` when the issue is non-trivial
-- a verification report under `/docs/verification/`
+- an inline evidence summary for a bounded investigation, or a debugging journal under `/docs/debugging/` when durable records were justified
+- a live tracker under `/docs/progress/` only when the issue is non-trivial enough to need active-state tracking
+- a verification report under `/docs/verification/` when the investigation used durable artifacts
 - a clear recorded root cause
 - a justified fix tied to the proven cause
 - fresh evidence showing the issue is resolved

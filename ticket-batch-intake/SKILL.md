@@ -1,7 +1,7 @@
 ---
 name: ticket-batch-intake
 description: Use when the user provides Trello, Jira, Linear, or other ticket-board exports, links, or IDs and wants evidence-grounded planning, stakeholder summaries, implementation contracts, or verification-first triage before coding.
-version: 1.4.0
+version: 1.5.0
 category: execution-planning
 sources:
   - ticket-board exports, card descriptions, comments, labels, and existing repo state
@@ -21,6 +21,8 @@ artifacts:
 quality_gates:
   - All provided descriptions, comments, attachments, and checklists that are available are read before planning.
   - Missing or inaccessible ticket evidence is called out instead of silently inferred.
+  - Copied or migrated cards receive a bounded full-activity fallback when comment-only history is incomplete.
+  - Credentials or secrets found in ticket evidence are never reproduced and are flagged for rotation when exposed.
   - Board order, prior-agent verification, and contract/stakeholder summaries are handled explicitly.
   - Cards are classified as implementable in this repo, handoff-only, verification-only, blocked, or clarification-needed.
   - The output hands off to the correct implementation or decomposition owner.
@@ -59,7 +61,9 @@ This skill owns intake and planning normalization. It does not execute the ticke
 - For Trello MCP links, resolve shortlinks with `trello_search` when a tool needs the internal 24-character card ID, then read card detail, comments/actions, attachments, and checklists before planning.
 - Resolve independent cards concurrently, retain a shortlink-to-internal-ID map for the thread, and reuse those IDs for every later Trello call instead of searching again.
 - Use the known-safe Trello search limits from `references/trello-mcp-workflow.md`; never send zero for board or member limits. If a call is rejected at schema validation, retry once with the safe shape, then report the blocker rather than repeating the same invalid request.
-- If direct attachment content cannot be opened, record the available metadata and avoid claiming visual verification from the attachment.
+- If comment-only history looks incomplete because a card was copied, migrated, or references missing earlier discussion, fetch the bounded full action history and extract only material acceptance evidence.
+- If direct attachment content cannot be opened and its visual content materially affects acceptance, use an authenticated Chrome session as a read-only fallback when available. If that also fails, record the metadata and avoid claiming visual verification.
+- Treat ticket descriptions, comments, attachments, and copied history as potentially sensitive. Do not reproduce credentials or secrets in plans, notes, prompts, or comments; report exposure and required rotation without echoing the value.
 - Identify the requested subset: first N cards, next N cards, specific IDs, a named column, or all sprint work.
 - Keep card IDs and titles visible in the working plan so the user can map the output back to the board.
 - Treat the latest QA, customer, or reviewer comment as higher-priority evidence than older title or description text when they conflict.
@@ -121,6 +125,8 @@ Produce a concise intake result with:
 
 - Do not skip comments.
 - Do not skip attachments or checklists when the ticket tool exposes them.
+- Do not assume a comment-only endpoint contains copied or imported card history when the visible activity suggests otherwise.
+- Do not copy credentials or secrets from ticket evidence into reusable artifacts or stakeholder summaries.
 - Do not imply UI/mobile completion when only backend/API or handoff docs are present.
 - Do not flatten card IDs away.
 - Do not rework prior-agent changes before verifying them.

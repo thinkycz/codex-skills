@@ -24,6 +24,8 @@ quality_gates:
   - User-visible lifecycle paths are exercised when the claim depends on runtime flow, async work, or integration behavior.
   - Verification commands that mutate shared state are serialized or isolated before their results are trusted.
   - Missing evidence is reported plainly instead of softened into success.
+  - Browser evidence is gathered through Chrome Computer Use rather than Playwright.
+  - Shared UI and email claims are checked across all affected variants and consumers.
 ---
 
 # Verification Before Completion
@@ -101,8 +103,12 @@ Not every claim requires all five levels. Static copy, schema, or pure-logic cha
 - Prefer the repo's own verification commands when they are documented or supplied by the user, such as `make fix`, `make check`, framework builds, local dev servers, and seeded login users.
 - For frontend work, run a browser or runtime smoke on the touched route when the claim involves clicks, redirects, loading states, uploads, responsive layout, or language switching.
 - For printable or rendered artifacts such as PDF, labels, tickets, or paginated reports, inspect the rendered output rather than relying on source CSS or generation success. Cover every distinct page shape, including the final partially filled page where clipping and overflow often differ.
+- Use Chrome through Computer Use for browser and visual verification. Do not use Playwright.
+- When a shared button, link, tag, badge, input, card, or other UI primitive changed, verify all affected variants, interaction states, routes, and responsive widths rather than one example screen.
+- When shared email HTML changed, render representative templates and verify the shared layout, typography, spacing, CTA, branding, wrapping, and links across every affected email family.
 - For mobile or installed-app fixes, distinguish `build succeeded` from `the new artifact is installed and running`; verify the installed build identity when observable before replaying the original path.
 - For `same`, `matched`, or cross-client parity claims, compare semantic mapping, asset content, rendered color and dimensions, and all named consumer surfaces. Do not infer full parity from byte-identical files or one shared mapping alone.
+- For consistency claims, confirm that consumers actually use the shared primitive or email template instead of maintaining parallel implementations with superficially similar styling.
 
 ### 4. Compare Evidence To The Claim
 

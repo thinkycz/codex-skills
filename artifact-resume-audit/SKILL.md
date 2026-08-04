@@ -1,10 +1,11 @@
 ---
 name: artifact-resume-audit
-description: Use when plans, progress docs, exports, or other durable artifacts exist but the safest restart point is unclear.
-version: 1.3.0
+description: Use when plans, progress docs, exports, prior Codex task histories, or other durable artifacts exist but the safest restart point is unclear.
+version: 1.4.0
 category: execution-planning
 sources:
   - artifact-driven resumption, stale-doc detection, and restart-point auditing
+  - accessible prior Codex task histories and their recorded claims
 use_when:
   - Ongoing work has durable artifacts, but they may be stale, partial, contradictory, or abandoned.
   - The goal is to identify the single safest restart point before more planning or coding.
@@ -17,6 +18,7 @@ artifacts:
   - references/
 quality_gates:
   - The audit identifies trustworthy artifacts, stale surfaces, and the safest restart point without replanning everything from scratch.
+  - Prior-task claims are reconciled against current repo, runtime, and verification evidence before reuse.
 ---
 
 # Artifact Resume Audit
@@ -39,6 +41,7 @@ It is narrower than `task-decomposition-and-resume`: audit trust first here, the
 Use this skill when:
 
 - durable artifacts exist, but they are partial, stale, contradictory, or abandoned
+- the user references a prior Codex task ID whose conclusions or implementation should inform current work
 - a previous agent turn was interrupted and commands or edits may have partially executed
 - the next slice is unclear because the written trail is messy
 - the safest restart point matters more than decomposing fresh work from scratch
@@ -53,6 +56,7 @@ Do not use this skill when:
 
 1. Inventory the artifact trail.
    - Read the active plan, progress tracker, blockers, verification notes, exports, and any audit or handoff docs that exist.
+   - When the user provides a Codex task ID, read that task with the native Codex task tools and extract its goal, claimed changes, touched surfaces, verification, blockers, and unfinished work.
    - Identify what artifacts are in play before choosing a restart point.
    - When interruption is part of the history, also inspect current git/worktree state and any still-running local processes relevant to the interrupted work.
 
@@ -61,6 +65,7 @@ Do not use this skill when:
    - partially useful but stale
    - contradictory
    - obsolete
+   - Treat prior-task prose as a claim source, not proof. Prefer current repo state, deployed or installed artifact identity, fresh runtime evidence, and durable project docs when they disagree with the transcript.
 
 3. Find the narrowest safe restart point.
    - Prefer the smallest slice that can resume with confidence.
@@ -82,6 +87,7 @@ Produce a concise resume audit with:
 ## Rules
 
 - Resume from durable truth when possible, not chat reconstruction.
+- Use native task history when the user explicitly references it, but reconcile it with current state before transferring decisions or code patterns.
 - Prefer the narrowest trustworthy restart point.
 - Distinguish stale from contradictory; they are not the same problem.
 - Do not replan the whole project unless the artifact trail is truly unusable.

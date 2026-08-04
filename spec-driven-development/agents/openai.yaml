@@ -1,4 +1,4 @@
 interface:
   display_name: "Spec-Driven Development"
   short_description: "Deliver proportionally from client specs"
-  default_prompt: "Use $spec-driven-development to implement this client specification with a proportional small, medium, or large delivery tier, one clear owner, traceable progress where it adds value, and verification against the source."
+  default_prompt: "Use $spec-driven-development to implement this client specification with a proportional small, medium, or large delivery tier, one clear owner, traceable progress where it adds value, reuse shared UI and email primitives for consistent design, verify browser behavior through Chrome Computer Use rather than Playwright, and verify the result against the source."

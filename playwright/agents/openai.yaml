@@ -1,6 +1,9 @@
 interface:
-  display_name: "Playwright CLI Skill"
-  short_description: "Automate real browsers from the terminal"
+  display_name: "Playwright CLI (Retired)"
+  short_description: "Do not use; route browser work to Chrome Computer Use"
   icon_small: "./assets/playwright-small.svg"
   icon_large: "./assets/playwright.png"
-  default_prompt: "Use $playwright to automate this browser workflow with Playwright CLI and produce reliable run steps."
+  default_prompt: "Do not execute Playwright. Use $playwright only to identify and migrate a legacy reference, then route browser work to Chrome through Computer Use."
+
+policy:
+  allow_implicit_invocation: false

@@ -1,10 +1,14 @@
 # Docs Layout
 
-Apply `traceable-delivery` first for the shared `/docs` layout, tracker expectations, blocker visibility, and verification closeout.
+Use this layout only when the investigation is repeated, multi-boundary, long-running, likely to cross context compaction, or otherwise needs a durable handoff. Keep bounded single-turn investigations inline.
+
+Apply `traceable-delivery` first when the investigation needs the shared `/docs` layout, tracker expectations, blocker visibility, and verification closeout.
 
 This reference only covers the debugging-specific artifacts that are unique to investigation work.
 
 ## Debugging Overlays
+
+Use the smallest durable set that keeps the work resumable. A short journal alone is often sufficient; add progress and verification files only when they have distinct ongoing value.
 
 ### `/docs/debugging/`
 
