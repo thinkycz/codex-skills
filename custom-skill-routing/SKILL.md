@@ -1,7 +1,7 @@
 ---
 name: custom-skill-routing
-description: Choose between the custom skills in this workspace and compose them cleanly when a task spans brainstorming, traceable delivery, design implementation, API integration, debugging, or verification. Use when the agent needs to decide which local custom skill or combination of skills should own a task.
-version: 1.7.0
+description: Choose between the custom skills in this workspace and compose them cleanly when a task spans brainstorming, traceable delivery, full-project hardening, local tooling maintenance, design implementation, API integration, debugging, or verification. Use when the agent needs to decide which local custom skill or combination of skills should own a task.
+version: 1.8.0
 category: orchestration
 sources:
   - internal skill library
@@ -67,6 +67,7 @@ Use [references/route-matrix.md](references/route-matrix.md) for the short owner
 - Existing plan needs a deep one-question challenge against code and docs: `grill-with-docs`.
 - Ticket-board export or sprint batch needs intake, comments, summaries, and contracts: `ticket-batch-intake`.
 - Existing codebase needs module-depth, seam, locality, or refactor-opportunity audit: `architecture-deepening-audit`.
+- Existing product needs a comprehensive audit followed by prioritized fixes and integrated verification: `full-project-hardening`.
 - Disposable state, workflow, API-shape, or UI-variant prototype would answer a question before production work: `throwaway-prototype`.
 - Design exists but written PRD is missing: `design-to-prd`.
 - Written spec or design handoff should drive phased delivery: `spec-driven-development`.
@@ -83,6 +84,7 @@ Use [references/route-matrix.md](references/route-matrix.md) for the short owner
 - Existing frontend must align with real backend support: `integrating-backend-api-into-frontend`.
 - Consumer assumptions need read-only API comparison: `api-contract-review`.
 - Bug or regression needs root-cause evidence: `systematic-debugging`.
+- Local app, CLI, editor integration, router, plugin, shell hook, layered config, credential, or leftover needs lifecycle mutation: `local-tooling-maintenance`; use `search-first` while the task is still read-only inventory.
 - Change should start from a failing automated check: `test-driven-development`.
 - Another agent needs a concrete E2E verification plan: `e2e-verification-handoff`.
 - Branch, PR, or WIP diff needs review against both repo standards and a source spec: `two-axis-review`.

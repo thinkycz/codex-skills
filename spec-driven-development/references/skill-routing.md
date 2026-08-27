@@ -61,6 +61,13 @@ Always apply:
 - `test-driven-development`
 - `verification-before-completion`
 
+### Broad migration or stale-artifact preflight
+
+Use:
+
+- `migration-risk-audit` before broad upgrades, refactors, or shared-layer migrations whose blast radius is not mapped
+- `artifact-resume-audit` when existing plans, trackers, or exports are too stale, partial, or contradictory to trust for immediate execution
+
 ## Routing Notes
 
 - One task may use more than one helper skill.

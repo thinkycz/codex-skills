@@ -1,0 +1,7 @@
+interface:
+  display_name: "Local Tooling Maintenance"
+  short_description: "Safely maintain local AI and editor tooling"
+  default_prompt: "Use $local-tooling-maintenance to inventory every installation and configuration layer, map shared ownership, apply the smallest recoverable lifecycle change, and verify the target and preserved integrations afterward."
+
+policy:
+  allow_implicit_invocation: true

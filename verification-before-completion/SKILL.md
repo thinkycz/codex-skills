@@ -1,7 +1,7 @@
 ---
 name: verification-before-completion
 description: Require fresh evidence before claiming work is done, fixed, passing, or matched. Use when implementation, debugging, or fidelity work is mostly complete and the agent needs to verify the relevant tests, runtime behavior, design expectations, docs, and blockers before making a success claim.
-version: 1.7.0
+version: 1.8.0
 category: quality
 sources:
   - fresh test, runtime, design, and docs evidence
@@ -24,7 +24,7 @@ quality_gates:
   - User-visible lifecycle paths are exercised when the claim depends on runtime flow, async work, or integration behavior.
   - Verification commands that mutate shared state are serialized or isolated before their results are trusted.
   - Missing evidence is reported plainly instead of softened into success.
-  - Browser evidence is gathered through Chrome Computer Use rather than Playwright.
+  - Interactive browser evidence uses the active host's canonical visible browser surface; automated E2E suites remain separate evidence.
   - Shared UI and email claims are checked across all affected variants and consumers.
 ---
 
@@ -103,7 +103,8 @@ Not every claim requires all five levels. Static copy, schema, or pure-logic cha
 - Prefer the repo's own verification commands when they are documented or supplied by the user, such as `make fix`, `make check`, framework builds, local dev servers, and seeded login users.
 - For frontend work, run a browser or runtime smoke on the touched route when the claim involves clicks, redirects, loading states, uploads, responsive layout, or language switching.
 - For printable or rendered artifacts such as PDF, labels, tickets, or paginated reports, inspect the rendered output rather than relying on source CSS or generation success. Cover every distinct page shape, including the final partially filled page where clipping and overflow often differ.
-- Use Chrome through Computer Use for browser and visual verification. Do not use Playwright.
+- Use the active host's canonical visible browser control surface for interactive navigation, screenshots, and runtime evidence. In Synara, use the integrated browser and reserve Computer Use for desktop or system UI, or cases the browser surface cannot finish. In Codex, follow the app-provided browser or Chrome surface required by current host policy.
+- Run repository-owned Playwright suites when automated E2E coverage is part of the claim, but do not substitute a headless test runner for required visible-browser evidence.
 - When a shared button, link, tag, badge, input, card, or other UI primitive changed, verify all affected variants, interaction states, routes, and responsive widths rather than one example screen.
 - When shared email HTML changed, render representative templates and verify the shared layout, typography, spacing, CTA, branding, wrapping, and links across every affected email family.
 - For mobile or installed-app fixes, distinguish `build succeeded` from `the new artifact is installed and running`; verify the installed build identity when observable before replaying the original path.
@@ -151,6 +152,7 @@ Not every claim requires all five levels. Static copy, schema, or pure-logic cha
 - Use `systematic-debugging` when the verification fails and the result is not actually explained yet.
 - Use `test-driven-development` when the failure is understood but durable behavior-level regression coverage is still missing.
 - Use `design-fidelity-polish` when the remaining failure is mostly visual parity.
+- Use `local-tooling-maintenance` when the completion claim is host-level install, uninstall, cleanup, router, plugin, editor, shell, config, or credential state; apply that skill's layered verification contract before closeout.
 
 ## References
 

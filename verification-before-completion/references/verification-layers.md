@@ -12,6 +12,7 @@ Choose verification in layers based on the kind of claim being made.
 - spec or PRD comparison
 - design or fidelity comparison
 - docs and blocker freshness
+- host-tool lifecycle layers such as app bundle, command, package receipt, process, shell hook, editor or plugin registration, active config source, and credential-entry metadata
 
 ## Rule
 
@@ -21,3 +22,4 @@ The stronger the claim, the stronger the evidence should be.
 - `implemented` usually needs tests and runtime confirmation
 - `matched design` usually needs visual or interaction comparison
 - `ready` usually needs docs, blockers, and broader readiness checks
+- `fully removed` or `configured` for local tooling needs the applicable layered checks from `local-tooling-maintenance`, not one missing command or edited file

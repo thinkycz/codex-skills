@@ -1,7 +1,7 @@
 ---
 name: traceable-delivery
-description: Keep implementation work traceable through markdown docs, phased progress, requirement or screen mapping, blocker tracking, and verification evidence under a project’s `/docs` folder. Use when the agent is executing multi-step delivery work and the user needs visible progress, shared status artifacts, and a durable audit trail instead of chat-only updates.
-version: 1.4.0
+description: Keep implementation work traceable through markdown docs, phased progress, requirement or screen mapping, blocker tracking, and verification evidence under a tracked repository's `/docs` folder. Use when the agent is executing multi-step delivery work and the user needs visible progress, committable status artifacts, and a durable audit trail instead of chat-only updates.
+version: 1.5.0
 category: execution
 sources:
   - docs layout, blockers, and verification patterns in this workspace
@@ -20,14 +20,14 @@ artifacts:
 quality_gates:
   - Plans, progress, blockers, and verification artifacts stay current.
   - Every mapped item sits in one accountable state.
-  - Delivery claims are backed by durable artifacts rather than chat-only summaries.
+  - Delivery claims are backed by artifacts in a verified tracked repository rather than uncommittable workspace files or chat-only summaries.
 ---
 
 # Traceable Delivery
 
 Make delivery progress visible outside the chat.
 
-Use this skill when implementation spans multiple steps, phases, screens, modules, or blockers and the work should leave a durable markdown trail under `/docs` so another engineer can see what is planned, active, blocked, verified, or deferred.
+Use this skill when implementation spans multiple steps, phases, screens, modules, or blockers and the work should leave a durable, committable markdown trail under a tracked repository's `/docs` so another engineer can see what is planned, active, blocked, verified, or deferred.
 
 ## Core Promise
 
@@ -39,7 +39,7 @@ Use this skill when implementation spans multiple steps, phases, screens, module
 
 ## Boundary
 
-- Own durable delivery artifacts under `/docs` for broad multi-step work.
+- Own durable delivery artifacts under a verified tracked repository's `/docs` for broad multi-step work.
 - Do not replace the domain owner skill for planning, implementation, debugging, or fidelity work.
 - Use this skill when the missing piece is shared traceability, blocker tracking, or resumable status rather than domain judgment.
 - Do not replace `docs-driven-execution` when a trusted plan and progress tracker already exist and the real work is executing the next slice.
@@ -59,7 +59,9 @@ Do not use this skill for trivial one-file changes that do not benefit from dura
 
 ## Default Docs Layout
 
-Write markdown files under the project’s `/docs` folder only.
+Before writing, resolve the intended repository root with `git rev-parse --show-toplevel` or an equivalent read-only check. Write markdown files only under that tracked project's `/docs` folder.
+
+If the workspace parent contains multiple repositories but is not a repository itself, use a clearly owned tracked coordination repo or keep repo-specific docs in each affected repo with cross-repo links and commit mappings. Do not create a parent-level `/docs` tree and call it durable unless the user explicitly requests untracked workspace documentation. If no tracked home can be inferred safely, keep minimal state in chat and ask the user to choose a home before creating durable artifacts.
 
 Default structure:
 
@@ -149,6 +151,8 @@ Before calling the work complete:
 - ensure blockers are current
 - ensure verification docs point to fresh evidence
 - ensure route/state mappings and fidelity matrices are current when the work is design-driven
+- verify each docs artifact is inside the intended repository root and is tracked or visible as a non-ignored file ready to commit
+- record the repo/commit mapping for multi-repo work, or disclose that the user deliberately chose an untracked docs home
 
 ## Common Artifacts
 
@@ -163,6 +167,7 @@ Use the references in this skill for templates and rules:
 ## Delivery Rules
 
 - Do not keep critical progress state only in chat.
+- Do not place supposedly durable artifacts in a non-repository parent or ignored path without explicit user direction and clear disclosure.
 - Do not hide blockers inside prose paragraphs.
 - Do not blur blocked, deferred, cancelled, and verified work together.
 - Do not leave mapped items in ambiguous ownership or status.

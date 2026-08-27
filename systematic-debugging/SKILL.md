@@ -1,7 +1,7 @@
 ---
 name: systematic-debugging
 description: Investigate bugs, test failures, flaky behavior, build issues, runtime regressions, and integration problems by proving root cause before fixing anything. Use when the agent needs a disciplined debugging workflow with evidence gathering, proportional investigation records, hypothesis tracking, helper-skill routing, and verification that the final fix actually resolves the underlying issue.
-version: 1.7.0
+version: 1.8.0
 category: debugging
 sources:
   - failure evidence, logs, and reproduction steps
@@ -21,6 +21,7 @@ quality_gates:
   - The failure is reproduced or evidenced before fix proposals escalate.
   - A repeated failure invalidates the prior success claim and is re-grounded in the exact running artifact.
   - Async, external-service, deployment, and lifecycle bugs are traced across every boundary before root cause is assigned.
+  - Live parity compares the actual API and worker processes, deployed artifact, service units, broker configuration, schema state, and provider handoffs side by side.
   - Shared-versus-local root cause is checked after the first credible hypothesis.
   - Final fixes are verified and recorded proportionally instead of assumed from inspection.
 ---
@@ -78,6 +79,7 @@ When the user reports that a supposedly fixed issue still fails:
 - withdraw the earlier `fixed` or `verified` claim
 - treat prior tests and source inspection as insufficient evidence for the live failure
 - identify the exact running artifact and environment before another edit
+- compare the API and worker's actual process facts rather than assuming one `.env` file proves runtime parity
 - capture the live request, response, stack trace, device log, deployed schema, or installed build fingerprint that distinguishes this failure
 - prefer an A/B control that changes one boundary while holding the rest constant
 
@@ -102,7 +104,9 @@ Use [references/docs-layout.md](references/docs-layout.md) and [references/evide
 - For multi-layer problems, gather evidence at each boundary instead of blaming the deepest symptom.
 - For async or external-service flows, trace every handoff: incoming request, persisted state, queue/job creation, worker pickup, provider call, callback/webhook if present, stored result, and final user-visible behavior.
 - Treat `2xx`, `204`, queued, or "sent" responses as intermediate signals until the intended lifecycle outcome is observed.
-- Check runtime and deployment facts when code appears correct: route list, build artifact, migrations, worker process, queue name, environment, framework/runtime version, and stale server state.
+- Check precise runtime and deployment facts when code appears correct: deployed commit or artifact identity; executable and runtime version; actual process environment; loaded service unit, `ExecStart`, `WorkingDirectory`, user/group, and reload or restart time; route and migration state; and live schema.
+- Compare API and worker queue configuration side by side, including driver, queue name, broker host, database/index, key prefix, cluster mode, and the process facts that loaded those values. A matching `.env` file is not evidence that already-running processes match.
+- For queue and provider paths, trace dispatch await or commit, broker insertion, worker pickup, provider request and response status, stored outcome, and final user-visible result. Capture the live payload or schema at each handoff that can transform it.
 - When the first failure comes from an unsupported local runtime or package manager, prove whether the same command passes under the repo-declared toolchain before investigating downstream application hypotheses.
 - When an integration is intentionally caught by a test tool or sandbox, distinguish "captured in the test inbox" from "delivered to the real user."
 
@@ -200,3 +204,5 @@ At the end of a successful debugging run, the project should have:
 - a justified fix tied to the proven cause
 - fresh evidence showing the issue is resolved
 - a short recurrence-prevention note when the root cause exposed a reusable pattern
+
+Use the live-runtime parity and async lifecycle matrices in [references/flaky-and-async-debugging.md](references/flaky-and-async-debugging.md) when processes, queues, deployments, or external providers participate in the failure.

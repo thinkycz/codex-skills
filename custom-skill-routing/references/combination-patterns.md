@@ -10,6 +10,10 @@ Use these only when one owner alone would hide an important dependency or qualit
   `ticket-batch-intake` -> `spec-driven-development` or `task-decomposition-and-resume`
 - Architecture refactor shaping:
   `architecture-deepening-audit` -> `grill-with-docs` -> `test-driven-development` or `spec-driven-development`
+- Whole-product audit and improvement:
+  `full-project-hardening` -> `verification-before-completion` -> `release-readiness`
+- Local tooling discovery that becomes authorized lifecycle mutation:
+  `search-first` -> `local-tooling-maintenance` -> `verification-before-completion`
 - Disposable exploration before commitment:
   `throwaway-prototype` -> `product-brainstorming` or `spec-driven-development`
 - Planned delivery already underway:
@@ -21,7 +25,7 @@ Use these only when one owner alone would hide an important dependency or qualit
 - Existing frontend plus backend contract work:
   `integrating-backend-api-into-frontend` + `traceable-delivery`
 - E2E handoff for another agent:
-  `e2e-verification-handoff` -> `playwright` or Browser execution -> `verification-before-completion` -> `release-readiness`
+  `e2e-verification-handoff` -> active host browser execution, plus `playwright` only for repository-owned automated suites -> `verification-before-completion` -> `release-readiness`
 - Review before closeout:
   `two-axis-review` -> `verification-before-completion` -> `release-readiness`
 - Final closeout before handoff:

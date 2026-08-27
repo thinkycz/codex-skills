@@ -9,6 +9,7 @@ Use this when the compact route matrix is not enough to choose one primary owner
 - `grill-with-docs` owns deeper plan interrogation against repo code, domain docs, terminology, scenarios, and ADR-worthy tradeoffs.
 - `ticket-batch-intake` owns Trello/Jira/board exports before implementation: read all comments, preserve order, identify prior-agent verification work, and produce summaries or contract notes.
 - `architecture-deepening-audit` owns read-only audits for shallow modules, leaky seams, low-locality abstractions, and deepening opportunities before broad refactors.
+- `full-project-hardening` owns comprehensive existing-product audit-to-fix delivery across correctness, security, architecture, data, contracts, runtime, UI, docs, and release evidence. It does not replace focused read-only audits or spec-controlled delivery.
 - `throwaway-prototype` owns disposable logic/state or UI-variant prototypes when a small artifact can answer a question before production delivery.
 - `design-to-prd` owns turning an existing design source into a written PRD.
 - `spec-driven-development` owns traceable delivery from written specs, design handoffs, or normalized ticket inputs.
@@ -21,6 +22,11 @@ Use this when the compact route matrix is not enough to choose one primary owner
 - `artifact-resume-audit` owns restart selection when old docs or exports may be stale or contradictory.
 - `session-handoff` owns creating a fresh continuation handoff for another agent or future session from the current conversation and local evidence.
 - `subagent-driven-development` owns lead-worker execution only after slice boundaries are clear.
+
+## Host Tooling
+
+- `search-first` owns bounded read-only inventory when local installation, ownership, or active configuration state is still uncertain.
+- `local-tooling-maintenance` owns authorized install, update, disable, uninstall, cleanup, router/plugin/editor registration, shell, layered-config, credential, and leftover mutation with shared-ownership protection and layered verification.
 
 ## Design And Source Adapters
 

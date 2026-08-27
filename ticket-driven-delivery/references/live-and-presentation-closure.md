@@ -30,4 +30,4 @@ Before editing UI or email HTML, identify:
 
 Use one shared component contract for repeated buttons, links, tags, badges, inputs, cards, and similar controls. Use one shared email base layout and reusable partials/components for repeated brand, typography, spacing, CTA, header, and footer behavior.
 
-For browser evidence, use Chrome through Computer Use. Do not use Playwright.
+For interactive browser evidence, use the active host's canonical visible browser. Repository-owned Playwright suites may add automated evidence, but they do not replace replaying the live ticket path.

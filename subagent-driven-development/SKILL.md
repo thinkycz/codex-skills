@@ -1,7 +1,7 @@
 ---
 name: subagent-driven-development
 description: "Use when implementation should run through a lead-worker pattern: the main agent keeps ownership of planning, decomposition, integration, and verification, while bounded subagents handle well-scoped implementation slices. Trigger when the work is large enough to benefit from context isolation, cost-aware delegation, or safe parallel execution."
-version: 1.3.0
+version: 1.4.0
 category: execution
 sources:
   - worker/lead delegation rules in this skill package
@@ -19,8 +19,10 @@ artifacts:
   - references/
 quality_gates:
   - The lead agent keeps planning, integration, and verification ownership.
+  - Worker briefs include behavioral scope, canonical examples, dependency contracts, generated-file rules, and exact verification gates.
   - Worker write scopes and responsibilities are explicit and disjoint where possible.
   - Delegation is reviewed and integrated before success is claimed.
+  - Broad or high-risk multi-slice work receives an independent read-only gap review before release claims.
 ---
 
 # Subagent Driven Development
@@ -79,6 +81,9 @@ Before delegating:
 
 - inspect the repo and nearby conventions
 - identify the real acceptance bar
+- record canonical example files for the worker to follow
+- record the repository's exact full-project verification gate
+- identify generated files and the canonical generator or scaffold commands that own them
 - find the immediate blocking task
 - decide what must stay on the lead path right now
 
@@ -90,8 +95,10 @@ Break work into slices that have:
 
 - a clear goal
 - a clear dependency order
+- an explicit contract with upstream and downstream slices
 - a bounded write scope
 - a clear completion condition
+- targeted checks plus the full-project gate that integration must satisfy
 
 Prefer slices aligned to behavior or subsystem, not arbitrary file batches.
 
@@ -110,15 +117,20 @@ Lead first, delegate second.
 
 For each worker task, specify:
 
-- the exact goal
-- what files or subsystem it owns
-- what it must not change
+- the exact behavioral goal and acceptance condition
+- what files or subsystem it owns and what it must not change
+- the dependency contract, prerequisite state, and expected downstream consumer
+- canonical nearby example files and non-obvious repo conventions
+- generated-file policy and the exact generator or scaffold command when applicable
+- required targeted checks and the repository's full-project integration gate
 - whether it is alone in the codebase
 - how its result will be reviewed
 - what output is expected on completion
 - when relevant, what approval boundary authorized the slice versus what work the worker actually executed
 
 Every worker must know that other agents may be editing nearby code and should adapt rather than revert unexpected changes.
+
+When a slice depends on a framework generator or scaffold, validate the proposed command and generated names against repository conventions before assigning downstream work. Generic generator defaults are not an acceptable contract when the repo uses a different naming or namespace pattern.
 
 Use [references/delegation-rules.md](references/delegation-rules.md) for the checklist and [references/worker-brief-template.md](references/worker-brief-template.md) for a compact brief shape.
 
@@ -137,15 +149,27 @@ Do not use parallelism to avoid deciding dependencies.
 
 When workers return:
 
-- review their result quickly
+- inspect the actual diff and fresh check output rather than accepting the final report alone
 - check for boundary violations
+- confirm generated artifacts came from the canonical command and follow local names and namespaces
 - integrate or refine centrally
 - resolve cross-slice conflicts at the lead level
 - avoid redoing the whole task unless the worker clearly failed
 
-The lead agent remains responsible for coherence.
+The lead agent remains responsible for coherence. Use [references/integration-review.md](references/integration-review.md) for the integration contract.
 
-### 7. Verify Before Claiming Success
+### 7. Run An Independent Gap Review When Risk Warrants It
+
+After integration and before the release claim, use a fresh reviewer for broad or high-risk multi-slice delivery.
+
+- Keep the review read-only unless fixes are authorized as a separate slice.
+- Provide the request, acceptance artifacts, integrated diff, and verification evidence without telling the reviewer the expected verdict.
+- Ask for missing flows, contract gaps, untested boundaries, misleading completion claims, and P0/P1 blockers.
+- Resolve, separately authorize, or explicitly defer each material finding on the lead path.
+
+This is an adversarial evidence check, not another implementation worker and not a replacement for the lead's own review.
+
+### 8. Verify Before Claiming Success
 
 Delegated work is not done when a worker says it is done.
 
@@ -162,6 +186,7 @@ The lead agent must verify:
 - Do not delegate without a bounded write scope.
 - Do not delegate architecture decisions by accident.
 - Do not let workers own final verification.
+- Do not let an implementation worker act as the independent gap reviewer for its own slice.
 - Do not open many workers when one clear local step is still unresolved.
 - Do not create overlapping worker ownership unless the overlap is intentional and tightly controlled.
 - Do not turn subagents into unmanaged background noise.
@@ -172,6 +197,7 @@ The lead agent must verify:
 - Use `task-decomposition-and-resume` before this skill when slice boundaries or dependency order are still unclear.
 - Use `spec-driven-development` when the work still needs normalized planning or traceable execution setup.
 - Use `docs-driven-execution` when the plan already exists and execution is underway.
+- Use `full-project-hardening` when broad audit findings need prioritized multi-slice implementation and an adversarial pre-release review.
 - Use `verification-before-completion` and `release-readiness` for closeout.
 - Use `systematic-debugging` when the main problem is still unexplained rather than merely unimplemented.
 

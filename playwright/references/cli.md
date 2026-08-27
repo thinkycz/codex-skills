@@ -1,4 +1,6 @@
-# Playwright CLI Reference
+# Legacy Playwright CLI Reference
+
+Compatibility material only. Do not use this bundled wrapper for interactive browser control or as a replacement for a repository's own Playwright scripts and configuration. Follow the boundary in `../SKILL.md`.
 
 Use the wrapper script unless the CLI is already installed globally:
 

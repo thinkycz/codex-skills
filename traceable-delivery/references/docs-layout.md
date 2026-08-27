@@ -1,6 +1,15 @@
 # Docs Layout
 
-Use markdown files under `/docs` only.
+Use markdown files under `/docs` only after verifying the owning repository root.
+
+## Repository-Root Preflight
+
+1. Run `git rev-parse --show-toplevel` or the repository's equivalent from the candidate docs home.
+2. Confirm `/docs` will be inside that root.
+3. Confirm the target is not ignored and will appear as tracked or intended new content in version-control status.
+4. Record the owning repository when the workspace contains more than one repo.
+
+If a shared parent is not a repository, prefer a clearly owned tracked coordination repo. Otherwise keep repository-specific docs in each affected repo and link them with repo/commit mappings. If neither is safe to infer, do not create uncommittable “durable” docs; keep minimal chat state until the user selects a home. Only create untracked workspace docs when explicitly requested, and label them as untracked.
 
 ## Default Structure
 

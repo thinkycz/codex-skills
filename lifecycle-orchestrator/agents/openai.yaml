@@ -1,4 +1,4 @@
 interface:
   display_name: "Lifecycle Orchestrator"
   short_description: "Detect the current lifecycle stage and route the next step"
-  default_prompt: "Use $lifecycle-orchestrator to determine the current product-delivery stage, identify what comes next, and route to the right local skill."
+  default_prompt: "Use $lifecycle-orchestrator to determine the current product-delivery stage, including whether an existing product needs hardening, identify what comes next, and route to one owner skill."

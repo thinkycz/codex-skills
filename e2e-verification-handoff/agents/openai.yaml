@@ -1,7 +1,7 @@
 interface:
   display_name: "E2E Verification Handoff"
   short_description: "Prepare executable browser/API/manual verification plans for another agent"
-  default_prompt: "Use $e2e-verification-handoff to turn implemented scope into concrete end-to-end browser, API, payment, upload, role, webhook, and parity scenarios for another agent, routing browser execution to Chrome through Computer Use rather than Playwright."
+  default_prompt: "Use $e2e-verification-handoff to turn implemented scope into executable browser, API, payment, upload, role, webhook, and parity scenarios, routing interactive evidence to the active host's canonical visible browser."
 
 policy:
   allow_implicit_invocation: true

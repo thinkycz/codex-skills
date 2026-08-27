@@ -2,6 +2,8 @@
 
 Use a fidelity matrix to keep the QA pass honest and repeatable.
 
+Use the active host's canonical visible browser surface for interactive evidence. In Synara, that is the integrated browser; Computer Use is reserved for desktop or system UI, or cases the browser surface cannot finish. In Codex, follow the current app-provided browser or Chrome policy. Automated browser suites can add regression evidence but do not replace visible comparison.
+
 ## Checklist Areas
 
 - exact icons in all rendered states

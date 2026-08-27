@@ -1,9 +1,9 @@
 interface:
-  display_name: "Playwright CLI (Retired)"
-  short_description: "Do not use; route browser work to Chrome Computer Use"
+  display_name: "Playwright Test Boundary"
+  short_description: "Maintain repo E2E tests, not interactive browsing"
   icon_small: "./assets/playwright-small.svg"
   icon_large: "./assets/playwright.png"
-  default_prompt: "Do not execute Playwright. Use $playwright only to identify and migrate a legacy reference, then route browser work to Chrome through Computer Use."
+  default_prompt: "Use $playwright only for repository-owned automated E2E test work, and route interactive navigation or visual runtime evidence to the active host's canonical visible browser."
 
 policy:
   allow_implicit_invocation: false

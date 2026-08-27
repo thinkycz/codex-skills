@@ -1,7 +1,7 @@
 ---
 name: ticket-batch-intake
 description: Use when the user provides Trello, Jira, Linear, or other ticket-board exports, links, or IDs and wants evidence-grounded planning, stakeholder summaries, implementation contracts, or verification-first triage before coding.
-version: 1.5.0
+version: 1.6.0
 category: execution-planning
 sources:
   - ticket-board exports, card descriptions, comments, labels, and existing repo state

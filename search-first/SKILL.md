@@ -1,7 +1,7 @@
 ---
 name: search-first
 description: Use when the task needs fast, scoped evidence gathering before implementation, planning, or architectural claims.
-version: 1.0.0
+version: 1.1.0
 category: research
 sources:
   - repo evidence and primary-source research practices
@@ -24,6 +24,13 @@ quality_gates:
 Search before asserting when uncertainty, freshness, or architectural ambiguity could change the answer.
 
 This skill is a lightweight research-first layer that complements repo exploration, debugging, and planning. It does not replace the owning workflow. It improves the quality of the next decision.
+
+## Boundary
+
+- Own a bounded, read-only evidence pass that resolves one decision-changing unknown.
+- Do not replace `repo-convention-discovery` for systematic repository convention mapping or `systematic-debugging` for a root-cause investigation.
+- Do not mutate host tooling; hand authorized app, CLI, editor, router, plugin, shell, config, credential, or cleanup work to `local-tooling-maintenance`.
+- Exit as soon as the evidence makes the downstream owner clear.
 
 ## When To Use
 
@@ -60,6 +67,7 @@ Do not use this skill when:
 
 5. Hand off to the owner skill once the unknown is resolved.
    - Route back into the workflow that actually owns the next step.
+   - When local tooling discovery becomes authorized install, update, disable, uninstall, cleanup, or layered-config mutation, hand off to `local-tooling-maintenance` before changing host state.
    - Keep the research summary short and decision-oriented.
 
 ## Output
@@ -79,6 +87,7 @@ Produce a concise working summary of:
 - Keep the research pass short, relevant, and decision-driven.
 - Do not turn this into generic endless searching.
 - Do not claim certainty when the evidence only supports an inference.
+- Do not mutate local apps, CLIs, editor integrations, routers, plugins, shell hooks, credentials, or shared configuration under this research skill; route that lifecycle work to `local-tooling-maintenance`.
 
 ## References
 

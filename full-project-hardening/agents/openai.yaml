@@ -1,0 +1,7 @@
+interface:
+  display_name: "Full Project Hardening"
+  short_description: "Audit, fix, and verify an entire product"
+  default_prompt: "Use $full-project-hardening to inventory this product, audit the full stack, implement prioritized fixes in bounded slices, run an independent gap review, and verify the integrated result before a release verdict."
+
+policy:
+  allow_implicit_invocation: true

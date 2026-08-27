@@ -1,7 +1,7 @@
 ---
 name: lifecycle-orchestrator
 description: Detect the current stage of a product delivery lifecycle, identify the next required stage, and route to the right local skill so work continues without restarting the process from scratch.
-version: 1.3.0
+version: 1.4.0
 category: orchestration
 sources:
   - internal skill lifecycle stages and handoff patterns
@@ -60,9 +60,10 @@ Use these canonical stages:
 3. spec or PRD
 4. delivery planning
 5. execution
-6. fidelity and verification
-7. release readiness
-8. reflection and learning
+6. hardening
+7. fidelity and verification
+8. release readiness
+9. reflection and learning
 
 Use [references/stage-detection.md](references/stage-detection.md) for the evidence cues and [references/handoff-map.md](references/handoff-map.md) for the default owner by stage.
 
@@ -93,6 +94,7 @@ Apply `repo-convention-discovery` before planning or coding in an unfamiliar rep
 ### 4. Handle Interruptions Without Losing Lifecycle State
 
 - If a bug interrupts any stage, layer `systematic-debugging` without abandoning the broader lifecycle state.
+- If an existing product is broadly functional but the user asks to audit every major surface and implement the gaps, route to the `hardening` stage and `full-project-hardening` instead of pretending the request is only verification or a focused read-only audit.
 - If docs exist but are stale relative to the prompt or source materials, route first to the skill that can refresh the source of truth.
 - If third-party credentials or vendor setup are missing, keep the lifecycle moving with the MVP-first deferred-integration behavior already defined in `spec-driven-development`, `integrating-backend-api-into-frontend`, `traceable-delivery`, and `docs-driven-execution`.
 - If the user returns after a pause or partial run, prefer resuming from the latest valid plan, tracker, or verification artifact instead of reconstructing the whole state from memory.

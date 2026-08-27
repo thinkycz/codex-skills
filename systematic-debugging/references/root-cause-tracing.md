@@ -28,6 +28,8 @@ When the bug crosses boundaries such as UI → API → backend or test → app �
 - log what enters and exits
 - compare expected vs actual propagation
 - isolate the first boundary that diverges
+- compare deployed artifact identity, actual process environment, runtime version, and loaded service definition at every separately running process
+- compare route, migration, schema, queue, and broker facts before assuming two services share configuration
 
 ## Rule
 

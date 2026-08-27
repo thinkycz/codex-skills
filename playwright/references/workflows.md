@@ -1,4 +1,6 @@
-# Playwright CLI Workflows
+# Legacy Playwright CLI Workflows
+
+Compatibility material only. Do not use these workflows for interactive browser control or when the repository already defines its own Playwright tests. Follow the boundary in `../SKILL.md`.
 
 Use the wrapper script and snapshot often.
 Assume `PWCLI` is set and `pwcli` is an alias for `"$PWCLI"`.

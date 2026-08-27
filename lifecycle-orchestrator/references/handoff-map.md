@@ -12,6 +12,8 @@ Use this default owner map after the current lifecycle stage is known.
   `spec-driven-development`, with `traceable-delivery` if broad docs are needed
 - `execution`:
   `docs-driven-execution`, then add `task-decomposition-and-resume`, `subagent-driven-development`, `integrating-backend-api-into-frontend`, or `design-to-traversable-app` only if the stage needs them
+- `hardening`:
+  `full-project-hardening`, with focused read-only audits only when their narrower question is the actual owner
 - `fidelity and verification`:
   `design-fidelity-polish` and `verification-before-completion`
 - `release readiness`:

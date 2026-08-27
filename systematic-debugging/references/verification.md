@@ -36,6 +36,9 @@ When the bug affects runtime behavior, also verify:
 - admin flow
 - empty or error states
 - cross-component behavior
+- deployed artifact and actual running-process identity
+- API/worker runtime parity when queues or background work participate
+- the final provider or user-visible outcome rather than only an intermediate acceptance signal
 
 ### 4. Source-expectation compliance
 

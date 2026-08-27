@@ -124,6 +124,8 @@ Check that no editable skills remain in the legacy root with:
 python3 ~/.agents/skills/scripts/check_mirror_parity.py
 ```
 
+The parity checker explicitly allowlists the runtime-only Codex bridge packages that must remain under `~/.codex/skills` for host discovery. That allowlist is not permission to keep editable duplicates there; any other package still fails the check.
+
 Run the full sequential skill-library check with:
 
 ```bash

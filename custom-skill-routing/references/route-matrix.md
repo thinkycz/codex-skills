@@ -12,6 +12,8 @@ Use this quick owner map when `custom-skill-routing` needs a fast routing decisi
   `ticket-batch-intake`
 - Existing codebase needs module-depth, seam, locality, or deepening-opportunity audit before refactor work:
   `architecture-deepening-audit`
+- Existing product needs a comprehensive cross-stack audit followed by prioritized fixes and integrated verification:
+  `full-project-hardening`
 - A disposable state, workflow, API-shape, or UI variant should answer a question before production work:
   `throwaway-prototype`
 - Confirmed design exists but a written PRD is missing:
@@ -44,6 +46,10 @@ Use this quick owner map when `custom-skill-routing` needs a fast routing decisi
   `api-contract-review`
 - The dominant risk is root-cause discovery for a bug or regression:
   `systematic-debugging`
+- The task is installing, disabling, uninstalling, cleaning, or repairing local apps, CLIs, editor integrations, routers, plugins, shell hooks, layered config, credentials, or leftovers:
+  `local-tooling-maintenance`
+- The host-tool question is still read-only inventory and no lifecycle mutation is authorized:
+  `search-first`
 - Implementation should start from a failing automated check:
   `test-driven-development`
 - Another agent needs a browser/API/manual E2E verification plan:

@@ -1,7 +1,7 @@
 ---
 name: ticket-driven-delivery
 description: Use when implementing, verifying, or finishing code changes from Trello, Jira, Linear, GitHub Issues, or similar tickets, especially when the work includes prior-agent validation and stakeholder ticket comments after delivery.
-version: 1.6.0
+version: 1.7.0
 category: execution
 sources:
   - ticket evidence, acceptance criteria, QA comments, and current repo state
@@ -83,7 +83,7 @@ Use this skill after ticket evidence is known and the user wants implementation,
 - Run focused checks for the changed surface.
 - Verify generated output consistency when code generation is part of the touched surface, and report whether regenerated files are tracked, ignored, or expected from CI.
 - Verify the exact newest QA scenario in the acceptance matrix before marking its row fixed. A nearby route, a lower-level helper, or a source-only assertion does not close the row.
-- For browser QA, use Chrome through Computer Use. Do not use Playwright for interactive verification.
+- For interactive browser QA, use the active host's canonical visible browser. In Synara, use the integrated browser and reserve Computer Use for desktop or system UI, or cases the browser surface cannot finish. In Codex, follow the current app-provided browser or Chrome policy. Repository-owned Playwright tests may add automated evidence but do not replace the live ticket path.
 - When shared UI or email primitives change, verify every affected consumer and state, not only the originally reported screen or template.
 - Verify the user-visible lifecycle when practical, not only the lowest-level helper. For example, prefer the route/page/API flow that reproduces the ticket over a narrower unit assertion alone.
 - Separate new failures from pre-existing repo warnings or broken starter tests.

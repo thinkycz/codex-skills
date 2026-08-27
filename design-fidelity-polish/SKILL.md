@@ -1,7 +1,7 @@
 ---
 name: design-fidelity-polish
 description: Use when a design-driven app already has screen coverage and now needs a dedicated visual parity pass for exact assets, typography, spacing, overlays, states, and browser QA. Trigger when the source may come from Figma, Google Stitch, or another confirmed design handoff.
-version: 1.5.0
+version: 1.6.0
 category: design-quality
 sources:
   - confirmed design handoff from Figma, Google Stitch, or similar sources
@@ -22,7 +22,7 @@ quality_gates:
   - Exact assets and shell ownership issues are fixed before ad hoc CSS tweaking.
   - Browser QA, accessibility, and interaction-state checks run before claiming parity.
   - Shared component and email-template consumers are inventoried so one visual pattern is not implemented several different ways.
-  - Interactive browser QA uses Chrome through Computer Use, not Playwright.
+  - Interactive browser QA uses the active host's canonical visible browser surface, with automated E2E suites treated as separate evidence.
 ---
 
 # Design Fidelity Polish
@@ -114,7 +114,8 @@ Do not use this skill for first-pass route creation or broad app planning. Use `
    - Validate motion timing and that transitions use meaning rather than decoration.
    - Validate that the product is not leaning on generic low-contrast, over-animated, or product-inappropriate visual defaults.
    - Validate that the implementation is fully resolved, not padded with placeholder comments, missing states, or obviously temporary UI substitutions unless those are explicitly documented as blockers.
-   - Use Chrome through Computer Use for interactive and visual browser QA. Do not use Playwright.
+   - Use the active host's canonical visible browser surface for interactive and visual QA. In Synara, use the integrated browser and reserve Computer Use for desktop or system UI, or cases the browser surface cannot finish. In Codex, follow the current app-provided browser or Chrome policy.
+   - Repository-owned Playwright suites may provide automated regression evidence, but they do not replace visible comparison and interaction checks.
    - Exercise every shared component variant and named consumer at the relevant desktop and mobile widths, including default, hover, focus, pressed, loading, disabled, destructive, and empty states where applicable.
    - Render representative email templates and compare shared brand, typography, spacing, CTA, and responsive behavior consistently.
 
@@ -154,7 +155,7 @@ Use these defaults unless the user overrides them:
 - use `exact`, `close`, `blocked`, and `unresolved` language in fidelity reporting
 - treat accessibility, interaction clarity, and motion sanity checks as part of fidelity, not optional extras
 - prefer one shared presentation primitive or email template system over repeated page-local implementations
-- use Chrome through Computer Use for browser QA; do not use Playwright
+- use the active host's canonical visible browser surface for interactive QA and keep automated browser suites as a separate evidence layer
 - keep docs honest about remaining mismatches
 
 ## References

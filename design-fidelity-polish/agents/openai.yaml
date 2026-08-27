@@ -1,7 +1,7 @@
 interface:
   display_name: "Design Fidelity Polish"
   short_description: "Polish to visual parity and remove generic UI slop"
-  default_prompt: "Use $design-fidelity-polish to consolidate repeated UI and email patterns into shared primitives, verify every variant and consumer with exact assets and consistent design, and run accessibility and responsive browser QA through Chrome Computer Use rather than Playwright."
+  default_prompt: "Use $design-fidelity-polish to consolidate repeated UI and email patterns, verify every variant and consumer with exact assets, and run accessibility and responsive QA through the active host's canonical visible browser."
 
 policy:
   allow_implicit_invocation: true

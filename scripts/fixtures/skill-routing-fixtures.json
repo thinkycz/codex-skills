@@ -239,7 +239,7 @@
               "expected_owner": "design-fidelity-polish"
             },
             {
-              "prompt": "Audit every button and tag, consolidate duplicate implementations into shared components, and verify icon contrast and all states through Chrome Computer Use.",
+              "prompt": "Audit every button and tag, consolidate duplicate implementations into shared components, and verify icon contrast and all states through the active host's visible browser.",
               "expected_owner": "design-fidelity-polish"
             },
             {
@@ -629,7 +629,7 @@
               "expected_owner": "verification-before-completion"
             },
             {
-              "prompt": "Verify the shared button and email-template changes across every consumer using Chrome Computer Use, not Playwright.",
+              "prompt": "Verify the shared button and email-template changes across every consumer through the active host's visible browser, with automated E2E kept as separate evidence.",
               "expected_owner": "verification-before-completion"
             }
           ]
@@ -807,6 +807,91 @@
             {
               "prompt": "Break the broad work into ordered slices first; we are not ready to delegate workers yet.",
               "expected_owner": "task-decomposition-and-resume"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "full project hardening vs focused audit or closeout",
+      "skills": [
+        {
+          "id": "full-project-hardening",
+          "required_mentions": [
+            "architecture-deepening-audit",
+            "frontend-redesign-audit",
+            "spec-driven-development",
+            "systematic-debugging",
+            "verification-before-completion",
+            "release-readiness"
+          ],
+          "fixtures": [
+            {
+              "prompt": "Do a full project audit, test every important flow, fix everything you find, and make it production ready.",
+              "expected_owner": "full-project-hardening"
+            },
+            {
+              "prompt": "Audit the existing backend, frontend, security, data, runtime, and UI, then implement and verify the prioritized fixes.",
+              "expected_owner": "full-project-hardening"
+            },
+            {
+              "prompt": "Read-only audit the module seams and shallow abstractions before we decide on a refactor.",
+              "expected_owner": "architecture-deepening-audit"
+            },
+            {
+              "prompt": "The implementation and verification evidence already exist; decide whether the whole feature is ready to release.",
+              "expected_owner": "release-readiness"
+            },
+            {
+              "prompt": "This client specification is the controlling source; implement it in phases and verify every requirement.",
+              "expected_owner": "spec-driven-development"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "local tooling discovery vs lifecycle mutation",
+      "skills": [
+        {
+          "id": "local-tooling-maintenance",
+          "required_mentions": [
+            "search-first",
+            "env-file-mutation-guard",
+            "verification-before-completion"
+          ],
+          "fixtures": [
+            {
+              "prompt": "Uninstall this local AI app and its editor plugin, router, shell hook, credentials, and leftovers without touching shared data.",
+              "expected_owner": "local-tooling-maintenance"
+            },
+            {
+              "prompt": "Disable this MCP integration across the host overlay, user config, project config, and IDE, then prove the preserved integrations still work.",
+              "expected_owner": "local-tooling-maintenance"
+            }
+          ]
+        },
+        {
+          "id": "search-first",
+          "required_mentions": [
+            "local-tooling-maintenance"
+          ],
+          "fixtures": [
+            {
+              "prompt": "Read-only inventory whether this CLI is really installed or whether I am only seeing stale package and editor metadata.",
+              "expected_owner": "search-first"
+            }
+          ]
+        },
+        {
+          "id": "verification-before-completion",
+          "required_mentions": [
+            "local-tooling-maintenance"
+          ],
+          "fixtures": [
+            {
+              "prompt": "The local tool removal is complete; prove the app, command, process, hooks, config layers, and credential entry are actually gone.",
+              "expected_owner": "verification-before-completion"
             }
           ]
         }

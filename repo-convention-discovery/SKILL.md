@@ -1,7 +1,7 @@
 ---
 name: repo-convention-discovery
 description: Discover the implementation conventions of the current repository before planning or coding. Use when the agent needs to inspect routing, feature structure, API helpers, forms, state, styling, i18n, docs, tests, or other local patterns so later work follows the repo instead of inventing a new architecture.
-version: 1.3.0
+version: 1.4.0
 category: repo-analysis
 sources:
   - current repository structure and nearby implementation patterns
@@ -30,6 +30,12 @@ quality_gates:
 Start by learning how this repo already works.
 
 Apply this skill before planning or implementation when matching existing conventions matters more than inventing a fresh pattern.
+
+## Boundary
+
+- Own read-only discovery of repository structure, conventions, canonical examples, generated-file policy, and full-project gates before planning or coding.
+- Do not replace the implementation owner, `architecture-deepening-audit` for architectural judgment, or `systematic-debugging` for root-cause investigation.
+- Keep the output proportional and hand the discovered constraints back to the owner skill rather than expanding into a separate delivery workflow.
 
 ## What To Inspect
 

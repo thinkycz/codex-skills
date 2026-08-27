@@ -39,4 +39,4 @@ For email HTML, verify:
 - narrow-client behavior and long-content wrapping
 - links, accessible text, and plain-text fallback when the repo supports one
 
-Use Chrome through Computer Use for browser rendering and interaction checks. Do not use Playwright.
+Use the active host's canonical visible browser surface for rendering and interaction checks. Repository-owned Playwright suites may add automated coverage, but they do not replace visible-browser evidence.

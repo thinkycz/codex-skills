@@ -1,7 +1,7 @@
 ---
 name: e2e-verification-handoff
 description: Use when the user wants a detailed end-to-end verification plan for another agent to test browser, API, payment, upload, role, webhook, or mobile/web parity flows after implementation.
-version: 1.1.0
+version: 1.2.0
 category: quality
 sources:
   - implemented feature scope, repo commands, seeded users, API contracts, and runtime routes
@@ -10,7 +10,7 @@ use_when:
   - The user asks for another AI agent or tester to verify implemented features end to end.
   - Runtime flows such as Stripe, uploads, roles, webhooks, mobile/web parity, or browser behavior need explicit test steps.
 avoid_when:
-  - The next step is performing the verification directly in the current session; use Chrome through Computer Use with verification-before-completion.
+  - The next step is performing verification directly in the current session; use the active host's canonical visible browser with verification-before-completion.
   - The work is not implemented enough to define meaningful E2E scenarios.
 artifacts:
   - SKILL.md
@@ -20,7 +20,7 @@ artifacts:
 quality_gates:
   - The handoff names concrete scenarios, setup, accounts, routes, API checks, and expected evidence.
   - Payment, webhook, upload, role, and parity flows include positive and negative paths where relevant.
-  - Browser execution is routed to Chrome through Computer Use, followed by verification-before-completion or release-readiness as appropriate.
+  - Interactive browser execution is routed to the active host's canonical visible browser, followed by verification-before-completion or release-readiness as appropriate.
 ---
 
 # E2E Verification Handoff
@@ -29,7 +29,7 @@ Write a verification plan another agent can execute without rediscovering the pr
 
 Use this skill after implementation when the user wants a detailed browser/API/manual QA plan for another agent, especially for payments, Stripe Connect, uploads, role redirects, webhooks, mobile/web parity, or complex cross-surface flows.
 
-This skill writes the handoff. It does not perform the browser run itself. Use Chrome through Computer Use for execution, then `verification-before-completion` and `release-readiness` for the verdict.
+This skill writes the handoff. It does not perform the browser run itself. Use the active host's canonical visible browser for execution, then `verification-before-completion` and `release-readiness` for the verdict.
 
 ## Boundary
 
@@ -79,8 +79,8 @@ Use `references/scenario-rubric.md` for common scenario classes.
 
 ### 4. Route The Executor
 
-- Use Chrome through Computer Use for real browser navigation, interaction, screenshots, responsive checks, and runtime UI evidence.
-- Do not route ordinary browser verification to Playwright.
+- Use the active host's canonical visible browser for real navigation, interaction, screenshots, responsive checks, and runtime UI evidence. In Synara, use the integrated browser; reserve Computer Use for desktop or system UI, or cases the browser surface cannot finish. In Codex, follow the current app-provided browser or Chrome policy.
+- Use repository-owned Playwright tests for automated E2E scenarios when the project already uses them, but do not route ordinary interactive verification to a headless test runner.
 - Use `api-contract-review` for read-only API payload comparison before runtime checks.
 - Use `verification-before-completion` to compare evidence to the claim.
 - Use `release-readiness` for the final go/no-go summary.

@@ -42,6 +42,8 @@ Before calling the work complete:
 - update the traceability matrix statuses
 - update the phase tracker
 - ensure the shared verification report points back to the relevant spec and design rows
+- confirm every selected docs artifact is inside the intended repository root and is tracked or visible as an intended, non-ignored file ready to commit
+- record repo and commit mappings for cross-repo delivery, or state explicitly that the user chose an untracked coordination home
 
 ## Red Flags
 
@@ -50,3 +52,4 @@ Before calling the work complete:
 - claiming design parity without comparing against the design
 - treating tests as a substitute for requirement review
 - treating lint/build as a substitute for runtime or source-of-truth checks
+- calling untracked files in a non-repository parent a durable handoff without disclosing that they cannot be committed there

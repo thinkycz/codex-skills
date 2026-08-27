@@ -1,7 +1,7 @@
 ---
 name: spec-driven-development
-description: Turn a written client specification, design input such as Figma or Google Stitch, or both into a traceable implementation workflow and delivered code. Use when the agent needs to implement backend/API work, admin panels, frontend screens, or mixed product slices from provided source artifacts while keeping markdown docs under `/docs`, splitting work into visible phases, routing to the right helper skills, and verifying the result against the specification and design before claiming completion.
-version: 1.6.0
+description: Turn a written client specification, design input such as Figma or Google Stitch, or both into a traceable implementation workflow and delivered code. Use when the agent needs to implement backend/API work, admin panels, frontend screens, or mixed product slices from provided source artifacts while keeping markdown docs under a tracked repository's `/docs`, splitting work into visible phases, routing to the right helper skills, and verifying the result against the specification and design before claiming completion.
+version: 1.7.0
 category: execution
 sources:
   - client specifications and confirmed design inputs
@@ -20,7 +20,7 @@ artifacts:
 quality_gates:
   - Source conflicts are resolved before implementation proceeds.
   - Delivery ceremony is proportional to task size and resume needs.
-  - Docs under `/docs` stay current as the execution control surface.
+  - Durable docs live inside a verified tracked repository and stay current as the execution control surface.
   - Final claims are verified against the specification and design, not just local code inspection.
   - Repeated UI and email patterns use shared components or templates and preserve one consistent visual language.
 ---
@@ -34,7 +34,7 @@ Use this skill when the user already has a written specification, design files, 
 ## Core Promise
 
 - Start from the source artifacts, not guesses.
-- Keep progress visible through markdown docs in the project’s `/docs` folder.
+- Keep progress visible through markdown docs in a verified tracked repository's `/docs` folder.
 - Split large work into small, traceable phases and bite-sized tasks.
 - Route implementation to the right existing skills instead of handling every domain the same way.
 - Do not claim completion until code, behavior, and design have been verified against the inputs.
@@ -52,6 +52,10 @@ Use this skill when the user already has a written specification, design files, 
 
 ### 1. Collect Artifacts And Ground In The Repo
 
+- Before creating `/docs`, run a read-only repository-root preflight such as `git rev-parse --show-toplevel` from each candidate project or coordination home.
+- Confirm the intended docs home is inside a tracked repository, is not ignored, and can be committed with the implementation it coordinates.
+- If a multi-repo parent is not itself a repository, do not place supposedly durable coordination docs there by default. Select an existing tracked coordination repo when ownership is clear, or keep repo-specific docs in each affected repo and record cross-repo links and commit mappings.
+- If no tracked docs home can be safely inferred, tell the user and use minimal chat tracking until they choose one. Create untracked workspace docs only when the user explicitly wants them.
 - Ask the user for the written client specification, Figma or Google Stitch links/files, and any API contract or admin requirements that already exist.
 - Accept partial inputs and keep moving with what exists.
 - Apply `repo-convention-discovery` before locking plans or file structure so the work follows the local repo instead of inventing a new pattern.
@@ -87,7 +91,7 @@ Classify the work before creating artifacts:
 - **Medium:** several related surfaces or phases, but one agent can retain the execution shape safely. Use one combined plan/progress document when durable tracking adds value, plus verification evidence.
 - **Large:** multiple phases, cross-surface contracts, migrations, external prerequisites, or likely session handoffs. Use the full spec, plan, progress/matrix, and verification set.
 
-Use [references/delivery-scale.md](references/delivery-scale.md) for the decision rules. When docs are needed, write markdown files only under the project’s `/docs` folder and use [references/traceability-and-progress.md](references/traceability-and-progress.md) for their structure.
+Use [references/delivery-scale.md](references/delivery-scale.md) for the decision rules. When docs are needed, write markdown files only under the verified tracked docs home and use [references/traceability-and-progress.md](references/traceability-and-progress.md) for their structure.
 
 ### 4. Plan In Small Visible Phases
 
@@ -107,7 +111,7 @@ Before implementation starts, use `spec-consistency-analysis` when spec, plan, a
 
 Do not treat all implementation work as the same kind of task.
 
-Apply `custom-skill-routing` only when more than one high-level owner is genuinely plausible. If this skill is already the explicit owner and the next handoff is obvious, route directly without ceremonially invoking the router.
+Use the shared router only when more than one high-level owner is genuinely plausible. If this skill is already the explicit owner and the next handoff is obvious, route directly without ceremonial routing.
 
 Use [references/skill-routing.md](references/skill-routing.md) for the spec-driven delivery rules that layer on top of that shared routing.
 
@@ -118,10 +122,10 @@ Use [references/skill-routing.md](references/skill-routing.md) for the full help
 - Keep the selected tracking artifact current as phases move from planned to active to verified.
 - Mark blockers explicitly instead of hiding them in prose.
 - Apply `docs-driven-execution` when moving from the written plan into active implementation so execution stays synced with the docs.
-- Use `migration-risk-audit` before broad upgrades, refactors, or shared-layer migrations when the blast radius is not yet mapped.
+- Use the migration-preflight route in [references/skill-routing.md](references/skill-routing.md) before broad upgrades, refactors, or shared-layer migrations when the blast radius is not yet mapped.
 - If tasks are separable, execute them in clearly bounded slices and keep the docs synchronized after each slice.
 - Resume from the latest valid `/docs` artifact state whenever possible instead of reconstructing execution state from chat memory.
-- Use `artifact-resume-audit` when existing artifacts are present but too stale, partial, or contradictory to trust for an immediate restart.
+- Use the stale-artifact resume route in [references/skill-routing.md](references/skill-routing.md) when existing artifacts are too partial or contradictory to trust for an immediate restart.
 - Keep implementation tied back to the traceability matrix so a reader can see what is done, blocked, deferred, or awaiting verification.
 - When a missing field, broken mapping, translation gap, enum mismatch, relationship parsing issue, or API-contract mismatch appears in one feature, inspect nearby features and shared layers before patching only the reported surface.
 - If a backend contract change affects one form, check the other forms, tables, and detail views that consume the same JSON:API shapes, wrappers, or helpers.
@@ -149,7 +153,7 @@ Always verify:
 
 Do not say work is complete because code was written. Require evidence.
 Do not treat "screen exists" as sufficient completion if the relevant design, interaction, accessibility, or fidelity checks are still failing.
-Use Chrome through Computer Use for browser and visual verification. Do not use Playwright.
+Use the active host's canonical visible browser surface for interactive and visual verification. In Synara, use the integrated Synara browser; use Computer Use only for desktop or system UI, or when the browser surface cannot finish. In other hosts, follow that host's browser policy. Repository-owned Playwright test suites may still be run as automated checks, but they do not replace visible runtime verification.
 When a shared UI or email primitive changes, verify every affected consumer and representative state/template.
 
 Read [references/verification.md](references/verification.md) for the required verification layers and reporting expectations.
@@ -161,6 +165,7 @@ Before a final handoff or “done” claim on broader work, apply `release-readi
 - Do not invent missing requirements when the source files are unclear.
 - Do not silently choose between conflicting written and visual sources.
 - Do not write non-markdown status artifacts outside `/docs`.
+- Do not create durable delivery docs in a non-repository parent or ignored path unless the user explicitly requests untracked workspace artifacts.
 - Do not collapse the entire project into one monolithic plan if phases can be separated.
 - Do not skip behavior-level regression coverage or verification because a phase seems small; scale documentation and handoffs instead of scaling away evidence.
 - Do not trust agent success reports without independent verification evidence.
@@ -174,6 +179,7 @@ At the end of a successful large delivery, the project should have:
 - a phased implementation plan under `/docs/plans/`
 - a live progress tracker and requirement matrix under `/docs/progress/`
 - verification evidence under `/docs/verification/`
+- confirmation that the selected docs are tracked or visible as intended committable files inside the owning repository, or an explicit note that the user chose untracked docs
 - implementation routed through the right helper skills for the relevant domain
 - explicit resolution of any source-of-truth conflicts
 - Use [references/output-artifacts.md](references/output-artifacts.md) when you need a concrete closeout shape for the expected `/docs` outputs.

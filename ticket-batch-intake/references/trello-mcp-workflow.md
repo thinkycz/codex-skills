@@ -13,7 +13,7 @@ Use this reference when ticket evidence comes from Trello and MCP tools are avai
 3. Read comments with `trello_get_card_actions(filter: "commentCard")`.
    - If the card was copied or migrated, references earlier discussion that is absent, or the comment count conflicts with visible activity, fetch a bounded full action history with `filter: "all"` and extract only material acceptance evidence. Do not do this for every card by default.
 4. Read attachments with `trello_get_card_attachments`.
-   - If metadata is available but the bytes are not, and the attachment materially defines acceptance, use the user's authenticated Chrome session as a read-only fallback when available. Do not use Playwright. If the fallback is unavailable or unauthenticated, record the evidence gap.
+   - If metadata is available but the bytes are not, and the attachment materially defines acceptance, use the active host's authenticated visible browser as a read-only fallback when available. In Synara, use the integrated browser. Do not substitute an automated test runner for the user's authenticated session. If the fallback is unavailable or unauthenticated, record the evidence gap.
 5. Read checklists with `trello_get_card_checklists` when checklist state could affect acceptance.
 6. Follow related cards only when the requested card explicitly depends on them or their evidence is required to interpret acceptance. Read the related card's current details, comments, attachments, and checklists using the same evidence order.
 7. Only after evidence gathering, inspect the repo and classify the card as implementation-needed, verification-only, blocked, or needs clarification.
