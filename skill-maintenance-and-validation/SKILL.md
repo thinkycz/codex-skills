@@ -1,7 +1,7 @@
 ---
 name: skill-maintenance-and-validation
 description: Use when creating, updating, or reviewing skills that need to stay linted, internally consistent, reference-safe, and realistically testable.
-version: 2.0.1
+version: 2.1.0
 category: skill-ops
 sources:
   - local skill packages and their support files
@@ -88,6 +88,8 @@ Use this skill when the user:
      - check `openai.yaml` consistency
      - check for stale or contradictory instructions
      - check that app-wide fix guidance appears where it should, without implying that every bug must become a broad refactor
+   - Label `check_skill_routing.py` as static boundary validation; its fixture prompts are not executed.
+   - Use `~/.agents/skills/scripts/check_skill_behavior.py` to validate behavioral scenarios and recorded evaluations separately. Missing or stale evaluations are not passed scenarios.
    - Validate the workflow under realistic pressure when possible:
      - test whether the skill would trigger for the right prompt shape
      - test whether it routes to the correct owner or handoff

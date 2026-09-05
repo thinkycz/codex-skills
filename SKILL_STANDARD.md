@@ -98,11 +98,20 @@ Generate the machine-readable catalog and manifest with:
 python3 ~/.agents/skills/scripts/generate_skill_catalog.py
 ```
 
-Pressure-test overlap-prone routing examples with:
+Check static boundary mentions for documented routing examples with:
 
 ```bash
 python3 ~/.agents/skills/scripts/check_skill_routing.py
 ```
+
+This is textual validation, not prompt execution. Validate behavioral scenario definitions and recorded evaluations separately:
+
+```bash
+python3 ~/.agents/skills/scripts/check_skill_behavior.py
+python3 ~/.agents/skills/scripts/check_skill_behavior.py --require-evaluated
+```
+
+The second command requires a current recorded passing evaluation for every scenario. Follow `skill-maintenance-and-validation/references/pressure-testing.md` for independent dry runs and honest evidence records. The checker does not itself evaluate a model.
 
 Generate a current stocktake report with:
 

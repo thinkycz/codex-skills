@@ -1,13 +1,13 @@
 ---
 name: full-project-hardening
-description: Audit and harden an existing product across code, architecture, security, dependencies, data, API contracts, runtime flows, UI quality, documentation, and release evidence. Use when the user asks for a comprehensive project audit plus fixes, testing of every important flow, or a production-readiness hardening pass without a controlling external specification.
-version: 1.0.0
+description: Audit and harden an existing product across code, architecture, security, dependencies, data, API contracts, runtime flows, UI quality, documentation, and release evidence. Use when the user asks for a comprehensive audit-only assessment, project audit plus fixes, testing of every important flow, or a production-readiness hardening pass without a controlling external specification.
+version: 1.1.0
 category: execution
 sources:
   - current repositories, project instructions, runtime evidence, and delivery artifacts
   - recurring whole-project audit and hardening patterns from recent Codex work
 use_when:
-  - The user wants a broad audit that should continue through prioritized fixes and integrated verification.
+  - The user wants a broad cross-stack audit, with remediation only when requested or already authorized.
   - Correctness, security, backend, frontend, runtime, and release concerns must be assessed together.
 avoid_when:
   - The request is a read-only focused architecture, migration, API-contract, or frontend audit.
@@ -19,7 +19,7 @@ artifacts:
   - references/
 quality_gates:
   - The baseline, product-flow inventory, and verification gates are grounded in the actual repos before findings become fixes.
-  - Findings are prioritized and implemented as bounded behavioral slices rather than one unreviewable mega-phase.
+  - Audit-only scope stops at findings and recommendations; authorized fixes use bounded behavioral slices.
   - Broad or high-risk delivery receives an independent adversarial gap review before the release verdict.
   - Integrated verification covers the relevant code, runtime, browser, data, external-service, and documentation surfaces.
   - Closeout distinguishes implemented, locally verified, deployed, live-provider verified, and production ready.
@@ -33,11 +33,17 @@ This skill owns comprehensive assessment, prioritized fixes, integrated verifica
 
 ## Boundary
 
-- Own broad audit-to-fix hardening across repositories, layers, and user flows.
+- Own comprehensive audit-only assessment and authorized audit-to-fix hardening across repositories, layers, and user flows.
 - Use `architecture-deepening-audit`, `migration-risk-audit`, `api-contract-review`, or `frontend-redesign-audit` when the user wants only that focused read-only assessment.
 - Use `spec-driven-development` when a written spec or confirmed design must control the implementation.
 - Use `systematic-debugging` for an unexplained failure uncovered during hardening, then return to this workflow after root cause is proven.
 - Use `release-readiness` for the final go/no-go verdict; this skill prepares and verifies the evidence.
+
+## Execution Mode
+
+Resolve mode from the current request and existing authorization before starting. A request to audit, review, or recommend improvements does not itself authorize application changes. In audit-only mode, inspect and run non-mutating checks, return findings and an ordered remediation proposal, and stop before implementation. Write an audit artifact only when the active mode and request permit it. An explicit audit-and-fix request authorizes bounded remediation; do not ask again for already-authorized work.
+
+In audit-only mode, steps 4–7 describe recommendations and evidence gaps, not instructions to execute fixes or deployment.
 
 ## Workflow
 
@@ -68,6 +74,8 @@ Assess only evidence-backed concerns across:
 - queues, workers, scheduled tasks, webhooks, email, payment, upload, and other external handoffs
 - UI completeness, responsiveness, accessibility, interaction states, and design consistency
 - test quality, build/release tooling, observability, operational docs, and durable delivery state
+
+Use [references/boundary-checks.md](references/boundary-checks.md) for relevant state, authorization, input, concurrency, and financial boundaries. An earlier green audit is a regression baseline, not proof about current code.
 
 Classify findings by severity, affected flow, evidence, likely root cause, fix owner, dependencies, and verification requirement. Do not inflate scope with taste-only cleanup or speculative findings.
 
@@ -127,10 +135,3 @@ Never collapse these states into a generic “done.”
 - Do not claim every flow was tested unless the flow inventory and evidence matrix support that statement.
 - Do not treat a worker’s success report, a green unit suite, or a build alone as whole-product verification.
 - Do not erase data, regenerate secrets, reset environments, or remove broad directories as incidental hardening.
-
-## References
-
-- [references/audit-matrix.md](references/audit-matrix.md)
-  Use to inventory product surfaces, audit dimensions, findings, and verification coverage.
-- [references/adversarial-gap-review.md](references/adversarial-gap-review.md)
-  Use for the independent post-integration challenge pass before broad release claims.

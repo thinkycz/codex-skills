@@ -43,6 +43,8 @@ def validate_generated_reports() -> None:
         raise SystemExit("usage-review.report.md is missing fixture coverage")
     if "Observed Conversation Evidence" not in usage:
         raise SystemExit("usage-review.report.md is missing observed conversation evidence")
+    if "Recorded Behavioral Evaluations" not in usage:
+        raise SystemExit("usage-review.report.md is missing behavioral evaluation status")
     fingerprint = str(catalog.get("source_fingerprint", ""))
     if not fingerprint:
         raise SystemExit("skills.catalog.json is missing source_fingerprint")
@@ -72,7 +74,9 @@ def main() -> int:
     args = parser.parse_args()
     py = sys.executable
     run_step("validate skills", [py, str(SCRIPTS / "validate_skills.py")])
-    run_step("routing checks", [py, str(SCRIPTS / "check_skill_routing.py")])
+    run_step("static routing boundaries (no model execution)", [py, str(SCRIPTS / "check_skill_routing.py")])
+    run_step("behavior scenario and recorded-evidence validation", [py, str(SCRIPTS / "check_skill_behavior.py")])
+    run_step("behavior evidence checker regression tests", [py, str(SCRIPTS / "test_skill_behavior.py")])
     run_step("mirror parity", [py, str(SCRIPTS / "check_mirror_parity.py")])
     if args.check_generated:
         print("\n== validate generated reports ==")

@@ -18,11 +18,20 @@ USAGE_EVIDENCE_PATH = ROOT / "scripts" / "fixtures" / "skill-usage-evidence.json
 def compute_source_fingerprint() -> str:
     paths: list[Path] = [
         FIXTURES_PATH,
+        ROOT / "SKILL_STANDARD.md",
+        ROOT / "scripts" / "check_all_skills.py",
         ROOT / "templates" / "usage-review-template.md",
         ROOT / "scripts" / "generate_skill_catalog.py",
         ROOT / "scripts" / "generate_stocktake_report.py",
         ROOT / "scripts" / "generate_usage_review.py",
+        ROOT / "scripts" / "check_skill_routing.py",
+        ROOT / "scripts" / "check_skill_behavior.py",
+        ROOT / "scripts" / "test_skill_behavior.py",
+        ROOT / "scripts" / "fixtures" / "skill-behavior-scenarios.json",
     ]
+    results = ROOT / "scripts" / "fixtures" / "skill-behavior-results.json"
+    if results.exists():
+        paths.append(results)
     if USAGE_EVIDENCE_PATH.exists():
         paths.append(USAGE_EVIDENCE_PATH)
     for skill_dir in iter_skill_dirs(include_system=False):

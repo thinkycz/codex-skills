@@ -1,7 +1,7 @@
 ---
 name: grill-with-docs
 description: Stress-test a plan through a deep one-question-at-a-time grilling session grounded in the repo, domain language, CONTEXT.md, and ADRs. Use when the user wants to challenge a plan against code, docs, terminology, tradeoffs, and documented decisions before implementation.
-version: 1.2.0
+version: 1.2.1
 category: planning
 sources:
   - local repo code, docs, CONTEXT.md, CONTEXT-MAP.md, and ADRs
@@ -75,8 +75,9 @@ This is deeper than `clarify-before-plan`: it is a grilling session, not a short
   - ask exactly one decision at a time
   - provide 2-3 meaningful mutually exclusive options
   - put the recommended option first and label it as recommended
-  - use `autoResolutionMs` only for non-blocking questions where continuing with the recommended default is safe
-  - omit `autoResolutionMs` when the answer is required before the plan can be trusted
+  - inspect the active tool schema and supply only supported fields; do not copy parameters from another host or an older example
+  - an unanswered or skipped question is not authorization; use an explicit stated default only for non-blocking preferences when the active mode permits it
+  - retain required decisions as unresolved until answered, and preserve authorization already given in the conversation
 - Fall back to concise plain-text only when the native tool is unavailable, the question cannot reasonably be expressed as multiple choice, or the active mode does not support the tool.
 
 ### 3. Grill One Question At A Time

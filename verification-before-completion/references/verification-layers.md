@@ -8,6 +8,8 @@ Choose verification in layers based on the kind of claim being made.
 - nearby suite
 - lint or typecheck
 - build
+- isolated production install/build/cache smoke using the actual deployment commands and runtime versions
+- deployed artifact identity and the observed live user path, separately from local results
 - runtime or browser flow
 - spec or PRD comparison
 - design or fidelity comparison

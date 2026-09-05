@@ -29,7 +29,7 @@ def load_checks() -> list[dict[str, object]]:
 
 def main() -> int:
     failures = 0
-    print("Skill routing boundary check")
+    print("Static skill routing boundary check (fixture prompts are not executed)")
     print()
     for check in load_checks():
         skill_path = ROOT / check["skill"] / "SKILL.md"
@@ -37,7 +37,7 @@ def main() -> int:
         missing = [needle for needle in check["required_mentions"] if needle not in text]
         print(f"[{check['cluster']}] {check['skill']}")
         for fixture in check["fixtures"]:
-            print(f"  fixture: {fixture['prompt']}")
+            print(f"  documented fixture (not run): {fixture['prompt']}")
             print(f"  expected owner: {fixture['expected_owner']}")
         if missing:
             failures += 1
@@ -49,7 +49,7 @@ def main() -> int:
     if failures:
         print(f"Routing checks failed for {failures} skill(s).")
         return 1
-    print("All routing boundary checks passed.")
+    print("All static routing boundary checks passed. No behavioral evaluation was performed.")
     return 0
 
 

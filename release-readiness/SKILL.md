@@ -1,7 +1,7 @@
 ---
 name: release-readiness
 description: Decide whether a feature or fix is truly ready for handoff, review, or release by checking verification evidence, blocker state, docs freshness, and remaining gaps. Use when implementation is mostly done and the agent needs to produce a final readiness assessment instead of assuming done.
-version: 1.4.0
+version: 1.5.0
 category: quality
 sources:
   - verification evidence and blocker state from the current delivery artifacts
@@ -50,6 +50,8 @@ Use `verification-before-completion` first when the main need is to prove one sp
 - the readiness decision compares the claimed outcome against the evidence actually collected
 - important approval boundaries or missing approval history are explicit when they affect release confidence
 - interrupted or resumed work has been rechecked against current docs, worktree state, and fresh verification before the verdict
+
+For deployment-related handoffs, use the deployment smoke reference in `verification-before-completion`. Require separate evidence for source verification, the isolated production command path, successful deployment, and the observed live path. A failed deployment leaves a local fix locally verified; it does not disprove that fix or establish that production runs it. For desktop artifacts, use `native-desktop-delivery` and retain platform-specific built/installed/runtime-tested/signing status.
 
 ## Output
 

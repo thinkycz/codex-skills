@@ -12,8 +12,10 @@ Use this quick owner map when `custom-skill-routing` needs a fast routing decisi
   `ticket-batch-intake`
 - Existing codebase needs module-depth, seam, locality, or deepening-opportunity audit before refactor work:
   `architecture-deepening-audit`
-- Existing product needs a comprehensive cross-stack audit followed by prioritized fixes and integrated verification:
+- Existing product needs a comprehensive audit-only assessment or audit plus authorized fixes:
   `full-project-hardening`
+- Product delivery requires native desktop windows, printing, device-local persistence, offline recovery, or packaged installers:
+  `native-desktop-delivery`
 - A disposable state, workflow, API-shape, or UI variant should answer a question before production work:
   `throwaway-prototype`
 - Confirmed design exists but a written PRD is missing:

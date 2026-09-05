@@ -845,6 +845,10 @@
             {
               "prompt": "This client specification is the controlling source; implement it in phases and verify every requirement.",
               "expected_owner": "spec-driven-development"
+            },
+            {
+              "prompt": "Audit the whole application for security, correctness, UI, and performance issues. Deliver findings and an ordered fix proposal only. You have repository read access and safe read-only checks; application edits are not requested.",
+              "expected_owner": "full-project-hardening"
             }
           ]
         }
@@ -892,6 +896,34 @@
             {
               "prompt": "The local tool removal is complete; prove the app, command, process, hooks, config layers, and credential entry are actually gone.",
               "expected_owner": "verification-before-completion"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "native desktop delivery vs host tooling and release",
+      "skills": [
+        {
+          "id": "native-desktop-delivery",
+          "required_mentions": [
+            "local-tooling-maintenance",
+            "systematic-debugging",
+            "frontend-redesign-audit",
+            "release-readiness"
+          ],
+          "fixtures": [
+            {
+              "prompt": "Port this web product into an independent offline desktop application and verify its native menus, printers, local data, and installers.",
+              "expected_owner": "native-desktop-delivery"
+            },
+            {
+              "prompt": "Remove an obsolete local editor and its registered integrations.",
+              "expected_owner": "local-tooling-maintenance"
+            },
+            {
+              "prompt": "We have platform-specific installer evidence; decide what is release-ready.",
+              "expected_owner": "release-readiness"
             }
           ]
         }

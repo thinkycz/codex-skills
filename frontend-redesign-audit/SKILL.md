@@ -1,7 +1,7 @@
 ---
 name: frontend-redesign-audit
 description: Use when an existing frontend needs an audit-first redesign plan to identify generic UI problems and prioritize the highest-impact fixes.
-version: 1.2.0
+version: 1.3.0
 category: design-quality
 sources:
   - audit-first redesign and anti-slop frontend quality review
@@ -53,6 +53,7 @@ Do not use this skill when:
 1. Audit the current UI first.
    - Inspect the live or current implementation before proposing redesign direction.
    - Ground in the repo, current UX patterns, and real screen coverage.
+   - When the user names an existing screen as the target, inspect it as the canonical comparison before inventing a new shell. Use the simplification section in `references/audit-rubric.md` for workspace density, containers, persistent actions, and overlays.
 
 2. Classify the problems.
    - Separate issues into:

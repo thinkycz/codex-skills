@@ -1,7 +1,7 @@
 ---
 name: verification-before-completion
 description: Require fresh evidence before claiming work is done, fixed, passing, or matched. Use when implementation, debugging, or fidelity work is mostly complete and the agent needs to verify the relevant tests, runtime behavior, design expectations, docs, and blockers before making a success claim.
-version: 1.8.0
+version: 1.9.0
 category: quality
 sources:
   - fresh test, runtime, design, and docs evidence
@@ -145,6 +145,8 @@ Not every claim requires all five levels. Static copy, schema, or pure-logic cha
 - Do not collapse “implemented”, “verified”, and “ready” into the same status.
 - Do not ignore docs or blocker state when the workflow is traceable and multi-phase.
 - Do not imply complete audit history when part of the evidence chain is missing.
+
+For deployment-sensitive claims, use [references/deployment-smoke.md](references/deployment-smoke.md). Verify the actual production build/install/cache path in isolation before push or handoff when it is relevant; do not deploy merely to satisfy a local verification gate.
 
 ## Handoffs
 

@@ -7,6 +7,8 @@ import json
 from datetime import datetime, timezone
 from pathlib import Path
 
+from check_skill_behavior import SCENARIOS, RESULTS, assess, validate_scenarios
+
 
 ROOT = Path(__file__).resolve().parents[1]
 CATALOG_PATH = ROOT / "skills.catalog.json"
@@ -52,6 +54,11 @@ def observed_evidence_lines(evidence: dict[str, object] | None) -> list[str]:
         return ["- No observed conversation evidence was provided."]
 
     metric_labels = {
+        "histories_screened": "Accessible histories screened",
+        "prior_local_tasks": "Prior local tasks screened",
+        "worker_histories": "Worker histories screened",
+        "recent_chatgpt_conversations": "Recent ChatGPT conversations screened",
+        "empty_archived_tasks": "Empty archived tasks included in local count",
         "threads_reviewed": "Recent conversations reviewed",
         "codex_threads": "Codex threads in the review window",
         "detailed_codex_threads": "Prior Codex threads inspected in detail",
@@ -63,7 +70,11 @@ def observed_evidence_lines(evidence: dict[str, object] | None) -> list[str]:
         "full_gate_defects_caught": "Late defects first caught by the full repository gate",
         "environment_blocker_mentions": "Turns mentioning environment-only blockers",
     }
-    lines = [f"- Evidence window: `{evidence.get('reviewed_at', 'unknown')}`"]
+    lines = [f"- Reviewed at: `{evidence.get('reviewed_at', 'unknown')}`"]
+    if evidence.get("window_start") and evidence.get("window_end"):
+        lines.append(f"- Evidence window: `{evidence['window_start']}` through `{evidence['window_end']}`")
+    if evidence.get("source"):
+        lines.append(f"- Coverage: {evidence['source']}")
     for key, label in metric_labels.items():
         if key in evidence:
             lines.append(f"- {label}: `{evidence[key]}`")
@@ -79,6 +90,18 @@ def observed_skill_lines(evidence: dict[str, object] | None) -> list[str]:
     return [
         f"- `{skill}`: {count} turn(s)"
         for skill, count in sorted(mentions.items(), key=lambda item: (-int(item[1]), item[0]))
+    ]
+
+
+def behavioral_evidence_lines() -> list[str]:
+    scenarios = validate_scenarios(load_json(SCENARIOS))
+    records = load_json(RESULTS) if RESULTS.exists() else None
+    states = assess(scenarios, records)
+    return [
+        "- Static boundary fixtures are not executed prompts and do not establish routing accuracy.",
+        "- The evidence checker validates recorded evaluations; it does not run or independently judge a model.",
+        "- Independent dry runs exercise decisions, not live application flows. Unrun or stale cases are not passes.",
+        *[f"- `{sid}`: `{state}`" for sid, state in states.items()],
     ]
 
 
@@ -125,7 +148,13 @@ def main() -> int:
             "",
             "## Fixture Coverage By Cluster",
             "",
+            "Static documented routing examples only; prompts are not executed by the boundary checker.",
+            "",
             *cluster_summaries(fixtures),
+            "",
+            "## Recorded Behavioral Evaluations",
+            "",
+            *behavioral_evidence_lines(),
             "",
             "## Sample Realistic Prompts",
             "",
@@ -141,6 +170,7 @@ def main() -> int:
             "## Commands",
             "",
             "- `python3 ~/.agents/skills/scripts/check_skill_routing.py`",
+            "- `python3 ~/.agents/skills/scripts/check_skill_behavior.py --require-evaluated`",
             "- `python3 ~/.agents/skills/scripts/generate_skill_catalog.py`",
             "- `python3 ~/.agents/skills/scripts/generate_stocktake_report.py`",
             "- `python3 ~/.agents/skills/scripts/generate_usage_review.py`",

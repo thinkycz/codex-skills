@@ -9,7 +9,7 @@ Use this when the compact route matrix is not enough to choose one primary owner
 - `grill-with-docs` owns deeper plan interrogation against repo code, domain docs, terminology, scenarios, and ADR-worthy tradeoffs.
 - `ticket-batch-intake` owns Trello/Jira/board exports before implementation: read all comments, preserve order, identify prior-agent verification work, and produce summaries or contract notes.
 - `architecture-deepening-audit` owns read-only audits for shallow modules, leaky seams, low-locality abstractions, and deepening opportunities before broad refactors.
-- `full-project-hardening` owns comprehensive existing-product audit-to-fix delivery across correctness, security, architecture, data, contracts, runtime, UI, docs, and release evidence. It does not replace focused read-only audits or spec-controlled delivery.
+- `full-project-hardening` owns comprehensive existing-product audit-only assessment and authorized audit-to-fix delivery across correctness, security, architecture, data, contracts, runtime, UI, docs, and release evidence. It does not replace focused read-only audits or spec-controlled delivery.
 - `throwaway-prototype` owns disposable logic/state or UI-variant prototypes when a small artifact can answer a question before production delivery.
 - `design-to-prd` owns turning an existing design source into a written PRD.
 - `spec-driven-development` owns traceable delivery from written specs, design handoffs, or normalized ticket inputs.
@@ -52,3 +52,7 @@ Use this when the compact route matrix is not enough to choose one primary owner
 - `skill-maintenance-and-validation` owns package correctness.
 - `skill-stocktake` owns portfolio overlap, bloat, refresh, merge, keep, or retire decisions.
 - `cross-tool-packaging` owns export shape, flattened bundles, catalogs, and compatibility.
+
+## Native Desktop Product Delivery
+
+Use `native-desktop-delivery` when native interactions, offline/device-local data, or packaged runtime behavior control product delivery. Preserve audit-only diagnosis under `frontend-redesign-audit` and unexplained failures under `systematic-debugging`. Installing or removing development tools remains `local-tooling-maintenance`; final readiness remains `release-readiness`. Do not infer synchronization or installer publication from a desktop port request.
