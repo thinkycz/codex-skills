@@ -105,7 +105,7 @@ def behavioral_evidence_lines() -> list[str]:
     ]
 
 
-def main() -> int:
+def render_report(catalog=None, argv=None):
     parser = argparse.ArgumentParser(description="Generate a skill usage review from catalog, fixtures, and optional observed evidence.")
     parser.add_argument(
         "--evidence",
@@ -113,8 +113,8 @@ def main() -> int:
         default=DEFAULT_EVIDENCE_PATH,
         help="JSON file containing aggregate, sanitized conversation evidence.",
     )
-    args = parser.parse_args()
-    catalog = load_json(CATALOG_PATH)
+    args = parser.parse_args(argv)
+    catalog = load_json(CATALOG_PATH) if catalog is None else catalog
     fixtures = load_json(FIXTURES_PATH)
     evidence = load_json(args.evidence) if args.evidence.exists() else None
     generated_at = datetime.now(timezone.utc).replace(microsecond=0).isoformat()
@@ -177,7 +177,11 @@ def main() -> int:
             "",
         ]
     )
-    REPORT_PATH.write_text(report + "\n", encoding="utf-8")
+    return report + '\n'
+
+
+def main() -> int:
+    REPORT_PATH.write_text(render_report(), encoding="utf-8")
     print(REPORT_PATH)
     return 0
 

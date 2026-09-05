@@ -1,7 +1,7 @@
 interface:
   display_name: "Google Stitch"
-  short_description: "Use Stitch as a design-source adapter"
-  default_prompt: "Use $google-stitch to gather the relevant Stitch project and screen context, then hand off cleanly into the shared design implementation or polish workflow."
+  short_description: "google stitch workflows"
+  default_prompt: "Use $google-stitch for the requested work within its stated boundary."
 
 policy:
   allow_implicit_invocation: true

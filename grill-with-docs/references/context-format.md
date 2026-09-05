@@ -31,8 +31,8 @@ If `CONTEXT-MAP.md` exists, use it to find the right context-local glossary.
 
 ## Contexts
 
-- [Ordering](./src/ordering/CONTEXT.md) - receives and tracks customer orders
-- [Billing](./src/billing/CONTEXT.md) - generates invoices and processes payments
+- Ordering at src/ordering/CONTEXT.md - receives and tracks customer orders
+- Billing at src/billing/CONTEXT.md - generates invoices and processes payments
 
 ## Relationships
 

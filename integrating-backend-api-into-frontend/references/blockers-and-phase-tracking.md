@@ -1,6 +1,6 @@
 # Blockers And Phase Tracking
 
-Apply `traceable-delivery` first for the shared tracker structure, docs layout, status discipline, and verification closeout.
+Reuse existing working evidence; consult `docs-driven-execution` only for an unresolved ownership or tracking question.
 
 This reference adds the integration-specific blocker taxonomy and closeout rules for backend-supported frontend work.
 

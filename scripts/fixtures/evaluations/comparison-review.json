@@ -1,0 +1,3319 @@
+{
+  "schema_version": 1,
+  "reviewer": "/root",
+  "reviewed_at": "2026-09-05T07:30:17Z",
+  "protocol": "51 matched synthetic prompts, two independent runs per variant, same inherited model and host instructions; decision-only, not live execution.",
+  "rubric_notes": [
+    "Original eight assertion sets preserved.",
+    "All required/prohibited assertions reviewed against exact responses, with relevance to the supplied case rather than every optional mode checklist.",
+    "Obvious-owner routing case accepts direct delivery owners; the plan explicitly avoids mandatory routing.",
+    "Credential-blocker fixture corrected from spec normalization to integration ownership; unchanged prompt rerun twice.",
+    "Initial revised misses prompted conditional guidance fixes and fresh independent reruns; original responses remain historical."
+  ],
+  "variants": {
+    "baseline": {
+      "case_runs": 102,
+      "assertion_pass_runs": 102,
+      "accepted_runs": 99,
+      "canonical_owner_matches": 97,
+      "records": [
+        {
+          "case_id": "case-001",
+          "scenario_id": "audit-only",
+          "run": 1,
+          "observed_owner": "full-project-hardening",
+          "normalized_owner": "full-project-hardening",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "mode": true,
+            "deliverable": true,
+            "writes": true,
+            "scope": true
+          },
+          "response_record": "baseline-run1.json#case-001"
+        },
+        {
+          "case_id": "case-002",
+          "scenario_id": "device-state",
+          "run": 1,
+          "observed_owner": "native-desktop-delivery",
+          "normalized_owner": "native-desktop-delivery",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "ownership": true,
+            "replay": true,
+            "test": true,
+            "shared": true,
+            "context": true
+          },
+          "response_record": "baseline-run1.json#case-002"
+        },
+        {
+          "case_id": "case-003",
+          "scenario_id": "direct-authorization",
+          "run": 1,
+          "observed_owner": "full-project-hardening",
+          "normalized_owner": "full-project-hardening",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "boundary": true,
+            "negative": true,
+            "green": true,
+            "fix": true
+          },
+          "response_record": "baseline-run1.json#case-003"
+        },
+        {
+          "case_id": "case-004",
+          "scenario_id": "failed-deployment",
+          "run": 1,
+          "observed_owner": "release-readiness",
+          "normalized_owner": "verification-before-completion",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "status": true,
+            "smoke": true,
+            "live": true,
+            "done": true,
+            "deploy": true,
+            "rewrite": true
+          },
+          "response_record": "baseline-run1.json#case-004"
+        },
+        {
+          "case_id": "case-005",
+          "scenario_id": "cross-built-installer",
+          "run": 1,
+          "observed_owner": "native-desktop-delivery",
+          "normalized_owner": "native-desktop-delivery",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "windows": true,
+            "mac": true,
+            "parity": true,
+            "release": true
+          },
+          "response_record": "baseline-run1.json#case-005"
+        },
+        {
+          "case_id": "case-006",
+          "scenario_id": "unchanged-blocker",
+          "run": 1,
+          "observed_owner": "workflow-contract-builder",
+          "normalized_owner": "workflow-contract-builder",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "quiet": true,
+            "baseline": true,
+            "proof": true,
+            "repeat": true,
+            "operational": true
+          },
+          "response_record": "baseline-run1.json#case-006"
+        },
+        {
+          "case_id": "case-007",
+          "scenario_id": "question-schema",
+          "run": 1,
+          "observed_owner": "grill-with-docs",
+          "normalized_owner": "grill-with-docs",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "schema": true,
+            "one": true,
+            "pending": true,
+            "field": true,
+            "approval": true
+          },
+          "response_record": "baseline-run1.json#case-007"
+        },
+        {
+          "case_id": "case-008",
+          "scenario_id": "ui-simplification",
+          "run": 1,
+          "observed_owner": "frontend-redesign-audit",
+          "normalized_owner": "frontend-design",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "reference": true,
+            "layout": true,
+            "overlay": true,
+            "invent": true,
+            "mutate": true
+          },
+          "response_record": "baseline-run1.json#case-008"
+        },
+        {
+          "case_id": "case-009",
+          "scenario_id": "custom-skill-routing--route",
+          "run": 1,
+          "observed_owner": "test-driven-development",
+          "normalized_owner": "test-driven-development",
+          "canonical_owner_match": false,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "baseline-run1.json#case-009"
+        },
+        {
+          "case_id": "case-010",
+          "scenario_id": "custom-skill-routing--stage",
+          "run": 1,
+          "observed_owner": "lifecycle-orchestrator",
+          "normalized_owner": "custom-skill-routing",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "baseline-run1.json#case-010"
+        },
+        {
+          "case_id": "case-011",
+          "scenario_id": "requirements-review--review",
+          "run": 1,
+          "observed_owner": "requirements-checklist-review",
+          "normalized_owner": "requirements-review",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "baseline-run1.json#case-011"
+        },
+        {
+          "case_id": "case-012",
+          "scenario_id": "requirements-review--compare",
+          "run": 1,
+          "observed_owner": "spec-consistency-analysis",
+          "normalized_owner": "requirements-review",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "baseline-run1.json#case-012"
+        },
+        {
+          "case_id": "case-013",
+          "scenario_id": "requirements-review--clarify",
+          "run": 1,
+          "observed_owner": "clarify-before-plan",
+          "normalized_owner": "requirements-review",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "baseline-run1.json#case-013"
+        },
+        {
+          "case_id": "case-014",
+          "scenario_id": "docs-driven-execution--execute",
+          "run": 1,
+          "observed_owner": "docs-driven-execution",
+          "normalized_owner": "docs-driven-execution",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "baseline-run1.json#case-014"
+        },
+        {
+          "case_id": "case-015",
+          "scenario_id": "docs-driven-execution--tracking",
+          "run": 1,
+          "observed_owner": "traceable-delivery",
+          "normalized_owner": "docs-driven-execution",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "baseline-run1.json#case-015"
+        },
+        {
+          "case_id": "case-016",
+          "scenario_id": "docs-driven-execution--decompose",
+          "run": 1,
+          "observed_owner": "task-decomposition-and-resume",
+          "normalized_owner": "docs-driven-execution",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "baseline-run1.json#case-016"
+        },
+        {
+          "case_id": "case-017",
+          "scenario_id": "docs-driven-execution--audit",
+          "run": 1,
+          "observed_owner": "workflow-audit-history",
+          "normalized_owner": "docs-driven-execution",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "baseline-run1.json#case-017"
+        },
+        {
+          "case_id": "case-018",
+          "scenario_id": "session-handoff--handoff",
+          "run": 1,
+          "observed_owner": "session-handoff",
+          "normalized_owner": "session-handoff",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "baseline-run1.json#case-018"
+        },
+        {
+          "case_id": "case-019",
+          "scenario_id": "session-handoff--resume",
+          "run": 1,
+          "observed_owner": "artifact-resume-audit",
+          "normalized_owner": "session-handoff",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "baseline-run1.json#case-019"
+        },
+        {
+          "case_id": "case-020",
+          "scenario_id": "session-handoff--lessons",
+          "run": 1,
+          "observed_owner": "reflection-and-learning",
+          "normalized_owner": "session-handoff",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "baseline-run1.json#case-020"
+        },
+        {
+          "case_id": "case-021",
+          "scenario_id": "verification-before-completion--verify",
+          "run": 1,
+          "observed_owner": "verification-before-completion",
+          "normalized_owner": "verification-before-completion",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "baseline-run1.json#case-021"
+        },
+        {
+          "case_id": "case-022",
+          "scenario_id": "verification-before-completion--readiness",
+          "run": 1,
+          "observed_owner": "release-readiness",
+          "normalized_owner": "verification-before-completion",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "baseline-run1.json#case-022"
+        },
+        {
+          "case_id": "case-023",
+          "scenario_id": "verification-before-completion--handoff",
+          "run": 1,
+          "observed_owner": "e2e-verification-handoff",
+          "normalized_owner": "verification-before-completion",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "baseline-run1.json#case-023"
+        },
+        {
+          "case_id": "case-024",
+          "scenario_id": "skill-maintenance-and-validation--edit",
+          "run": 1,
+          "observed_owner": "skill-maintenance-and-validation",
+          "normalized_owner": "skill-maintenance-and-validation",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "baseline-run1.json#case-024"
+        },
+        {
+          "case_id": "case-025",
+          "scenario_id": "skill-maintenance-and-validation--portfolio",
+          "run": 1,
+          "observed_owner": "skill-stocktake",
+          "normalized_owner": "skill-maintenance-and-validation",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "baseline-run1.json#case-025"
+        },
+        {
+          "case_id": "case-026",
+          "scenario_id": "skill-maintenance-and-validation--export",
+          "run": 1,
+          "observed_owner": "cross-tool-packaging",
+          "normalized_owner": "skill-maintenance-and-validation",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "baseline-run1.json#case-026"
+        },
+        {
+          "case_id": "case-027",
+          "scenario_id": "skill-maintenance-and-validation--validate",
+          "run": 1,
+          "observed_owner": "cross-tool-packaging",
+          "normalized_owner": "skill-maintenance-and-validation",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "baseline-run1.json#case-027"
+        },
+        {
+          "case_id": "case-028",
+          "scenario_id": "spec-driven-development--prepare",
+          "run": 1,
+          "observed_owner": "spec-driven-development",
+          "normalized_owner": "spec-driven-development",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "baseline-run1.json#case-028"
+        },
+        {
+          "case_id": "case-029",
+          "scenario_id": "spec-driven-development--prd",
+          "run": 1,
+          "observed_owner": "design-to-prd",
+          "normalized_owner": "spec-driven-development",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "baseline-run1.json#case-029"
+        },
+        {
+          "case_id": "case-030",
+          "scenario_id": "ticket-driven-delivery--deliver",
+          "run": 1,
+          "observed_owner": "ticket-driven-delivery",
+          "normalized_owner": "ticket-driven-delivery",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "baseline-run1.json#case-030"
+        },
+        {
+          "case_id": "case-031",
+          "scenario_id": "ticket-driven-delivery--intake",
+          "run": 1,
+          "observed_owner": "ticket-batch-intake",
+          "normalized_owner": "ticket-driven-delivery",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "baseline-run1.json#case-031"
+        },
+        {
+          "case_id": "case-032",
+          "scenario_id": "ticket-driven-delivery--review",
+          "run": 1,
+          "observed_owner": "two-axis-review",
+          "normalized_owner": "two-axis-review",
+          "canonical_owner_match": false,
+          "accepted_owner": false,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "baseline-run1.json#case-032"
+        },
+        {
+          "case_id": "case-033",
+          "scenario_id": "ticket-driven-delivery--plan",
+          "run": 1,
+          "observed_owner": "ticket-batch-intake",
+          "normalized_owner": "ticket-driven-delivery",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "baseline-run1.json#case-033"
+        },
+        {
+          "case_id": "case-034",
+          "scenario_id": "ticket-driven-delivery--closeout",
+          "run": 1,
+          "observed_owner": "ticket-driven-delivery",
+          "normalized_owner": "ticket-driven-delivery",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "baseline-run1.json#case-034"
+        },
+        {
+          "case_id": "case-035",
+          "scenario_id": "evidence-discovery--repository",
+          "run": 1,
+          "observed_owner": "repo-convention-discovery",
+          "normalized_owner": "evidence-discovery",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "baseline-run1.json#case-035"
+        },
+        {
+          "case_id": "case-036",
+          "scenario_id": "evidence-discovery--research",
+          "run": 1,
+          "observed_owner": "search-first",
+          "normalized_owner": "evidence-discovery",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "baseline-run1.json#case-036"
+        },
+        {
+          "case_id": "case-037",
+          "scenario_id": "frontend-design--audit",
+          "run": 1,
+          "observed_owner": "frontend-redesign-audit",
+          "normalized_owner": "frontend-design",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "baseline-run1.json#case-037"
+        },
+        {
+          "case_id": "case-038",
+          "scenario_id": "frontend-design--implement",
+          "run": 1,
+          "observed_owner": "design-fidelity-polish",
+          "normalized_owner": "frontend-design",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "baseline-run1.json#case-038"
+        },
+        {
+          "case_id": "case-039",
+          "scenario_id": "frontend-design--export",
+          "run": 1,
+          "observed_owner": "design-system-export",
+          "normalized_owner": "frontend-design",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "baseline-run1.json#case-039"
+        },
+        {
+          "case_id": "case-040",
+          "scenario_id": "full-project-hardening--audit",
+          "run": 1,
+          "observed_owner": "full-project-hardening",
+          "normalized_owner": "full-project-hardening",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "baseline-run1.json#case-040"
+        },
+        {
+          "case_id": "case-041",
+          "scenario_id": "full-project-hardening--architecture",
+          "run": 1,
+          "observed_owner": "architecture-deepening-audit",
+          "normalized_owner": "full-project-hardening",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "baseline-run1.json#case-041"
+        },
+        {
+          "case_id": "case-042",
+          "scenario_id": "full-project-hardening--migration",
+          "run": 1,
+          "observed_owner": "migration-risk-audit",
+          "normalized_owner": "full-project-hardening",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "baseline-run1.json#case-042"
+        },
+        {
+          "case_id": "case-043",
+          "scenario_id": "full-project-hardening--remediate",
+          "run": 1,
+          "observed_owner": "full-project-hardening",
+          "normalized_owner": "full-project-hardening",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "baseline-run1.json#case-043"
+        },
+        {
+          "case_id": "case-044",
+          "scenario_id": "product-brainstorming--shape",
+          "run": 1,
+          "observed_owner": "product-brainstorming",
+          "normalized_owner": "product-brainstorming",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "baseline-run1.json#case-044"
+        },
+        {
+          "case_id": "case-045",
+          "scenario_id": "product-brainstorming--prototype",
+          "run": 1,
+          "observed_owner": "throwaway-prototype",
+          "normalized_owner": "product-brainstorming",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "baseline-run1.json#case-045"
+        },
+        {
+          "case_id": "case-046",
+          "scenario_id": "api-spec-conflict",
+          "run": 1,
+          "observed_owner": "integrating-backend-api-into-frontend",
+          "normalized_owner": "integrating-backend-api-into-frontend",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "outcome": true,
+            "overreach": true,
+            "fabrication": true
+          },
+          "response_record": "baseline-run1.json#case-046"
+        },
+        {
+          "case_id": "case-047",
+          "scenario_id": "required-access-blocker",
+          "run": 1,
+          "observed_owner": "integrating-backend-api-into-frontend",
+          "normalized_owner": "integrating-backend-api-into-frontend",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "outcome": true,
+            "overreach": true,
+            "fabrication": true
+          },
+          "response_record": "baseline-run1.json#case-047"
+        },
+        {
+          "case_id": "case-048",
+          "scenario_id": "reuse-evidence",
+          "run": 1,
+          "observed_owner": "verification-before-completion",
+          "normalized_owner": "verification-before-completion",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "outcome": true,
+            "overreach": true,
+            "fabrication": true
+          },
+          "response_record": "baseline-run1.json#case-048"
+        },
+        {
+          "case_id": "case-049",
+          "scenario_id": "repo-free-figma",
+          "run": 1,
+          "observed_owner": "figma",
+          "normalized_owner": "figma",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "outcome": true,
+            "overreach": true,
+            "fabrication": true
+          },
+          "response_record": "baseline-run1.json#case-049"
+        },
+        {
+          "case_id": "case-050",
+          "scenario_id": "repo-free-stitch",
+          "run": 1,
+          "observed_owner": "google-stitch",
+          "normalized_owner": "google-stitch",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "outcome": true,
+            "overreach": true,
+            "fabrication": true
+          },
+          "response_record": "baseline-run1.json#case-050"
+        },
+        {
+          "case_id": "case-051",
+          "scenario_id": "synthetic-build-config",
+          "run": 1,
+          "observed_owner": "native-desktop-delivery",
+          "normalized_owner": "native-desktop-delivery",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "outcome": true,
+            "overreach": true,
+            "fabrication": true
+          },
+          "response_record": "baseline-run1.json#case-051"
+        },
+        {
+          "case_id": "case-001",
+          "scenario_id": "audit-only",
+          "run": 2,
+          "observed_owner": "full-project-hardening",
+          "normalized_owner": "full-project-hardening",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "mode": true,
+            "deliverable": true,
+            "writes": true,
+            "scope": true
+          },
+          "response_record": "baseline-run2.json#case-001"
+        },
+        {
+          "case_id": "case-002",
+          "scenario_id": "device-state",
+          "run": 2,
+          "observed_owner": "native-desktop-delivery",
+          "normalized_owner": "native-desktop-delivery",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "ownership": true,
+            "replay": true,
+            "test": true,
+            "shared": true,
+            "context": true
+          },
+          "response_record": "baseline-run2.json#case-002"
+        },
+        {
+          "case_id": "case-003",
+          "scenario_id": "direct-authorization",
+          "run": 2,
+          "observed_owner": "full-project-hardening",
+          "normalized_owner": "full-project-hardening",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "boundary": true,
+            "negative": true,
+            "green": true,
+            "fix": true
+          },
+          "response_record": "baseline-run2.json#case-003"
+        },
+        {
+          "case_id": "case-004",
+          "scenario_id": "failed-deployment",
+          "run": 2,
+          "observed_owner": "release-readiness",
+          "normalized_owner": "verification-before-completion",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "status": true,
+            "smoke": true,
+            "live": true,
+            "done": true,
+            "deploy": true,
+            "rewrite": true
+          },
+          "response_record": "baseline-run2.json#case-004"
+        },
+        {
+          "case_id": "case-005",
+          "scenario_id": "cross-built-installer",
+          "run": 2,
+          "observed_owner": "native-desktop-delivery",
+          "normalized_owner": "native-desktop-delivery",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "windows": true,
+            "mac": true,
+            "parity": true,
+            "release": true
+          },
+          "response_record": "baseline-run2.json#case-005"
+        },
+        {
+          "case_id": "case-006",
+          "scenario_id": "unchanged-blocker",
+          "run": 2,
+          "observed_owner": "workflow-contract-builder",
+          "normalized_owner": "workflow-contract-builder",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "quiet": true,
+            "baseline": true,
+            "proof": true,
+            "repeat": true,
+            "operational": true
+          },
+          "response_record": "baseline-run2.json#case-006"
+        },
+        {
+          "case_id": "case-007",
+          "scenario_id": "question-schema",
+          "run": 2,
+          "observed_owner": "grill-with-docs",
+          "normalized_owner": "grill-with-docs",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "schema": true,
+            "one": true,
+            "pending": true,
+            "field": true,
+            "approval": true
+          },
+          "response_record": "baseline-run2.json#case-007"
+        },
+        {
+          "case_id": "case-008",
+          "scenario_id": "ui-simplification",
+          "run": 2,
+          "observed_owner": "frontend-redesign-audit",
+          "normalized_owner": "frontend-design",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "reference": true,
+            "layout": true,
+            "overlay": true,
+            "invent": true,
+            "mutate": true
+          },
+          "response_record": "baseline-run2.json#case-008"
+        },
+        {
+          "case_id": "case-009",
+          "scenario_id": "custom-skill-routing--route",
+          "run": 2,
+          "observed_owner": "test-driven-development",
+          "normalized_owner": "test-driven-development",
+          "canonical_owner_match": false,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "baseline-run2.json#case-009"
+        },
+        {
+          "case_id": "case-010",
+          "scenario_id": "custom-skill-routing--stage",
+          "run": 2,
+          "observed_owner": "lifecycle-orchestrator",
+          "normalized_owner": "custom-skill-routing",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "baseline-run2.json#case-010"
+        },
+        {
+          "case_id": "case-011",
+          "scenario_id": "requirements-review--review",
+          "run": 2,
+          "observed_owner": "requirements-checklist-review",
+          "normalized_owner": "requirements-review",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "baseline-run2.json#case-011"
+        },
+        {
+          "case_id": "case-012",
+          "scenario_id": "requirements-review--compare",
+          "run": 2,
+          "observed_owner": "spec-consistency-analysis",
+          "normalized_owner": "requirements-review",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "baseline-run2.json#case-012"
+        },
+        {
+          "case_id": "case-013",
+          "scenario_id": "requirements-review--clarify",
+          "run": 2,
+          "observed_owner": "clarify-before-plan",
+          "normalized_owner": "requirements-review",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "baseline-run2.json#case-013"
+        },
+        {
+          "case_id": "case-014",
+          "scenario_id": "docs-driven-execution--execute",
+          "run": 2,
+          "observed_owner": "docs-driven-execution",
+          "normalized_owner": "docs-driven-execution",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "baseline-run2.json#case-014"
+        },
+        {
+          "case_id": "case-015",
+          "scenario_id": "docs-driven-execution--tracking",
+          "run": 2,
+          "observed_owner": "traceable-delivery",
+          "normalized_owner": "docs-driven-execution",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "baseline-run2.json#case-015"
+        },
+        {
+          "case_id": "case-016",
+          "scenario_id": "docs-driven-execution--decompose",
+          "run": 2,
+          "observed_owner": "task-decomposition-and-resume",
+          "normalized_owner": "docs-driven-execution",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "baseline-run2.json#case-016"
+        },
+        {
+          "case_id": "case-017",
+          "scenario_id": "docs-driven-execution--audit",
+          "run": 2,
+          "observed_owner": "workflow-audit-history",
+          "normalized_owner": "docs-driven-execution",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "baseline-run2.json#case-017"
+        },
+        {
+          "case_id": "case-018",
+          "scenario_id": "session-handoff--handoff",
+          "run": 2,
+          "observed_owner": "session-handoff",
+          "normalized_owner": "session-handoff",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "baseline-run2.json#case-018"
+        },
+        {
+          "case_id": "case-019",
+          "scenario_id": "session-handoff--resume",
+          "run": 2,
+          "observed_owner": "artifact-resume-audit",
+          "normalized_owner": "session-handoff",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "baseline-run2.json#case-019"
+        },
+        {
+          "case_id": "case-020",
+          "scenario_id": "session-handoff--lessons",
+          "run": 2,
+          "observed_owner": "reflection-and-learning",
+          "normalized_owner": "session-handoff",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "baseline-run2.json#case-020"
+        },
+        {
+          "case_id": "case-021",
+          "scenario_id": "verification-before-completion--verify",
+          "run": 2,
+          "observed_owner": "verification-before-completion",
+          "normalized_owner": "verification-before-completion",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "baseline-run2.json#case-021"
+        },
+        {
+          "case_id": "case-022",
+          "scenario_id": "verification-before-completion--readiness",
+          "run": 2,
+          "observed_owner": "release-readiness",
+          "normalized_owner": "verification-before-completion",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "baseline-run2.json#case-022"
+        },
+        {
+          "case_id": "case-023",
+          "scenario_id": "verification-before-completion--handoff",
+          "run": 2,
+          "observed_owner": "e2e-verification-handoff",
+          "normalized_owner": "verification-before-completion",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "baseline-run2.json#case-023"
+        },
+        {
+          "case_id": "case-024",
+          "scenario_id": "skill-maintenance-and-validation--edit",
+          "run": 2,
+          "observed_owner": "skill-maintenance-and-validation",
+          "normalized_owner": "skill-maintenance-and-validation",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "baseline-run2.json#case-024"
+        },
+        {
+          "case_id": "case-025",
+          "scenario_id": "skill-maintenance-and-validation--portfolio",
+          "run": 2,
+          "observed_owner": "skill-stocktake",
+          "normalized_owner": "skill-maintenance-and-validation",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "baseline-run2.json#case-025"
+        },
+        {
+          "case_id": "case-026",
+          "scenario_id": "skill-maintenance-and-validation--export",
+          "run": 2,
+          "observed_owner": "cross-tool-packaging",
+          "normalized_owner": "skill-maintenance-and-validation",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "baseline-run2.json#case-026"
+        },
+        {
+          "case_id": "case-027",
+          "scenario_id": "skill-maintenance-and-validation--validate",
+          "run": 2,
+          "observed_owner": "cross-tool-packaging",
+          "normalized_owner": "skill-maintenance-and-validation",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "baseline-run2.json#case-027"
+        },
+        {
+          "case_id": "case-028",
+          "scenario_id": "spec-driven-development--prepare",
+          "run": 2,
+          "observed_owner": "test-driven-development",
+          "normalized_owner": "test-driven-development",
+          "canonical_owner_match": false,
+          "accepted_owner": false,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "baseline-run2.json#case-028"
+        },
+        {
+          "case_id": "case-029",
+          "scenario_id": "spec-driven-development--prd",
+          "run": 2,
+          "observed_owner": "design-to-prd",
+          "normalized_owner": "spec-driven-development",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "baseline-run2.json#case-029"
+        },
+        {
+          "case_id": "case-030",
+          "scenario_id": "ticket-driven-delivery--deliver",
+          "run": 2,
+          "observed_owner": "ticket-batch-intake",
+          "normalized_owner": "ticket-driven-delivery",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "baseline-run2.json#case-030"
+        },
+        {
+          "case_id": "case-031",
+          "scenario_id": "ticket-driven-delivery--intake",
+          "run": 2,
+          "observed_owner": "ticket-batch-intake",
+          "normalized_owner": "ticket-driven-delivery",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "baseline-run2.json#case-031"
+        },
+        {
+          "case_id": "case-032",
+          "scenario_id": "ticket-driven-delivery--review",
+          "run": 2,
+          "observed_owner": "two-axis-review",
+          "normalized_owner": "two-axis-review",
+          "canonical_owner_match": false,
+          "accepted_owner": false,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "baseline-run2.json#case-032"
+        },
+        {
+          "case_id": "case-033",
+          "scenario_id": "ticket-driven-delivery--plan",
+          "run": 2,
+          "observed_owner": "ticket-batch-intake",
+          "normalized_owner": "ticket-driven-delivery",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "baseline-run2.json#case-033"
+        },
+        {
+          "case_id": "case-034",
+          "scenario_id": "ticket-driven-delivery--closeout",
+          "run": 2,
+          "observed_owner": "ticket-driven-delivery",
+          "normalized_owner": "ticket-driven-delivery",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "baseline-run2.json#case-034"
+        },
+        {
+          "case_id": "case-035",
+          "scenario_id": "evidence-discovery--repository",
+          "run": 2,
+          "observed_owner": "repo-convention-discovery",
+          "normalized_owner": "evidence-discovery",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "baseline-run2.json#case-035"
+        },
+        {
+          "case_id": "case-036",
+          "scenario_id": "evidence-discovery--research",
+          "run": 2,
+          "observed_owner": "search-first",
+          "normalized_owner": "evidence-discovery",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "baseline-run2.json#case-036"
+        },
+        {
+          "case_id": "case-037",
+          "scenario_id": "frontend-design--audit",
+          "run": 2,
+          "observed_owner": "frontend-redesign-audit",
+          "normalized_owner": "frontend-design",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "baseline-run2.json#case-037"
+        },
+        {
+          "case_id": "case-038",
+          "scenario_id": "frontend-design--implement",
+          "run": 2,
+          "observed_owner": "design-fidelity-polish",
+          "normalized_owner": "frontend-design",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "baseline-run2.json#case-038"
+        },
+        {
+          "case_id": "case-039",
+          "scenario_id": "frontend-design--export",
+          "run": 2,
+          "observed_owner": "design-system-export",
+          "normalized_owner": "frontend-design",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "baseline-run2.json#case-039"
+        },
+        {
+          "case_id": "case-040",
+          "scenario_id": "full-project-hardening--audit",
+          "run": 2,
+          "observed_owner": "full-project-hardening",
+          "normalized_owner": "full-project-hardening",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "baseline-run2.json#case-040"
+        },
+        {
+          "case_id": "case-041",
+          "scenario_id": "full-project-hardening--architecture",
+          "run": 2,
+          "observed_owner": "architecture-deepening-audit",
+          "normalized_owner": "full-project-hardening",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "baseline-run2.json#case-041"
+        },
+        {
+          "case_id": "case-042",
+          "scenario_id": "full-project-hardening--migration",
+          "run": 2,
+          "observed_owner": "migration-risk-audit",
+          "normalized_owner": "full-project-hardening",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "baseline-run2.json#case-042"
+        },
+        {
+          "case_id": "case-043",
+          "scenario_id": "full-project-hardening--remediate",
+          "run": 2,
+          "observed_owner": "full-project-hardening",
+          "normalized_owner": "full-project-hardening",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "baseline-run2.json#case-043"
+        },
+        {
+          "case_id": "case-044",
+          "scenario_id": "product-brainstorming--shape",
+          "run": 2,
+          "observed_owner": "product-brainstorming",
+          "normalized_owner": "product-brainstorming",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "baseline-run2.json#case-044"
+        },
+        {
+          "case_id": "case-045",
+          "scenario_id": "product-brainstorming--prototype",
+          "run": 2,
+          "observed_owner": "throwaway-prototype",
+          "normalized_owner": "product-brainstorming",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "baseline-run2.json#case-045"
+        },
+        {
+          "case_id": "case-046",
+          "scenario_id": "api-spec-conflict",
+          "run": 2,
+          "observed_owner": "integrating-backend-api-into-frontend",
+          "normalized_owner": "integrating-backend-api-into-frontend",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "outcome": true,
+            "overreach": true,
+            "fabrication": true
+          },
+          "response_record": "baseline-run2.json#case-046"
+        },
+        {
+          "case_id": "case-047",
+          "scenario_id": "required-access-blocker",
+          "run": 2,
+          "observed_owner": "integrating-backend-api-into-frontend",
+          "normalized_owner": "integrating-backend-api-into-frontend",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "outcome": true,
+            "overreach": true,
+            "fabrication": true
+          },
+          "response_record": "baseline-run2.json#case-047"
+        },
+        {
+          "case_id": "case-048",
+          "scenario_id": "reuse-evidence",
+          "run": 2,
+          "observed_owner": "verification-before-completion",
+          "normalized_owner": "verification-before-completion",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "outcome": true,
+            "overreach": true,
+            "fabrication": true
+          },
+          "response_record": "baseline-run2.json#case-048"
+        },
+        {
+          "case_id": "case-049",
+          "scenario_id": "repo-free-figma",
+          "run": 2,
+          "observed_owner": "figma",
+          "normalized_owner": "figma",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "outcome": true,
+            "overreach": true,
+            "fabrication": true
+          },
+          "response_record": "baseline-run2.json#case-049"
+        },
+        {
+          "case_id": "case-050",
+          "scenario_id": "repo-free-stitch",
+          "run": 2,
+          "observed_owner": "google-stitch",
+          "normalized_owner": "google-stitch",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "outcome": true,
+            "overreach": true,
+            "fabrication": true
+          },
+          "response_record": "baseline-run2.json#case-050"
+        },
+        {
+          "case_id": "case-051",
+          "scenario_id": "synthetic-build-config",
+          "run": 2,
+          "observed_owner": "native-desktop-delivery",
+          "normalized_owner": "native-desktop-delivery",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "outcome": true,
+            "overreach": true,
+            "fabrication": true
+          },
+          "response_record": "baseline-run2.json#case-051"
+        }
+      ]
+    },
+    "revised": {
+      "case_runs": 102,
+      "assertion_pass_runs": 102,
+      "accepted_runs": 102,
+      "canonical_owner_matches": 101,
+      "records": [
+        {
+          "case_id": "case-001",
+          "scenario_id": "audit-only",
+          "run": 1,
+          "observed_owner": "full-project-hardening",
+          "normalized_owner": "full-project-hardening",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "mode": true,
+            "deliverable": true,
+            "writes": true,
+            "scope": true
+          },
+          "response_record": "revised-run1.json#case-001"
+        },
+        {
+          "case_id": "case-002",
+          "scenario_id": "device-state",
+          "run": 1,
+          "observed_owner": "native-desktop-delivery",
+          "normalized_owner": "native-desktop-delivery",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "ownership": true,
+            "replay": true,
+            "test": true,
+            "shared": true,
+            "context": true
+          },
+          "response_record": "revised-run1.json#case-002"
+        },
+        {
+          "case_id": "case-003",
+          "scenario_id": "direct-authorization",
+          "run": 1,
+          "observed_owner": "full-project-hardening",
+          "normalized_owner": "full-project-hardening",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "boundary": true,
+            "negative": true,
+            "green": true,
+            "fix": true
+          },
+          "response_record": "revised-run1.json#case-003"
+        },
+        {
+          "case_id": "case-004",
+          "scenario_id": "failed-deployment",
+          "run": 1,
+          "observed_owner": "verification-before-completion",
+          "normalized_owner": "verification-before-completion",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "status": true,
+            "smoke": true,
+            "live": true,
+            "done": true,
+            "deploy": true,
+            "rewrite": true
+          },
+          "response_record": "revised-run1.json#case-004"
+        },
+        {
+          "case_id": "case-005",
+          "scenario_id": "cross-built-installer",
+          "run": 1,
+          "observed_owner": "native-desktop-delivery",
+          "normalized_owner": "native-desktop-delivery",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "windows": true,
+            "mac": true,
+            "parity": true,
+            "release": true
+          },
+          "response_record": "revised-run1.json#case-005"
+        },
+        {
+          "case_id": "case-006",
+          "scenario_id": "unchanged-blocker",
+          "run": 1,
+          "observed_owner": "workflow-contract-builder",
+          "normalized_owner": "workflow-contract-builder",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "quiet": true,
+            "baseline": true,
+            "proof": true,
+            "repeat": true,
+            "operational": true
+          },
+          "response_record": "revised-run1.json#case-006"
+        },
+        {
+          "case_id": "case-007",
+          "scenario_id": "question-schema",
+          "run": 1,
+          "observed_owner": "grill-with-docs",
+          "normalized_owner": "grill-with-docs",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "schema": true,
+            "one": true,
+            "pending": true,
+            "field": true,
+            "approval": true
+          },
+          "response_record": "revised-run1.json#case-007"
+        },
+        {
+          "case_id": "case-008",
+          "scenario_id": "ui-simplification",
+          "run": 1,
+          "observed_owner": "frontend-design",
+          "normalized_owner": "frontend-design",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "reference": true,
+            "layout": true,
+            "overlay": true,
+            "invent": true,
+            "mutate": true
+          },
+          "response_record": "revised-run1.json#case-008"
+        },
+        {
+          "case_id": "case-009",
+          "scenario_id": "custom-skill-routing--route",
+          "run": 1,
+          "observed_owner": "custom-skill-routing",
+          "normalized_owner": "custom-skill-routing",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "revised-run1.json#case-009"
+        },
+        {
+          "case_id": "case-010",
+          "scenario_id": "custom-skill-routing--stage",
+          "run": 1,
+          "observed_owner": "custom-skill-routing",
+          "normalized_owner": "custom-skill-routing",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "revised-run1.json#case-010"
+        },
+        {
+          "case_id": "case-011",
+          "scenario_id": "requirements-review--review",
+          "run": 1,
+          "observed_owner": "requirements-review",
+          "normalized_owner": "requirements-review",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "revised-run1.json#case-011"
+        },
+        {
+          "case_id": "case-012",
+          "scenario_id": "requirements-review--compare",
+          "run": 1,
+          "observed_owner": "requirements-review",
+          "normalized_owner": "requirements-review",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "revised-run1.json#case-012"
+        },
+        {
+          "case_id": "case-013",
+          "scenario_id": "requirements-review--clarify",
+          "run": 1,
+          "observed_owner": "requirements-review",
+          "normalized_owner": "requirements-review",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "revised-run1.json#case-013"
+        },
+        {
+          "case_id": "case-014",
+          "scenario_id": "docs-driven-execution--execute",
+          "run": 1,
+          "observed_owner": "docs-driven-execution",
+          "normalized_owner": "docs-driven-execution",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "revised-run1.json#case-014"
+        },
+        {
+          "case_id": "case-015",
+          "scenario_id": "docs-driven-execution--tracking",
+          "run": 1,
+          "observed_owner": "docs-driven-execution",
+          "normalized_owner": "docs-driven-execution",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "revised-run1.json#case-015"
+        },
+        {
+          "case_id": "case-016",
+          "scenario_id": "docs-driven-execution--decompose",
+          "run": 1,
+          "observed_owner": "docs-driven-execution",
+          "normalized_owner": "docs-driven-execution",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "revised-run1.json#case-016"
+        },
+        {
+          "case_id": "case-017",
+          "scenario_id": "docs-driven-execution--audit",
+          "run": 1,
+          "observed_owner": "docs-driven-execution",
+          "normalized_owner": "docs-driven-execution",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "revised-run1.json#case-017"
+        },
+        {
+          "case_id": "case-018",
+          "scenario_id": "session-handoff--handoff",
+          "run": 1,
+          "observed_owner": "session-handoff",
+          "normalized_owner": "session-handoff",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "revised-run1.json#case-018"
+        },
+        {
+          "case_id": "case-019",
+          "scenario_id": "session-handoff--resume",
+          "run": 1,
+          "observed_owner": "session-handoff",
+          "normalized_owner": "session-handoff",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "revised-run1.json#case-019"
+        },
+        {
+          "case_id": "case-020",
+          "scenario_id": "session-handoff--lessons",
+          "run": 1,
+          "observed_owner": "session-handoff",
+          "normalized_owner": "session-handoff",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "revised-run1.json#case-020"
+        },
+        {
+          "case_id": "case-021",
+          "scenario_id": "verification-before-completion--verify",
+          "run": 1,
+          "observed_owner": "verification-before-completion",
+          "normalized_owner": "verification-before-completion",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "revised-run1.json#case-021"
+        },
+        {
+          "case_id": "case-022",
+          "scenario_id": "verification-before-completion--readiness",
+          "run": 1,
+          "observed_owner": "verification-before-completion",
+          "normalized_owner": "verification-before-completion",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "revised-run1.json#case-022"
+        },
+        {
+          "case_id": "case-023",
+          "scenario_id": "verification-before-completion--handoff",
+          "run": 1,
+          "observed_owner": "verification-before-completion",
+          "normalized_owner": "verification-before-completion",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "revised-run1.json#case-023"
+        },
+        {
+          "case_id": "case-024",
+          "scenario_id": "skill-maintenance-and-validation--edit",
+          "run": 1,
+          "observed_owner": "skill-maintenance-and-validation",
+          "normalized_owner": "skill-maintenance-and-validation",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "revised-run1.json#case-024"
+        },
+        {
+          "case_id": "case-025",
+          "scenario_id": "skill-maintenance-and-validation--portfolio",
+          "run": 1,
+          "observed_owner": "skill-maintenance-and-validation",
+          "normalized_owner": "skill-maintenance-and-validation",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "revised-run1.json#case-025"
+        },
+        {
+          "case_id": "case-026",
+          "scenario_id": "skill-maintenance-and-validation--export",
+          "run": 1,
+          "observed_owner": "skill-maintenance-and-validation",
+          "normalized_owner": "skill-maintenance-and-validation",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "revised-run1.json#case-026"
+        },
+        {
+          "case_id": "case-027",
+          "scenario_id": "skill-maintenance-and-validation--validate",
+          "run": 1,
+          "observed_owner": "skill-maintenance-and-validation",
+          "normalized_owner": "skill-maintenance-and-validation",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "revised-run1.json#case-027"
+        },
+        {
+          "case_id": "case-028",
+          "scenario_id": "spec-driven-development--prepare",
+          "run": 1,
+          "observed_owner": "spec-driven-development",
+          "normalized_owner": "spec-driven-development",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "revised-run1.json#case-028"
+        },
+        {
+          "case_id": "case-029",
+          "scenario_id": "spec-driven-development--prd",
+          "run": 1,
+          "observed_owner": "spec-driven-development",
+          "normalized_owner": "spec-driven-development",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "revised-run1.json#case-029"
+        },
+        {
+          "case_id": "case-030",
+          "scenario_id": "ticket-driven-delivery--deliver",
+          "run": 1,
+          "observed_owner": "ticket-driven-delivery",
+          "normalized_owner": "ticket-driven-delivery",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "revised-run1.json#case-030"
+        },
+        {
+          "case_id": "case-031",
+          "scenario_id": "ticket-driven-delivery--intake",
+          "run": 1,
+          "observed_owner": "ticket-driven-delivery",
+          "normalized_owner": "ticket-driven-delivery",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "revised-run1.json#case-031"
+        },
+        {
+          "case_id": "case-032",
+          "scenario_id": "ticket-driven-delivery--review",
+          "run": 1,
+          "observed_owner": "ticket-driven-delivery",
+          "normalized_owner": "ticket-driven-delivery",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "revised-run1.json#case-032"
+        },
+        {
+          "case_id": "case-033",
+          "scenario_id": "ticket-driven-delivery--plan",
+          "run": 1,
+          "observed_owner": "ticket-driven-delivery",
+          "normalized_owner": "ticket-driven-delivery",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "revised-run1.json#case-033"
+        },
+        {
+          "case_id": "case-034",
+          "scenario_id": "ticket-driven-delivery--closeout",
+          "run": 1,
+          "observed_owner": "ticket-driven-delivery",
+          "normalized_owner": "ticket-driven-delivery",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "revised-run1.json#case-034"
+        },
+        {
+          "case_id": "case-035",
+          "scenario_id": "evidence-discovery--repository",
+          "run": 1,
+          "observed_owner": "evidence-discovery",
+          "normalized_owner": "evidence-discovery",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "revised-run1.json#case-035"
+        },
+        {
+          "case_id": "case-036",
+          "scenario_id": "evidence-discovery--research",
+          "run": 1,
+          "observed_owner": "evidence-discovery",
+          "normalized_owner": "evidence-discovery",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "revised-run1.json#case-036"
+        },
+        {
+          "case_id": "case-037",
+          "scenario_id": "frontend-design--audit",
+          "run": 1,
+          "observed_owner": "frontend-design",
+          "normalized_owner": "frontend-design",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "revised-run1.json#case-037"
+        },
+        {
+          "case_id": "case-038",
+          "scenario_id": "frontend-design--implement",
+          "run": 1,
+          "observed_owner": "frontend-design",
+          "normalized_owner": "frontend-design",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "revised-run1.json#case-038"
+        },
+        {
+          "case_id": "case-039",
+          "scenario_id": "frontend-design--export",
+          "run": 1,
+          "observed_owner": "frontend-design",
+          "normalized_owner": "frontend-design",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "revised-run1.json#case-039"
+        },
+        {
+          "case_id": "case-040",
+          "scenario_id": "full-project-hardening--audit",
+          "run": 1,
+          "observed_owner": "full-project-hardening",
+          "normalized_owner": "full-project-hardening",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "revised-run1.json#case-040"
+        },
+        {
+          "case_id": "case-041",
+          "scenario_id": "full-project-hardening--architecture",
+          "run": 1,
+          "observed_owner": "full-project-hardening",
+          "normalized_owner": "full-project-hardening",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "revised-run1.json#case-041"
+        },
+        {
+          "case_id": "case-042",
+          "scenario_id": "full-project-hardening--migration",
+          "run": 1,
+          "observed_owner": "full-project-hardening",
+          "normalized_owner": "full-project-hardening",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "revised-run1.json#case-042"
+        },
+        {
+          "case_id": "case-043",
+          "scenario_id": "full-project-hardening--remediate",
+          "run": 1,
+          "observed_owner": "full-project-hardening",
+          "normalized_owner": "full-project-hardening",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "revised-run1.json#case-043"
+        },
+        {
+          "case_id": "case-044",
+          "scenario_id": "product-brainstorming--shape",
+          "run": 1,
+          "observed_owner": "product-brainstorming",
+          "normalized_owner": "product-brainstorming",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "revised-run1.json#case-044"
+        },
+        {
+          "case_id": "case-045",
+          "scenario_id": "product-brainstorming--prototype",
+          "run": 1,
+          "observed_owner": "product-brainstorming",
+          "normalized_owner": "product-brainstorming",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "revised-run1.json#case-045"
+        },
+        {
+          "case_id": "case-046",
+          "scenario_id": "api-spec-conflict",
+          "run": 1,
+          "observed_owner": "integrating-backend-api-into-frontend",
+          "normalized_owner": "integrating-backend-api-into-frontend",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "outcome": true,
+            "overreach": true,
+            "fabrication": true
+          },
+          "response_record": "revised-run1.json#case-046"
+        },
+        {
+          "case_id": "case-047",
+          "scenario_id": "required-access-blocker",
+          "run": 1,
+          "observed_owner": "integrating-backend-api-into-frontend",
+          "normalized_owner": "integrating-backend-api-into-frontend",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "outcome": true,
+            "overreach": true,
+            "fabrication": true
+          },
+          "response_record": "revised-run1.json#case-047"
+        },
+        {
+          "case_id": "case-048",
+          "scenario_id": "reuse-evidence",
+          "run": 1,
+          "observed_owner": "verification-before-completion",
+          "normalized_owner": "verification-before-completion",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "outcome": true,
+            "overreach": true,
+            "fabrication": true
+          },
+          "response_record": "revised-run1.json#case-048"
+        },
+        {
+          "case_id": "case-049",
+          "scenario_id": "repo-free-figma",
+          "run": 1,
+          "observed_owner": "figma",
+          "normalized_owner": "figma",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "outcome": true,
+            "overreach": true,
+            "fabrication": true
+          },
+          "response_record": "revised-run1.json#case-049"
+        },
+        {
+          "case_id": "case-050",
+          "scenario_id": "repo-free-stitch",
+          "run": 1,
+          "observed_owner": "google-stitch",
+          "normalized_owner": "google-stitch",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "outcome": true,
+            "overreach": true,
+            "fabrication": true
+          },
+          "response_record": "revised-run1.json#case-050"
+        },
+        {
+          "case_id": "case-051",
+          "scenario_id": "synthetic-build-config",
+          "run": 1,
+          "observed_owner": "native-desktop-delivery",
+          "normalized_owner": "native-desktop-delivery",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "outcome": true,
+            "overreach": true,
+            "fabrication": true
+          },
+          "response_record": "revised-run1.json#case-051"
+        },
+        {
+          "case_id": "case-001",
+          "scenario_id": "audit-only",
+          "run": 2,
+          "observed_owner": "full-project-hardening",
+          "normalized_owner": "full-project-hardening",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "mode": true,
+            "deliverable": true,
+            "writes": true,
+            "scope": true
+          },
+          "response_record": "revised-run2.json#case-001"
+        },
+        {
+          "case_id": "case-002",
+          "scenario_id": "device-state",
+          "run": 2,
+          "observed_owner": "native-desktop-delivery",
+          "normalized_owner": "native-desktop-delivery",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "ownership": true,
+            "replay": true,
+            "test": true,
+            "shared": true,
+            "context": true
+          },
+          "response_record": "revised-run2.json#case-002"
+        },
+        {
+          "case_id": "case-003",
+          "scenario_id": "direct-authorization",
+          "run": 2,
+          "observed_owner": "full-project-hardening",
+          "normalized_owner": "full-project-hardening",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "boundary": true,
+            "negative": true,
+            "green": true,
+            "fix": true
+          },
+          "response_record": "revised-run2.json#case-003"
+        },
+        {
+          "case_id": "case-004",
+          "scenario_id": "failed-deployment",
+          "run": 2,
+          "observed_owner": "verification-before-completion",
+          "normalized_owner": "verification-before-completion",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "status": true,
+            "smoke": true,
+            "live": true,
+            "done": true,
+            "deploy": true,
+            "rewrite": true
+          },
+          "response_record": "revised-run2.json#case-004"
+        },
+        {
+          "case_id": "case-005",
+          "scenario_id": "cross-built-installer",
+          "run": 2,
+          "observed_owner": "native-desktop-delivery",
+          "normalized_owner": "native-desktop-delivery",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "windows": true,
+            "mac": true,
+            "parity": true,
+            "release": true
+          },
+          "response_record": "revised-run2.json#case-005"
+        },
+        {
+          "case_id": "case-006",
+          "scenario_id": "unchanged-blocker",
+          "run": 2,
+          "observed_owner": "workflow-contract-builder",
+          "normalized_owner": "workflow-contract-builder",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "quiet": true,
+            "baseline": true,
+            "proof": true,
+            "repeat": true,
+            "operational": true
+          },
+          "response_record": "revised-run2.json#case-006"
+        },
+        {
+          "case_id": "case-007",
+          "scenario_id": "question-schema",
+          "run": 2,
+          "observed_owner": "grill-with-docs",
+          "normalized_owner": "grill-with-docs",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "schema": true,
+            "one": true,
+            "pending": true,
+            "field": true,
+            "approval": true
+          },
+          "response_record": "revised-run2.json#case-007"
+        },
+        {
+          "case_id": "case-008",
+          "scenario_id": "ui-simplification",
+          "run": 2,
+          "observed_owner": "frontend-design",
+          "normalized_owner": "frontend-design",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "reference": true,
+            "layout": true,
+            "overlay": true,
+            "invent": true,
+            "mutate": true
+          },
+          "response_record": "revised-run2.json#case-008"
+        },
+        {
+          "case_id": "case-009",
+          "scenario_id": "custom-skill-routing--route",
+          "run": 2,
+          "observed_owner": "spec-driven-development",
+          "normalized_owner": "spec-driven-development",
+          "canonical_owner_match": false,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "revised-run2.json#case-009"
+        },
+        {
+          "case_id": "case-010",
+          "scenario_id": "custom-skill-routing--stage",
+          "run": 2,
+          "observed_owner": "custom-skill-routing",
+          "normalized_owner": "custom-skill-routing",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "revised-run2.json#case-010"
+        },
+        {
+          "case_id": "case-011",
+          "scenario_id": "requirements-review--review",
+          "run": 2,
+          "observed_owner": "requirements-review",
+          "normalized_owner": "requirements-review",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "revised-run2.json#case-011"
+        },
+        {
+          "case_id": "case-012",
+          "scenario_id": "requirements-review--compare",
+          "run": 2,
+          "observed_owner": "requirements-review",
+          "normalized_owner": "requirements-review",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "revised-run2.json#case-012"
+        },
+        {
+          "case_id": "case-013",
+          "scenario_id": "requirements-review--clarify",
+          "run": 2,
+          "observed_owner": "requirements-review",
+          "normalized_owner": "requirements-review",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "revised-run2.json#case-013"
+        },
+        {
+          "case_id": "case-014",
+          "scenario_id": "docs-driven-execution--execute",
+          "run": 2,
+          "observed_owner": "docs-driven-execution",
+          "normalized_owner": "docs-driven-execution",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "revised-run2.json#case-014"
+        },
+        {
+          "case_id": "case-015",
+          "scenario_id": "docs-driven-execution--tracking",
+          "run": 2,
+          "observed_owner": "docs-driven-execution",
+          "normalized_owner": "docs-driven-execution",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "revised-run2.json#case-015"
+        },
+        {
+          "case_id": "case-016",
+          "scenario_id": "docs-driven-execution--decompose",
+          "run": 2,
+          "observed_owner": "docs-driven-execution",
+          "normalized_owner": "docs-driven-execution",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "revised-run2.json#case-016"
+        },
+        {
+          "case_id": "case-017",
+          "scenario_id": "docs-driven-execution--audit",
+          "run": 2,
+          "observed_owner": "docs-driven-execution",
+          "normalized_owner": "docs-driven-execution",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "revised-run2.json#case-017"
+        },
+        {
+          "case_id": "case-018",
+          "scenario_id": "session-handoff--handoff",
+          "run": 2,
+          "observed_owner": "session-handoff",
+          "normalized_owner": "session-handoff",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "revised-run2.json#case-018"
+        },
+        {
+          "case_id": "case-019",
+          "scenario_id": "session-handoff--resume",
+          "run": 2,
+          "observed_owner": "session-handoff",
+          "normalized_owner": "session-handoff",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "revised-run2.json#case-019"
+        },
+        {
+          "case_id": "case-020",
+          "scenario_id": "session-handoff--lessons",
+          "run": 2,
+          "observed_owner": "session-handoff",
+          "normalized_owner": "session-handoff",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "revised-run2.json#case-020"
+        },
+        {
+          "case_id": "case-021",
+          "scenario_id": "verification-before-completion--verify",
+          "run": 2,
+          "observed_owner": "verification-before-completion",
+          "normalized_owner": "verification-before-completion",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "revised-run2.json#case-021"
+        },
+        {
+          "case_id": "case-022",
+          "scenario_id": "verification-before-completion--readiness",
+          "run": 2,
+          "observed_owner": "verification-before-completion",
+          "normalized_owner": "verification-before-completion",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "revised-run2.json#case-022"
+        },
+        {
+          "case_id": "case-023",
+          "scenario_id": "verification-before-completion--handoff",
+          "run": 2,
+          "observed_owner": "verification-before-completion",
+          "normalized_owner": "verification-before-completion",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "revised-run2.json#case-023"
+        },
+        {
+          "case_id": "case-024",
+          "scenario_id": "skill-maintenance-and-validation--edit",
+          "run": 2,
+          "observed_owner": "skill-maintenance-and-validation",
+          "normalized_owner": "skill-maintenance-and-validation",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "revised-run2.json#case-024"
+        },
+        {
+          "case_id": "case-025",
+          "scenario_id": "skill-maintenance-and-validation--portfolio",
+          "run": 2,
+          "observed_owner": "skill-maintenance-and-validation",
+          "normalized_owner": "skill-maintenance-and-validation",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "revised-run2.json#case-025"
+        },
+        {
+          "case_id": "case-026",
+          "scenario_id": "skill-maintenance-and-validation--export",
+          "run": 2,
+          "observed_owner": "skill-maintenance-and-validation",
+          "normalized_owner": "skill-maintenance-and-validation",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "revised-run2.json#case-026"
+        },
+        {
+          "case_id": "case-027",
+          "scenario_id": "skill-maintenance-and-validation--validate",
+          "run": 2,
+          "observed_owner": "skill-maintenance-and-validation",
+          "normalized_owner": "skill-maintenance-and-validation",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "revised-run2.json#case-027"
+        },
+        {
+          "case_id": "case-028",
+          "scenario_id": "spec-driven-development--prepare",
+          "run": 2,
+          "observed_owner": "spec-driven-development",
+          "normalized_owner": "spec-driven-development",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "revised-run2.json#case-028"
+        },
+        {
+          "case_id": "case-029",
+          "scenario_id": "spec-driven-development--prd",
+          "run": 2,
+          "observed_owner": "spec-driven-development",
+          "normalized_owner": "spec-driven-development",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "revised-run2.json#case-029"
+        },
+        {
+          "case_id": "case-030",
+          "scenario_id": "ticket-driven-delivery--deliver",
+          "run": 2,
+          "observed_owner": "ticket-driven-delivery",
+          "normalized_owner": "ticket-driven-delivery",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "revised-run2.json#case-030"
+        },
+        {
+          "case_id": "case-031",
+          "scenario_id": "ticket-driven-delivery--intake",
+          "run": 2,
+          "observed_owner": "ticket-driven-delivery",
+          "normalized_owner": "ticket-driven-delivery",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "revised-run2.json#case-031"
+        },
+        {
+          "case_id": "case-032",
+          "scenario_id": "ticket-driven-delivery--review",
+          "run": 2,
+          "observed_owner": "ticket-driven-delivery",
+          "normalized_owner": "ticket-driven-delivery",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "revised-run2.json#case-032"
+        },
+        {
+          "case_id": "case-033",
+          "scenario_id": "ticket-driven-delivery--plan",
+          "run": 2,
+          "observed_owner": "ticket-driven-delivery",
+          "normalized_owner": "ticket-driven-delivery",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "revised-run2.json#case-033"
+        },
+        {
+          "case_id": "case-034",
+          "scenario_id": "ticket-driven-delivery--closeout",
+          "run": 2,
+          "observed_owner": "ticket-driven-delivery",
+          "normalized_owner": "ticket-driven-delivery",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "revised-run2.json#case-034"
+        },
+        {
+          "case_id": "case-035",
+          "scenario_id": "evidence-discovery--repository",
+          "run": 2,
+          "observed_owner": "evidence-discovery",
+          "normalized_owner": "evidence-discovery",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "revised-run2.json#case-035"
+        },
+        {
+          "case_id": "case-036",
+          "scenario_id": "evidence-discovery--research",
+          "run": 2,
+          "observed_owner": "evidence-discovery",
+          "normalized_owner": "evidence-discovery",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "revised-run2.json#case-036"
+        },
+        {
+          "case_id": "case-037",
+          "scenario_id": "frontend-design--audit",
+          "run": 2,
+          "observed_owner": "frontend-design",
+          "normalized_owner": "frontend-design",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "revised-run2.json#case-037"
+        },
+        {
+          "case_id": "case-038",
+          "scenario_id": "frontend-design--implement",
+          "run": 2,
+          "observed_owner": "frontend-design",
+          "normalized_owner": "frontend-design",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "revised-run2.json#case-038"
+        },
+        {
+          "case_id": "case-039",
+          "scenario_id": "frontend-design--export",
+          "run": 2,
+          "observed_owner": "frontend-design",
+          "normalized_owner": "frontend-design",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "revised-run2.json#case-039"
+        },
+        {
+          "case_id": "case-040",
+          "scenario_id": "full-project-hardening--audit",
+          "run": 2,
+          "observed_owner": "full-project-hardening",
+          "normalized_owner": "full-project-hardening",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "revised-run2.json#case-040"
+        },
+        {
+          "case_id": "case-041",
+          "scenario_id": "full-project-hardening--architecture",
+          "run": 2,
+          "observed_owner": "full-project-hardening",
+          "normalized_owner": "full-project-hardening",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "revised-run2.json#case-041"
+        },
+        {
+          "case_id": "case-042",
+          "scenario_id": "full-project-hardening--migration",
+          "run": 2,
+          "observed_owner": "full-project-hardening",
+          "normalized_owner": "full-project-hardening",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "revised-run2.json#case-042"
+        },
+        {
+          "case_id": "case-043",
+          "scenario_id": "full-project-hardening--remediate",
+          "run": 2,
+          "observed_owner": "full-project-hardening",
+          "normalized_owner": "full-project-hardening",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "revised-run2.json#case-043"
+        },
+        {
+          "case_id": "case-044",
+          "scenario_id": "product-brainstorming--shape",
+          "run": 2,
+          "observed_owner": "product-brainstorming",
+          "normalized_owner": "product-brainstorming",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "revised-run2.json#case-044"
+        },
+        {
+          "case_id": "case-045",
+          "scenario_id": "product-brainstorming--prototype",
+          "run": 2,
+          "observed_owner": "product-brainstorming",
+          "normalized_owner": "product-brainstorming",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "procedure": true,
+            "overreach": true,
+            "evidence": true
+          },
+          "response_record": "revised-run2.json#case-045"
+        },
+        {
+          "case_id": "case-046",
+          "scenario_id": "api-spec-conflict",
+          "run": 2,
+          "observed_owner": "integrating-backend-api-into-frontend",
+          "normalized_owner": "integrating-backend-api-into-frontend",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "outcome": true,
+            "overreach": true,
+            "fabrication": true
+          },
+          "response_record": "revised-run2.json#case-046"
+        },
+        {
+          "case_id": "case-047",
+          "scenario_id": "required-access-blocker",
+          "run": 2,
+          "observed_owner": "integrating-backend-api-into-frontend",
+          "normalized_owner": "integrating-backend-api-into-frontend",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "outcome": true,
+            "overreach": true,
+            "fabrication": true
+          },
+          "response_record": "revised-run2.json#case-047"
+        },
+        {
+          "case_id": "case-048",
+          "scenario_id": "reuse-evidence",
+          "run": 2,
+          "observed_owner": "verification-before-completion",
+          "normalized_owner": "verification-before-completion",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "outcome": true,
+            "overreach": true,
+            "fabrication": true
+          },
+          "response_record": "revised-run2.json#case-048"
+        },
+        {
+          "case_id": "case-049",
+          "scenario_id": "repo-free-figma",
+          "run": 2,
+          "observed_owner": "figma",
+          "normalized_owner": "figma",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "outcome": true,
+            "overreach": true,
+            "fabrication": true
+          },
+          "response_record": "revised-run2.json#case-049"
+        },
+        {
+          "case_id": "case-050",
+          "scenario_id": "repo-free-stitch",
+          "run": 2,
+          "observed_owner": "google-stitch",
+          "normalized_owner": "google-stitch",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "outcome": true,
+            "overreach": true,
+            "fabrication": true
+          },
+          "response_record": "revised-run2.json#case-050"
+        },
+        {
+          "case_id": "case-051",
+          "scenario_id": "synthetic-build-config",
+          "run": 2,
+          "observed_owner": "native-desktop-delivery",
+          "normalized_owner": "native-desktop-delivery",
+          "canonical_owner_match": true,
+          "accepted_owner": true,
+          "assertions": {
+            "scope": true,
+            "outcome": true,
+            "overreach": true,
+            "fabrication": true
+          },
+          "response_record": "revised-run2.json#case-051"
+        }
+      ]
+    }
+  }
+}

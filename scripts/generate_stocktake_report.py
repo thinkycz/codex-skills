@@ -68,8 +68,8 @@ def warning_summary(skills: list[dict[str, object]]) -> list[str]:
     return lines
 
 
-def main() -> int:
-    catalog = load_catalog()
+def render_report(catalog=None):
+    catalog = load_catalog() if catalog is None else catalog
     skills = [skill for skill in catalog["skills"] if skill["source_type"] == "local"]
     generated_at = datetime.now(timezone.utc).replace(microsecond=0).isoformat()
 
@@ -125,7 +125,11 @@ def main() -> int:
             "",
         ]
     )
-    REPORT_PATH.write_text(report + "\n", encoding="utf-8")
+    return report + '\n'
+
+
+def main() -> int:
+    REPORT_PATH.write_text(render_report(), encoding="utf-8")
     print(REPORT_PATH)
     return 0
 

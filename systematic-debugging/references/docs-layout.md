@@ -2,7 +2,7 @@
 
 Use this layout only when the investigation is repeated, multi-boundary, long-running, likely to cross context compaction, or otherwise needs a durable handoff. Keep bounded single-turn investigations inline.
 
-Apply `traceable-delivery` first when the investigation needs the shared `/docs` layout, tracker expectations, blocker visibility, and verification closeout.
+Reuse existing working evidence; consult `docs-driven-execution` only for an unresolved ownership or tracking question.
 
 This reference only covers the debugging-specific artifacts that are unique to investigation work.
 
@@ -40,4 +40,4 @@ Prefer:
 
 - `YYYY-MM-DD-<topic>-verification.md`
 
-Use the shared verification structure from `traceable-delivery`, then add reproduction-before/reproduction-after details specific to debugging.
+Use the shared verification structure from `docs-driven-execution`, then add reproduction-before/reproduction-after details specific to debugging.

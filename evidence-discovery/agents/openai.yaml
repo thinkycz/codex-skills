@@ -1,0 +1,4 @@
+interface:
+  display_name: "Evidence Discovery"
+  short_description: "evidence discovery workflows"
+  default_prompt: "Use $evidence-discovery to handle the requested outcome in the appropriate mode."

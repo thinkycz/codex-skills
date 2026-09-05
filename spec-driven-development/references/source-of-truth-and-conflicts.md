@@ -14,7 +14,7 @@ This skill starts from user-provided artifacts, which may be incomplete or incon
 
 - Ask for missing artifacts directly.
 - Continue exploring and planning with what exists when the missing input is not yet blocking.
-- Record missing artifacts in `/docs/specs/` so the gap stays visible.
+- Record material missing information in existing tracking so the gap stays visible.
 - Do not fabricate precise requirements to cover for missing source material.
 
 ## Conflict Rules
@@ -41,7 +41,7 @@ Use a direct question such as:
 
 Once the user answers:
 
-- record the decision in `/docs/specs/...-decisions.md`
+- record the decision inline or in the existing tracking artifact
 - update the traceability matrix if the conflict changes tasks or verification
 - note any remaining follow-up risk
 

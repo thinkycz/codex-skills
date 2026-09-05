@@ -1,7 +1,0 @@
-interface:
-  display_name: "Skill Stocktake"
-  short_description: "Audit skill health using static and observed usage evidence"
-  default_prompt: "Use $skill-stocktake to inventory the skill library, distinguish static catalog and routing-fixture signals from observed conversation usage, separate package correctness from portfolio issues, and recommend keep, refresh, merge, split, or retire actions."
-
-policy:
-  allow_implicit_invocation: true

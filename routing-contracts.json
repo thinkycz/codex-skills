@@ -1,0 +1,252 @@
+{
+  "schema_version": 1,
+  "optional_external": [
+    "skill-creator",
+    "openai-docs"
+  ],
+  "skills": {
+    "custom-skill-routing": {
+      "modes": {
+        "route": "references/mode-route.md",
+        "stage": "references/mode-stage.md"
+      },
+      "dependencies": [
+        "api-contract-review",
+        "design-to-traversable-app",
+        "docs-driven-execution",
+        "evidence-discovery",
+        "figma",
+        "frontend-design",
+        "full-project-hardening",
+        "google-stitch",
+        "grill-with-docs",
+        "integrating-backend-api-into-frontend",
+        "local-tooling-maintenance",
+        "native-desktop-delivery",
+        "product-brainstorming",
+        "requirements-review",
+        "session-handoff",
+        "skill-maintenance-and-validation",
+        "spec-driven-development",
+        "systematic-debugging",
+        "test-driven-development",
+        "ticket-driven-delivery",
+        "two-axis-review",
+        "verification-before-completion"
+      ]
+    },
+    "requirements-review": {
+      "modes": {
+        "review": "references/mode-review.md",
+        "compare": "references/mode-compare.md",
+        "clarify": "references/mode-clarify.md"
+      },
+      "dependencies": [
+        "spec-driven-development"
+      ]
+    },
+    "docs-driven-execution": {
+      "modes": {
+        "execute": "references/mode-execute.md",
+        "tracking": "references/mode-tracking.md",
+        "decompose": "references/mode-decompose.md",
+        "audit": "references/mode-audit.md"
+      },
+      "dependencies": [
+        "figma",
+        "verification-before-completion"
+      ]
+    },
+    "session-handoff": {
+      "modes": {
+        "handoff": "references/mode-handoff.md",
+        "resume": "references/mode-resume.md",
+        "lessons": "references/mode-lessons.md"
+      },
+      "dependencies": [
+        "verification-before-completion"
+      ]
+    },
+    "verification-before-completion": {
+      "modes": {
+        "verify": "references/mode-verify.md",
+        "readiness": "references/mode-readiness.md",
+        "handoff": "references/mode-handoff.md"
+      },
+      "dependencies": [
+        "local-tooling-maintenance"
+      ]
+    },
+    "skill-maintenance-and-validation": {
+      "modes": {
+        "edit": "references/mode-edit.md",
+        "portfolio": "references/mode-portfolio.md",
+        "export": "references/mode-export.md",
+        "validate": "references/mode-validate.md"
+      },
+      "dependencies": []
+    },
+    "spec-driven-development": {
+      "modes": {
+        "prepare": "references/mode-prepare.md",
+        "prd": "references/mode-prd.md"
+      },
+      "dependencies": [
+        "design-to-traversable-app",
+        "docs-driven-execution",
+        "figma",
+        "frontend-design",
+        "full-project-hardening",
+        "integrating-backend-api-into-frontend",
+        "requirements-review",
+        "session-handoff",
+        "verification-before-completion"
+      ]
+    },
+    "ticket-driven-delivery": {
+      "modes": {
+        "deliver": "references/mode-deliver.md",
+        "intake": "references/mode-intake.md",
+        "review": "references/mode-review.md",
+        "plan": "references/mode-plan.md",
+        "closeout": "references/mode-closeout.md"
+      },
+      "dependencies": [
+        "systematic-debugging"
+      ]
+    },
+    "evidence-discovery": {
+      "modes": {
+        "repository": "references/mode-repository.md",
+        "research": "references/mode-research.md"
+      },
+      "dependencies": []
+    },
+    "frontend-design": {
+      "modes": {
+        "audit": "references/mode-audit.md",
+        "implement": "references/mode-implement.md",
+        "export": "references/mode-export.md"
+      },
+      "dependencies": [
+        "native-desktop-delivery"
+      ]
+    },
+    "full-project-hardening": {
+      "modes": {
+        "audit": "references/mode-audit.md",
+        "architecture": "references/mode-architecture.md",
+        "migration": "references/mode-migration.md",
+        "remediate": "references/mode-remediate.md"
+      },
+      "dependencies": [
+        "grill-with-docs"
+      ]
+    },
+    "product-brainstorming": {
+      "modes": {
+        "shape": "references/mode-shape.md",
+        "prototype": "references/mode-prototype.md"
+      },
+      "dependencies": []
+    },
+    "api-contract-review": {
+      "modes": {
+        "work": null
+      },
+      "dependencies": []
+    },
+    "design-to-traversable-app": {
+      "modes": {
+        "work": null
+      },
+      "dependencies": [
+        "docs-driven-execution",
+        "verification-before-completion"
+      ]
+    },
+    "figma": {
+      "modes": {
+        "work": null
+      },
+      "dependencies": []
+    },
+    "google-stitch": {
+      "modes": {
+        "work": null
+      },
+      "dependencies": []
+    },
+    "grill-with-docs": {
+      "modes": {
+        "work": null
+      },
+      "dependencies": []
+    },
+    "integrating-backend-api-into-frontend": {
+      "modes": {
+        "work": null
+      },
+      "dependencies": [
+        "docs-driven-execution"
+      ]
+    },
+    "local-tooling-maintenance": {
+      "modes": {
+        "work": null
+      },
+      "dependencies": []
+    },
+    "native-desktop-delivery": {
+      "modes": {
+        "work": null
+      },
+      "dependencies": []
+    },
+    "playwright": {
+      "modes": {
+        "work": null
+      },
+      "dependencies": []
+    },
+    "subagent-driven-development": {
+      "modes": {
+        "work": null
+      },
+      "dependencies": []
+    },
+    "systematic-debugging": {
+      "modes": {
+        "work": null
+      },
+      "dependencies": [
+        "docs-driven-execution",
+        "frontend-design",
+        "integrating-backend-api-into-frontend",
+        "requirements-review",
+        "test-driven-development",
+        "verification-before-completion"
+      ]
+    },
+    "test-driven-development": {
+      "modes": {
+        "work": null
+      },
+      "dependencies": [
+        "full-project-hardening"
+      ]
+    },
+    "two-axis-review": {
+      "modes": {
+        "work": null
+      },
+      "dependencies": []
+    },
+    "workflow-contract-builder": {
+      "modes": {
+        "work": null
+      },
+      "dependencies": []
+    }
+  }
+}

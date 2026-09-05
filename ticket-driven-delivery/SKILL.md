@@ -1,143 +1,36 @@
 ---
 name: ticket-driven-delivery
-description: Use when implementing, verifying, or finishing code changes from Trello, Jira, Linear, GitHub Issues, or similar tickets, especially when the work includes prior-agent validation and stakeholder ticket comments after delivery.
-version: 1.7.0
+description: Collect ticket evidence, plan or implement ticket changes, and post an explicitly requested closeout.
+version: 2.0.0
 category: execution
 sources:
-  - ticket evidence, acceptance criteria, QA comments, and current repo state
-  - implementation diffs, verification logs, and ticket-system closeout needs
+  - Supplied task evidence and applicable project conventions
 use_when:
-  - The user asks to implement an approved ticket plan or ticket batch.
-  - The user asks to verify whether another agent correctly implemented tickets and then fix gaps.
-  - The user asks to write ticket comments summarizing what was fixed and how.
+  - Collect ticket evidence, plan or implement ticket changes, and post an explicitly requested closeout.
 avoid_when:
-  - The ticket evidence has not been gathered yet; use ticket-batch-intake first.
-  - The task is only a code review without implementation or ticket closeout; use two-axis-review.
-  - The task needs durable multi-phase docs before coding; use traceable-delivery or docs-driven-execution.
+  - The requested outcome belongs to another owner or exceeds the authorized scope.
 artifacts:
   - SKILL.md
   - agents/openai.yaml
   - agents/
   - references/
 quality_gates:
-  - Ticket evidence is compared against current repo behavior before coding or commenting.
-  - Newest QA or customer comments override older assumptions.
-  - Each ticket and affected app has a compact acceptance row tied to the newest QA scenario.
-  - Current-workspace fixes and handoff-only responsibilities are not blurred together.
-  - Implementation, verification, and ticket closeout comments are kept distinct.
-  - Ticket comments are stakeholder-friendly and written in the requested language.
-  - Tracker comments are deduplicated before posting and read back from the intended ticket afterward.
-  - Live-fix claims identify the exact deployed or installed artifact and replay the newest QA path.
-  - UI and email changes reuse shared primitives or templates instead of creating parallel implementations.
+  - Evidence supports the stated outcome and limitations.
+  - Selected mode, references and actions remain within authorization.
 ---
 
 # Ticket Driven Delivery
 
-Turn ticket evidence into implemented, verified, and clearly closed-out work.
+Select the mode from the requested outcome and current evidence. Read only that mode's reference; other modes are not prerequisites. Reuse repository identity, relevant changes, acceptance criteria, canonical examples, required checks and blockers already established. Refresh only invalidated facts.
 
-Use this skill after ticket evidence is known and the user wants implementation, verification of another agent's work, or comments back to the ticket system.
+## Modes
 
-## Boundary
+- **deliver** — Resolve exact tickets and repository scope, including attachments, comments and prior implementation claims. [Deliver procedure](references/mode-deliver.md).
+- **intake** — Collect authoritative ticket details, dependencies, attachments and discussion before planning. [Intake procedure](references/mode-intake.md).
+- **review** — Compare prior claims with diff, acceptance criteria and current evidence. [Review procedure](references/mode-review.md).
+- **plan** — Build ordered ticket slices with dependencies, acceptance checks and blockers from collected evidence. [Plan procedure](references/mode-plan.md).
+- **closeout** — Confirm the requested ticket and the scope of the already authorized comment. [Closeout procedure](references/mode-closeout.md).
 
-- Own ticket-driven implementation, verification, and closeout comments.
-- Do not gather ticket batches from scratch; hand off to `ticket-batch-intake` when descriptions, comments, attachments, or checklists still need to be read.
-- Do not replace `two-axis-review` for pure review findings.
-- Do not replace `release-readiness` for final go/no-go decisions.
+## Boundaries
 
-## Core Promise
-
-- Compare ticket evidence against current repo behavior before changing code.
-- Treat newest QA, customer, or reviewer comments as authoritative when they conflict with older text.
-- Verify prior-agent work before trusting it.
-- Keep implementation evidence separate from stakeholder closeout summaries.
-- Write ticket comments that explain what changed without dumping internal diffs.
-- When the needed app or repo is absent, close out only the work actually completed here and name the remaining handoff explicitly.
-- Keep visual behavior consistent by fixing or creating one shared primitive for each semantic UI or email pattern.
-
-## Workflow
-
-### 1. Confirm Evidence And Current State
-
-- Start from the ticket plan, comments, attachments, and acceptance criteria already gathered.
-- Build a compact acceptance matrix before editing: ticket, newest QA scenario, affected repos or apps, exact reproduction path, and evidence required for closeout.
-- For a ticket reported broken in staging, production, or an installed app, add the expected source commit, deployed commit or build identity, migration state, worker or queue state, and live replay evidence to the acceptance matrix.
-- Inspect current repo state, dirty files, relevant code paths, and existing tests.
-- Apply `repo-convention-discovery` before UI or email implementation. Inventory existing buttons, links, tags, badges, inputs, cards, email layouts, partials, and style tokens before adding another presentation path.
-- Identify generated clients, serializers, localization outputs, codegen files, or other derived artifacts touched by the ticket. Check repository conventions to determine whether they are tracked, ignored, or regenerated only in CI.
-- If another agent may have worked first, identify what is already implemented, what is partial, and what is still missing.
-- Confirm which repos are present before claiming a web, mobile, admin, backend, or API change is implemented.
-- Preserve unrelated dirty work; do not revert changes you did not make.
-
-### 2. Implement The Smallest Correct Fix
-
-- Follow repo conventions and nearby patterns.
-- Keep changes scoped to the ticket behavior and shared contract implied by the evidence.
-- When several tickets overlap, fix the shared root cause once and map it back to each ticket.
-- Do not implement the same semantic element several ways. Prefer one shared component or variant contract for buttons, tags, badges, inputs, and similar controls, and one shared base layout plus reusable partials/components for email HTML.
-- Preserve design consistency across application UI and transactional email. If a local exception is necessary, document why the shared primitive cannot represent it instead of silently forking the pattern.
-- Regenerate required derived outputs with the repository's canonical tooling. Do not hand-edit generated files unless the repository explicitly uses that workflow; if outputs are ignored, still regenerate them locally when needed to prove the source annotations and runtime contract are coherent.
-- Do not encode ticket-system IDs into product code unless the repo already has that convention.
-
-### 3. Verify Freshly
-
-- Run focused checks for the changed surface.
-- Verify generated output consistency when code generation is part of the touched surface, and report whether regenerated files are tracked, ignored, or expected from CI.
-- Verify the exact newest QA scenario in the acceptance matrix before marking its row fixed. A nearby route, a lower-level helper, or a source-only assertion does not close the row.
-- For interactive browser QA, use the active host's canonical visible browser. In Synara, use the integrated browser and reserve Computer Use for desktop or system UI, or cases the browser surface cannot finish. In Codex, follow the current app-provided browser or Chrome policy. Repository-owned Playwright tests may add automated evidence but do not replace the live ticket path.
-- When shared UI or email primitives change, verify every affected consumer and state, not only the originally reported screen or template.
-- Verify the user-visible lifecycle when practical, not only the lowest-level helper. For example, prefer the route/page/API flow that reproduces the ticket over a narrower unit assertion alone.
-- Separate new failures from pre-existing repo warnings or broken starter tests.
-- If full test suites are blocked, record the exact blocking failure and still run smaller useful checks when possible.
-- When live deployment is in scope, compare the running artifact to the intended source, confirm required migrations/builds/workers, and replay the ticket path in that environment before calling it fixed.
-- Do not claim a ticket is fixed from code inspection alone when a cheap automated or manual check is available.
-- Before closeout, inspect status and untracked files in every touched repo. Remove task-created one-time scripts, temporary captures, disposable reproduction tests, and generated debris; preserve established tooling, durable regression tests, user files, and unrelated work.
-
-### 4. Close Out Tickets
-
-- Write comments only after implementation and verification evidence exists, or clearly say the ticket is verification-only/no-code-change.
-- Before posting, read the ticket's current comments and compare the proposed closeout by substance, not exact wording. If an equivalent handoff already exists, do not create a duplicate; report that the existing comment is sufficient.
-- Use the user's requested language.
-- Prefer stakeholder-friendly structure:
-  - what was wrong
-  - how it was fixed
-  - relevant verification or caveat
-- For mixed-scope tickets, include what was fixed in this repo and what remains for another repo/team.
-- If the fix still requires a deployment, migration, worker restart, or new mobile build, say so explicitly and use an implementation-pending-verification status rather than claiming the live ticket is fixed.
-- If a ticket was reported broken after an earlier completion claim, route the repeated live failure through `systematic-debugging` and re-ground in the exact running artifact before another patch.
-- Avoid internal patch dumps, stack traces, private paths, credentials, or speculative claims.
-- After posting, read the comment back and confirm it is attached to the intended ticket, uses the requested language and status wording, and preserves the intended order when multiple comments were requested.
-
-## Output
-
-When finishing in chat, include:
-
-- tickets handled
-- user-visible changes
-- verification run and known pre-existing failures
-- ticket comments posted or ready to post
-
-## Rules
-
-- Do not skip the repo-state check.
-- Do not treat prior-agent completion claims as evidence.
-- Do not let old ticket descriptions override newer QA comments.
-- Do not comment "fixed" on tickets before the implementation and verification status is known.
-- Do not post a second handoff merely because its wording differs from an existing comment with the same substance.
-- Do not report a tracker write as complete until it has been read back from the intended ticket.
-- Do not paste long diffs or sensitive internal details into ticket comments.
-- Do not leave task-created throwaway artifacts behind merely because they are untracked or ignored.
-
-## Handoffs
-
-- Use `ticket-batch-intake` when ticket evidence still needs to be collected or normalized.
-- Use `docs-driven-execution` when the ticket work is already governed by a `/docs` plan or progress tracker; keep execution honest against those artifacts instead of re-planning from the ticket.
-- Use `two-axis-review` when the user asks for findings only.
-- Use `verification-before-completion` when the main risk is an unproven completion claim.
-- Use `traceable-delivery` when the ticket set is broad enough to need durable docs.
-
-## References
-
-- [references/ticket-closeout-comments.md](references/ticket-closeout-comments.md)
-  Use for concise Czech and English stakeholder closeout comments.
-- [references/live-and-presentation-closure.md](references/live-and-presentation-closure.md)
-  Use for deployed-artifact closure and shared UI or email consistency checks.
+Audit, review, research and verification-plan modes are read-only. A mode change never grants authority for code edits, external messages, deployment or destructive checks. Reuse explicit authorization for the same action and scope; ask only for a material missing decision or new authority. Use inline tracking for small work, one combined document for medium work, and separate artifacts only where large work benefits. Report observed evidence separately from assumptions, blockers and unrun checks.

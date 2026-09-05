@@ -1,7 +1,0 @@
-interface:
-  display_name: "Search First"
-  short_description: "Do a bounded evidence-gathering pass before asserting"
-  default_prompt: "Use $search-first to resolve the key unknown with bounded repo-first research and a confirmed-versus-inferred summary, then hand host-tool lifecycle mutations to local-tooling-maintenance."
-
-policy:
-  allow_implicit_invocation: true

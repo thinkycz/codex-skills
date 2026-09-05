@@ -1,4 +1,4 @@
 interface:
   display_name: "Workflow Contract Builder"
-  short_description: "Design safe, executable recurring workflows"
-  default_prompt: "Use $workflow-contract-builder to turn this recurring activity into a safe automation contract."
+  short_description: "workflow contract builder workflows"
+  default_prompt: "Use $workflow-contract-builder for the requested work within its stated boundary."

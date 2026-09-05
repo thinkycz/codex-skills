@@ -36,4 +36,4 @@ Once the test is green, look for:
 - primitive obsession where a value object or named type would clarify rules
 - tests that expose too many internals and should move to a deeper behavior surface
 
-Do not bundle broad architecture work into the red-to-green step. Capture larger refactors as follow-up slices or hand off to `architecture-deepening-audit` when the structure question is bigger than the current behavior.
+Do not bundle broad architecture work into the red-to-green step. Capture larger refactors as follow-up slices or hand off to `full-project-hardening` when the structure question is bigger than the current behavior.

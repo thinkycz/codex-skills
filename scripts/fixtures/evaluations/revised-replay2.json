@@ -1,0 +1,112 @@
+{
+  "run": 2,
+  "variant": "revised",
+  "model": "inherited",
+  "records": [
+    {
+      "case_id": "case-004",
+      "owner": "verification-before-completion",
+      "loaded_files": [
+        "verification-before-completion/SKILL.md",
+        "verification-before-completion/references/mode-readiness.md",
+        "verification-before-completion/references/deployment-smoke.md"
+      ],
+      "response": "Report the production resolution as blocked: regression evidence covers commit B, but its deployment failed and production still runs A. The user's observation therefore does not establish that B's fix fails. Next, inspect the actual deployment entrypoint and the view-cache error, then recommend replaying the applicable install, build, cache and startup commands in an isolated environment using B, the intended runtime versions, tracked lockfiles and synthetic configuration. Record the first failing command and exit status before proposing changes to verified feature code. Live resolution will require an authorized successful rollout, confirmation that production serves B, and verification of the original user path. No production changes are authorized by this assessment."
+    },
+    {
+      "case_id": "case-007",
+      "owner": "grill-with-docs",
+      "loaded_files": [
+        "grill-with-docs/SKILL.md"
+      ],
+      "response": "The next question concerns only the unresolved email authorization. If the native tool is available for this request, its questions entry would contain header: 'Email consent', id: 'customer_email_authorization', question: 'Do you authorize sending the customer emails in this plan?', and options with label/description pairs: 'Keep pending (Recommended)' / 'Hold sending until you explicitly authorize it', and 'Authorize sending' / 'Authorize the customer emails covered by this plan'. Do not add a timeout or default-submission field. If unanswered, the permission decision stays pending and no emails are sent; elapsed time and preselection supply no consent. Continue only independent plan analysis. If host rules forbid permission questions through this tool, ask the same single question directly instead."
+    },
+    {
+      "case_id": "case-008",
+      "owner": "frontend-design",
+      "loaded_files": [
+        "frontend-design/SKILL.md",
+        "frontend-design/references/mode-audit.md",
+        "frontend-design/references/audit-audit-rubric.md",
+        "native-desktop-delivery/SKILL.md"
+      ],
+      "response": "Use the Orders page as the comparison baseline for headers, toolbar placement, spacing, navigation and useful grouping. Plan inspection at normal and smaller supported native window sizes, with both short and long content. The supplied issues prioritize checkout reachability and the clipped dialog before decorative changes. Recommend persistent action placement that does not cover content, validation or keyboard focus, removing only redundant panel layers, and locating the backdrop at the appropriate viewport or shell layer. Inspect stacking, scroll locking, initial and restored focus, Escape and outside-click behavior. Record matching role, content and window conditions for comparisons. These are reported defects and proposed checks; no native observations or redesign implementation have occurred."
+    },
+    {
+      "case_id": "case-021",
+      "owner": "verification-before-completion",
+      "loaded_files": [
+        "verification-before-completion/SKILL.md",
+        "verification-before-completion/references/mode-verify.md"
+      ],
+      "response": "The earlier feature tests no longer establish correctness after the shared serializer changed. Before collecting new browser evidence, establish the intended app, source revision, server process and URL; the expected port currently points to another app. Refresh the affected asset build and confirm its manifest belongs to the intended source. Use an isolated test database and the required runtime dependencies. Then rerun serializer-dependent feature checks and relevant shared consumers, complete repository-required gates, and exercise the acceptance path against the confirmed runtime, including affected error states. Reuse unrelated checks only where their inputs remain unchanged. Report current status as unverified against the changed serializer; neither the wrong app nor old assets can provide valid feature evidence."
+    },
+    {
+      "case_id": "case-022",
+      "owner": "verification-before-completion",
+      "loaded_files": [
+        "verification-before-completion/SKILL.md",
+        "verification-before-completion/references/mode-readiness.md"
+      ],
+      "response": "No: the requested scope remains blocked because its required vendor integration cannot be verified and no deferral was accepted. Passing automated tests support only the behavior and environment they covered. They do not establish the inaccessible integration's live behavior. The readiness report should map completed acceptance items to their existing test evidence, identify the vendor-dependent acceptance items still blocked, and record the access prerequisite needed to verify them. Also check that the report reflects the intended source and environment and that blocker notes are current. Once access is available, verify the original end-to-end integration and its relevant failure behavior. Do not relabel the required work as optional or post-MVP."
+    },
+    {
+      "case_id": "case-023",
+      "owner": "verification-before-completion",
+      "loaded_files": [
+        "verification-before-completion/SKILL.md",
+        "verification-before-completion/references/mode-handoff.md",
+        "verification-before-completion/references/handoff-scenario-rubric.md"
+      ],
+      "response": "Prepare a tester plan using a payment sandbox, disposable accounts for both roles, isolated records, a confirmed app revision and URL, and an accessible test webhook endpoint. Actual routes, role permissions and payment contracts are prerequisites to fill in, not assumed facts. For each role, cover checkout success, cancellation and denial according to the agreed contract. Deliver a test webhook, replay it, and verify one intended local transition. Trigger a refund, simulate an interrupted response, retry, and confirm no duplicate refund or inconsistent balance; include denied-role attempts. Capture browser traces, redacted requests/responses, event and transaction IDs, and resulting local state. Clean up disposable resources only. Mark every scenario prepared and unrun until execution supplies evidence."
+    },
+    {
+      "case_id": "case-037",
+      "owner": "frontend-design",
+      "loaded_files": [
+        "frontend-design/SKILL.md",
+        "frontend-design/references/mode-audit.md",
+        "frontend-design/references/audit-audit-rubric.md"
+      ],
+      "response": "Audit settings against Orders as the named product reference, comparing toolbar, navigation, hierarchy, spacing and grouping in equivalent roles and states. Inspect short and long content at realistic and smaller supported sizes to locate where nested panels obscure actions. Recommend removing redundant containment only after identifying any semantic grouping it provides. Treat the reported clipped backdrop as a functional defect: inspect parent overflow and stacking, viewport coverage, scroll locking, focus entry and return, and Escape/outside-click dismissal. Rank overlay reliability and action access above cosmetic consistency. Deliver a small prioritized recommendation set with proposed verification conditions, keeping supplied reports separate from observations that still need collection. This audit does not implement the redesign."
+    },
+    {
+      "case_id": "case-038",
+      "owner": "frontend-design",
+      "loaded_files": [
+        "frontend-design/SKILL.md",
+        "frontend-design/references/mode-implement.md",
+        "frontend-design/references/implement-overlays-and-shells.md"
+      ],
+      "response": "Use frontend-design in implement mode. Inspect the existing Orders toolbar's component interface and settings actions, then reuse that component while preserving action labels, permissions, handlers and keyboard semantics. Trace the clipped overlay's containment and use the established viewport or shell overlay layer; retain its parent-state interaction instead of introducing a route. Verify rendered settings and relevant shared consumers at supported sizes, including long content and applicable loading, empty, error and disabled states. Check backdrop coverage, stacking, scroll locking, focus entry/return and dismissal behavior. Run required checks and meaningful behavioral tests where affected; a presentation-only source-string test adds little. This dry run describes the authorized correction but supplies no implemented or rendered evidence."
+    },
+    {
+      "case_id": "case-039",
+      "owner": "frontend-design",
+      "loaded_files": [
+        "frontend-design/SKILL.md",
+        "frontend-design/references/mode-export.md",
+        "frontend-design/references/export-artifact-shapes.md"
+      ],
+      "response": "Use export mode to extract the agreed rules from actual token definitions and representative component implementations. Produce the lightest reusable output: a token summary plus component rule matrix covering typography, spacing, colors, states, accessibility and usage boundaries, with source provenance and examples. Verify every documented token name and component API against code before labeling it implemented. Keep unresolved inconsistencies visible and place proposed refinements in a separately labeled section; do not silently normalize them into supposed standards. If a machine-consumable artifact is requested, check that downstream consumers can use it. No code evidence is supplied here, so this is the export approach, not an invented inventory of tokens or completed redesign."
+    },
+    {
+      "case_id": "case-047",
+      "owner": "integrating-backend-api-into-frontend",
+      "loaded_files": [
+        "integrating-backend-api-into-frontend/SKILL.md",
+        "integrating-backend-api-into-frontend/references/blockers-and-phase-tracking.md"
+      ],
+      "response": "Continue authorized portions that do not require the missing credentials: map documented endpoints and auth, implement independent UI and error/loading states, and prepare isolated contract checks where the supplied contract supports them. Do not invent successful provider responses or claim a stub proves the integration. Record the affected flow as blocked on credentials, including the access needed, user-visible consequence and remaining verification; the evidence does not establish that an endpoint is missing. Keep the integration and its promised phase open because the specification has not deferred it. Once credentials are supplied through the appropriate secure mechanism, verify the actual service and visible flow against the intended runtime. This decision-only response does not perform those implementation steps."
+    },
+    {
+      "case_id": "case-048",
+      "owner": "verification-before-completion",
+      "loaded_files": [
+        "verification-before-completion/SKILL.md",
+        "verification-before-completion/references/mode-verify.md"
+      ],
+      "response": "Reuse the passing targeted tests and repository-required gates: their source and environment inputs remain unchanged, and editing the handoff prose does not invalidate that evidence. Review the changed prose for accurate scope, source identity, check results and limitations, ensuring it does not introduce a new acceptance claim unsupported by the recorded results. No application test rerun is justified solely by this wording change. Run a documentation-specific required check only if the prose change affects its inputs or such a check remains outstanding. Preserve the existing evidence with its recorded context, and rerun affected checks only if code, configuration, dependencies, data, environment or scope subsequently changes."
+    }
+  ]
+}

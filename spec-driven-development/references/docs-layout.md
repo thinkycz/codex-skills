@@ -1,6 +1,6 @@
 # Docs Layout
 
-Apply `traceable-delivery` first for repository-root preflight, the shared `/docs` layout, tracker expectations, matrix discipline, and verification closeout.
+Reuse existing working evidence; consult `docs-driven-execution` only for an unresolved ownership or tracking question.
 
 This reference only covers the spec-driven files that are unique to delivery from client-provided source artifacts.
 
@@ -17,7 +17,7 @@ For a non-Git parent containing several repositories:
 
 If the user explicitly chooses untracked workspace docs, label that limitation in the tracker and final handoff.
 
-## Spec-Driven Overlays
+## Optional large-work overlays
 
 ### `/docs/specs/`
 
@@ -57,4 +57,4 @@ Add:
 
 - `YYYY-MM-DD-<topic>-design-compliance.md` when design fidelity matters
 
-Use the shared verification structure from `traceable-delivery`, then add requirement and design coverage details specific to the provided artifacts.
+Use the shared verification structure from `docs-driven-execution`, then add requirement and design coverage details specific to the provided artifacts.

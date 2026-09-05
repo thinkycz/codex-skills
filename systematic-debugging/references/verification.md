@@ -1,10 +1,10 @@
 # Verification
 
-Apply `traceable-delivery` first for the shared verification closeout structure and status discipline.
+Reuse existing working evidence; consult `docs-driven-execution` only for an unresolved ownership or tracking question.
 
 Do not claim a bug is fixed without fresh evidence.
 
-Apply `verification-before-completion` before any success claim.
+Use claim-appropriate verification evidence; load detailed verification guidance only when needed.
 
 ## Debugging-Specific Verification Layers
 
@@ -48,8 +48,8 @@ If the bug is really a mismatch with written requirements or design expectations
 
 Before calling the issue resolved:
 
-- update the debug journal
-- write the root-cause summary
+- update an existing debug journal when one is used
+- record the proven root cause in the existing evidence
 - ensure the shared verification report references the proven root cause and reproduction outcome
 
 ## Red Flags

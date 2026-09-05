@@ -1,6 +1,6 @@
 # Docs And Traceability
 
-Apply `traceable-delivery` first for the shared docs layout, phase tracking, blocker visibility, and verification closeout.
+Reuse existing working evidence; consult `docs-driven-execution` only for an unresolved ownership or tracking question.
 
 This reference only covers the design-source-specific mapping rules unique to this workflow.
 
@@ -38,4 +38,4 @@ The fidelity matrix should:
 - record asset parity such as exact icons, localized images, and font parity
 - record overlay and slideover parity when those behaviors are part of acceptance
 - record known constraints such as missing fonts or placeholder content
-- stay aligned with the shared progress and verification docs maintained by `traceable-delivery`
+- stay aligned with the shared progress and verification docs maintained by `docs-driven-execution`

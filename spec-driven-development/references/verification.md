@@ -1,8 +1,8 @@
 # Verification
 
-Apply `traceable-delivery` first for the shared verification closeout structure and documentation discipline.
+Reuse existing working evidence; consult `docs-driven-execution` only for an unresolved ownership or tracking question.
 
-Apply `verification-before-completion` before any success claim.
+Use claim-appropriate verification evidence; load detailed verification guidance only when needed.
 
 This reference adds the source-artifact-specific checks that are unique to spec-driven delivery.
 
@@ -39,8 +39,8 @@ When the work touches API or admin behavior, verify against the real backend sup
 
 Before calling the work complete:
 
-- update the traceability matrix statuses
-- update the phase tracker
+- update selected traceability records
+- update an existing phase tracker
 - ensure the shared verification report points back to the relevant spec and design rows
 - confirm every selected docs artifact is inside the intended repository root and is tracked or visible as an intended, non-ignored file ready to commit
 - record repo and commit mappings for cross-repo delivery, or state explicitly that the user chose an untracked coordination home

@@ -27,7 +27,7 @@ Choose large when the work has multiple independent phases, migrations or shared
 
 - use the full normalized spec, phased plan, progress/traceability matrix, and verification record
 - keep deferred integrations explicit
-- use release-readiness when the result genuinely needs a go/no-go judgment
+- use verification-before-completion when the result genuinely needs a go/no-go judgment
 
 ## Escalation Rule
 

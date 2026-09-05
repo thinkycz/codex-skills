@@ -1,168 +1,34 @@
 ---
 name: verification-before-completion
-description: Require fresh evidence before claiming work is done, fixed, passing, or matched. Use when implementation, debugging, or fidelity work is mostly complete and the agent needs to verify the relevant tests, runtime behavior, design expectations, docs, and blockers before making a success claim.
-version: 1.9.0
+description: Verify a completed change, assess release evidence, or prepare an executable tester handoff.
+version: 2.0.0
 category: quality
 sources:
-  - fresh test, runtime, design, and docs evidence
-  - verification-layer guidance in this skill package
+  - Supplied task evidence and applicable project conventions
 use_when:
-  - The work is mostly complete and the next step is proving the actual completion claim.
-  - The user wants confidence that tests, runtime behavior, docs, or fidelity really hold.
+  - Verify a completed change, assess release evidence, or prepare an executable tester handoff.
 avoid_when:
-  - Implementation or debugging is still actively changing the claim.
-  - There is no meaningful evidence surface to run yet.
+  - The requested outcome belongs to another owner or exceeds the authorized scope.
 artifacts:
   - SKILL.md
   - agents/openai.yaml
   - agents/
   - references/
 quality_gates:
-  - The completion claim is restated before verification begins.
-  - The right verification layers run for the claim instead of the easiest checks.
-  - Runtime and parity claims are checked against the exact artifact, path, consumers, and final outcome they name.
-  - User-visible lifecycle paths are exercised when the claim depends on runtime flow, async work, or integration behavior.
-  - Verification commands that mutate shared state are serialized or isolated before their results are trusted.
-  - Missing evidence is reported plainly instead of softened into success.
-  - Interactive browser evidence uses the active host's canonical visible browser surface; automated E2E suites remain separate evidence.
-  - Shared UI and email claims are checked across all affected variants and consumers.
+  - Evidence supports the stated outcome and limitations.
+  - Selected mode, references and actions remain within authorization.
 ---
 
 # Verification Before Completion
 
-Do not let a success claim outrun the evidence.
+Select the mode from the requested outcome and current evidence. Read only that mode's reference; other modes are not prerequisites. Reuse repository identity, relevant changes, acceptance criteria, canonical examples, required checks and blockers already established. Refresh only invalidated facts.
 
-Use this skill near the end of implementation, debugging, or design-fidelity work when the next step is to prove the result rather than continue coding.
+## Modes
 
-## Core Promise
+- **verify** — Match each acceptance claim to evidence from the affected code and exact runtime. [Verify procedure](references/mode-verify.md).
+- **readiness** — Assess evidence without changing code or deploying. [Readiness procedure](references/mode-readiness.md).
+- **handoff** — Produce a tester-ready plan, not a claim that tests ran. [Handoff procedure](references/mode-handoff.md).
 
-- Verify the thing that was actually requested, not just the easiest green check.
-- Prove the actual completion claim at the highest useful level, such as the clicked link, page load, API route, queued job result, or browser flow the user cares about.
-- Prefer fresh evidence over assumptions, stale logs, or “should be fixed now”.
-- Check the most relevant technical and product-facing surfaces before claiming success.
-- Leave a clear record of what was verified and what remains unverified.
+## Boundaries
 
-## Boundary
-
-- Own the proof step near the end of work, not the implementation or debugging itself.
-- Do not replace `release-readiness` when the broader question is go or no-go judgment across a whole delivery slice.
-- Do not replace `systematic-debugging` when verification fails and the root cause is still unknown.
-- Use this skill to test the claim honestly, not to stretch incomplete evidence into completion.
-- This skill proves a specific claim such as fixed, implemented, passing, visually matched, or docs-current. `release-readiness` decides whether the whole feature or fix is ready for handoff or release.
-
-## Core Workflow
-
-### 1. Restate The Completion Claim
-
-Before verifying, state what is being claimed:
-
-- fixed
-- implemented
-- passing
-- visually matched
-- ready for review
-
-Tie the claim to the user request, spec, PRD, bug report, or design source rather than to a vague notion of progress.
-
-### 2. Choose The Right Verification Layers
-
-Select only the layers that actually matter for the touched surface:
-
-- targeted automated tests
-- nearest related suite
-- lint or typecheck
-- build or release check
-- runtime/manual behavior
-- API contract compliance
-- design or fidelity comparison
-- docs, blockers, and tracker freshness
-
-Do not stop at static checks when the claim is about runtime behavior or visual parity.
-
-Build a claim-specific rubric before or during verification when the acceptance bar is non-trivial. The rubric can stay lightweight, but it should make the evidence standard explicit.
-
-Use a balanced evidence matrix when the claim crosses source and runtime boundaries:
-
-1. source changed
-2. targeted tests and required build checks pass
-3. the intended artifact is installed or deployed
-4. the original user path is replayed
-5. the final user-visible outcome is observed
-
-Not every claim requires all five levels. Static copy, schema, or pure-logic changes may stop earlier; device, browser, deployment, queue, payment, and rendering claims require the relevant later levels. Use `references/exact-path-and-parity.md` to choose and report the stopping point.
-
-### 3. Run Fresh Evidence
-
-- Before parallelizing checks, identify shared mutable state: test databases, Vite or framework manifests, caches, snapshots, generated clients, coverage files, local servers, queues, and filesystem fixtures. Run conflicting commands serially or give them isolated state. A race-corrupted failure is not valid product evidence, and a race-corrupted pass is not trustworthy either.
-- Prefer running the exact command or test that proves the changed behavior.
-- Then run the smallest broader confidence pass that makes regressions less likely.
-- If a claim depends on browser or manual behavior, exercise the real flow.
-- If a claim depends on async, queue, email, payment, upload, notification, or external-provider behavior, verify each required handoff or clearly report which handoff could not be observed.
-- If the reported bug was a runtime/deploy mismatch, verify registered routes, migrations, build artifact, process/runtime version, or worker state as part of the claim.
-- If a claim depends on a design or spec, verify against that source explicitly.
-- Prefer the repo's own verification commands when they are documented or supplied by the user, such as `make fix`, `make check`, framework builds, local dev servers, and seeded login users.
-- For frontend work, run a browser or runtime smoke on the touched route when the claim involves clicks, redirects, loading states, uploads, responsive layout, or language switching.
-- For printable or rendered artifacts such as PDF, labels, tickets, or paginated reports, inspect the rendered output rather than relying on source CSS or generation success. Cover every distinct page shape, including the final partially filled page where clipping and overflow often differ.
-- Use the active host's canonical visible browser control surface for interactive navigation, screenshots, and runtime evidence. In Synara, use the integrated browser and reserve Computer Use for desktop or system UI, or cases the browser surface cannot finish. In Codex, follow the app-provided browser or Chrome surface required by current host policy.
-- Run repository-owned Playwright suites when automated E2E coverage is part of the claim, but do not substitute a headless test runner for required visible-browser evidence.
-- When a shared button, link, tag, badge, input, card, or other UI primitive changed, verify all affected variants, interaction states, routes, and responsive widths rather than one example screen.
-- When shared email HTML changed, render representative templates and verify the shared layout, typography, spacing, CTA, branding, wrapping, and links across every affected email family.
-- For mobile or installed-app fixes, distinguish `build succeeded` from `the new artifact is installed and running`; verify the installed build identity when observable before replaying the original path.
-- For `same`, `matched`, or cross-client parity claims, compare semantic mapping, asset content, rendered color and dimensions, and all named consumer surfaces. Do not infer full parity from byte-identical files or one shared mapping alone.
-- For consistency claims, confirm that consumers actually use the shared primitive or email template instead of maintaining parallel implementations with superficially similar styling.
-
-### 4. Compare Evidence To The Claim
-
-- Confirm whether the evidence fully supports the claim, partially supports it, or contradicts it.
-- Call out gaps directly:
-  - tests passed but runtime not checked
-  - build passed but fidelity not checked
-  - local flow worked but docs or blockers are stale
-  - bug no longer reproduces but no regression test was added
-  - interrupted or resumed work appears correct, but process state, git state, or durable docs were not rechecked after the interruption
-  - a low-level test passed, but the original user-visible path was not exercised
-  - the current repo was verified, but another required repo or app was absent
-- When useful, summarize the comparison as:
-  - claim
-  - evidence gathered
-  - missing evidence
-  - verdict
-
-### 5. Close Honestly
-
-- If the evidence is sufficient, say exactly what was verified.
-- If source and checks are green but deployment or runtime replay is missing, use `implemented, deployment required` or `implemented, runtime verification pending`, not `fixed`.
-- If the evidence is incomplete, say what is still missing.
-- If the evidence fails, do not soften the result into a near-success.
-- After major work, capture any reusable verification lesson in the relevant docs or closeout artifact instead of leaving it only in chat.
-- If part of the supporting history or evidence trail is missing, record that as an explicit gap rather than implying complete verification provenance.
-
-## Verification Rules
-
-- Do not claim success from code inspection alone.
-- Do not rely on stale command output from before the latest changes.
-- Do not run state-sharing build, test, or browser commands concurrently unless their databases, manifests, caches, and generated outputs are isolated.
-- Do not collapse “implemented”, “verified”, and “ready” into the same status.
-- Do not ignore docs or blocker state when the workflow is traceable and multi-phase.
-- Do not imply complete audit history when part of the evidence chain is missing.
-
-For deployment-sensitive claims, use [references/deployment-smoke.md](references/deployment-smoke.md). Verify the actual production build/install/cache path in isolation before push or handoff when it is relevant; do not deploy merely to satisfy a local verification gate.
-
-## Handoffs
-
-- Use `release-readiness` when broader go/no-go judgment is needed after verification.
-- Use `systematic-debugging` when the verification fails and the result is not actually explained yet.
-- Use `test-driven-development` when the failure is understood but durable behavior-level regression coverage is still missing.
-- Use `design-fidelity-polish` when the remaining failure is mostly visual parity.
-- Use `local-tooling-maintenance` when the completion claim is host-level install, uninstall, cleanup, router, plugin, editor, shell, config, or credential state; apply that skill's layered verification contract before closeout.
-
-## References
-
-Read these only as needed:
-
-- `references/verification-layers.md`
-  Use for choosing the right mix of checks for the claim.
-- `references/closeout-language.md`
-  Use for reporting verified, partially verified, and not verified outcomes clearly.
-- `references/exact-path-and-parity.md`
-  Use for installed/deployed artifact checks, original-path replay, and cross-client or visual parity claims.
+Audit, review, research and verification-plan modes are read-only. A mode change never grants authority for code edits, external messages, deployment or destructive checks. Reuse explicit authorization for the same action and scope; ask only for a material missing decision or new authority. Use inline tracking for small work, one combined document for medium work, and separate artifacts only where large work benefits. Report observed evidence separately from assumptions, blockers and unrun checks.

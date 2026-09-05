@@ -1,58 +1,11 @@
-# Routing Details
+# Ownership distinctions
 
-Use this when the compact route matrix is not enough to choose one primary owner.
+Requirements-review checks a supplied specification, compares artifacts or resolves material ambiguity. Product-brainstorming shapes genuinely ambiguous direction; grill-with-docs is a requested one-question-at-a-time challenge.
 
-## Planning And Product
+Docs-driven-execution carries an accepted plan; session-handoff audits a restart or preserves continuation/lessons. Spec-driven-development normalizes sources and prepares or executes authorized delivery, without insisting on a separate file.
 
-- `product-brainstorming` owns fuzzy product direction, UX tradeoffs, and early design direction.
-- `clarify-before-plan` owns a small number of high-impact questions against an otherwise usable spec.
-- `grill-with-docs` owns deeper plan interrogation against repo code, domain docs, terminology, scenarios, and ADR-worthy tradeoffs.
-- `ticket-batch-intake` owns Trello/Jira/board exports before implementation: read all comments, preserve order, identify prior-agent verification work, and produce summaries or contract notes.
-- `architecture-deepening-audit` owns read-only audits for shallow modules, leaky seams, low-locality abstractions, and deepening opportunities before broad refactors.
-- `full-project-hardening` owns comprehensive existing-product audit-only assessment and authorized audit-to-fix delivery across correctness, security, architecture, data, contracts, runtime, UI, docs, and release evidence. It does not replace focused read-only audits or spec-controlled delivery.
-- `throwaway-prototype` owns disposable logic/state or UI-variant prototypes when a small artifact can answer a question before production delivery.
-- `design-to-prd` owns turning an existing design source into a written PRD.
-- `spec-driven-development` owns traceable delivery from written specs, design handoffs, or normalized ticket inputs.
+Frontend-design audits, implements confirmed visual changes or exports stable rules. Figma and Stitch acquire sources; design-to-traversable-app delivers navigable multi-screen flows. Native-desktop-delivery owns native/device/installer semantics, while local-tooling-maintenance owns installed developer-tool lifecycle changes.
 
-## Execution And Resume
+API-contract-review is read-only comparison; integrating-backend-api-into-frontend implements authorized integration. Systematic-debugging proves causes, test-driven-development protects meaningful behavior, two-axis-review reviews a diff. Full-project-hardening owns comprehensive, architecture and migration audits plus authorized remediation.
 
-- `traceable-delivery` creates and maintains durable delivery artifacts when progress, blockers, mappings, and verification would otherwise live only in chat.
-- `docs-driven-execution` executes from an already-trusted plan and progress tracker under `/docs`.
-- `task-decomposition-and-resume` owns slice boundaries, dependency order, and safe parallelism.
-- `artifact-resume-audit` owns restart selection when old docs or exports may be stale or contradictory.
-- `session-handoff` owns creating a fresh continuation handoff for another agent or future session from the current conversation and local evidence.
-- `subagent-driven-development` owns lead-worker execution only after slice boundaries are clear.
-
-## Host Tooling
-
-- `search-first` owns bounded read-only inventory when local installation, ownership, or active configuration state is still uncertain.
-- `local-tooling-maintenance` owns authorized install, update, disable, uninstall, cleanup, router/plugin/editor registration, shell, layered-config, credential, and leftover mutation with shared-ownership protection and layered verification.
-
-## Design And Source Adapters
-
-- `figma` and `google-stitch` own source acquisition only.
-- `design-to-traversable-app` owns multi-screen implementation into a real app flow.
-- `design-fidelity-polish` owns exact parity after screen coverage exists.
-- `frontend-redesign-audit` owns diagnosing weak existing UI before redesign.
-- `design-system-export` owns stable reusable visual guidance after the direction is settled.
-
-## Integration, Debugging, And Verification
-
-- `api-contract-review` is read-only contract comparison.
-- `integrating-backend-api-into-frontend` owns implementation against a verified or partial backend contract plus browser QA and blockers.
-- `systematic-debugging` owns root-cause discovery before fixing.
-- `test-driven-development` owns red-green-refactor when a meaningful automated check can lead.
-- `e2e-verification-handoff` writes an executable browser/API/manual verification plan for another agent.
-- `two-axis-review` owns branch, PR, or WIP review against both documented repo standards and the originating spec, issue, PRD, or plan.
-- `verification-before-completion` proves a specific completion claim.
-- `release-readiness` decides final go/no-go across evidence, blockers, and docs.
-
-## Skill Operations
-
-- `skill-maintenance-and-validation` owns package correctness.
-- `skill-stocktake` owns portfolio overlap, bloat, refresh, merge, keep, or retire decisions.
-- `cross-tool-packaging` owns export shape, flattened bundles, catalogs, and compatibility.
-
-## Native Desktop Product Delivery
-
-Use `native-desktop-delivery` when native interactions, offline/device-local data, or packaged runtime behavior control product delivery. Preserve audit-only diagnosis under `frontend-redesign-audit` and unexplained failures under `systematic-debugging`. Installing or removing development tools remains `local-tooling-maintenance`; final readiness remains `release-readiness`. Do not infer synchronization or installer publication from a desktop port request.
+Verification-before-completion distinguishes executing checks, judging readiness and preparing a tester plan. Skill-maintenance-and-validation owns portfolio, editing, validation and export modes. Evidence-discovery answers bounded source or repository questions. Workflow-contract-builder specifies recurring outcomes without implicitly scheduling them.

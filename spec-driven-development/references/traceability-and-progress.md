@@ -1,6 +1,6 @@
 # Traceability And Progress
 
-Use two core documents to keep delivery traceable:
+For large work where separate artifacts improve resumption, consider:
 
 - a requirement traceability matrix
 - a phase tracker

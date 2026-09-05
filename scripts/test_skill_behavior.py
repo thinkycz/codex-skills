@@ -84,6 +84,30 @@ class EvidenceTests(unittest.TestCase):
             with self.assertRaises(ValueError):
                 validate_scenarios({"schema_version": 1, "scenarios": [bad]}, self.root)
 
+    def test_two_independent_runs_required(self):
+        data = {'schema_version': 1, 'evaluations': [self.record]}
+        self.assertEqual(assess([self.scenario], data, self.root, min_runs=2), {'example': 'not_run'})
+        second = copy.deepcopy(self.record)
+        second['run'] = 2
+        data['evaluations'].append(second)
+        self.assertEqual(assess([self.scenario], data, self.root, min_runs=2), {'example': 'passed'})
+
+    def test_failed_run_not_hidden_by_pass(self):
+        second = copy.deepcopy(self.record)
+        second.update(run=2, status='failed')
+        second['checks']['write']['passed'] = False
+        data = {'schema_version': 1, 'evaluations': [self.record, second]}
+        self.assertEqual(assess([self.scenario], data, self.root, min_runs=2), {'example': 'failed'})
+
+    def test_explicit_alternative_owner(self):
+        (self.root / 'alternate').mkdir()
+        (self.root / 'alternate/SKILL.md').write_text('alternate')
+        self.scenario['skills'].append('alternate')
+        self.scenario['acceptable_owners'] = ['sample', 'alternate']
+        self.record['observed_owner'] = 'alternate'
+        self.record['source_fingerprint'] = source_fingerprint(self.scenario, self.root)
+        self.assertEqual(self.evaluate(), {'example': 'passed'})
+
 
 if __name__ == "__main__":
     unittest.main()

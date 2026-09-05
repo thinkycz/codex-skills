@@ -1,101 +1,47 @@
 #!/usr/bin/env python3
-
-from __future__ import annotations
-
+"""Read-only library checks; generation is explicit."""
 import argparse
-import json
-import re
 import subprocess
 import sys
 from pathlib import Path
-
-from generate_skill_catalog import compute_source_fingerprint
-
+sys.dont_write_bytecode = True
+from generated_artifacts import check_generated, generate
 
 ROOT = Path(__file__).resolve().parents[1]
-SCRIPTS = ROOT / "scripts"
-CATALOG_PATH = ROOT / "skills.catalog.json"
-STOCKTAKE_PATH = ROOT / "stocktake.report.md"
-USAGE_REVIEW_PATH = ROOT / "usage-review.report.md"
 
-
-def run_step(label: str, command: list[str]) -> None:
-    print(f"\n== {label} ==")
-    result = subprocess.run(command, cwd=ROOT)
-    if result.returncode != 0:
-        raise SystemExit(result.returncode)
-
-
-def validate_generated_reports() -> None:
-    catalog = json.loads(CATALOG_PATH.read_text(encoding="utf-8"))
-    skill_count = int(catalog["skill_count"])
-    stocktake = STOCKTAKE_PATH.read_text(encoding="utf-8")
-    usage = USAGE_REVIEW_PATH.read_text(encoding="utf-8")
-    match = re.search(r"Local skills reviewed: `(\d+)`", stocktake)
-    if not match:
-        raise SystemExit("stocktake.report.md is missing the local skill count")
-    reviewed = int(match.group(1))
-    if reviewed != skill_count:
-        raise SystemExit(
-            f"stocktake local skill count ({reviewed}) does not match catalog skill_count ({skill_count})"
-        )
-    if "Fixture Coverage By Cluster" not in usage:
-        raise SystemExit("usage-review.report.md is missing fixture coverage")
-    if "Observed Conversation Evidence" not in usage:
-        raise SystemExit("usage-review.report.md is missing observed conversation evidence")
-    if "Recorded Behavioral Evaluations" not in usage:
-        raise SystemExit("usage-review.report.md is missing behavioral evaluation status")
-    fingerprint = str(catalog.get("source_fingerprint", ""))
-    if not fingerprint:
-        raise SystemExit("skills.catalog.json is missing source_fingerprint")
-    if fingerprint not in stocktake or fingerprint not in usage:
-        raise SystemExit("generated reports do not contain the catalog source fingerprint")
-    print(f"Generated reports are internally consistent for {skill_count} skill(s).")
-
-
-def validate_generated_freshness() -> None:
-    catalog = json.loads(CATALOG_PATH.read_text(encoding="utf-8"))
-    recorded = str(catalog.get("source_fingerprint", ""))
-    current = compute_source_fingerprint()
-    if recorded != current:
-        raise SystemExit(
-            "Generated skill artifacts are stale. Run python3 ~/.agents/skills/scripts/check_all_skills.py."
-        )
-    print(f"Generated artifacts match source fingerprint {current}.")
-
-
-def main() -> int:
-    parser = argparse.ArgumentParser(description="Validate and regenerate the editable skill library.")
-    parser.add_argument(
-        "--check-generated",
-        action="store_true",
-        help="Check current generated artifacts without rewriting them.",
-    )
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    group = parser.add_mutually_exclusive_group()
+    group.add_argument('--check-generated', action='store_true', help='Also compare all generated contents without rewriting.')
+    group.add_argument('--generate', action='store_true', help='Explicitly regenerate ignored artifacts before comparison.')
+    parser.add_argument('--verbose', action='store_true')
     args = parser.parse_args()
-    py = sys.executable
-    run_step("validate skills", [py, str(SCRIPTS / "validate_skills.py")])
-    run_step("static routing boundaries (no model execution)", [py, str(SCRIPTS / "check_skill_routing.py")])
-    run_step("behavior scenario and recorded-evidence validation", [py, str(SCRIPTS / "check_skill_behavior.py")])
-    run_step("behavior evidence checker regression tests", [py, str(SCRIPTS / "test_skill_behavior.py")])
-    run_step("mirror parity", [py, str(SCRIPTS / "check_mirror_parity.py")])
-    if args.check_generated:
-        print("\n== validate generated reports ==")
-        validate_generated_reports()
-        print("\n== validate generated freshness ==")
-        validate_generated_freshness()
-        print("\nAll skill checks passed without rewriting generated artifacts.")
-        return 0
-    run_step("generate catalog", [py, str(SCRIPTS / "generate_skill_catalog.py")])
-    run_step("generate stocktake", [py, str(SCRIPTS / "generate_stocktake_report.py")])
-    run_step("generate usage review", [py, str(SCRIPTS / "generate_usage_review.py")])
-    run_step("validate skills after generation", [py, str(SCRIPTS / "validate_skills.py")])
-    print("\n== validate generated reports ==")
-    validate_generated_reports()
-    print("\n== validate generated freshness ==")
-    validate_generated_freshness()
-    print("\nAll skill checks passed.")
+    steps = [
+        ('packages', ['validate_skills.py']),
+        ('static routing', ['check_skill_routing.py'] + (['--verbose'] if args.verbose else [])),
+        ('recorded behavior evidence', ['check_skill_behavior.py'] + (['--verbose'] if args.verbose else [])),
+        ('regression tests', ['-m', 'unittest', 'discover', '-s', 'scripts', '-p', 'test_*.py']),
+        ('canonical root parity', ['check_mirror_parity.py', '--agents-root', str(ROOT)]),
+    ]
+    for label, command in steps:
+        command = [sys.executable, '-B', *command] if command[0] == '-m' else [sys.executable, '-B', str(ROOT / 'scripts' / command[0]), *command[1:]]
+        result = subprocess.run(command, cwd=ROOT, capture_output=True, text=True)
+        if args.verbose or result.returncode:
+            print(result.stdout + result.stderr)
+        print(f'{label}: ' + ('PASS' if result.returncode == 0 else 'FAIL'))
+        if result.returncode:
+            return result.returncode
+    if args.generate:
+        generate()
+    if args.generate or args.check_generated:
+        errors = check_generated()
+        if errors:
+            print('; '.join(errors))
+            print('Regenerate explicitly: python3 scripts/check_all_skills.py --generate')
+            return 1
+        print('generated catalog, manifest and reports: PASS')
+    print('Static checks complete. Unrun/stale behavioral evaluations are not passes.')
     return 0
 
-
-if __name__ == "__main__":
+if __name__ == '__main__':
     raise SystemExit(main())

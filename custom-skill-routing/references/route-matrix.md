@@ -7,27 +7,27 @@ Use this quick owner map when `custom-skill-routing` needs a fast routing decisi
 - Existing plan needs a deep one-question-at-a-time challenge against repo code, docs, domain language, and ADRs:
   `grill-with-docs`
 - Existing spec only needs a few high-impact ambiguities resolved before planning:
-  `clarify-before-plan`
+  `requirements-review`
 - Ticket-board export or sprint batch needs comments, ordering, stakeholder summaries, or FE/BE contract notes:
-  `ticket-batch-intake`
+  `ticket-driven-delivery`
 - Existing codebase needs module-depth, seam, locality, or deepening-opportunity audit before refactor work:
-  `architecture-deepening-audit`
+  `full-project-hardening`
 - Existing product needs a comprehensive audit-only assessment or audit plus authorized fixes:
   `full-project-hardening`
 - Product delivery requires native desktop windows, printing, device-local persistence, offline recovery, or packaged installers:
   `native-desktop-delivery`
 - A disposable state, workflow, API-shape, or UI variant should answer a question before production work:
-  `throwaway-prototype`
+  `product-brainstorming`
 - Confirmed design exists but a written PRD is missing:
-  `design-to-prd`
+  `spec-driven-development`
 - Written spec or design handoff should drive phased delivery:
   `spec-driven-development`
 - Existing `/docs` plans and progress already control the work:
   `docs-driven-execution`
 - The main problem is slice boundaries, resume shape, or dependency order:
-  `task-decomposition-and-resume`
+  `docs-driven-execution`
 - The artifact trail is messy and the safest restart point is unclear:
-  `artifact-resume-audit`
+  `session-handoff`
 - The current conversation or work state needs a continuation handoff for another agent or session:
   `session-handoff`
 - Figma is the active design source:
@@ -37,11 +37,11 @@ Use this quick owner map when `custom-skill-routing` needs a fast routing decisi
 - Multi-screen design source needs a real traversable app:
   `design-to-traversable-app`
 - Screen coverage exists and the remaining work is parity:
-  `design-fidelity-polish`
+  `frontend-design`
 - Existing product UI feels weak and needs diagnosis before redesign:
-  `frontend-redesign-audit`
+  `frontend-design`
 - Stable visual rules should become reusable tokens and component guidance:
-  `design-system-export`
+  `frontend-design`
 - Existing frontend must align with a real backend contract:
   `integrating-backend-api-into-frontend`
 - Frontend assumptions need read-only API comparison before coding:
@@ -51,22 +51,22 @@ Use this quick owner map when `custom-skill-routing` needs a fast routing decisi
 - The task is installing, disabling, uninstalling, cleaning, or repairing local apps, CLIs, editor integrations, routers, plugins, shell hooks, layered config, credentials, or leftovers:
   `local-tooling-maintenance`
 - The host-tool question is still read-only inventory and no lifecycle mutation is authorized:
-  `search-first`
+  `evidence-discovery`
 - Implementation should start from a failing automated check:
   `test-driven-development`
 - Another agent needs a browser/API/manual E2E verification plan:
-  `e2e-verification-handoff`
+  `verification-before-completion`
 - A branch, PR, or WIP diff needs findings separated into repo standards and source-spec axes:
   `two-axis-review`
 - A specific completion claim needs fresh proof:
   `verification-before-completion`
 - The question is final go or no-go readiness:
-  `release-readiness`
+  `verification-before-completion`
 - The work exposed reusable lessons worth preserving:
-  `reflection-and-learning`
+  `session-handoff`
 - The task is skill-package correctness:
   `skill-maintenance-and-validation`
 - The task is skill-library overlap or portfolio health:
-  `skill-stocktake`
+  `skill-maintenance-and-validation`
 - The task is export shape, flattening, cataloging, or compatibility:
-  `cross-tool-packaging`
+  `skill-maintenance-and-validation`

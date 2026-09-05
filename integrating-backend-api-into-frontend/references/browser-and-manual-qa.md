@@ -15,10 +15,7 @@ Static verification catches type and build problems, but integration work often 
 
 ## Minimum Verification Stack
 
-Run:
-- `npm run lint`
-- `npm run ts`
-- `npm run build`
+Discover and run the repository's actual affected lint, type and build commands; reuse unchanged successful checks. Do not assume package script names.
 
 Then manually verify the affected flows in the browser.
 

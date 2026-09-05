@@ -39,7 +39,7 @@ When the backend exposes `relationships` or `included`:
 
 ## Contract Truth Rules
 
-- Prefer the live backend contract over stale written specs when they disagree.
+- Observed backend payloads establish current capability; agreed product requirements still control intended behavior. Surface material conflicts rather than silently changing acceptance.
 - Prefer observed payloads over guessed schemas.
 - Keep unsupported behavior explicit in UI and docs.
 - If a field or enum is inconsistent, normalize deliberately in one place rather than spreading assumptions through the UI.

@@ -1,0 +1,264 @@
+{
+  "schema_version": 1,
+  "evaluation_scope": "Independent read-only decision dry runs; no product runtime or external side effects. Response excerpts preserve evaluator wording with presentation markup normalized. Native cases were reconfirmed after an artifacts metadata correction.",
+  "evaluations": [
+    {
+      "scenario_id": "audit-only",
+      "method": "independent-dry-run",
+      "evaluator": "independent behavior_eval subagent; no answer rubric supplied",
+      "reviewer": "lead agent; manual comparison against every assertion",
+      "evaluated_at": "2026-09-05T06:34:50.922296+00:00",
+      "source_fingerprint": "f4396328866cecb70606a723e2349fea00422b7f261040c2d724f3dab6410840",
+      "response": "Inspect the product inventory, source, and safe non-mutating checks; return evidence-backed findings and an ordered remediation proposal. Keep unverified coverage explicit. No application edits or deployment; workflow steps 4–7 are recommendations and evidence gaps in this mode.",
+      "observed_owner": "full-project-hardening",
+      "status": "passed",
+      "checks": {
+        "mode": {
+          "passed": true,
+          "evidence": "safe non-mutating checks"
+        },
+        "deliverable": {
+          "passed": true,
+          "evidence": "return evidence-backed findings and an ordered remediation proposal"
+        },
+        "writes": {
+          "passed": true,
+          "evidence": "No application edits or deployment"
+        },
+        "scope": {
+          "passed": true,
+          "evidence": "workflow steps 4–7 are recommendations and evidence gaps in this mode."
+        }
+      },
+      "review_note": "Independent evaluator re-read current skill and boundary reference after duplicate-reference removal; decisions unchanged. Response presentation normalized. Evaluator re-read the final file after trailing-blank-line cleanup and confirmed these exact responses."
+    },
+    {
+      "scenario_id": "device-state",
+      "method": "independent-dry-run",
+      "evaluator": "independent behavior_eval subagent; no answer rubric supplied",
+      "reviewer": "lead agent; manual comparison against every assertion",
+      "evaluated_at": "2026-09-05T06:31:26.740694+00:00",
+      "source_fingerprint": "4c64ffa9038645e5dd044e5334462a1cea541f04a1b167419d2ec3eb76510103",
+      "response": "Store selection belongs to independent session/device context; printer configuration belongs to the device. Account-shared business sync must not overwrite either device’s selections. Persist each queued sale’s original `store_id` and business snapshot with the durable operation, so changing A’s active selection cannot reassign its East sale.\nDefine sync identity, conflict policy, tombstones, version compatibility, durable operation IDs, acknowledgements, and crash recovery. Reconcile uncertain remote outcomes before replaying effects.\nVerification: use two installed clients under one account, confirm A/East/thermal and B/West/A4 remain independent after restart and sync; queue East sale offline, switch A to West, reconnect, and verify exactly one East sale. Cover duplicate delivery, crash/restart, stale edits, and interrupted reconnection. Hypothetical tools would inspect persistence and queue contracts and exercise disposable installed profiles; no real sales or printing here.",
+      "observed_owner": "native-desktop-delivery",
+      "status": "passed",
+      "checks": {
+        "ownership": {
+          "passed": true,
+          "evidence": "Store selection belongs to independent session/device context; printer configuration belongs to the device."
+        },
+        "replay": {
+          "passed": true,
+          "evidence": "Persist each queued sale’s original `store_id` and business snapshot with the durable operation"
+        },
+        "test": {
+          "passed": true,
+          "evidence": "confirm A/East/thermal and B/West/A4 remain independent after restart and sync"
+        },
+        "shared": {
+          "passed": true,
+          "evidence": "Account-shared business sync must not overwrite either device’s selections."
+        },
+        "context": {
+          "passed": true,
+          "evidence": "changing A’s active selection cannot reassign its East sale."
+        }
+      }
+    },
+    {
+      "scenario_id": "direct-authorization",
+      "method": "independent-dry-run",
+      "evaluator": "independent behavior_eval subagent; no answer rubric supplied",
+      "reviewer": "lead agent; manual comparison against every assertion",
+      "evaluated_at": "2026-09-05T06:34:50.922789+00:00",
+      "source_fingerprint": "567fe6bbc536e3c9ca7dd311158f6099c00b4433a2d10cee152327e633f4389e",
+      "response": "Controller denial tests establish HTTP-path evidence only. The service’s missing actor/trusted-caller contract is an authorization-boundary gap. Recommend tracing command/tool callers and an isolated unauthorized direct-call counterexample, checking that denial leaves no data or file changes. Actual exploitability remains unverified until that evidence exists; no edits or real mutations.",
+      "observed_owner": "full-project-hardening",
+      "status": "passed",
+      "checks": {
+        "boundary": {
+          "passed": true,
+          "evidence": "The service’s missing actor/trusted-caller contract is an authorization-boundary gap."
+        },
+        "negative": {
+          "passed": true,
+          "evidence": "an isolated unauthorized direct-call counterexample, checking that denial leaves no data or file changes."
+        },
+        "green": {
+          "passed": true,
+          "evidence": "Controller denial tests establish HTTP-path evidence only."
+        },
+        "fix": {
+          "passed": true,
+          "evidence": "no edits or real mutations."
+        }
+      },
+      "review_note": "Independent evaluator re-read current skill and boundary reference after duplicate-reference removal; decisions unchanged. Response presentation normalized. Evaluator re-read the final file after trailing-blank-line cleanup and confirmed these exact responses."
+    },
+    {
+      "scenario_id": "failed-deployment",
+      "method": "independent-dry-run",
+      "evaluator": "independent behavior_eval subagent; no answer rubric supplied",
+      "reviewer": "lead agent; manual comparison against every assertion",
+      "evaluated_at": "2026-09-05T06:31:26.740694+00:00",
+      "source_fingerprint": "13439f76e307713669437e73c2a2d6aa17c5d63f594d1ce3f49e38eb12c28977",
+      "response": "Commit B is locally regression-tested; deployment failed, production remains on A, and B’s live behavior is unverified. This is not production-ready. The user’s observation does not establish that B’s fix failed, because B never became the running production version.\nNext inspect deployment logs and actual deployment scripts, then reproduce B’s production view-cache stage in an isolated environment with matching runtime/dependency versions and safe production-mode semantics. Record the first failing stage. After a separately authorized successful deployment, verify running commit/process identity and replay the original user path. Hypothetical tools: read-only log/script inspection and isolated command replay; no production cache generation, restart, migration, or redeployment.",
+      "observed_owner": "release-readiness",
+      "status": "passed",
+      "checks": {
+        "status": {
+          "passed": true,
+          "evidence": "Commit B is locally regression-tested; deployment failed, production remains on A, and B’s live behavior is unverified."
+        },
+        "smoke": {
+          "passed": true,
+          "evidence": "reproduce B’s production view-cache stage in an isolated environment with matching runtime/dependency versions"
+        },
+        "live": {
+          "passed": true,
+          "evidence": "After a separately authorized successful deployment, verify running commit/process identity and replay the original user path."
+        },
+        "done": {
+          "passed": true,
+          "evidence": "This is not production-ready."
+        },
+        "deploy": {
+          "passed": true,
+          "evidence": "no production cache generation, restart, migration, or redeployment."
+        },
+        "rewrite": {
+          "passed": true,
+          "evidence": "The user’s observation does not establish that B’s fix failed, because B never became the running production version."
+        }
+      }
+    },
+    {
+      "scenario_id": "cross-built-installer",
+      "method": "independent-dry-run",
+      "evaluator": "independent behavior_eval subagent; no answer rubric supplied",
+      "reviewer": "lead agent; manual comparison against every assertion",
+      "evaluated_at": "2026-09-05T06:31:26.740694+00:00",
+      "source_fingerprint": "b42cd6330e4e833e56a7f7bb2a3c9bca8247780798a58b4234640a80f4a7607d",
+      "response": "| Platform | Built | Installed | Runtime-tested | Signing | Notarization |\n|---|---|---|---|---|---|\n| Windows x64 | Yes, cross-built; archive integrity passed | Not checked | Not checked | Not checked | Not applicable |\n| macOS arm64 | Yes | Yes | Requested flow passed | Ad-hoc; not production signing | Not notarized |\nWindows installation/runtime verification is pending on Windows. macOS has installed-flow evidence, with production distribution limitations still open. Neither archive integrity nor macOS runtime results establish Windows readiness.\nRecord exact artifact/source identity; request no publication or signing action. Hypothetical verification tools would install and launch the exact Windows artifact in a disposable Windows environment and inspect macOS signing/notarization evidence.",
+      "observed_owner": "native-desktop-delivery",
+      "status": "passed",
+      "checks": {
+        "windows": {
+          "passed": true,
+          "evidence": "Windows installation/runtime verification is pending on Windows."
+        },
+        "mac": {
+          "passed": true,
+          "evidence": "| macOS arm64 | Yes | Yes | Requested flow passed | Ad-hoc; not production signing | Not notarized |"
+        },
+        "parity": {
+          "passed": true,
+          "evidence": "Neither archive integrity nor macOS runtime results establish Windows readiness."
+        },
+        "release": {
+          "passed": true,
+          "evidence": "Ad-hoc; not production signing | Not notarized"
+        }
+      }
+    },
+    {
+      "scenario_id": "unchanged-blocker",
+      "method": "independent-dry-run",
+      "evaluator": "independent behavior_eval subagent; no answer rubric supplied",
+      "reviewer": "lead agent; manual comparison against every assertion",
+      "evaluated_at": "2026-09-05T06:31:26.740694+00:00",
+      "source_fingerprint": "efb91d4089ccb6e3cbcb255c51359920cd54de9ca4d0c9f4f272560b859fb01c",
+      "response": "This weekly run remains blocked by unchanged source access and sends no repeated alert. Retain the unresolved access request, update last-run/result state, and preserve the comparison baseline. Dashboard and scheduler success demonstrate infrastructure; the business workflow is not yet demonstrated.\nAcceptance requires one representative source-to-output workflow with an inspectable, correct result and explicit remaining manual steps. Test normal inputs, missing access, duplicate/repeated runs, approval boundaries, initial baseline, meaningful change, unchanged blocker, recovery, and duplicate suppression across restart. Persist last-observed and last-notified state separately; advance notification state only after confirmed delivery.\nThis is contract design: no scheduler or message tool call is needed. Any later scheduling must use the actual automation tool schema and agreed cadence/timezone.",
+      "observed_owner": "workflow-contract-builder",
+      "status": "passed",
+      "checks": {
+        "quiet": {
+          "passed": true,
+          "evidence": "This weekly run remains blocked by unchanged source access and sends no repeated alert."
+        },
+        "baseline": {
+          "passed": true,
+          "evidence": "Persist last-observed and last-notified state separately"
+        },
+        "proof": {
+          "passed": true,
+          "evidence": "Acceptance requires one representative source-to-output workflow with an inspectable, correct result"
+        },
+        "repeat": {
+          "passed": true,
+          "evidence": "sends no repeated alert"
+        },
+        "operational": {
+          "passed": true,
+          "evidence": "Dashboard and scheduler success demonstrate infrastructure; the business workflow is not yet demonstrated."
+        }
+      }
+    },
+    {
+      "scenario_id": "question-schema",
+      "method": "independent-dry-run",
+      "evaluator": "independent behavior_eval subagent; no answer rubric supplied",
+      "reviewer": "lead agent; manual comparison against every assertion",
+      "evaluated_at": "2026-09-05T06:31:26.740694+00:00",
+      "source_fingerprint": "701f6b09dae9ca5d5aaf594dcddaa609ef3987d37647b5c8d293a4870d184a86",
+      "response": "Required email authorization remains unresolved; silence never authorizes sending. The schema-valid hypothetical question payload is:\n{\n  \"questions\": [{\n    \"header\": \"Email send\",\n    \"id\": \"customer_email_authorization\",\n    \"question\": \"Should this workflow send customer emails or prepare drafts for your review?\",\n    \"options\": [\n      {\n        \"label\": \"Drafts only (Recommended)\",\n        \"description\": \"Prepare reviewable drafts without sending customer emails.\"\n      },\n      {\n        \"label\": \"Authorize sending\",\n        \"description\": \"Authorize sending within the reviewed workflow's defined recipients and conditions.\"\n      }\n    ]\n  }]\n}\nNo timeout or default-submission fields. If unanswered, retain the decision as pending and continue only independent work. In the current session, developer instructions prohibit using `request_user_input` for permission requests, so the actual authorization question would be concise plain text rather than an actual tool invocation. No emails are sent.",
+      "observed_owner": "grill-with-docs",
+      "status": "passed",
+      "checks": {
+        "schema": {
+          "passed": true,
+          "evidence": "No timeout or default-submission fields."
+        },
+        "one": {
+          "passed": true,
+          "evidence": "\"question\": \"Should this workflow send customer emails or prepare drafts for your review?\""
+        },
+        "pending": {
+          "passed": true,
+          "evidence": "If unanswered, retain the decision as pending"
+        },
+        "field": {
+          "passed": true,
+          "evidence": "No timeout or default-submission fields."
+        },
+        "approval": {
+          "passed": true,
+          "evidence": "Required email authorization remains unresolved; silence never authorizes sending."
+        }
+      }
+    },
+    {
+      "scenario_id": "ui-simplification",
+      "method": "independent-dry-run",
+      "evaluator": "independent behavior_eval subagent; no answer rubric supplied",
+      "reviewer": "lead agent; manual comparison against every assertion",
+      "evaluated_at": "2026-09-05T06:31:26.740694+00:00",
+      "source_fingerprint": "09b862d518b6431e783d4a7dd93a7287586058d5cf3c07dfff326b6d14e4fe6c",
+      "response": "I’ll inspect Orders as the canonical comparison, then settings and checkout at matching data, role, zoom, and native window sizes. I’ll compare headers, navigation, actions, spacing, forms, and component structure before recommending changes.\nPrioritize observed functional defects: restore full-window dialog backdrop coverage and correct stacking/focus/Escape/scroll-lock behavior; keep checkout actions reachable with short and long content without concealing errors or keyboard focus; then remove nested containers, redundant borders, and repeated headings where they serve no grouping or interaction purpose. Reuse Orders conventions and document necessary differences.\nHypothetical tool use: read component/layout styles, inspect the installed UI through the host’s native app-control surface, resize/scroll/open dialogs, and capture comparable evidence. No redesign implementation.",
+      "observed_owner": "frontend-redesign-audit",
+      "status": "passed",
+      "checks": {
+        "reference": {
+          "passed": true,
+          "evidence": "I’ll inspect Orders as the canonical comparison"
+        },
+        "layout": {
+          "passed": true,
+          "evidence": "keep checkout actions reachable with short and long content without concealing errors or keyboard focus; then remove nested containers, redundant borders, and repeated headings"
+        },
+        "overlay": {
+          "passed": true,
+          "evidence": "restore full-window dialog backdrop coverage and correct stacking/focus/Escape/scroll-lock behavior"
+        },
+        "invent": {
+          "passed": true,
+          "evidence": "Reuse Orders conventions and document necessary differences."
+        },
+        "mutate": {
+          "passed": true,
+          "evidence": "No redesign implementation."
+        }
+      }
+    }
+  ]
+}

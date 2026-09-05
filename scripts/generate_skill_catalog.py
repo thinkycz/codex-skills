@@ -8,6 +8,7 @@ import json
 import re
 from datetime import datetime, timezone
 from pathlib import Path
+from library_paths import source_files
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -35,10 +36,12 @@ def compute_source_fingerprint() -> str:
     if USAGE_EVIDENCE_PATH.exists():
         paths.append(USAGE_EVIDENCE_PATH)
     for skill_dir in iter_skill_dirs(include_system=False):
-        paths.extend(path for path in skill_dir.rglob("*") if path.is_file())
+        paths.extend(source_files(skill_dir))
+    paths.extend(source_files(ROOT / 'scripts'))
+    paths.extend(p for p in (ROOT / 'routing-contracts.json', ROOT / 'migration-map.json') if p.exists())
 
     digest = hashlib.sha256()
-    for path in sorted(paths):
+    for path in sorted(set(paths)):
         digest.update(str(path.relative_to(ROOT)).encode("utf-8"))
         digest.update(b"\0")
         digest.update(path.read_bytes())
@@ -121,7 +124,7 @@ def load_expected_handoffs() -> dict[str, list[str]]:
     handoffs: dict[str, list[str]] = {}
     for cluster in payload["clusters"]:
         for skill in cluster["skills"]:
-            handoffs[skill["id"]] = sorted(set(skill["required_mentions"]))
+            handoffs[skill["id"]] = sorted(set(skill.get("dependencies", [])))
     return handoffs
 
 
@@ -185,6 +188,9 @@ def build_entry(
         "artifacts": frontmatter.get("artifacts", []),
         "support_dirs": support_dirs,
         "skill_md_lines": len((skill_dir / "SKILL.md").read_text(encoding="utf-8").splitlines()),
+        "main_words": len((skill_dir / 'SKILL.md').read_text().split()),
+        "description_words": len(str(frontmatter.get('description', '')).split()),
+        "reference_words": {str(p.relative_to(skill_dir)): len(p.read_text().split()) for p in source_files(skill_dir) if p.suffix == '.md' and p.name != 'SKILL.md'},
         "references_count": references_count,
         "has_companion_files": any(
             path.is_file() and path.name != "SKILL.md" for path in skill_dir.rglob("*")
@@ -211,14 +217,14 @@ def write_json(path: Path, payload: dict[str, object]) -> None:
     path.write_text(json.dumps(payload, indent=2, sort_keys=False) + "\n", encoding="utf-8")
 
 
-def main() -> int:
+def main(argv=None, emit=True):
     parser = argparse.ArgumentParser(description="Generate machine-readable skill catalog artifacts.")
     parser.add_argument(
         "--include-system",
         action="store_true",
         help="Include vendor-managed skills under .system.",
     )
-    args = parser.parse_args()
+    args = parser.parse_args(argv)
 
     generated_at = datetime.now(timezone.utc).replace(microsecond=0).isoformat()
     source_fingerprint = compute_source_fingerprint()
@@ -267,6 +273,8 @@ def main() -> int:
         ],
     }
 
+    if not emit:
+        return catalog_payload, manifest_payload
     write_json(ROOT / "skills.catalog.json", catalog_payload)
     write_json(ROOT / "skills.manifest.json", manifest_payload)
 

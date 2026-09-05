@@ -5,54 +5,53 @@
       "skills": [
         {
           "id": "spec-driven-development",
-          "required_mentions": [
-            "docs-driven-execution",
-            "clarify-before-plan",
-            "spec-consistency-analysis",
-            "test-driven-development"
-          ],
+          "dependencies": [],
           "fixtures": [
             {
               "prompt": "Implement from the approved spec and Figma handoff, keep docs current, and verify against the source artifacts.",
-              "expected_owner": "spec-driven-development"
+              "expected_owner": "spec-driven-development",
+              "mode": "prepare"
             },
             {
               "prompt": "We have a client spec, but a few requirement gaps still need clearing up before planning.",
-              "expected_owner": "clarify-before-plan"
+              "expected_owner": "requirements-review",
+              "mode": "clarify"
             },
             {
               "prompt": "We already have the PRD and need a phased implementation workflow with docs and verification.",
-              "expected_owner": "spec-driven-development"
+              "expected_owner": "spec-driven-development",
+              "mode": "prepare"
             },
             {
               "prompt": "The design and written requirements disagree on onboarding fields, so normalize the sources before coding.",
-              "expected_owner": "spec-driven-development"
+              "expected_owner": "spec-driven-development",
+              "mode": "prepare"
             },
             {
               "prompt": "The approved request is one bounded toggle with an obvious regression test; implement it without creating a four-file docs set.",
-              "expected_owner": "test-driven-development"
+              "expected_owner": "test-driven-development",
+              "mode": "work"
             }
           ]
         },
         {
           "id": "docs-driven-execution",
-          "required_mentions": [
-            "spec-driven-development",
-            "release-readiness",
-            "test-driven-development"
-          ],
+          "dependencies": [],
           "fixtures": [
             {
               "prompt": "Resume from the plan in /docs, keep blockers current, and execute the next slice.",
-              "expected_owner": "docs-driven-execution"
+              "expected_owner": "docs-driven-execution",
+              "mode": "execute"
             },
             {
               "prompt": "The roadmap already exists; keep progress, verification, and deferred work honest while we keep building.",
-              "expected_owner": "docs-driven-execution"
+              "expected_owner": "docs-driven-execution",
+              "mode": "execute"
             },
             {
               "prompt": "A detailed plan was pasted into chat, but it is only one bounded implementation slice and no durable tracker exists.",
-              "expected_owner": "test-driven-development"
+              "expected_owner": "test-driven-development",
+              "mode": "work"
             }
           ]
         }
@@ -62,49 +61,49 @@
       "name": "resume shaping vs artifact audit",
       "skills": [
         {
-          "id": "task-decomposition-and-resume",
-          "required_mentions": [
-            "artifact-resume-audit",
-            "docs-driven-execution"
-          ],
+          "id": "docs-driven-execution",
+          "dependencies": [],
           "fixtures": [
             {
               "prompt": "The project is too broad; break it into safe ordered slices with clear dependencies.",
-              "expected_owner": "task-decomposition-and-resume"
+              "expected_owner": "docs-driven-execution",
+              "mode": "decompose"
             },
             {
               "prompt": "We know roughly what to build, but the next executable slice and safe parallel boundaries are unclear.",
-              "expected_owner": "task-decomposition-and-resume"
+              "expected_owner": "docs-driven-execution",
+              "mode": "decompose"
             },
             {
               "prompt": "The docs are trustworthy enough; help me shape the next few slices and dependency order before execution continues.",
-              "expected_owner": "task-decomposition-and-resume"
+              "expected_owner": "docs-driven-execution",
+              "mode": "decompose"
             }
           ]
         },
         {
-          "id": "artifact-resume-audit",
-          "required_mentions": [
-            "docs-driven-execution",
-            "task-decomposition-and-resume",
-            "workflow-audit-history"
-          ],
+          "id": "session-handoff",
+          "dependencies": [],
           "fixtures": [
             {
               "prompt": "There are stale progress docs and old exports everywhere; find the safest restart point first.",
-              "expected_owner": "artifact-resume-audit"
+              "expected_owner": "session-handoff",
+              "mode": "resume"
             },
             {
               "prompt": "I inherited half-finished plans and verification notes; tell me what artifacts still deserve trust.",
-              "expected_owner": "artifact-resume-audit"
+              "expected_owner": "session-handoff",
+              "mode": "resume"
             },
             {
               "prompt": "Before we resume, audit which of these trackers and handoff notes are still trustworthy enough to rely on.",
-              "expected_owner": "artifact-resume-audit"
+              "expected_owner": "session-handoff",
+              "mode": "resume"
             },
             {
               "prompt": "Read Codex task 019f8e22-b59b-7103-bc17-6ceca152a140, reconcile its claims against the current repo, and find the safest point for applying those lessons here.",
-              "expected_owner": "artifact-resume-audit"
+              "expected_owner": "session-handoff",
+              "mode": "resume"
             }
           ]
         }
@@ -115,33 +114,22 @@
       "skills": [
         {
           "id": "session-handoff",
-          "required_mentions": [
-            "artifact-resume-audit",
-            "task-decomposition-and-resume",
-            "release-readiness"
-          ],
+          "dependencies": [],
           "fixtures": [
             {
               "prompt": "Write a handoff for the next agent so they can continue this session without rediscovering context.",
-              "expected_owner": "session-handoff"
+              "expected_owner": "session-handoff",
+              "mode": "handoff"
             },
             {
               "prompt": "Compact this conversation into a continuation note with suggested skills, touched files, blockers, and the next step.",
-              "expected_owner": "session-handoff"
-            }
-          ]
-        },
-        {
-          "id": "artifact-resume-audit",
-          "required_mentions": [
-            "docs-driven-execution",
-            "task-decomposition-and-resume",
-            "workflow-audit-history"
-          ],
-          "fixtures": [
+              "expected_owner": "session-handoff",
+              "mode": "handoff"
+            },
             {
               "prompt": "Before making a handoff, audit the stale plans and old exports to find which artifacts are still trustworthy.",
-              "expected_owner": "artifact-resume-audit"
+              "expected_owner": "session-handoff",
+              "mode": "resume"
             }
           ]
         }
@@ -152,69 +140,57 @@
       "skills": [
         {
           "id": "skill-maintenance-and-validation",
-          "required_mentions": [
-            "skill-stocktake",
-            "cross-tool-packaging"
-          ],
+          "dependencies": [],
           "fixtures": [
             {
               "prompt": "Fix this skill package and validate the metadata, references, and prompt wiring.",
-              "expected_owner": "skill-maintenance-and-validation"
+              "expected_owner": "skill-maintenance-and-validation",
+              "mode": "edit"
             },
             {
               "prompt": "Update this skill without letting the frontmatter, references, or handoffs drift.",
-              "expected_owner": "skill-maintenance-and-validation"
+              "expected_owner": "skill-maintenance-and-validation",
+              "mode": "edit"
             },
             {
               "prompt": "Mine recent conversations for reusable conventions and update the editable skills without leaking project-specific memory.",
-              "expected_owner": "skill-maintenance-and-validation"
-            }
-          ]
-        },
-        {
-          "id": "skill-stocktake",
-          "required_mentions": [
-            "skill-maintenance-and-validation",
-            "cross-tool-packaging"
-          ],
-          "fixtures": [
+              "expected_owner": "skill-maintenance-and-validation",
+              "mode": "edit"
+            },
             {
               "prompt": "The library feels crowded and repetitive; tell me what to keep, merge, refresh, or retire.",
-              "expected_owner": "skill-stocktake"
+              "expected_owner": "skill-maintenance-and-validation",
+              "mode": "portfolio"
             },
             {
               "prompt": "Audit the skill set for overlap, bloat, and stale triggers instead of just fixing one package.",
-              "expected_owner": "skill-stocktake"
+              "expected_owner": "skill-maintenance-and-validation",
+              "mode": "portfolio"
             },
             {
               "prompt": "Review the whole skill portfolio and tell me which owners should be refreshed or retired.",
-              "expected_owner": "skill-stocktake"
+              "expected_owner": "skill-maintenance-and-validation",
+              "mode": "portfolio"
             },
             {
               "prompt": "Scan the skill library after conversation-mined updates and flag overlap, bloat, or drift across mirrored roots.",
-              "expected_owner": "skill-stocktake"
-            }
-          ]
-        },
-        {
-          "id": "cross-tool-packaging",
-          "required_mentions": [
-            "skill-maintenance-and-validation",
-            "flattened",
-            "catalog"
-          ],
-          "fixtures": [
+              "expected_owner": "skill-maintenance-and-validation",
+              "mode": "portfolio"
+            },
             {
               "prompt": "Export the skills as a flattened self-contained bundle and include compatibility notes.",
-              "expected_owner": "cross-tool-packaging"
+              "expected_owner": "skill-maintenance-and-validation",
+              "mode": "export"
             },
             {
               "prompt": "Generate the library catalog, export manifest, and universal bundle shape for downstream use.",
-              "expected_owner": "cross-tool-packaging"
+              "expected_owner": "skill-maintenance-and-validation",
+              "mode": "export"
             },
             {
               "prompt": "I need the packaging and catalog outputs updated across Codex-native and flattened formats.",
-              "expected_owner": "cross-tool-packaging"
+              "expected_owner": "skill-maintenance-and-validation",
+              "mode": "export"
             }
           ]
         }
@@ -224,69 +200,58 @@
       "name": "design polish vs redesign vs system export",
       "skills": [
         {
-          "id": "design-fidelity-polish",
-          "required_mentions": [
-            "design-to-traversable-app",
-            "design-system-export"
-          ],
+          "id": "frontend-design",
+          "dependencies": [],
           "fixtures": [
             {
               "prompt": "The screens exist but still do not match the target design's spacing, states, and assets.",
-              "expected_owner": "design-fidelity-polish"
+              "expected_owner": "frontend-design",
+              "mode": "implement"
             },
             {
               "prompt": "We already built the routes; now make the UI match the handoff exactly and verify the states.",
-              "expected_owner": "design-fidelity-polish"
+              "expected_owner": "frontend-design",
+              "mode": "implement"
             },
             {
               "prompt": "Audit every button and tag, consolidate duplicate implementations into shared components, and verify icon contrast and all states through the active host's visible browser.",
-              "expected_owner": "design-fidelity-polish"
+              "expected_owner": "frontend-design",
+              "mode": "implement"
             },
             {
               "prompt": "Make the application UI and transactional email HTML use one consistent design language with shared layouts and reusable primitives.",
-              "expected_owner": "design-fidelity-polish"
-            }
-          ]
-        },
-        {
-          "id": "frontend-redesign-audit",
-          "required_mentions": [
-            "product-brainstorming",
-            "design-fidelity-polish"
-          ],
-          "fixtures": [
+              "expected_owner": "frontend-design",
+              "mode": "implement"
+            },
             {
               "prompt": "The product looks generic and under-designed; diagnose the biggest UI problems before we redesign.",
-              "expected_owner": "frontend-redesign-audit"
+              "expected_owner": "frontend-design",
+              "mode": "audit"
             },
             {
               "prompt": "Audit the current frontend first and tell me which redesign moves will have the highest impact.",
-              "expected_owner": "frontend-redesign-audit"
+              "expected_owner": "frontend-design",
+              "mode": "audit"
             },
             {
               "prompt": "Before redesigning, review the current UI and prioritize the biggest structural issues driving the weak feel.",
-              "expected_owner": "frontend-redesign-audit"
-            }
-          ]
-        },
-        {
-          "id": "design-system-export",
-          "required_mentions": [
-            "design-fidelity-polish",
-            "stable"
-          ],
-          "fixtures": [
+              "expected_owner": "frontend-design",
+              "mode": "audit"
+            },
             {
               "prompt": "The visual direction is stable now; turn it into reusable tokens and component rules.",
-              "expected_owner": "design-system-export"
+              "expected_owner": "frontend-design",
+              "mode": "export"
             },
             {
               "prompt": "We have settled on the product's visual language; export reusable design-system guidance for future implementation.",
-              "expected_owner": "design-system-export"
+              "expected_owner": "frontend-design",
+              "mode": "export"
             },
             {
               "prompt": "Capture the stable visual rules from the current product into reusable design-system artifacts.",
-              "expected_owner": "design-system-export"
+              "expected_owner": "frontend-design",
+              "mode": "export"
             }
           ]
         }
@@ -297,32 +262,28 @@
       "skills": [
         {
           "id": "product-brainstorming",
-          "required_mentions": [
-            "design-to-prd",
-            "spec-driven-development",
-            "frontend-redesign-audit",
-            "design-system-export"
-          ],
+          "dependencies": [],
           "fixtures": [
             {
               "prompt": "We have a rough idea for a new user onboarding flow, but I want to compare a couple of product directions before we commit.",
-              "expected_owner": "product-brainstorming"
+              "expected_owner": "product-brainstorming",
+              "mode": "shape"
             },
             {
               "prompt": "The redesign request is still fuzzy; shape the experience and write the design direction before we plan implementation.",
-              "expected_owner": "product-brainstorming"
+              "expected_owner": "product-brainstorming",
+              "mode": "shape"
             }
           ]
         },
         {
-          "id": "design-to-prd",
-          "required_mentions": [
-            "spec-driven-development"
-          ],
+          "id": "spec-driven-development",
+          "dependencies": [],
           "fixtures": [
             {
               "prompt": "The Figma is done; turn it into a PRD under docs so implementation planning can start.",
-              "expected_owner": "design-to-prd"
+              "expected_owner": "spec-driven-development",
+              "mode": "prd"
             }
           ]
         }
@@ -333,41 +294,38 @@
       "skills": [
         {
           "id": "grill-with-docs",
-          "required_mentions": [
-            "clarify-before-plan",
-            "repo-convention-discovery",
-            "spec-driven-development",
-            "docs-driven-execution"
-          ],
+          "dependencies": [],
           "fixtures": [
             {
               "prompt": "Grill this implementation plan against the codebase, existing docs, and domain language before we build it.",
-              "expected_owner": "grill-with-docs"
+              "expected_owner": "grill-with-docs",
+              "mode": "work"
             },
             {
               "prompt": "Stress-test this plan against CONTEXT.md and ADRs, one question at a time.",
-              "expected_owner": "grill-with-docs"
+              "expected_owner": "grill-with-docs",
+              "mode": "work"
             },
             {
               "prompt": "Challenge this ticket plan before implementation and tell me where the terminology or tradeoffs are weak.",
-              "expected_owner": "grill-with-docs"
+              "expected_owner": "grill-with-docs",
+              "mode": "work"
             },
             {
               "prompt": "Grill this small feature, but checkpoint before adding schedulers, archives, audit systems, or other scope beyond the requested MVP.",
-              "expected_owner": "grill-with-docs"
+              "expected_owner": "grill-with-docs",
+              "mode": "work"
             }
           ]
         },
         {
-          "id": "clarify-before-plan",
-          "required_mentions": [
-            "spec-driven-development",
-            "product-brainstorming"
-          ],
+          "id": "requirements-review",
+          "dependencies": [],
           "fixtures": [
             {
               "prompt": "This spec mostly makes sense; ask the few high-impact questions that would change the implementation plan.",
-              "expected_owner": "clarify-before-plan"
+              "expected_owner": "requirements-review",
+              "mode": "clarify"
             }
           ]
         }
@@ -377,82 +335,74 @@
       "name": "ticket intake vs implementation planning",
       "skills": [
         {
-          "id": "ticket-batch-intake",
-          "required_mentions": [
-            "spec-driven-development",
-            "task-decomposition-and-resume",
-            "ticket-driven-delivery",
-            "docs-driven-execution",
-            "api-contract-review"
-          ],
+          "id": "ticket-driven-delivery",
+          "dependencies": [],
           "fixtures": [
             {
               "prompt": "Read this Trello export including all comments and make a plan for the first five Sprint cards, plus Czech summaries for the card owner.",
-              "expected_owner": "ticket-batch-intake"
+              "expected_owner": "ticket-driven-delivery",
+              "mode": "intake"
             },
             {
               "prompt": "Plan the next Jira ticket batch, preserve board order, note prior AI changes, and give FE/BE contract notes.",
-              "expected_owner": "ticket-batch-intake"
+              "expected_owner": "ticket-driven-delivery",
+              "mode": "intake"
             },
             {
               "prompt": "From these Todo cards, tell me which are verification-only because another agent may already have implemented them.",
-              "expected_owner": "ticket-batch-intake"
+              "expected_owner": "ticket-driven-delivery",
+              "mode": "intake"
             },
             {
               "prompt": "Resolve these six Trello shortlinks with valid positive search limits, reuse their internal IDs, and gather independent comments, attachments, and checklists concurrently.",
-              "expected_owner": "ticket-batch-intake"
+              "expected_owner": "ticket-driven-delivery",
+              "mode": "intake"
             },
             {
               "prompt": "This copied Trello card refers to an older comment that is missing from the comment-only response; recover the bounded activity history and inspect the visual attachment without repeating any exposed credentials.",
-              "expected_owner": "ticket-batch-intake"
+              "expected_owner": "ticket-driven-delivery",
+              "mode": "intake"
             },
             {
               "prompt": "The Trello evidence and fix plan are approved; implement the cards, verify each affected repo, and post concise closeout comments.",
-              "expected_owner": "ticket-driven-delivery"
+              "expected_owner": "ticket-driven-delivery",
+              "mode": "deliver"
             },
             {
               "prompt": "Resume this approved ticket batch from the active /docs plan and progress tracker, keeping blockers and verification evidence current.",
-              "expected_owner": "docs-driven-execution"
-            }
-          ]
-        },
-        {
-          "id": "ticket-driven-delivery",
-          "required_mentions": [
-            "ticket-batch-intake",
-            "docs-driven-execution",
-            "traceable-delivery",
-            "systematic-debugging"
-          ],
-          "fixtures": [
+              "expected_owner": "docs-driven-execution",
+              "mode": "execute"
+            },
             {
               "prompt": "Implement this approved Jira batch, verify the user-visible behavior, and write the stakeholder ticket comments afterward.",
-              "expected_owner": "ticket-driven-delivery"
+              "expected_owner": "ticket-driven-delivery",
+              "mode": "deliver"
             },
             {
               "prompt": "The ticket changes touch generated Flutter clients; regenerate them using repo tooling and report whether the outputs are tracked or ignored.",
-              "expected_owner": "ticket-driven-delivery"
+              "expected_owner": "ticket-driven-delivery",
+              "mode": "deliver"
             },
             {
               "prompt": "Implement the approved ticket fix, deploy the intended commit and migrations, replay the newest QA path in staging, and only then post the Czech closeout comment.",
-              "expected_owner": "ticket-driven-delivery"
+              "expected_owner": "ticket-driven-delivery",
+              "mode": "deliver"
             },
             {
               "prompt": "Post the Czech implementation handoff to these tickets, but first check for an equivalent existing comment and read every new comment back from the correct card.",
-              "expected_owner": "ticket-driven-delivery"
+              "expected_owner": "ticket-driven-delivery",
+              "mode": "deliver"
             }
           ]
         },
         {
           "id": "spec-driven-development",
-          "required_mentions": [
-            "ticket-batch-intake",
-            "docs-driven-execution"
-          ],
+          "dependencies": [],
           "fixtures": [
             {
               "prompt": "The ticket batch intake is approved; turn it into a traceable implementation workflow with docs and verification.",
-              "expected_owner": "spec-driven-development"
+              "expected_owner": "spec-driven-development",
+              "mode": "prepare"
             }
           ]
         }
@@ -462,34 +412,23 @@
       "name": "architecture audit vs migration risk",
       "skills": [
         {
-          "id": "architecture-deepening-audit",
-          "required_mentions": [
-            "migration-risk-audit",
-            "repo-convention-discovery",
-            "grill-with-docs",
-            "test-driven-development"
-          ],
+          "id": "full-project-hardening",
+          "dependencies": [],
           "fixtures": [
             {
               "prompt": "Audit this codebase for shallow modules and deepening opportunities before we refactor.",
-              "expected_owner": "architecture-deepening-audit"
+              "expected_owner": "full-project-hardening",
+              "mode": "architecture"
             },
             {
               "prompt": "Find architecture seams where logic leaks across callers and suggest deep module candidates.",
-              "expected_owner": "architecture-deepening-audit"
-            }
-          ]
-        },
-        {
-          "id": "migration-risk-audit",
-          "required_mentions": [
-            "systematic-debugging",
-            "release-readiness"
-          ],
-          "fixtures": [
+              "expected_owner": "full-project-hardening",
+              "mode": "architecture"
+            },
             {
               "prompt": "Before upgrading this framework, map migration risk, compatibility hazards, and rollout concerns.",
-              "expected_owner": "migration-risk-audit"
+              "expected_owner": "full-project-hardening",
+              "mode": "migration"
             }
           ]
         }
@@ -499,35 +438,23 @@
       "name": "prototype vs product planning",
       "skills": [
         {
-          "id": "throwaway-prototype",
-          "required_mentions": [
-            "product-brainstorming",
-            "spec-driven-development",
-            "test-driven-development"
-          ],
+          "id": "product-brainstorming",
+          "dependencies": [],
           "fixtures": [
             {
               "prompt": "Prototype this state machine so I can play with edge cases before we implement it.",
-              "expected_owner": "throwaway-prototype"
+              "expected_owner": "product-brainstorming",
+              "mode": "prototype"
             },
             {
               "prompt": "Try three radically different UI variants for this dashboard on the existing route.",
-              "expected_owner": "throwaway-prototype"
-            }
-          ]
-        },
-        {
-          "id": "product-brainstorming",
-          "required_mentions": [
-            "design-to-prd",
-            "spec-driven-development",
-            "frontend-redesign-audit",
-            "design-system-export"
-          ],
-          "fixtures": [
+              "expected_owner": "product-brainstorming",
+              "mode": "prototype"
+            },
             {
               "prompt": "Explore product directions for this dashboard before deciding whether any prototype is needed.",
-              "expected_owner": "product-brainstorming"
+              "expected_owner": "product-brainstorming",
+              "mode": "shape"
             }
           ]
         }
@@ -538,31 +465,28 @@
       "skills": [
         {
           "id": "two-axis-review",
-          "required_mentions": [
-            "release-readiness",
-            "verification-before-completion",
-            "repo-convention-discovery"
-          ],
+          "dependencies": [],
           "fixtures": [
             {
               "prompt": "Review this branch since main against the issue and repo standards.",
-              "expected_owner": "two-axis-review"
+              "expected_owner": "two-axis-review",
+              "mode": "work"
             },
             {
               "prompt": "Review WIP changes against AGENTS.md and the PRD, keeping standards and spec findings separate.",
-              "expected_owner": "two-axis-review"
+              "expected_owner": "two-axis-review",
+              "mode": "work"
             }
           ]
         },
         {
-          "id": "release-readiness",
-          "required_mentions": [
-            "verification-before-completion"
-          ],
+          "id": "verification-before-completion",
+          "dependencies": [],
           "fixtures": [
             {
               "prompt": "The review findings are fixed and verification evidence exists; decide if this is ready for release.",
-              "expected_owner": "release-readiness"
+              "expected_owner": "verification-before-completion",
+              "mode": "readiness"
             }
           ]
         }
@@ -573,64 +497,64 @@
       "skills": [
         {
           "id": "systematic-debugging",
-          "required_mentions": [
-            "test-driven-development",
-            "verification-before-completion"
-          ],
+          "dependencies": [],
           "fixtures": [
             {
               "prompt": "The mobile booking still fails after two claimed fixes; inspect the exact installed build and live request before changing code again.",
-              "expected_owner": "systematic-debugging"
+              "expected_owner": "systematic-debugging",
+              "mode": "work"
             },
             {
               "prompt": "Local tests pass but staging still fails; use a one-variable A/B request to find the real schema boundary and remove the speculative migration from the rejected hypothesis.",
-              "expected_owner": "systematic-debugging"
+              "expected_owner": "systematic-debugging",
+              "mode": "work"
             }
           ]
         },
         {
           "id": "test-driven-development",
-          "required_mentions": [
-            "systematic-debugging",
-            "verification-before-completion"
-          ],
+          "dependencies": [],
           "fixtures": [
             {
               "prompt": "We understand the serializer regression now; capture the public behavior in a failing test before implementing the fix.",
-              "expected_owner": "test-driven-development"
+              "expected_owner": "test-driven-development",
+              "mode": "work"
             },
             {
               "prompt": "The icon is invisible after rendering; add a component-level regression instead of only checking SVG attributes.",
-              "expected_owner": "test-driven-development"
+              "expected_owner": "test-driven-development",
+              "mode": "work"
             }
           ]
         },
         {
           "id": "verification-before-completion",
-          "required_mentions": [
-            "systematic-debugging",
-            "test-driven-development"
-          ],
+          "dependencies": [],
           "fixtures": [
             {
               "prompt": "The app compiles; prove the new build is installed and the original simulator flow succeeds before saying it is fixed.",
-              "expected_owner": "verification-before-completion"
+              "expected_owner": "verification-before-completion",
+              "mode": "verify"
             },
             {
               "prompt": "Verify web and mobile icon parity across semantic mapping, asset contents, rendered color and size, and every consumer screen.",
-              "expected_owner": "verification-before-completion"
+              "expected_owner": "verification-before-completion",
+              "mode": "verify"
             },
             {
               "prompt": "The build and browser tests both rewrite the Vite manifest; serialize them or isolate their outputs before trusting the result.",
-              "expected_owner": "verification-before-completion"
+              "expected_owner": "verification-before-completion",
+              "mode": "verify"
             },
             {
               "prompt": "Verify a printable voucher batch with a partially filled final PDF page and inspect the rendered output for clipping.",
-              "expected_owner": "verification-before-completion"
+              "expected_owner": "verification-before-completion",
+              "mode": "verify"
             },
             {
               "prompt": "Verify the shared button and email-template changes across every consumer through the active host's visible browser, with automated E2E kept as separate evidence.",
-              "expected_owner": "verification-before-completion"
+              "expected_owner": "verification-before-completion",
+              "mode": "verify"
             }
           ]
         }
@@ -640,45 +564,28 @@
       "name": "verification handoff vs verification execution",
       "skills": [
         {
-          "id": "e2e-verification-handoff",
-          "required_mentions": [
-            "verification-before-completion",
-            "release-readiness",
-            "api-contract-review"
-          ],
+          "id": "verification-before-completion",
+          "dependencies": [],
           "fixtures": [
             {
               "prompt": "Make a detailed plan for another AI agent to test the Stripe Connect flow end to end in the browser.",
-              "expected_owner": "e2e-verification-handoff"
+              "expected_owner": "verification-before-completion",
+              "mode": "handoff"
             },
             {
               "prompt": "Prepare an E2E verification handoff for uploads, roles, webhook state transitions, and mobile/web parity.",
-              "expected_owner": "e2e-verification-handoff"
-            }
-          ]
-        },
-        {
-          "id": "verification-before-completion",
-          "required_mentions": [
-            "release-readiness",
-            "systematic-debugging"
-          ],
-          "fixtures": [
+              "expected_owner": "verification-before-completion",
+              "mode": "handoff"
+            },
             {
               "prompt": "The implementation is done; prove the specific upload fix with fresh tests and browser evidence before saying it is fixed.",
-              "expected_owner": "verification-before-completion"
-            }
-          ]
-        },
-        {
-          "id": "release-readiness",
-          "required_mentions": [
-            "verification-before-completion"
-          ],
-          "fixtures": [
+              "expected_owner": "verification-before-completion",
+              "mode": "verify"
+            },
             {
               "prompt": "We have verification evidence now; decide if this feature is ready for handoff or release and list remaining risks.",
-              "expected_owner": "release-readiness"
+              "expected_owner": "verification-before-completion",
+              "mode": "readiness"
             }
           ]
         }
@@ -689,34 +596,33 @@
       "skills": [
         {
           "id": "api-contract-review",
-          "required_mentions": [
-            "integrating-backend-api-into-frontend"
-          ],
+          "dependencies": [],
           "fixtures": [
             {
               "prompt": "Before coding, compare the frontend assumptions against the OpenAPI and live payload examples, read-only.",
-              "expected_owner": "api-contract-review"
+              "expected_owner": "api-contract-review",
+              "mode": "work"
             },
             {
               "prompt": "Review this backend response shape and tell me where the mobile app contract has drifted, but do not change code.",
-              "expected_owner": "api-contract-review"
+              "expected_owner": "api-contract-review",
+              "mode": "work"
             },
             {
               "prompt": "Read-only review the real multipart payload for omitted versus null fields, integer normalization, enum scalars, and internal discriminator leakage before the frontend integration changes.",
-              "expected_owner": "api-contract-review"
+              "expected_owner": "api-contract-review",
+              "mode": "work"
             }
           ]
         },
         {
           "id": "integrating-backend-api-into-frontend",
-          "required_mentions": [
-            "api-contract-review",
-            "release-readiness"
-          ],
+          "dependencies": [],
           "fixtures": [
             {
               "prompt": "The API contract is confirmed; implement the frontend integration and verify the real browser flows.",
-              "expected_owner": "integrating-backend-api-into-frontend"
+              "expected_owner": "integrating-backend-api-into-frontend",
+              "mode": "work"
             }
           ]
         }
@@ -726,27 +632,24 @@
       "name": "repo discovery vs implementation",
       "skills": [
         {
-          "id": "repo-convention-discovery",
-          "required_mentions": [
-            "make check"
-          ],
+          "id": "evidence-discovery",
+          "dependencies": [],
           "fixtures": [
             {
               "prompt": "Before coding in this unfamiliar repo, inspect the full project gate and summarize non-obvious controller, model, enum, test, and generated-artifact rules.",
-              "expected_owner": "repo-convention-discovery"
+              "expected_owner": "evidence-discovery",
+              "mode": "repository"
             }
           ]
         },
         {
           "id": "test-driven-development",
-          "required_mentions": [
-            "systematic-debugging",
-            "verification-before-completion"
-          ],
+          "dependencies": [],
           "fixtures": [
             {
               "prompt": "The repo conventions and full gate are already known; start the bounded behavior change from a failing test.",
-              "expected_owner": "test-driven-development"
+              "expected_owner": "test-driven-development",
+              "mode": "work"
             }
           ]
         }
@@ -757,17 +660,17 @@
       "skills": [
         {
           "id": "custom-skill-routing",
-          "required_mentions": [
-            "obvious owner"
-          ],
+          "dependencies": [],
           "fixtures": [
             {
               "prompt": "This request plausibly belongs to either API contract review or implementation; choose one owner and a clean handoff.",
-              "expected_owner": "custom-skill-routing"
+              "expected_owner": "custom-skill-routing",
+              "mode": "route"
             },
             {
               "prompt": "The user explicitly asked for test-driven development on a bounded fix; do not invoke a router as ceremony.",
-              "expected_owner": "test-driven-development"
+              "expected_owner": "test-driven-development",
+              "mode": "work"
             }
           ]
         }
@@ -778,35 +681,28 @@
       "skills": [
         {
           "id": "subagent-driven-development",
-          "required_mentions": [
-            "task-decomposition-and-resume",
-            "spec-driven-development",
-            "docs-driven-execution",
-            "verification-before-completion",
-            "release-readiness",
-            "systematic-debugging"
-          ],
+          "dependencies": [],
           "fixtures": [
             {
               "prompt": "This implementation is large enough for a lead-worker setup; keep planning and integration central but delegate bounded slices.",
-              "expected_owner": "subagent-driven-development"
+              "expected_owner": "subagent-driven-development",
+              "mode": "work"
             },
             {
               "prompt": "We have three disjoint write scopes and a clear plan; coordinate worker agents safely and keep final verification on the lead path.",
-              "expected_owner": "subagent-driven-development"
+              "expected_owner": "subagent-driven-development",
+              "mode": "work"
             }
           ]
         },
         {
-          "id": "task-decomposition-and-resume",
-          "required_mentions": [
-            "artifact-resume-audit",
-            "docs-driven-execution"
-          ],
+          "id": "docs-driven-execution",
+          "dependencies": [],
           "fixtures": [
             {
               "prompt": "Break the broad work into ordered slices first; we are not ready to delegate workers yet.",
-              "expected_owner": "task-decomposition-and-resume"
+              "expected_owner": "docs-driven-execution",
+              "mode": "decompose"
             }
           ]
         }
@@ -817,38 +713,37 @@
       "skills": [
         {
           "id": "full-project-hardening",
-          "required_mentions": [
-            "architecture-deepening-audit",
-            "frontend-redesign-audit",
-            "spec-driven-development",
-            "systematic-debugging",
-            "verification-before-completion",
-            "release-readiness"
-          ],
+          "dependencies": [],
           "fixtures": [
             {
               "prompt": "Do a full project audit, test every important flow, fix everything you find, and make it production ready.",
-              "expected_owner": "full-project-hardening"
+              "expected_owner": "full-project-hardening",
+              "mode": "audit"
             },
             {
               "prompt": "Audit the existing backend, frontend, security, data, runtime, and UI, then implement and verify the prioritized fixes.",
-              "expected_owner": "full-project-hardening"
+              "expected_owner": "full-project-hardening",
+              "mode": "audit"
             },
             {
               "prompt": "Read-only audit the module seams and shallow abstractions before we decide on a refactor.",
-              "expected_owner": "architecture-deepening-audit"
+              "expected_owner": "full-project-hardening",
+              "mode": "architecture"
             },
             {
               "prompt": "The implementation and verification evidence already exist; decide whether the whole feature is ready to release.",
-              "expected_owner": "release-readiness"
+              "expected_owner": "verification-before-completion",
+              "mode": "readiness"
             },
             {
               "prompt": "This client specification is the controlling source; implement it in phases and verify every requirement.",
-              "expected_owner": "spec-driven-development"
+              "expected_owner": "spec-driven-development",
+              "mode": "prepare"
             },
             {
               "prompt": "Audit the whole application for security, correctness, UI, and performance issues. Deliver findings and an ordered fix proposal only. You have repository read access and safe read-only checks; application edits are not requested.",
-              "expected_owner": "full-project-hardening"
+              "expected_owner": "full-project-hardening",
+              "mode": "audit"
             }
           ]
         }
@@ -859,43 +754,39 @@
       "skills": [
         {
           "id": "local-tooling-maintenance",
-          "required_mentions": [
-            "search-first",
-            "env-file-mutation-guard",
-            "verification-before-completion"
-          ],
+          "dependencies": [],
           "fixtures": [
             {
               "prompt": "Uninstall this local AI app and its editor plugin, router, shell hook, credentials, and leftovers without touching shared data.",
-              "expected_owner": "local-tooling-maintenance"
+              "expected_owner": "local-tooling-maintenance",
+              "mode": "work"
             },
             {
               "prompt": "Disable this MCP integration across the host overlay, user config, project config, and IDE, then prove the preserved integrations still work.",
-              "expected_owner": "local-tooling-maintenance"
+              "expected_owner": "local-tooling-maintenance",
+              "mode": "work"
             }
           ]
         },
         {
-          "id": "search-first",
-          "required_mentions": [
-            "local-tooling-maintenance"
-          ],
+          "id": "evidence-discovery",
+          "dependencies": [],
           "fixtures": [
             {
               "prompt": "Read-only inventory whether this CLI is really installed or whether I am only seeing stale package and editor metadata.",
-              "expected_owner": "search-first"
+              "expected_owner": "evidence-discovery",
+              "mode": "research"
             }
           ]
         },
         {
           "id": "verification-before-completion",
-          "required_mentions": [
-            "local-tooling-maintenance"
-          ],
+          "dependencies": [],
           "fixtures": [
             {
               "prompt": "The local tool removal is complete; prove the app, command, process, hooks, config layers, and credential entry are actually gone.",
-              "expected_owner": "verification-before-completion"
+              "expected_owner": "verification-before-completion",
+              "mode": "verify"
             }
           ]
         }
@@ -906,28 +797,27 @@
       "skills": [
         {
           "id": "native-desktop-delivery",
-          "required_mentions": [
-            "local-tooling-maintenance",
-            "systematic-debugging",
-            "frontend-redesign-audit",
-            "release-readiness"
-          ],
+          "dependencies": [],
           "fixtures": [
             {
               "prompt": "Port this web product into an independent offline desktop application and verify its native menus, printers, local data, and installers.",
-              "expected_owner": "native-desktop-delivery"
+              "expected_owner": "native-desktop-delivery",
+              "mode": "work"
             },
             {
               "prompt": "Remove an obsolete local editor and its registered integrations.",
-              "expected_owner": "local-tooling-maintenance"
+              "expected_owner": "local-tooling-maintenance",
+              "mode": "work"
             },
             {
               "prompt": "We have platform-specific installer evidence; decide what is release-ready.",
-              "expected_owner": "release-readiness"
+              "expected_owner": "verification-before-completion",
+              "mode": "readiness"
             }
           ]
         }
       ]
     }
-  ]
+  ],
+  "schema_version": 2
 }

@@ -5,7 +5,9 @@ from __future__ import annotations
 import argparse
 import re
 import sys
+import json
 from pathlib import Path
+from library_paths import source_files, local_links, resolve_link
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -159,11 +161,52 @@ def validate_skill(skill_dir: Path) -> tuple[list[str], list[str]]:
         elif f"${name}" not in default_prompt:
             errors.append("default_prompt does not mention the skill token")
 
-    for rel_path in sorted(extract_relative_paths(skill_path)):
-        if not (skill_dir / rel_path).exists():
-            errors.append(f"referenced path `{rel_path}` does not exist")
+    errors.extend(validate_references(skill_dir))
 
     return errors, warnings
+
+
+def validate_references(skill_dir):
+    root = skill_dir.parent
+    errors = []
+    contract_path = root / 'routing-contracts.json'
+    contracts = json.loads(contract_path.read_text()) if contract_path.exists() else {'skills': {}, 'optional_external': []}
+    migration_path = root / 'migration-map.json'
+    migration = json.loads(migration_path.read_text()) if migration_path.exists() else {'entries': []}
+    retired = {e['old_name'] for e in migration['entries'] if e['old_name'] != e['replacement']}
+    known = {p.name for p in root.iterdir() if (p / 'SKILL.md').is_file()}
+    optional = set(contracts.get('optional_external', []))
+    dependencies = contracts.get('skills', {}).get(skill_dir.name, {}).get('dependencies', [])
+    for dependency in dependencies:
+        if dependency not in known:
+            errors.append(f'missing declared local dependency: {dependency}')
+    for path in source_files(skill_dir):
+        if path.suffix not in {'.md', '.yaml', '.yml'}:
+            continue
+        text = path.read_text()
+        links = list(local_links(text))
+        if path.suffix in {'.yaml', '.yml'}:
+            links += [value.strip().strip('\"\'') for value in re.findall(r'icon_(?:small|large):[ \t]*([^\n]+)', text)]
+        for link in links:
+            if link.startswith(('/', '~', '$')):
+                errors.append(f'{path.relative_to(skill_dir)}: nonportable local link: {link}')
+                continue
+            target = resolve_link(path, link, skill_dir)
+            if root.resolve() != target and root.resolve() not in target.parents:
+                errors.append(f'{path.relative_to(skill_dir)}: local link escapes library: {link}')
+            elif not target.exists():
+                errors.append(f'{path.relative_to(skill_dir)}: missing local link: {link}')
+        for token in re.findall(r'\$([a-z][a-z0-9]*(?:-[a-z0-9]+)+)', text):
+            if token not in known and token not in optional:
+                errors.append(f'{path.relative_to(skill_dir)}: unresolved named skill: {token}')
+        if contracts.get('skills'):
+            for token in re.findall(r'`\$?([a-z][a-z0-9]*(?:-[a-z0-9]+)+)`', text):
+                if token in known and token != skill_dir.name and token not in dependencies:
+                    errors.append(f'{path.relative_to(skill_dir)}: undeclared local dependency: {token}')
+        for old in retired:
+            if re.search(r'(?<![\w-])' + re.escape(old) + r'(?![\w-])', text):
+                errors.append(f'{path.relative_to(skill_dir)}: retired skill name: {old}')
+    return errors
 
 
 def main() -> int:

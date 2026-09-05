@@ -1,8 +1,3 @@
-# MVP Vs Deferred
+# Required versus deferred work
 
-Use this split when external prerequisites are missing but the core app can still move forward.
-
-- Put credential-blocked, vendor-blocked, or setup-blocked work into an explicit deferred bucket.
-- Keep the MVP slice focused on deliverable core product behavior.
-- Require a follow-up markdown plan for deferred integrations so another agent can resume them later without rediscovery.
-- Do not stall the whole project on missing third-party access unless the source artifacts explicitly make that part of MVP acceptance.
+Missing credentials, provider access or setup blocks a required integration; it does not remove that integration from acceptance. Keep a blocker, owner and resumption condition in existing tracking. Defer only when the user or accepted specification permits it. Continue independent unblocked slices, but do not call the overall required scope complete. A separate follow-up plan is optional when the existing tracker is sufficient.

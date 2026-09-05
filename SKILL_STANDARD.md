@@ -98,13 +98,13 @@ Generate the machine-readable catalog and manifest with:
 python3 ~/.agents/skills/scripts/generate_skill_catalog.py
 ```
 
-Check static boundary mentions for documented routing examples with:
+Check declared owner/mode and dependency contracts for routing examples with:
 
 ```bash
 python3 ~/.agents/skills/scripts/check_skill_routing.py
 ```
 
-This is textual validation, not prompt execution. Validate behavioral scenario definitions and recorded evaluations separately:
+This is static contract validation, not prompt execution. Validate behavioral scenario definitions and recorded evaluations separately:
 
 ```bash
 python3 ~/.agents/skills/scripts/check_skill_behavior.py
@@ -141,11 +141,22 @@ Run the full sequential skill-library check with:
 python3 ~/.agents/skills/scripts/check_all_skills.py
 ```
 
-To verify that checked-in catalog and report artifacts still match the current skill sources without rewriting them, run:
+To verify that ignored generated catalog, manifest and report artifacts match freshly computed semantic contents without rewriting them, run:
 
 ```bash
 python3 ~/.agents/skills/scripts/check_all_skills.py --check-generated
 ```
+
+Generation is explicit: use `check_all_skills.py --generate`. The default command
+checks packages, contracts, regression tests and evidence records without
+generating files. Add `--verbose` for detailed output. Caches do not participate
+in source fingerprints; timestamps do not participate in generated comparisons.
+
+Keep mode-specific procedures selectively loaded. Preserve local dependencies
+in routing-contracts.json and optional external capabilities separately. A
+retirement requires a versioned migration entry and resolved active callers;
+the map does not repair external links. Record performance from actual source
+loads, not skill mentions, and never relabel old evaluation responses as current.
 
 ## Feedback Loop
 

@@ -1,0 +1,470 @@
+{
+  "run": 2,
+  "variant": "revised",
+  "model": "inherited",
+  "records": [
+    {
+      "case_id": "case-001",
+      "owner": "full-project-hardening",
+      "loaded_files": [
+        "full-project-hardening/SKILL.md",
+        "full-project-hardening/references/mode-audit.md"
+      ],
+      "response": "I would use audit mode to deliver risk-ranked findings and an ordered fix proposal. Map security, correctness, critical runtime flows, UI and performance to concrete repository evidence, then use relevant safe read-only checks to investigate high-impact boundaries. Passing tests would not settle gaps involving direct callers, concurrent writes or deployment behavior. Each finding should include affected scope, evidence, severity, reproduction or next verification, and a proposed correction. Separate confirmed defects from unverified risks. The request authorizes assessment only; no application edits, migrations, deployment or external posting would be part of this audit."
+    },
+    {
+      "case_id": "case-002",
+      "owner": "native-desktop-delivery",
+      "loaded_files": [
+        "native-desktop-delivery/SKILL.md",
+        "native-desktop-delivery/references/offline-data-and-sync.md"
+      ],
+      "response": "Keep printer settings device-local and active-store context independent across the two devices. A's East/thermal selection must not overwrite B's West/A4 selection through account synchronization. Persist the original store ID with each queued sale so A later choosing West cannot retarget East's sale. Synchronize shared business records within the requested scope, with explicit ownership and conflict rules. Verification should cover both devices, restarts, offline queue recovery, duplicate delivery and acknowledgement loss. An uncertain remote write needs reconciliation before replay. Device preferences and secrets must not silently become synchronized business data."
+    },
+    {
+      "case_id": "case-003",
+      "owner": "full-project-hardening",
+      "loaded_files": [
+        "full-project-hardening/SKILL.md",
+        "full-project-hardening/references/mode-audit.md",
+        "full-project-hardening/references/boundary-checks.md"
+      ],
+      "response": "This evidence establishes a missing authorization contract at a direct mutation boundary. HTTP denial tests demonstrate the controller's policy only; the command and assistant tool bypass that policy. I would classify the defect as potentially high impact, while checking who can invoke those entrypoints and control invoice IDs before claiming a proven exploit. Next, trace both callers and specify isolated unauthorized direct-call tests, asserting no data or file changes, with an authorized control case. Recommend enforcement at the service boundary or an explicit narrow trusted-caller contract. The review does not authorize implementing that correction."
+    },
+    {
+      "case_id": "case-004",
+      "owner": "verification-before-completion",
+      "loaded_files": [
+        "verification-before-completion/SKILL.md",
+        "verification-before-completion/references/mode-readiness.md",
+        "verification-before-completion/references/deployment-smoke.md"
+      ],
+      "response": "Report B as regression-tested source and deployment as blocked at production view-cache generation. Production still runs A, so the user's observed failure does not show that B ran and failed. Inspect deployment logs and current artifact identity read-only, then propose isolated replay of the actual production build/cache command path using synthetic configuration. Preserve B's valid regression evidence and identify the first failing deployment stage. No production mutation is authorized. Deployment success and the affected live user flow remain separate, pending checks after an authorized rollout places the intended revision on the target."
+    },
+    {
+      "case_id": "case-005",
+      "owner": "native-desktop-delivery",
+      "loaded_files": [
+        "native-desktop-delivery/SKILL.md",
+        "native-desktop-delivery/references/installed-verification.md"
+      ],
+      "response": "Windows x64 has build and archive-integrity evidence only. It has no Windows installation, launch or runtime-flow evidence; cross-compilation cannot establish those outcomes. macOS arm64 has an installed DMG and passing requested-flow evidence, with ad-hoc signing and no notarization. Report each dimension separately, including exact source and artifact identity when available. The macOS result supports a tested development artifact rather than a notarized distribution claim. Windows still requires actual installation and runtime verification on Windows. No platform inherits another platform's runtime result, and no signing or publication success should be inferred."
+    },
+    {
+      "case_id": "case-006",
+      "owner": "workflow-contract-builder",
+      "loaded_files": [
+        "workflow-contract-builder/SKILL.md",
+        "workflow-contract-builder/references/automation-contract.md"
+      ],
+      "response": "This run remains blocked by unchanged missing access and should stay quiet. Last week's unanswered request is not a new required action. Persist observed and last-notified states separately so restarts cannot create duplicate alerts. The dashboard and scheduler prove infrastructure, not an operational business workflow. Acceptance needs representative source inputs processed into a useful reviewable output, plus missing-input, repeated-run, approval-boundary, baseline, changed-state, unchanged-blocker and recovery cases. Verify notification deduplication across restarts. Record remaining manual steps explicitly; only successful end-to-end business evidence supports calling the workflow operational."
+    },
+    {
+      "case_id": "case-007",
+      "owner": "grill-with-docs",
+      "loaded_files": [
+        "grill-with-docs/SKILL.md"
+      ],
+      "response": "Ask one question about whether the workflow may send customer emails. The described native request should contain only header, id, question and options, with a label and consequence description for each option. Distinguish authorization for the specified sends from keeping outputs as drafts. Do not invent a timeout or default-submission parameter. Because the answer supplies external-action authority, an unanswered question stays pending; elapsed time cannot count as approval. Independent plan analysis may continue, but sending must wait for an explicit decision. This exercise describes the next request and makes no actual send."
+    },
+    {
+      "case_id": "case-008",
+      "owner": "frontend-design",
+      "loaded_files": [
+        "frontend-design/SKILL.md",
+        "frontend-design/references/mode-audit.md"
+      ],
+      "response": "Use Orders as the canonical comparison for settings hierarchy, spacing, actions and scrolling. Inspect representative desktop sizes and the dialog's parent overflow and stacking contexts. Recommend flattening redundant nested panels while retaining meaningful grouping, and reusing Orders' established persistent action treatment if it keeps checkout accessible. The clipped backdrop needs the product's viewport-level overlay treatment, with modal focus and keyboard behavior considered. Rank inaccessible checkout and impaired modal coverage ahead of cosmetic differences. These are evidence-guided inspection targets and recommendations; no rendered check or implementation has been performed in this decision-only assessment."
+    },
+    {
+      "case_id": "case-009",
+      "owner": "spec-driven-development",
+      "loaded_files": [
+        "spec-driven-development/SKILL.md",
+        "spec-driven-development/references/mode-prepare.md"
+      ],
+      "response": "Spec-driven-development owns the implementation because the complete acceptance checklist already supplies the requirement. Load its prepare mode, applicable project instructions, the checklist and relevant local toggle conventions. A new brainstorming phase or PRD would not resolve any stated gap. Track this small change inline or in the existing record, implement within the checklist's scope and verify the affected behavior plus required repository gates. Add a test only where it protects meaningful behavior. Report actual evidence and limitations; a workflow choice alone does not establish that the toggle was implemented or checked."
+    },
+    {
+      "case_id": "case-010",
+      "owner": "custom-skill-routing",
+      "loaded_files": [
+        "custom-skill-routing/SKILL.md",
+        "custom-skill-routing/references/mode-stage.md"
+      ],
+      "response": "The next stage is runtime verification for slice four. Reuse the current source, accepted plan, working summary, acceptance criteria and valid evidence for slices one through three. There is no need to restart discovery or rebuild planning artifacts. Route the unresolved check to verification-before-completion, establish the exact runtime and fresh assets, and exercise slice four with isolated test state. Refresh earlier evidence only if shared changes invalidate its inputs. Current status is three completed slices and one awaiting required runtime evidence; any actual access blocker should remain separate from completed work."
+    },
+    {
+      "case_id": "case-011",
+      "owner": "requirements-review",
+      "loaded_files": [
+        "requirements-review/SKILL.md",
+        "requirements-review/references/mode-review.md"
+      ],
+      "response": "'Links expire soon' is not testable: specify the duration, when the clock starts and what happens at expiry. Admin invitation authority also needs scope, including organizations and assignable roles. Acceptance lacks invalid, expired, reused and revoked links; duplicate invitations and existing accounts; unauthorized attempts; and delivery failure recovery. These are requirements gaps, not demonstrated code bugs. Prioritize expiry, authorization and reuse rules because they alter implementation and acceptance, then clarify the intended error paths. A concise read-only review is sufficient; no new checklist file or implementation change is necessary."
+    },
+    {
+      "case_id": "case-012",
+      "owner": "requirements-review",
+      "loaded_files": [
+        "requirements-review/SKILL.md",
+        "requirements-review/references/mode-compare.md"
+      ],
+      "response": "CSV is required by the specification but omitted from the plan. PDF appears in the plan without supplied evidence that it replaces CSV. The tracker then overclaims completion: PDF unit tests cannot satisfy CSV acceptance. Recommend adding the missing CSV delivery and verification work and narrowing completion to the behavior actually demonstrated. The requirement owner must resolve whether PDF is additional scope or an intentional substitution. Until an explicit decision changes acceptance, CSV remains required and incomplete. The comparison should identify these artifact contradictions without rewriting sources or treating the tracker as authority to reduce scope."
+    },
+    {
+      "case_id": "case-013",
+      "owner": "requirements-review",
+      "loaded_files": [
+        "requirements-review/SKILL.md",
+        "requirements-review/references/mode-clarify.md"
+      ],
+      "response": "The blocking question is whether archived invoices must be restorable and, if so, who may restore them and for how long. That decision changes authorization, retention and acceptance, so it should not receive a silent default. Preserve the rest of the clear specification as the planning baseline and avoid expanding into a broad questionnaire. If restoration is excluded, planning should state the agreed retention boundary. If included, define eligibility and results for expired or unauthorized attempts. This is clarification only; no implementation, data retention change or permission grant follows until the product decision is explicit."
+    },
+    {
+      "case_id": "case-014",
+      "owner": "docs-driven-execution",
+      "loaded_files": [
+        "docs-driven-execution/SKILL.md",
+        "docs-driven-execution/references/mode-execute.md"
+      ],
+      "response": "Continue at slice two using the accepted plan and existing combined tracker. Reuse slice one's current passing evidence, inspect slice two's error-handling acceptance and code paths, and implement within that boundary using established repository conventions. Verify meaningful failure cases and recovery, plus shared behavior affected by the change and required gates. Update the same tracker with actual changes, checks and blockers. Do not mark a test or commit complete unless it exists. Slice one's evidence needs refreshing only where changed shared inputs invalidate it, not merely because execution resumed."
+    },
+    {
+      "case_id": "case-015",
+      "owner": "docs-driven-execution",
+      "loaded_files": [
+        "docs-driven-execution/SKILL.md",
+        "docs-driven-execution/references/mode-tracking.md"
+      ],
+      "response": "Four separate documents would duplicate a two-file correction. Keep the supplied acceptance as the source and use an inline checklist or a compact entry in an existing tracker. Record affected files, requested copy/layout behavior and the relevant visual or interaction evidence. That is enough to distinguish work in progress from verified completion and to resume if needed. Expand tracking only if scope or risk grows. For this small correction, the final change note should describe what was actually checked; a test matching a source string would not demonstrate that the rendered layout meets acceptance."
+    },
+    {
+      "case_id": "case-016",
+      "owner": "docs-driven-execution",
+      "loaded_files": [
+        "docs-driven-execution/SKILL.md",
+        "docs-driven-execution/references/mode-decompose.md",
+        "docs-driven-execution/references/decompose-dependencies-and-parallelism.md"
+      ],
+      "response": "Sequence schema work and compatibility verification before import execution. Then deliver a minimal valid import through persisted result, followed by validation/error reporting and retry or recovery behavior as required. Give each slice inputs, owned interfaces, acceptance checks and exit evidence. Two workers must not concurrently mutate the same test database: serialize those checks or first provide independent databases and fixtures. Parallel work is reasonable only after dependencies stabilize and write surfaces are isolated. Record the schema dependency and integration order so resumption preserves completed slices instead of rerunning the whole feature."
+    },
+    {
+      "case_id": "case-017",
+      "owner": "docs-driven-execution",
+      "loaded_files": [
+        "docs-driven-execution/SKILL.md",
+        "docs-driven-execution/references/mode-audit.md"
+      ],
+      "response": "Audit note: the user authorized one ticket comment, and the supplied evidence states that posting succeeded. The optional action log was unavailable, leaving a secondary audit-record gap. Preserve the ticket target, authorized scope and available posting confirmation in the existing tracker or available note, using identifiers and timestamps only if known. Do not invent a read-back result. The log failure neither reverses the successful post nor justifies posting again. A later log repair should reference the original action. This request records the outcome and gap; it does not authorize another external message."
+    },
+    {
+      "case_id": "case-018",
+      "owner": "session-handoff",
+      "loaded_files": [
+        "session-handoff/SKILL.md",
+        "session-handoff/references/mode-handoff.md"
+      ],
+      "response": "The continuation record should state the original objective, current repository identity if available, and three distinct slice statuses. Slice one is verified; preserve its acceptance and check evidence. Slice two is blocked on vendor access; record the missing access and the condition that will unblock it. Slice three is independent and is the next safe work item. Include unresolved decisions and useful file or command references only when supplied, without inventing details. Keep secrets and transcript history out. The next session can proceed with slice three while retaining slice two's blocker and reusing unchanged evidence."
+    },
+    {
+      "case_id": "case-019",
+      "owner": "session-handoff",
+      "loaded_files": [
+        "session-handoff/SKILL.md",
+        "session-handoff/references/mode-resume.md"
+      ],
+      "response": "Trust the observed Git history and clean working tree over the stale 'commit pending' tracker note. The named commit exists, and current targeted tests pass, so another commit is not the demonstrated next action. Record the contradiction and recommend starting after that committed work, using the current test evidence for its actual scope. This read-only restart audit does not authorize editing the tracker or continuing implementation. If runtime acceptance remains relevant, verify runtime identity separately; targeted tests do not prove deployment. Refresh only evidence invalidated by changes, not every historical step."
+    },
+    {
+      "case_id": "case-020",
+      "owner": "session-handoff",
+      "loaded_files": [
+        "session-handoff/SKILL.md",
+        "session-handoff/references/mode-lessons.md"
+      ],
+      "response": "Two reusable lessons are supported. Before interpreting browser failures, confirm the served application and asset freshness so stale assets do not masquerade as regressions. Before parallel tests, isolate mutable databases and fixtures, or serialize execution to prevent contamination. Project documentation should retain the concrete affected build, database and commands; general skill guidance should contain only the mechanism and guardrail. Keep client identities, URLs and credentials out of reusable instructions. I would propose a small update to the relevant verification and parallel-work guidance, with project-specific evidence linked locally. This request is a storage proposal, so no files would be edited."
+    },
+    {
+      "case_id": "case-021",
+      "owner": "verification-before-completion",
+      "loaded_files": [
+        "verification-before-completion/SKILL.md",
+        "verification-before-completion/references/mode-verify.md"
+      ],
+      "response": "The old feature pass is no longer sufficient because the shared serializer changed. First establish the intended application and current source identity; the process at the expected port currently serves another app. Verify generated asset freshness and correct the local test setup within authorization before interpreting browser results. Use an isolated database and the required runtime dependencies. Then rerun serializer-dependent checks and the feature's actual acceptance path against the intended fresh runtime, plus repository-required gates. Record the wrong-server and stale-manifest observations separately from feature defects. No current runtime success can be claimed from the supplied evidence."
+    },
+    {
+      "case_id": "case-022",
+      "owner": "verification-before-completion",
+      "loaded_files": [
+        "verification-before-completion/SKILL.md",
+        "verification-before-completion/references/mode-readiness.md"
+      ],
+      "response": "The requested scope is blocked, not complete. Automated tests passing is useful evidence for covered behavior, but the required vendor integration remains inaccessible and has no accepted deferral. Report the verified portion, the precise integration gap and what access or evidence will resolve it. Do not label that work post-MVP or silently narrow acceptance. Once access exists, the integration still needs its required end-to-end verification against the correct environment. This is a readiness assessment only, so neither code changes nor deployment follow from it. A release recommendation must retain the unresolved required dependency."
+    },
+    {
+      "case_id": "case-023",
+      "owner": "verification-before-completion",
+      "loaded_files": [
+        "verification-before-completion/SKILL.md",
+        "verification-before-completion/references/mode-handoff.md"
+      ],
+      "response": "Prepare a test plan with an identified nonproduction environment, isolated accounts for both roles, synthetic payments and a webhook endpoint tied to that environment. For each role, specify permitted and denied payment/refund actions and assert persisted state as well as UI feedback. Cover webhook authentication, duplicate and delayed delivery, refund retry after uncertain response, and prevention of duplicate financial effects. Capture request or correlation IDs, event payload references, before/after balances, logs and visible outcomes without secrets. Define cleanup of disposable resources and prerequisites. These are prepared scenarios, not executed tests or a claim of payment correctness."
+    },
+    {
+      "case_id": "case-024",
+      "owner": "skill-maintenance-and-validation",
+      "loaded_files": [
+        "skill-maintenance-and-validation/SKILL.md",
+        "skill-maintenance-and-validation/references/mode-edit.md"
+      ],
+      "response": "Read the affected trigger, full skill, agent prompt, nested references and relevant callers before changing the wording. Make the smallest adjustment that clarifies entry conditions while preserving the existing task scope and permissions. Align the agent prompt and increment the version for the behavior change; update references only where the trigger change creates an actual inconsistency. Validate frontmatter, links, nested references and packaging, then use focused positive and negative examples to check routing behavior. Static validation alone does not show that the trigger selects correctly. Preserve unrelated instructions and report any checks not run in this outline."
+    },
+    {
+      "case_id": "case-025",
+      "owner": "skill-maintenance-and-validation",
+      "loaded_files": [
+        "skill-maintenance-and-validation/SKILL.md",
+        "skill-maintenance-and-validation/references/mode-portfolio.md"
+      ],
+      "response": "Inventory descriptions and entrypoints, then compare overlapping owners by distinct outcomes, modes and unique supporting capabilities. Historical mentions are not evidence that a skill was actually loaded; absent load telemetry should be marked unknown. Evaluate merge candidates with independent representative tasks and record selected owners, exact responses and instruction files actually read. Measure total loaded entrypoint plus conditional-reference volume for each task, rather than judging overhead from main-file length alone. Recommend keep, clarify, merge or retire based on observed ambiguity and preserved capability. Any proposed retirement needs explicit capability coverage, not just fewer names."
+    },
+    {
+      "case_id": "case-026",
+      "owner": "skill-maintenance-and-validation",
+      "loaded_files": [
+        "skill-maintenance-and-validation/SKILL.md",
+        "skill-maintenance-and-validation/references/mode-export.md"
+      ],
+      "response": "Exporting into the checkout itself must be rejected because the destination overlaps the source. Resolve actual paths and symlinks before writing, and choose a new, nonexistent destination outside the checkout. Use the checkout's exporter in folder mode so skill files, nested references, assets and root dependencies remain available. Exclude vendor-managed packages by default and never recursively replace an existing directory. Validate the exported structure, dependency links and required files before calling it portable. A flattened text reference has different limits and cannot stand in for a complete executable package. No export is performed in this outline."
+    },
+    {
+      "case_id": "case-027",
+      "owner": "skill-maintenance-and-validation",
+      "loaded_files": [
+        "skill-maintenance-and-validation/SKILL.md",
+        "skill-maintenance-and-validation/references/mode-validate.md"
+      ],
+      "response": "The generated-artifact check must fail despite the matching catalog fingerprint. A fingerprint is not sufficient evidence that semantic contents remain correct: compare manifest skill IDs against the actual intended catalog and require all mandatory artifacts, including the missing report. Report the tampered IDs and absent report as distinct validation failures, with any unaffected checks separately stated. The read-only request does not authorize regenerating or repairing them. Keep previous evaluation records as historical evidence rather than rewriting them to match current outputs. A successful validation claim requires semantic agreement and completeness, not merely matching counts or hashes."
+    },
+    {
+      "case_id": "case-028",
+      "owner": "spec-driven-development",
+      "loaded_files": [
+        "spec-driven-development/SKILL.md",
+        "spec-driven-development/references/mode-prepare.md"
+      ],
+      "response": "The inline requirement is a sufficient specification. Normalize acceptance into admin success, unauthorized denial through HTTP and direct service calls, unchanged UI semantics, and no side effects on denial. Inspect the existing authorization and mutation conventions, then implement enforcement at the shared mutation boundary or an explicit equivalent contract. Add meaningful regression cases for direct callers as well as the visible toggle, using isolated data. Preserve existing presentation and run affected plus required repository checks. Track this proportionally in the existing record; no separate spec file is required. Completion needs evidence for the service path, not just controller denial."
+    },
+    {
+      "case_id": "case-029",
+      "owner": "spec-driven-development",
+      "loaded_files": [
+        "spec-driven-development/SKILL.md",
+        "spec-driven-development/references/mode-prd.md"
+      ],
+      "response": "Create a PRD organized around the three supplied signup screens, mapping visible fields, actions and transitions to source screenshots. Label observations separately from inferred behavior and unanswered questions. Password-reset failure behavior is absent, so record the required decision about errors, recovery and retry rather than inventing a flow or claiming screenshot evidence. Include actors, data, acceptance checks and unknown states, keeping each requirement traceable to its source. A repository is unnecessary for this design-to-requirements work. The deliverable is the PRD and material questions; implementation or extra design generation is outside the requested task."
+    },
+    {
+      "case_id": "case-030",
+      "owner": "ticket-driven-delivery",
+      "loaded_files": [
+        "ticket-driven-delivery/SKILL.md",
+        "ticket-driven-delivery/references/mode-deliver.md"
+      ],
+      "response": "Resolve ticket 42, read its description, comments and acceptance attachment, and compare the prior agent's claim with the actual change and acceptance evidence. Establish source and live build identities: an older live build cannot confirm or refute behavior in the claimed fix. Implement only demonstrated remaining ticket scope, then verify affected source and the appropriate fresh runtime. Report source verification and live verification separately if deployment is pending. A completion comment is a separate external action requiring an explicit request; delivery alone does not authorize posting. No live ticket, code or deployment mutation occurs in this exercise."
+    },
+    {
+      "case_id": "case-031",
+      "owner": "ticket-driven-delivery",
+      "loaded_files": [
+        "ticket-driven-delivery/SKILL.md",
+        "ticket-driven-delivery/references/mode-intake.md"
+      ],
+      "response": "Read each exact ticket's description, comments and attachments before summarizing. For the empty description, use the discussion and attachment as evidence while distinguishing stated acceptance from interpretation. Produce three separate acceptance summaries plus shared dependencies, blockers and material questions; do not merge unrelated requirements across the batch. If an attachment does not establish a failure state or permission rule, identify the missing decision rather than supply one. Retain source references where available and label inaccessible evidence. This is intake only, so no code edits, ticket updates or posting should accompany the summary."
+    },
+    {
+      "case_id": "case-032",
+      "owner": "ticket-driven-delivery",
+      "loaded_files": [
+        "ticket-driven-delivery/SKILL.md",
+        "ticket-driven-delivery/references/mode-review.md"
+      ],
+      "response": "The prior 'done' comment overstates the supplied evidence. HTTP denial is tested, but the direct service path lacks an authorization contract, leaving that acceptance boundary unresolved. Review the actual service callers and diff, then specify direct-call denial for unauthorized actors and another owner's record, with assertions that no data or file effects occur. Include an allowed-call control and any explicit trusted internal path. Until those rules and results exist, report the service boundary as missing or unverified rather than fully complete. The review authorizes neither implementing a fix nor posting a corrective ticket comment."
+    },
+    {
+      "case_id": "case-033",
+      "owner": "ticket-driven-delivery",
+      "loaded_files": [
+        "ticket-driven-delivery/SKILL.md",
+        "ticket-driven-delivery/references/mode-plan.md"
+      ],
+      "response": "Plan A first through its schema acceptance and compatibility evidence, because B depends on that contract. Record vendor access as a separate prerequisite for B's integration and verification. Any independent preparation for B can be listed without implying the inaccessible path is complete. Each ticket slice should retain its supplied acceptance, dependency, exit evidence and blocker; reuse an existing tracker rather than introducing duplicate planning records. B remains blocked where vendor access is essential unless the requirement owner accepts a deferral. This plan does not authorize code work, schema execution or ticket comments."
+    },
+    {
+      "case_id": "case-034",
+      "owner": "ticket-driven-delivery",
+      "loaded_files": [
+        "ticket-driven-delivery/SKILL.md",
+        "ticket-driven-delivery/references/mode-closeout.md"
+      ],
+      "response": "Use the existing authorization for the exact ticket 42 comment scope; no additional consent turn is needed. First read recent comments and check whether the intended completion message is already present. If it is, identify the stored message rather than duplicate it. Otherwise post once with only supported completion evidence and limitations, then read the stored comment back to verify target and text. If posting has an uncertain result, inspect before retrying. In this decision-only evaluation I would describe those steps and would not claim the connector was called or that a comment was posted."
+    },
+    {
+      "case_id": "case-035",
+      "owner": "evidence-discovery",
+      "loaded_files": [
+        "evidence-discovery/SKILL.md",
+        "evidence-discovery/references/mode-repository.md"
+      ],
+      "response": "Reuse the working summary's application identity and routing facts. Scope new discovery to generated assets and database rules: inspect the relevant build scripts, manifest/output ownership, freshness expectations and applicable test configuration or instructions. Determine how tests isolate their database and whether any setup resets shared state before running anything. Return a compact addition to the existing summary with concrete file references, required commands and unresolved risks. Refresh established facts only if contradicted. This conventions request is read-only, so it does not authorize the UI edit or a destructive database setup check."
+    },
+    {
+      "case_id": "case-036",
+      "owner": "evidence-discovery",
+      "loaded_files": [
+        "evidence-discovery/SKILL.md",
+        "evidence-discovery/references/mode-research.md"
+      ],
+      "response": "Start with the installed version and the local serialization implementation, types and focused tests that define the exact contract. Answer only the bounded question, distinguishing directly observed behavior from inference. If current-version claims require checking changes beyond that installation, consult the relevant primary changelog or official source and state the version boundary. Avoid turning the question into broad library research or changing the repository. In this dry run, no actual source inspection or browsing is claimed; the supplied facts support this evidence order, not a concrete serialization answer whose behavior was never provided."
+    },
+    {
+      "case_id": "case-037",
+      "owner": "frontend-design",
+      "loaded_files": [
+        "frontend-design/SKILL.md",
+        "frontend-design/references/mode-audit.md"
+      ],
+      "response": "Compare settings with the named Orders screen as the established in-product reference. Inspect panel hierarchy, action visibility, scrolling and modal coverage at representative viewport sizes. Recommend reducing redundant nested containers and adopting the Orders action placement where it preserves settings semantics. Investigate backdrop clipping through ancestor overflow and stacking contexts, then recommend the established viewport overlay placement. Prioritize obstructed actions and incomplete modal coverage above stylistic cleanup. Keep observations separate from proposed repairs and confirm the comparison through evidence before claiming exact parity. This audit does not implement any redesign or assert that rendered states were tested."
+    },
+    {
+      "case_id": "case-038",
+      "owner": "frontend-design",
+      "loaded_files": [
+        "frontend-design/SKILL.md",
+        "frontend-design/references/mode-implement.md",
+        "frontend-design/references/implement-overlays-and-shells.md"
+      ],
+      "response": "Implement the confirmed correction by reusing the existing Orders toolbar in settings and placing the affected backdrop at the viewport layer using the established overlay pattern. Preserve action semantics, dialog state ownership and routing. Inspect the current component contract and ancestor clipping before editing so the change follows the real shell structure. Verify the rendered toolbar and dialog at relevant sizes, including scroll, focus, keyboard dismissal and stacking. Check shared consumers if a shared primitive changes. A source-string test alone would not prove this visual repair. This exercise describes implementation and verification; none has actually run."
+    },
+    {
+      "case_id": "case-039",
+      "owner": "frontend-design",
+      "loaded_files": [
+        "frontend-design/SKILL.md",
+        "frontend-design/references/mode-export.md"
+      ],
+      "response": "Extract tokens and component rules from the existing agreed frontend, including typography, spacing, colors, states, accessibility and usage boundaries. Tie each implemented standard to actual code and representative components, preserving names and APIs consumers already use. Put proposed refinements in a clearly separate section and avoid presenting them as existing behavior. Export only the requested reusable artifacts and verify that token references and examples resolve and can be consumed. This is a documentation/export task, not permission to redesign or alter components. Any unavailable implementation evidence should remain an explicit gap rather than an invented standard."
+    },
+    {
+      "case_id": "case-040",
+      "owner": "full-project-hardening",
+      "loaded_files": [
+        "full-project-hardening/SKILL.md",
+        "full-project-hardening/references/mode-audit.md",
+        "full-project-hardening/references/boundary-checks.md"
+      ],
+      "response": "A green test suite does not establish coverage of direct service callers or concurrent writes. Treat those as explicit unreviewed boundaries, not automatically proven defects. Trace mutation paths through controllers, workers, commands and tools; inspect actor or trusted-caller contracts at the actual write boundary. Review transactions, stale-write handling, retry idempotency and uncertain external effects. Combine those results with the broader security, correctness and runtime audit. Deliver evidence-backed findings and order fixes by impact and dependency, prioritizing demonstrated authorization or data-integrity failures. Use safe read-only checks only and label unrun concurrency scenarios clearly."
+    },
+    {
+      "case_id": "case-041",
+      "owner": "full-project-hardening",
+      "loaded_files": [
+        "full-project-hardening/SKILL.md",
+        "full-project-hardening/references/mode-architecture.md"
+      ],
+      "response": "The repeated normalization and retry choreography suggest a seam that exposes too much policy to its three callers. Trace their concrete differences before recommending consolidation. A deeper interface could accept domain intent and own normalization, retry classification and result semantics, reducing coordinated caller changes. Compare that against the current seam's transparency and flexibility: centralizing legitimately different policies could hide important distinctions or create an overly configurable abstraction. Use a concrete change example to show how many locations each option affects. Recommend a small boundary improvement only if shared behavior is demonstrated; this architecture review makes no refactor."
+    },
+    {
+      "case_id": "case-042",
+      "owner": "full-project-hardening",
+      "loaded_files": [
+        "full-project-hardening/SKILL.md",
+        "full-project-hardening/references/mode-migration.md"
+      ],
+      "response": "The renamed persisted enum creates a mixed-version compatibility risk: old workers may reject or misinterpret new values. A rollback that loses new values is not a safe restoration plan. Recommend an expand-and-contract sequence: support both representations first, verify readers and writers across versions, then migrate and retire the old representation after old workers are drained. Check fixtures, persisted data, unknown-value handling and exact deployment ordering. Define lossless rollback or an explicit forward-recovery boundary before cutover. These are proposed checks and sequencing; no migration or rollback has been executed or proven by the supplied evidence."
+    },
+    {
+      "case_id": "case-043",
+      "owner": "full-project-hardening",
+      "loaded_files": [
+        "full-project-hardening/SKILL.md",
+        "full-project-hardening/references/mode-remediate.md"
+      ],
+      "response": "Remediate the two accepted findings as separate verifiable slices. First enforce the authorization contract at the direct mutation boundary, with unauthorized and authorized caller tests that assert state effects. Then address the retry race using the appropriate transaction, version or idempotency mechanism, and verify competing attempts plus uncertain-outcome recovery on isolated data. Preserve the findings ledger and run affected and repository-required checks. Code-fix authorization is sufficient for this scoped implementation; it does not include deployment or production data changes. Report exactly which regressions were exercised and any remaining runtime limitations rather than inferring a production outcome."
+    },
+    {
+      "case_id": "case-044",
+      "owner": "product-brainstorming",
+      "loaded_files": [
+        "product-brainstorming/SKILL.md",
+        "product-brainstorming/references/mode-shape.md"
+      ],
+      "response": "Guided onboarding can reduce first-run uncertainty by showing the next action and prerequisites, but may slow experienced users. Expert-first onboarding offers immediate access and speed while placing more burden on people unfamiliar with the workflow. A reasonable starting recommendation is a short guided path with a clear skip route, if the audience includes both groups; that remains a proposal, not an accepted requirement. The material question is whether first-time success or repeat-user setup speed is the dominant goal. I would discuss that tradeoff directly without a preliminary consent-only turn or unrequested implementation."
+    },
+    {
+      "case_id": "case-045",
+      "owner": "product-brainstorming",
+      "loaded_files": [
+        "product-brainstorming/SKILL.md",
+        "product-brainstorming/references/mode-prototype.md"
+      ],
+      "response": "Use a disposable local prototype with synthetic imports and a fixed short timebox, such as one focused session. Compare both state models against the same sequences: successful import, validation failure, cancellation, retry and restart. Define success beforehand as preserving valid transitions and producing an understandable recoverable outcome with fewer special cases. Keep code and data isolated from production and record observed differences, unresolved cases and the recommended model. The experiment can establish behavior under its tested synthetic scenarios; it cannot establish production performance, integration correctness or release readiness. Stop at the timebox and report learning without promoting it automatically."
+    },
+    {
+      "case_id": "case-046",
+      "owner": "integrating-backend-api-into-frontend",
+      "loaded_files": [
+        "integrating-backend-api-into-frontend/SKILL.md",
+        "integrating-backend-api-into-frontend/references/api-contract-mapping.md"
+      ],
+      "response": "The live immediate-refund endpoint conflicts with accepted approval behavior; observed capability does not replace the specification. Map the required request, approval and execution stages to available API support and record the missing approval contract. Do not wire an apparent approval action to an immediate refund or simulate server enforcement in the frontend. Continue independent supported integration work, while keeping the affected action explicitly unavailable or blocked according to existing UI conventions. Resolve backend ownership or obtain an explicit acceptance change before enabling that path. Verification must eventually cover the approval boundary and actual refund effect, not merely a successful response."
+    },
+    {
+      "case_id": "case-047",
+      "owner": "integrating-backend-api-into-frontend",
+      "loaded_files": [
+        "integrating-backend-api-into-frontend/SKILL.md",
+        "integrating-backend-api-into-frontend/references/blockers-and-phase-tracking.md"
+      ],
+      "response": "Proceed with independent implementation that does not require the missing credentials: inspect contracts, prepare adapters and supported UI states, and test local behavior using clearly identified synthetic fixtures where appropriate. Do not present those checks as live integration verification. Record the affected user action, required access, remaining evidence and unblock condition in the existing tracker. The required integration remains blocked because no deferral is accepted; it cannot be relabeled complete, cancelled or intentionally deferred. Once credentials are supplied through the appropriate secure mechanism, finish the real integration and verify its end-to-end outcome."
+    },
+    {
+      "case_id": "case-048",
+      "owner": "verification-before-completion",
+      "loaded_files": [
+        "verification-before-completion/SKILL.md",
+        "verification-before-completion/references/mode-verify.md"
+      ],
+      "response": "Reuse the passing targeted tests and repository-required gates because their source and environment inputs are unchanged. A prose-only handoff update does not itself invalidate those results. Review the updated handoff for factual accuracy, scope and consistency with the recorded evidence, and run a documentation-specific check only if required or relevant. Do not repeat runtime tests merely to create a newer timestamp. Preserve the original evidence identity and explain that no implementation changed after it. If the prose introduces a new acceptance claim, that claim needs support; wording changes cannot expand what the existing tests establish."
+    },
+    {
+      "case_id": "case-049",
+      "owner": "figma",
+      "loaded_files": [
+        "figma/SKILL.md",
+        "figma/references/figma-tools-and-prompts.md"
+      ],
+      "response": "Resolve the supplied Figma file and node, discover the available connector methods, then acquire design context and a screenshot. If the node is too large, inspect metadata and fetch relevant children rather than accepting truncated detail. Preserve node IDs, exact assets, layout constraints, styles and observed states in the handoff. No repository is needed to acquire this source. Later implementation should map it into the chosen repository's conventions; generated framework code is guidance, not a mandate. Report missing access or unavailable details honestly. This evaluation describes acquisition and performs no connector calls or source edits."
+    },
+    {
+      "case_id": "case-050",
+      "owner": "google-stitch",
+      "loaded_files": [
+        "google-stitch/SKILL.md",
+        "google-stitch/references/stitch-workflows.md",
+        "google-stitch/references/source-caveats.md"
+      ],
+      "response": "Inspect the supplied Stitch project and relevant screens, acquiring their details, previews and available assets. Build a source inventory with project and screen IDs, visible states and provenance. Separate observed design behavior from generated markup and from unresolved product rules. Missing failure flows or acceptance details should become questions, not invented requirements. Acquisition can proceed without a repository; a later implementation handoff can adapt the confirmed source to repository conventions. No remote generation or design edit is authorized here. This decision-only response does not claim screens were fetched or that source fidelity was verified."
+    },
+    {
+      "case_id": "case-051",
+      "owner": "native-desktop-delivery",
+      "loaded_files": [
+        "native-desktop-delivery/SKILL.md"
+      ],
+      "response": "Use an isolated build checkout or directory and create a separate synthetic configuration there through supported configuration selection. Leave the existing real .env and its credentials untouched; do not copy its secrets into build inputs or output. Verify the build process actually selects the synthetic file and that generated artifacts do not embed real credentials. Keep state and outputs outside signed application bundles where relevant. The isolated build is already authorized, so an extra consent step is unnecessary absent another applicable restriction. A successful build would establish build evidence only, with installed native verification still separate."
+    }
+  ]
+}

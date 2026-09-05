@@ -51,7 +51,7 @@ When revisiting a phase:
 - confirm the route behavior still works after later changes
 - convert resolved blockers into evidence
 - move unresolved items into the correct blocker status
-- only mark the phase completed when the remaining issues are genuinely outside the phase scope or backend-supported surface
+- only mark the phase completed when every accepted requirement is verified or explicitly removed/deferred by the accepted scope
 
 ## Plan Output Style
 

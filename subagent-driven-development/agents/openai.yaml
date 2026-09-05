@@ -1,7 +1,7 @@
 interface:
   display_name: "Subagent Driven Development"
-  short_description: "Execute through lead-worker slices with clear approval boundaries"
-  default_prompt: "Use $subagent-driven-development to keep planning and integration with the lead, brief bounded workers with canonical repo examples and exact gates, then run independent gap review and final verification where risk warrants it."
+  short_description: "subagent driven development workflows"
+  default_prompt: "Use $subagent-driven-development for the requested work within its stated boundary."
 
 policy:
   allow_implicit_invocation: true

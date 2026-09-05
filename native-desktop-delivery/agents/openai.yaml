@@ -1,7 +1,7 @@
 interface:
   display_name: "Native Desktop Delivery"
-  short_description: "Deliver and verify native desktop applications"
-  default_prompt: "Use $native-desktop-delivery to implement this desktop workflow and verify its installed artifacts, local data boundaries, and platform-specific release evidence."
+  short_description: "native desktop delivery workflows"
+  default_prompt: "Use $native-desktop-delivery for the requested work within its stated boundary."
 
 policy:
   allow_implicit_invocation: true

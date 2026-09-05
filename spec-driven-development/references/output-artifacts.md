@@ -1,11 +1,3 @@
-# Output Artifacts
+# Output artifacts
 
-Expected non-trivial outputs for `spec-driven-development`:
-
-- normalized spec summary under `/docs/specs/`
-- phased implementation plan under `/docs/plans/`
-- live progress tracker and requirement matrix under `/docs/progress/`
-- verification evidence under `/docs/verification/`
-- explicit resolution of source-of-truth conflicts
-
-If some artifacts are intentionally deferred, record why and what still controls execution.
+Use the smallest accepted artifact set: inline requirements and evidence for small work; a combined plan/progress record for medium work; separate source, plan, tracker and verification documents only when large work benefits. A sufficient user prompt is source material. Preserve explicit conflict decisions and requirement-to-evidence mapping without copying the same content between files.

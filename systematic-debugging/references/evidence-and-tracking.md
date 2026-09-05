@@ -4,7 +4,7 @@ Keep debugging traceable by separating raw observations from conclusions.
 
 ## Debug Journal
 
-Create this in `/docs/debugging/YYYY-MM-DD-<topic>-debug-journal.md`.
+For a long-running investigation needing durable tracking, use `/docs/debugging/YYYY-MM-DD-<topic>-debug-journal.md`.
 
 Suggested structure:
 
@@ -61,7 +61,7 @@ Suggested structure:
 
 ## Root Cause Summary
 
-Create a short root-cause note once proven:
+Record the proven root cause inline or in the existing journal; a separate note is optional:
 
 ```md
 # <Topic> Root Cause
@@ -73,4 +73,4 @@ Create a short root-cause note once proven:
 ## Regression Protection
 ```
 
-Do not write the root-cause summary until the cause is actually proven.
+Do not record the proven root cause in the existing evidence until the cause is actually proven.

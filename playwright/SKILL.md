@@ -1,41 +1,37 @@
 ---
 name: playwright
-description: Use for repository-owned Playwright test-suite work such as writing, updating, debugging, or running automated E2E checks. Do not use Playwright as the interactive browser-control surface; route visible navigation, screenshots, and runtime QA through the active host's canonical browser.
-version: 2.1.0
-category: browser-automation
+description: Maintain or run repository-owned Playwright automated tests; use the host browser for interactive QA.
+version: 2.2.0
+category: quality
 sources:
-  - repository-owned Playwright configuration, fixtures, scripts, and automated E2E tests
+  - Supplied task evidence and applicable project conventions
 use_when:
-  - The repository already owns Playwright tests and the task is to maintain, debug, or execute that automated suite.
-  - A maintainer is auditing or migrating stale interactive-browser references.
+  - Maintain or run repository-owned Playwright automated tests; use the host browser for interactive QA.
 avoid_when:
-  - The task requires interactive navigation, authenticated session reuse, visual QA, screenshots, or visible runtime evidence through the host browser.
+  - The requested outcome belongs to another owner or exceeds the authorized scope.
 artifacts:
   - SKILL.md
   - agents/openai.yaml
   - agents/
+  - references/
   - assets/
   - scripts/
-  - references/
 quality_gates:
-  - Playwright runs only through the repository's declared test tooling and configuration.
-  - Interactive browser work is handed off to the active host's canonical visible browser.
-  - Automated test evidence is not misreported as visible-browser or production-runtime evidence.
+  - Evidence supports the stated outcome and limitations.
+  - Selected mode, references and actions remain within authorization.
 ---
 
+# Playwright
 
-# Playwright Test Boundary
+Confirm this is automated suite work. Read the repository's Playwright config, package scripts, fixtures and existing tests before editing or running checks. Use its declared commands and preserve generated-artifact, snapshot and trace conventions. Confirm server identity, built assets and isolated test data; serialize checks that mutate shared fixtures. Do not substitute the bundled legacy wrapper for repository tooling. For interactive navigation, authenticated sessions, screenshots and visual QA, use the active host's canonical browser. Automated suite evidence does not establish visible live-browser, worker or installed-runtime behavior. Keep legacy CLI references as compatibility documentation only, not a default execution path.
 
-Playwright is an automated test-suite tool here, not the interactive browser-control surface.
+## Working evidence
 
-Use repository-owned Playwright tests when the task is to add, maintain, debug, or run automated E2E coverage. Prefer the repository's package scripts, configuration, fixtures, and documented commands. Do not introduce or run the bundled compatibility wrapper as a substitute for project tooling.
+Reuse existing repository identity, relevant changes, acceptance criteria, canonical examples, required checks and blockers. Refresh only invalidated facts. Stay within the requested scope and applicable permissions; report observed evidence and remaining gaps separately.
 
-For interactive navigation, authenticated session reuse, screenshots, responsive visual inspection, and runtime UI debugging, use the active host's canonical visible browser. In Synara, use the integrated browser and reserve Computer Use for desktop or system UI, or cases the browser surface cannot finish. In Codex, follow the current app-provided browser or Chrome policy.
+## Selected detail
 
-When this skill is encountered:
+Read only what the current task needs; supporting references do not mandate extra workflow stages.
 
-1. Confirm the task is automated test-suite work rather than interactive browser control.
-2. Read the repository's Playwright config, package scripts, fixtures, and existing tests before editing or running anything.
-3. Use the repository's own command and preserve its generated-artifact, snapshot, trace, and shared-state conventions.
-4. Route interactive browser work to the active host's canonical visible browser.
-5. Route completion evidence to `verification-before-completion`, clearly separating automated-suite results from visible runtime evidence.
+- [Cli](references/cli.md): for cli.
+- [Workflows](references/workflows.md): for workflows.

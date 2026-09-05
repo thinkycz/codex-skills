@@ -1,9 +1,9 @@
 interface:
   display_name: "Playwright Test Boundary"
-  short_description: "Maintain repo E2E tests, not interactive browsing"
+  short_description: "playwright workflows"
   icon_small: "./assets/playwright-small.svg"
   icon_large: "./assets/playwright.png"
-  default_prompt: "Use $playwright only for repository-owned automated E2E test work, and route interactive navigation or visual runtime evidence to the active host's canonical visible browser."
+  default_prompt: "Use $playwright for the requested work within its stated boundary."
 
 policy:
   allow_implicit_invocation: false

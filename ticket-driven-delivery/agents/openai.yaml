@@ -1,7 +1,7 @@
 interface:
   display_name: "Ticket Driven Delivery"
-  short_description: "Implement, verify, and close out ticket-driven changes without blurring handoffs"
-  default_prompt: "Use $ticket-driven-delivery to build a newest-QA acceptance matrix, implement the smallest shared fix, verify the exact artifact and live ticket path through the active host's canonical browser when needed, and deduplicate and read back every closeout."
+  short_description: "ticket driven delivery workflows"
+  default_prompt: "Use $ticket-driven-delivery to handle the requested outcome in the appropriate mode."
 
 policy:
   allow_implicit_invocation: true

@@ -1,4 +1,0 @@
-interface:
-  display_name: "Repo Convention Discovery"
-  short_description: "Inspect repo patterns, gates, shared primitives, and safe starting points"
-  default_prompt: "Use $repo-convention-discovery to inspect this repository, identify the full-project validation gates and non-obvious enforced conventions, inventory the shared UI components and email template system we should reuse, summarize the relevant patterns, and identify the safest implementation point."

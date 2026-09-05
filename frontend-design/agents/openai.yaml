@@ -1,0 +1,7 @@
+interface:
+  display_name: "Frontend Design"
+  short_description: "frontend design workflows"
+  default_prompt: "Use $frontend-design to handle the requested outcome in the appropriate mode."
+
+policy:
+  allow_implicit_invocation: true

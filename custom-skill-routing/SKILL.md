@@ -1,108 +1,33 @@
 ---
 name: custom-skill-routing
-description: Choose between the custom skills in this workspace and compose them cleanly when a task spans brainstorming, traceable delivery, full-project hardening, local tooling maintenance, design implementation, API integration, debugging, or verification. Use when the agent needs to decide which local custom skill or combination of skills should own a task.
-version: 1.9.0
+description: Select a workflow owner when ownership or the next delivery stage is ambiguous.
+version: 2.0.0
 category: orchestration
 sources:
-  - internal skill library
-  - lifecycle handoff rules in this workspace
+  - Supplied task evidence and applicable project conventions
 use_when:
-  - The user request could plausibly fit multiple local custom skills.
-  - The main need is choosing a primary owner skill and clean handoffs.
+  - Select a workflow owner when ownership or the next delivery stage is ambiguous.
 avoid_when:
-  - The current lifecycle stage is still unclear and lifecycle-orchestrator should decide first.
-  - One skill is already the obvious owner without routing ambiguity.
+  - The requested outcome belongs to another owner or exceeds the authorized scope.
 artifacts:
   - SKILL.md
   - agents/openai.yaml
   - agents/
   - references/
 quality_gates:
-  - Routing favors one primary owner skill over blended ownership.
-  - Obvious ownership exits immediately without ceremonial router invocation.
-  - Handoffs stay explicit and dependency order stays clear.
-  - The skill does not replace lifecycle-orchestrator when stage detection is the real need.
+  - Evidence supports the stated outcome and limitations.
+  - Selected mode, references and actions remain within authorization.
 ---
 
 # Custom Skill Routing
 
-Use the local custom skills as a coordinated system, not as isolated islands.
+Select the mode from the requested outcome and current evidence. Read only that mode's reference; other modes are not prerequisites. Reuse repository identity, relevant changes, acceptance criteria, canonical examples, required checks and blockers already established. Refresh only invalidated facts.
 
-Apply this skill when a task could reasonably fit more than one custom skill and you need to choose the right owner or handoff path.
+## Modes
 
-If the main question is where the project currently sits in the broader product lifecycle or what stage should happen next, use `lifecycle-orchestrator` first. This skill is for within-stage or cross-cutting routing once the lifecycle stage is already known.
+- **route** — Use the requested outcome and authorization to choose one owner. [Route procedure](references/mode-route.md).
+- **stage** — Inspect existing acceptance criteria, implemented slices, test evidence and blockers. [Stage procedure](references/mode-stage.md).
 
-## Core Rule
+## Boundaries
 
-Route by dominant risk first, then layer supporting skills only where they materially help.
-
-If one skill is already the obvious owner from the user request, current phase, or approved plan, stop routing and use that skill directly. The router is a decision aid for ambiguity, not a mandatory ceremony before every workflow.
-
-Do not invoke multiple high-level skills in parallel just because they all seem relevant.
-Do not take ownership of top-level lifecycle stage detection when `lifecycle-orchestrator` is the better fit.
-Prefer specialized owner skills with fresh-context handoffs over blended ownership that keeps too many workflows alive at once.
-
-## Boundary
-
-- Own within-stage routing once the lifecycle stage is already known.
-- Do not replace `lifecycle-orchestrator` when the main question is what stage the work is in or what should happen next.
-- Do not replace the downstream owner once one skill clearly controls the current phase.
-- Use this skill to choose and combine owners cleanly, not to re-explain every downstream workflow inline.
-
-## Unified Workflow
-
-- Choose one primary owner based on the dominant current risk:
-  product ambiguity, source normalization, execution shape, debugging, or closeout.
-- First ask whether ownership is already explicit. If yes, return that owner and at most the next phase handoff; do not load a multi-skill stack.
-- Add supporting skills only when they materially change execution quality.
-- Keep the handoff direction forward-moving: shaping -> planning -> execution -> quality -> closeout.
-- When the work is large, decompose it into ordered slices before fanning out execution.
-
-Use [references/route-matrix.md](references/route-matrix.md) for the short owner map, [references/routing-details.md](references/routing-details.md) for boundary detail, and [references/combination-patterns.md](references/combination-patterns.md) for common multi-skill chains.
-
-## Primary Routing
-
-- Product direction unclear: `product-brainstorming`.
-- Existing spec only needs a few high-impact questions: `clarify-before-plan`.
-- Existing plan needs a deep one-question challenge against code and docs: `grill-with-docs`.
-- Ticket-board export or sprint batch needs intake, comments, summaries, and contracts: `ticket-batch-intake`.
-- Existing codebase needs module-depth, seam, locality, or refactor-opportunity audit: `architecture-deepening-audit`.
-- Existing product needs a comprehensive cross-stack audit, or audit plus authorized fixes: `full-project-hardening`; retain audit-only mode when that is the request.
-- Porting or delivering a desktop product with native interactions, device-local data, offline recovery, or installers: `native-desktop-delivery`.
-- Disposable state, workflow, API-shape, or UI-variant prototype would answer a question before production work: `throwaway-prototype`.
-- Design exists but written PRD is missing: `design-to-prd`.
-- Written spec or design handoff should drive phased delivery: `spec-driven-development`.
-- Existing `/docs` plans and progress already control execution: `docs-driven-execution`.
-- Durable tracking is missing for multi-step work: `traceable-delivery`.
-- Slice boundaries, dependency order, or resume shape are unclear: `task-decomposition-and-resume`.
-- Artifact trust is unclear: `artifact-resume-audit`.
-- Current conversation or work state needs a continuation handoff for another agent/session: `session-handoff`.
-- Figma or Google Stitch is the active design source: `figma` or `google-stitch`.
-- Multi-screen design source needs a traversable app: `design-to-traversable-app`.
-- Screen coverage exists and parity remains: `design-fidelity-polish`.
-- Existing UI needs redesign diagnosis: `frontend-redesign-audit`.
-- Stable visual rules should become reusable guidance: `design-system-export`.
-- Existing frontend must align with real backend support: `integrating-backend-api-into-frontend`.
-- Consumer assumptions need read-only API comparison: `api-contract-review`.
-- Bug or regression needs root-cause evidence: `systematic-debugging`.
-- Local app, CLI, editor integration, router, plugin, shell hook, layered config, credential, or leftover needs lifecycle mutation: `local-tooling-maintenance`; use `search-first` while the task is still read-only inventory.
-- Change should start from a failing automated check: `test-driven-development`.
-- Another agent needs a concrete E2E verification plan: `e2e-verification-handoff`.
-- Branch, PR, or WIP diff needs review against both repo standards and a source spec: `two-axis-review`.
-- A specific completion claim needs proof: `verification-before-completion`.
-- Final handoff or release needs go/no-go judgment: `release-readiness`.
-- Completed work exposed reusable lessons: `reflection-and-learning`.
-- Skill package correctness, portfolio health, or export shape is the task: `skill-maintenance-and-validation`, `skill-stocktake`, or `cross-tool-packaging`.
-
-Read [references/routing-details.md](references/routing-details.md) when these quick rules are not enough.
-
-## Routing Rules
-
-- Pick one primary skill to own the task.
-- Exit after one owner decision when the route is obvious; do not invoke this skill only because another skill lists routing as a generic workflow step.
-- Add supporting skills only when their specialized rules are actually needed.
-- Prefer sequential handoffs over keeping planning, execution, TDD, verification, and release skills simultaneously active.
-- Prefer handoffs over blended mega-workflows when one phase is clearly complete.
-- If the task shape changes midstream, re-route explicitly instead of quietly switching mental models.
-- Treat screen implementation and screen fidelity as separate completion stages when design accuracy is part of acceptance.
-- Use [references/route-matrix.md](references/route-matrix.md) instead of re-encoding the whole library inline when routing questions get broad.
+Audit, review, research and verification-plan modes are read-only. A mode change never grants authority for code edits, external messages, deployment or destructive checks. Reuse explicit authorization for the same action and scope; ask only for a material missing decision or new authority. Use inline tracking for small work, one combined document for medium work, and separate artifacts only where large work benefits. Report observed evidence separately from assumptions, blockers and unrun checks.

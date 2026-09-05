@@ -1,4 +1,0 @@
-interface:
-  display_name: "Traceable Delivery"
-  short_description: "Keep delivery progress and audit gaps visible in docs"
-  default_prompt: "Use $traceable-delivery to verify a tracked repository home, keep this multi-step implementation traceable through proportional docs and repo links, and maintain blockers, gaps, and verification evidence until closeout."

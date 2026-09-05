@@ -17,7 +17,7 @@ Use this when the normal validator cannot run because of local environment probl
 
 2. Read `agents/openai.yaml` if present.
    - confirm the display name and description still match the skill
-   - confirm `default_prompt` mentions the skill as `$skill-name`
+   - confirm `default_prompt` mentions the current skill's invocation token
 
 3. Check linked resources.
    - confirm files named in `references/`, `scripts/`, or `assets/` actually exist

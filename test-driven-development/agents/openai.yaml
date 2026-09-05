@@ -1,7 +1,7 @@
 interface:
   display_name: "Test Driven Development"
-  short_description: "Implement changes from failing tests and reusable regressions"
-  default_prompt: "Use $test-driven-development to reproduce the failed public behavior in the smallest meaningful test, prefer rendered/component checks for visual regressions, make the smallest passing change, and verify beyond source-level assertions."
+  short_description: "test driven development workflows"
+  default_prompt: "Use $test-driven-development for the requested work within its stated boundary."
 
 policy:
   allow_implicit_invocation: true

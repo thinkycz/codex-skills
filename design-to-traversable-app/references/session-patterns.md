@@ -9,7 +9,7 @@ Use this workflow for large design-to-app builds:
 5. first-pass route, page, and state implementation
 6. traversability completion
 7. fidelity completion
-8. verification and release-readiness
+8. verification and verification-before-completion
 
 Prefer visible forward progress over broad speculative rewrites.
 

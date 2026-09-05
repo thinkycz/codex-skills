@@ -20,7 +20,7 @@ Use this checklist after changing a skill.
 - `quality_gates` are concrete enough to validate
 - `agents/openai.yaml` display name matches the skill purpose
 - `short_description` is consistent with the frontmatter description
-- `default_prompt` explicitly mentions `$skill-name`
+- `default_prompt` explicitly mentions the current skill's invocation token
 - the trigger description is narrow enough to avoid accidental over-invocation
 - the skill description does not swallow neighboring workflows that should be handoffs
 
@@ -42,7 +42,7 @@ Use this checklist after changing a skill.
 - the core file is lean enough that detailed material clearly lives in references
 - scenario validation was considered when the skill enforces process or quality gates
 - repeated low-signal material across neighboring skills is identified and reduced where practical
-- portfolio-level overlap concerns are routed to `skill-stocktake` instead of being hidden inside package-fix work
+- portfolio-level overlap concerns are routed to `skill-maintenance-and-validation` instead of being hidden inside package-fix work
 
 ## Validation Result
 

@@ -72,11 +72,8 @@ Run the complete local validation suite:
 python3 "$HOME/.agents/skills/scripts/check_all_skills.py"
 ```
 
-Installation is complete only when this command ends with:
-
-```text
-All skill checks passed.
-```
+Require a zero exit status and inspect any unrun or stale behavioral evidence.
+Static validation is not a model evaluation or proof of task performance.
 
 The canonical-root check intentionally fails if editable skill packages remain
 directly under `~/.codex/skills`. Move personal packages into this repository,
@@ -113,4 +110,33 @@ source of truth and provides conflict detection and history.
 - `SKILL_STANDARD.md`: conventions for maintaining this library
 
 Generated catalogs and reports are intentionally ignored by Git. Regenerate
-them with `scripts/check_all_skills.py` when needed.
+explicitly with `python3 scripts/check_all_skills.py --generate`; use
+`--check-generated` for a read-only semantic comparison. Routine checks are
+compact; add `--verbose` for fixture and command details.
+
+## Consolidated library
+
+There are 26 active custom packages. [migration-map.json](migration-map.json)
+accounts for all 46 original entry points, their replacement mode and guidance
+destination. Retired entry points are removed, not redirects; external paths
+must be updated by their callers. Git retains their history.
+
+[routing-contracts.json](routing-contracts.json) declares owners, modes and local
+dependencies. Optional external capabilities are separate from required local
+packages. Mode references are selected, never loaded as a mandatory sequence.
+
+Export to an explicit, new directory outside the checkout:
+
+```bash
+python3 scripts/export_universal_skills.py /absolute/new/export-directory
+```
+
+Folder exports preserve packages and supporting root files. `--flatten` emits
+linked text references and discloses binary/runtime limitations. Neither mode
+installs tools or credentials. Existing destinations and source overlap are
+refused, including symlink aliases. Vendor packages are excluded by default.
+
+Historical evaluations live under scripts/fixtures/history. Current source-bound
+records are separate. report_performance.py compares paired actual load
+inventories; absent latency/token telemetry remains unknown. Commit, push,
+cross-host installation and evaluation scheduling require their own scope.

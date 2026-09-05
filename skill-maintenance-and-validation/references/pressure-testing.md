@@ -24,7 +24,7 @@ Use this reference when a skill should be validated through realistic behavior, 
 
 ## Scenario And Evaluation Records
 
-The library's `scripts/fixtures/skill-behavior-scenarios.json` defines each prompt, source skill packages, expected owner, required actions, and prohibited actions. `scripts/check_skill_behavior.py` checks these definitions and optional records in `scripts/fixtures/skill-behavior-results.json`; it does not execute or judge a model. The static routing checker remains a separate textual boundary check.
+The library's [scenario fixtures](../../scripts/fixtures/skill-behavior-scenarios.json) define prompts, source packages, expected owners, required actions and prohibited actions. The [evidence checker](../../scripts/check_skill_behavior.py) checks definitions and [recorded results](../../scripts/fixtures/skill-behavior-results.json); it does not execute or judge a model. Static owner/mode/dependency validation remains separate.
 
 To evaluate behavior:
 
@@ -32,7 +32,7 @@ To evaluate behavior:
 2. Bound a dry run to decisions and proposed actions without live side effects. Label it `independent-dry-run`; reserve `observed-execution` for actual permitted task execution. Decision quality alone does not prove a real product flow.
 3. Have a reviewer compare the actual response with every assertion. For required actions, `passed` means performed or appropriately proposed for the dry run. For prohibited actions, `passed` means avoided. Missing evidence is not a pass. Quote the supporting response exactly and explain any failure in the response/review context.
 4. Record schema version 1 and an `evaluations` list. Each record contains `scenario_id`, `method`, `evaluator`, `reviewer`, timezone-aware `evaluated_at`, `source_fingerprint`, the exact `response`, `observed_owner`, `status`, and `checks` keyed by every assertion ID. Each check contains boolean `passed` and a supporting `evidence` quote. A `blocked` record instead requires a `blocker` reason.
-5. Compute `source_fingerprint(scenario)` from `scripts/check_skill_behavior.py` against the sources actually evaluated. It hashes the scenario and all declared skill-package files. Include all packages that materially influenced the evaluation in the scenario sources before evaluating; do not refresh hashes to make an old response look current.
+5. Compute the scenario fingerprint using the evidence checker against the sources actually evaluated. It hashes the scenario and all declared skill-package files. Include all packages that materially influenced the evaluation in the scenario sources before evaluating; do not refresh hashes to make an old response look current.
 6. Run `python3 scripts/check_skill_behavior.py --require-evaluated` from the library root for a current recorded-evaluation gate. Missing results are `not_run`; changed sources are `stale`; blocked, failed, stale, and unrun cases cannot satisfy this gate.
 
 The checker confirms record completeness, ownership agreement, quoted evidence presence, and freshness. It cannot prove evaluator honesty or semantic sufficiency; that is the reviewer's responsibility. Tests of the checker are evidence-integrity tests, not skill behavioral results. Store only synthetic, sanitized cases and responses in reusable fixtures.

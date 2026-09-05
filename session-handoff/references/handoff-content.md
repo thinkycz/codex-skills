@@ -31,6 +31,6 @@ Use a handoff to preserve continuation context, not to rewrite every artifact.
 ## Avoid
 
 - Duplicating long PRDs, plans, or issue bodies.
-- Claiming release readiness without evidence and a `release-readiness` pass.
+- Claiming release readiness without evidence and a `verification-before-completion` pass.
 - Hiding uncertainty. Mark assumptions and unverified claims plainly.
 - Writing repo-tracked handoff files unless the user explicitly requested durable docs.

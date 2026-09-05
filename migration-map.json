@@ -1,0 +1,286 @@
+{
+  "schema_version": 1,
+  "migration_version": "2.0.0",
+  "baseline_commit": "7f424aea359eb524bb0a9112429d75bf14e15bff",
+  "original_count": 46,
+  "active_count": 26,
+  "external_links": "Retired entry points are removed. This map does not repair external paths.",
+  "entries": [
+    {
+      "old_name": "custom-skill-routing",
+      "replacement": "custom-skill-routing",
+      "mode": "route",
+      "reference_destination": "custom-skill-routing/references/mode-route.md"
+    },
+    {
+      "old_name": "lifecycle-orchestrator",
+      "replacement": "custom-skill-routing",
+      "mode": "stage",
+      "reference_destination": "custom-skill-routing/references/mode-stage.md"
+    },
+    {
+      "old_name": "requirements-checklist-review",
+      "replacement": "requirements-review",
+      "mode": "review",
+      "reference_destination": "requirements-review/references/mode-review.md"
+    },
+    {
+      "old_name": "spec-consistency-analysis",
+      "replacement": "requirements-review",
+      "mode": "compare",
+      "reference_destination": "requirements-review/references/mode-compare.md"
+    },
+    {
+      "old_name": "clarify-before-plan",
+      "replacement": "requirements-review",
+      "mode": "clarify",
+      "reference_destination": "requirements-review/references/mode-clarify.md"
+    },
+    {
+      "old_name": "docs-driven-execution",
+      "replacement": "docs-driven-execution",
+      "mode": "execute",
+      "reference_destination": "docs-driven-execution/references/mode-execute.md"
+    },
+    {
+      "old_name": "traceable-delivery",
+      "replacement": "docs-driven-execution",
+      "mode": "tracking",
+      "reference_destination": "docs-driven-execution/references/mode-tracking.md"
+    },
+    {
+      "old_name": "task-decomposition-and-resume",
+      "replacement": "docs-driven-execution",
+      "mode": "decompose",
+      "reference_destination": "docs-driven-execution/references/mode-decompose.md"
+    },
+    {
+      "old_name": "workflow-audit-history",
+      "replacement": "docs-driven-execution",
+      "mode": "audit",
+      "reference_destination": "docs-driven-execution/references/mode-audit.md"
+    },
+    {
+      "old_name": "session-handoff",
+      "replacement": "session-handoff",
+      "mode": "handoff",
+      "reference_destination": "session-handoff/references/mode-handoff.md"
+    },
+    {
+      "old_name": "artifact-resume-audit",
+      "replacement": "session-handoff",
+      "mode": "resume",
+      "reference_destination": "session-handoff/references/mode-resume.md"
+    },
+    {
+      "old_name": "reflection-and-learning",
+      "replacement": "session-handoff",
+      "mode": "lessons",
+      "reference_destination": "session-handoff/references/mode-lessons.md"
+    },
+    {
+      "old_name": "verification-before-completion",
+      "replacement": "verification-before-completion",
+      "mode": "verify",
+      "reference_destination": "verification-before-completion/references/mode-verify.md"
+    },
+    {
+      "old_name": "release-readiness",
+      "replacement": "verification-before-completion",
+      "mode": "readiness",
+      "reference_destination": "verification-before-completion/references/mode-readiness.md"
+    },
+    {
+      "old_name": "e2e-verification-handoff",
+      "replacement": "verification-before-completion",
+      "mode": "handoff",
+      "reference_destination": "verification-before-completion/references/mode-handoff.md"
+    },
+    {
+      "old_name": "skill-maintenance-and-validation",
+      "replacement": "skill-maintenance-and-validation",
+      "mode": "edit",
+      "reference_destination": "skill-maintenance-and-validation/references/mode-edit.md"
+    },
+    {
+      "old_name": "skill-stocktake",
+      "replacement": "skill-maintenance-and-validation",
+      "mode": "portfolio",
+      "reference_destination": "skill-maintenance-and-validation/references/mode-portfolio.md"
+    },
+    {
+      "old_name": "cross-tool-packaging",
+      "replacement": "skill-maintenance-and-validation",
+      "mode": "export",
+      "reference_destination": "skill-maintenance-and-validation/references/mode-export.md"
+    },
+    {
+      "old_name": "spec-driven-development",
+      "replacement": "spec-driven-development",
+      "mode": "prepare",
+      "reference_destination": "spec-driven-development/references/mode-prepare.md"
+    },
+    {
+      "old_name": "design-to-prd",
+      "replacement": "spec-driven-development",
+      "mode": "prd",
+      "reference_destination": "spec-driven-development/references/mode-prd.md"
+    },
+    {
+      "old_name": "ticket-driven-delivery",
+      "replacement": "ticket-driven-delivery",
+      "mode": "deliver",
+      "reference_destination": "ticket-driven-delivery/references/mode-deliver.md"
+    },
+    {
+      "old_name": "ticket-batch-intake",
+      "replacement": "ticket-driven-delivery",
+      "mode": "intake",
+      "reference_destination": "ticket-driven-delivery/references/mode-intake.md"
+    },
+    {
+      "old_name": "repo-convention-discovery",
+      "replacement": "evidence-discovery",
+      "mode": "repository",
+      "reference_destination": "evidence-discovery/references/mode-repository.md"
+    },
+    {
+      "old_name": "search-first",
+      "replacement": "evidence-discovery",
+      "mode": "research",
+      "reference_destination": "evidence-discovery/references/mode-research.md"
+    },
+    {
+      "old_name": "frontend-redesign-audit",
+      "replacement": "frontend-design",
+      "mode": "audit",
+      "reference_destination": "frontend-design/references/mode-audit.md"
+    },
+    {
+      "old_name": "design-fidelity-polish",
+      "replacement": "frontend-design",
+      "mode": "implement",
+      "reference_destination": "frontend-design/references/mode-implement.md"
+    },
+    {
+      "old_name": "design-system-export",
+      "replacement": "frontend-design",
+      "mode": "export",
+      "reference_destination": "frontend-design/references/mode-export.md"
+    },
+    {
+      "old_name": "full-project-hardening",
+      "replacement": "full-project-hardening",
+      "mode": "audit",
+      "reference_destination": "full-project-hardening/references/mode-audit.md"
+    },
+    {
+      "old_name": "architecture-deepening-audit",
+      "replacement": "full-project-hardening",
+      "mode": "architecture",
+      "reference_destination": "full-project-hardening/references/mode-architecture.md"
+    },
+    {
+      "old_name": "migration-risk-audit",
+      "replacement": "full-project-hardening",
+      "mode": "migration",
+      "reference_destination": "full-project-hardening/references/mode-migration.md"
+    },
+    {
+      "old_name": "product-brainstorming",
+      "replacement": "product-brainstorming",
+      "mode": "shape",
+      "reference_destination": "product-brainstorming/references/mode-shape.md"
+    },
+    {
+      "old_name": "throwaway-prototype",
+      "replacement": "product-brainstorming",
+      "mode": "prototype",
+      "reference_destination": "product-brainstorming/references/mode-prototype.md"
+    },
+    {
+      "old_name": "api-contract-review",
+      "replacement": "api-contract-review",
+      "mode": "work",
+      "reference_destination": "api-contract-review/SKILL.md"
+    },
+    {
+      "old_name": "design-to-traversable-app",
+      "replacement": "design-to-traversable-app",
+      "mode": "work",
+      "reference_destination": "design-to-traversable-app/SKILL.md"
+    },
+    {
+      "old_name": "figma",
+      "replacement": "figma",
+      "mode": "work",
+      "reference_destination": "figma/SKILL.md"
+    },
+    {
+      "old_name": "google-stitch",
+      "replacement": "google-stitch",
+      "mode": "work",
+      "reference_destination": "google-stitch/SKILL.md"
+    },
+    {
+      "old_name": "grill-with-docs",
+      "replacement": "grill-with-docs",
+      "mode": "work",
+      "reference_destination": "grill-with-docs/SKILL.md"
+    },
+    {
+      "old_name": "integrating-backend-api-into-frontend",
+      "replacement": "integrating-backend-api-into-frontend",
+      "mode": "work",
+      "reference_destination": "integrating-backend-api-into-frontend/SKILL.md"
+    },
+    {
+      "old_name": "local-tooling-maintenance",
+      "replacement": "local-tooling-maintenance",
+      "mode": "work",
+      "reference_destination": "local-tooling-maintenance/SKILL.md"
+    },
+    {
+      "old_name": "native-desktop-delivery",
+      "replacement": "native-desktop-delivery",
+      "mode": "work",
+      "reference_destination": "native-desktop-delivery/SKILL.md"
+    },
+    {
+      "old_name": "playwright",
+      "replacement": "playwright",
+      "mode": "work",
+      "reference_destination": "playwright/SKILL.md"
+    },
+    {
+      "old_name": "subagent-driven-development",
+      "replacement": "subagent-driven-development",
+      "mode": "work",
+      "reference_destination": "subagent-driven-development/SKILL.md"
+    },
+    {
+      "old_name": "systematic-debugging",
+      "replacement": "systematic-debugging",
+      "mode": "work",
+      "reference_destination": "systematic-debugging/SKILL.md"
+    },
+    {
+      "old_name": "test-driven-development",
+      "replacement": "test-driven-development",
+      "mode": "work",
+      "reference_destination": "test-driven-development/SKILL.md"
+    },
+    {
+      "old_name": "two-axis-review",
+      "replacement": "two-axis-review",
+      "mode": "work",
+      "reference_destination": "two-axis-review/SKILL.md"
+    },
+    {
+      "old_name": "workflow-contract-builder",
+      "replacement": "workflow-contract-builder",
+      "mode": "work",
+      "reference_destination": "workflow-contract-builder/SKILL.md"
+    }
+  ]
+}

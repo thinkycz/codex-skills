@@ -1,4 +1,4 @@
 interface:
   display_name: "Docs Driven Execution"
-  short_description: "Execute resumable work from active docs"
-  default_prompt: "Use $docs-driven-execution when trustworthy project docs genuinely control multi-slice or resumable work; execute the next slice while keeping the smallest useful tracker set, blockers, verification, dirty-worktree state, and handoff-only scope in sync."
+  short_description: "docs driven execution workflows"
+  default_prompt: "Use $docs-driven-execution to handle the requested outcome in the appropriate mode."
