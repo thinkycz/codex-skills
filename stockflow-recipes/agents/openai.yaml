@@ -1,0 +1,4 @@
+interface:
+  display_name: "StockFlow Recipes"
+  short_description: "Maintain localized recipes and guided preparation"
+  default_prompt: "Use $stockflow-recipes to update these recipes, check their preparation logic, and verify lookup and guided preparation in all supported languages."

@@ -1,4 +1,4 @@
 interface:
   display_name: "Custom Skill Routing"
-  short_description: "custom skill routing workflows"
-  default_prompt: "Use $custom-skill-routing to handle the requested outcome in the appropriate mode."
+  short_description: "Choose one owner for software and personal workflows"
+  default_prompt: "Use $custom-skill-routing to choose the appropriate owner and mode for this request without expanding its scope or loading unrelated workflows."

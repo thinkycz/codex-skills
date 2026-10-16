@@ -1,7 +1,7 @@
 ---
 name: session-handoff
 description: Resume from durable evidence, write a continuation handoff, or capture reusable lessons.
-version: 2.0.0
+version: 2.1.0
 category: execution
 sources:
   - Supplied task evidence and applicable project conventions

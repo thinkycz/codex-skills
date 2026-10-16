@@ -1,7 +1,7 @@
 ---
 name: frontend-design
 description: Audit an existing frontend, implement confirmed visual changes, or export stable design rules.
-version: 1.0.0
+version: 1.1.0
 category: design-quality
 sources:
   - Supplied task evidence and applicable project conventions

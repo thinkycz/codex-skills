@@ -158,6 +158,15 @@ retirement requires a versioned migration entry and resolved active callers;
 the map does not repair external links. Record performance from actual source
 loads, not skill mentions, and never relabel old evaluation responses as current.
 
+## New Packages After Consolidation
+
+Register every active package and its real modes/dependencies in `routing-contracts.json`.
+Migration schema version 2 keeps the historical `entries` and `original_count`
+unchanged and registers later native packages in the unique `added_packages` list.
+Historical destinations and additions must be disjoint and together cover exactly
+the active packages; `active_count` records that total. Version 1 maps without
+additions remain supported. Do not invent historical origins for a new package.
+
 ## Feedback Loop
 
 - After real projects, capture routing near-misses and useful prompt shapes in `scripts/fixtures/skill-routing-fixtures.json`.

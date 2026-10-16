@@ -1,0 +1,4 @@
+interface:
+  display_name: "Mac Network Storage Recovery"
+  short_description: "Restore Finder shares and verify network backups"
+  default_prompt: "Use $mac-network-storage-recovery to diagnose this network drive, restore the requested Finder or Time Machine workflow, and verify the actual outcome."

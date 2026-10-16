@@ -1,7 +1,7 @@
 ---
 name: custom-skill-routing
 description: Select a workflow owner when ownership or the next delivery stage is ambiguous.
-version: 2.0.0
+version: 2.1.0
 category: orchestration
 sources:
   - Supplied task evidence and applicable project conventions

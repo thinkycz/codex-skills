@@ -671,6 +671,56 @@
               "prompt": "The user explicitly asked for test-driven development on a bounded fix; do not invoke a router as ceremony.",
               "expected_owner": "test-driven-development",
               "mode": "work"
+            },
+            {
+              "prompt": "Update only the StockFlow Markdown recipe; no POS change.",
+              "expected_owner": "stockflow-recipes",
+              "mode": "work"
+            },
+            {
+              "prompt": "Change GoKasa cashier prices and modifiers only.",
+              "expected_owner": "teacha-gokasa-menu",
+              "mode": "work"
+            },
+            {
+              "prompt": "Extract the original vocal and instrumental, with no new singer.",
+              "expected_owner": "audio-cover-production",
+              "mode": "separate"
+            },
+            {
+              "prompt": "Create the finished cover with newly synthesized singing.",
+              "expected_owner": "audio-cover-production",
+              "mode": "cover"
+            },
+            {
+              "prompt": "Finder cannot mount my network share.",
+              "expected_owner": "mac-network-storage-recovery",
+              "mode": "access"
+            },
+            {
+              "prompt": "Verify an actual network Time Machine backup.",
+              "expected_owner": "mac-network-storage-recovery",
+              "mode": "backup"
+            },
+            {
+              "prompt": "Recover Kodi after my Apple TV jailbreak.",
+              "expected_owner": "legacy-device-recovery",
+              "mode": "apple-tv"
+            },
+            {
+              "prompt": "Install Linux on an older Chromebook with a recovery path.",
+              "expected_owner": "legacy-device-recovery",
+              "mode": "linux"
+            },
+            {
+              "prompt": "Translate this Czech instruction into Vietnamese.",
+              "expected_owner": "czech-vietnamese-translation",
+              "mode": "work"
+            },
+            {
+              "prompt": "A Czech factual question about current device compatibility, with no translation request.",
+              "expected_owner": "evidence-discovery",
+              "mode": "research"
             }
           ]
         }
@@ -811,6 +861,141 @@
             },
             {
               "prompt": "We have platform-specific installer evidence; decide what is release-ready.",
+              "expected_owner": "verification-before-completion",
+              "mode": "readiness"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "personal and operational workflow boundaries",
+      "skills": [
+        {
+          "id": "audio-cover-production",
+          "dependencies": [],
+          "fixtures": [
+            {
+              "prompt": "Dry run only. I supplied a stereo WAV and want separate vocal and instrumental WAVs with the original timing. UVR is installed but its output directory is invalid. I did not ask for a new singer or backing. Describe your next actions and acceptance evidence; perform no processing.",
+              "expected_owner": "audio-cover-production",
+              "mode": "separate"
+            },
+            {
+              "prompt": "Dry run only. Make a new AI-sung cover that keeps the original melody, words, key and timing, with a new R&B backing. Earlier I accepted retaining the old singer, but this latest request replaces that decision. Existing tools include a separator, ACE-Step and Seed-VC; no full render or installation may run here. Explain the production approach, preview, exports and acceptance. Vietnamese pronunciation has not been reviewed.",
+              "expected_owner": "audio-cover-production",
+              "mode": "cover"
+            }
+          ]
+        },
+        {
+          "id": "czech-vietnamese-translation",
+          "dependencies": [],
+          "fixtures": [
+            {
+              "prompt": "Translate this Czech message into Vietnamese for a colleague: “Pravděpodobně bude potřeba registrace. Pojištění zatím není ověřené. Přidej 4,5 g prášku do 60 ml vody, ne do 600 ml. Název Bueno Hojicha ponech stejný.” Return the translation without researching or adding requirements.",
+              "expected_owner": "czech-vietnamese-translation",
+              "mode": "work"
+            }
+          ]
+        },
+        {
+          "id": "evidence-discovery",
+          "dependencies": [],
+          "fixtures": [
+            {
+              "prompt": "Dry run only. Compare two regional variants of the same phone for eSIM support and two flights for value. One flight is called direct but includes a stop; only one quote includes checked baggage. I also want firsthand user experiences. Current official documentation and booking results would be available in a real run, but you have not opened them here. Explain the research and comparison approach without inventing prices or capabilities.",
+              "expected_owner": "evidence-discovery",
+              "mode": "research"
+            }
+          ]
+        },
+        {
+          "id": "frontend-design",
+          "dependencies": [],
+          "fixtures": [
+            {
+              "prompt": "Dry run only. Audit this developer app and propose fixes. Calendar, tasks and chat all use the same table. Navigation repeats Settings; primary actions are mixed with many advanced filters; shell labels are translated but instructions are still English. Permissions and routes must remain. The user wants a calmer, easier app but has not chosen pastel colors or a radius scale. Describe the audit and acceptance approach, without editing files.",
+              "expected_owner": "frontend-design",
+              "mode": "audit"
+            }
+          ]
+        },
+        {
+          "id": "legacy-device-recovery",
+          "dependencies": [],
+          "fixtures": [
+            {
+              "prompt": "Dry run only. My older Apple TV rebooted after Blackb0x said it finished. Kodi is absent. Later the Kodi repository was empty; after a refresh its entries appeared, but a requested add-on needs a newer Python runtime. The guide documents an Intel host while this host is Apple silicon. Describe how to separate these problems and verify outcomes without running a jailbreak here.",
+              "expected_owner": "legacy-device-recovery",
+              "mode": "apple-tv"
+            },
+            {
+              "prompt": "Dry run only. I want a Hyprland-based Linux installation on an old computer. The CPU is 64-bit; boot firmware bitness and GPU requirements have not been checked. I also have a Chromebook whose board ID, write-protect state and firmware restoration path are unknown, and I may want ChromeOS back. Describe feasibility and the next decision before any disk or firmware writes.",
+              "expected_owner": "legacy-device-recovery",
+              "mode": "linux"
+            }
+          ]
+        },
+        {
+          "id": "mac-network-storage-recovery",
+          "dependencies": [],
+          "fixtures": [
+            {
+              "prompt": "Dry run only. Finder still cannot open the Data share on a Time Capsule after a managed Samba setup. A previous session recorded a clean Checkup, but the device has since rebooted and may have another address. The SMB port responds now. I want file access only; the router and stored data must stay as they are. Explain diagnosis and what would prove success.",
+              "expected_owner": "mac-network-storage-recovery",
+              "mode": "access"
+            },
+            {
+              "prompt": "Dry run only. A Mac can browse a Synology share and Time Machine accepts it as a destination, but the first backup is still preparing. An old chat recommended the newest DSM without checking the specific model. I want a verified network backup and a safe small-file restore check; preserve existing backup history. Describe the remaining evidence and setup checks.",
+              "expected_owner": "mac-network-storage-recovery",
+              "mode": "backup"
+            }
+          ]
+        },
+        {
+          "id": "session-handoff",
+          "dependencies": [],
+          "fixtures": [
+            {
+              "prompt": "Dry run only. Resume from a linked chat. Its old assistant summary says hot drink price 145; the latest user correction says both variants 160. Its tracker says commit pending, but current Git has that commit and a clean tree. The user deferred live acceptance. Explain what history to read and what evidence to trust before continuing; no message to the other chat is authorized.",
+              "expected_owner": "session-handoff",
+              "mode": "resume"
+            }
+          ]
+        },
+        {
+          "id": "stockflow-recipes",
+          "dependencies": [],
+          "fixtures": [
+            {
+              "prompt": "Dry run only. Add an iced Hazelnut Hojicha recipe to StockFlow, using the existing iced hazelnut-matcha recipe as the preparation analog. Supplied amounts are 10 g hazelnut syrup, 140 g oat milk, 4 g hojicha and 60 g water. The analog explicitly lists a full serving cup of ice and an ice-adding step. The current guide uses developer-managed Markdown, EN/CS/SK dictionaries and a browse-only employee UI. No price or live GoKasa change was requested. Describe the edits and verification; do not invent missing water temperature.",
+              "expected_owner": "stockflow-recipes",
+              "mode": "work"
+            }
+          ]
+        },
+        {
+          "id": "teacha-gokasa-menu",
+          "dependencies": [],
+          "fixtures": [
+            {
+              "prompt": "Dry run only. Add a cold and hot special to two GoKasa branches. The user confirmed both prices and says the second branch uses a separate login on the same domain. Codes differ between branches. A customer order is already open. Describe safe catalog, button and modifier verification without editing the live system.",
+              "expected_owner": "teacha-gokasa-menu",
+              "mode": "work"
+            }
+          ]
+        },
+        {
+          "id": "verification-before-completion",
+          "dependencies": [],
+          "fixtures": [
+            {
+              "prompt": "Dry run only. The user asked to commit and push the scoped feature. Git already has the feature commit and a clean tree; targeted tests passed, but the exact required make check gate failed its dependency audit. No Git remote is configured. Unrelated changes existed in another repository. Describe the release status and next actions without running Git writes.",
+              "expected_owner": "verification-before-completion",
+              "mode": "readiness"
+            },
+            {
+              "prompt": "Assess readiness only. The accepted task is local web and Android delivery. The user explicitly deferred iOS device tests and live provider checks. The exact repository gate and local web/Android journeys have current passing evidence. Describe completion against the accepted scope and remaining verification.",
               "expected_owner": "verification-before-completion",
               "mode": "readiness"
             }

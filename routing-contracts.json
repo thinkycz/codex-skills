@@ -12,6 +12,8 @@
       },
       "dependencies": [
         "api-contract-review",
+        "audio-cover-production",
+        "czech-vietnamese-translation",
         "design-to-traversable-app",
         "docs-driven-execution",
         "evidence-discovery",
@@ -21,14 +23,18 @@
         "google-stitch",
         "grill-with-docs",
         "integrating-backend-api-into-frontend",
+        "legacy-device-recovery",
         "local-tooling-maintenance",
+        "mac-network-storage-recovery",
         "native-desktop-delivery",
         "product-brainstorming",
         "requirements-review",
         "session-handoff",
         "skill-maintenance-and-validation",
         "spec-driven-development",
+        "stockflow-recipes",
         "systematic-debugging",
+        "teacha-gokasa-menu",
         "test-driven-development",
         "ticket-driven-delivery",
         "two-axis-review",
@@ -243,6 +249,50 @@
       "dependencies": []
     },
     "workflow-contract-builder": {
+      "modes": {
+        "work": null
+      },
+      "dependencies": []
+    },
+    "teacha-gokasa-menu": {
+      "modes": {
+        "work": null
+      },
+      "dependencies": []
+    },
+    "stockflow-recipes": {
+      "modes": {
+        "work": null
+      },
+      "dependencies": [
+        "teacha-gokasa-menu"
+      ]
+    },
+    "audio-cover-production": {
+      "modes": {
+        "separate": "references/separate.md",
+        "cover": "references/cover.md"
+      },
+      "dependencies": []
+    },
+    "mac-network-storage-recovery": {
+      "modes": {
+        "access": "references/access.md",
+        "backup": "references/backup.md"
+      },
+      "dependencies": []
+    },
+    "legacy-device-recovery": {
+      "modes": {
+        "apple-tv": "references/apple-tv.md",
+        "linux": "references/linux.md"
+      },
+      "dependencies": [
+        "mac-network-storage-recovery",
+        "evidence-discovery"
+      ]
+    },
+    "czech-vietnamese-translation": {
       "modes": {
         "work": null
       },

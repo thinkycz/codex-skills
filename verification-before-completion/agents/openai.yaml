@@ -1,7 +1,7 @@
 interface:
   display_name: "Verification Before Completion"
-  short_description: "verification before completion workflows"
-  default_prompt: "Use $verification-before-completion to handle the requested outcome in the appropriate mode."
+  short_description: "Verify exact gates, runtime and release evidence"
+  default_prompt: "Use $verification-before-completion to verify the requested acceptance criteria, repository gates and runtime evidence, preserving agreed deferrals."
 
 policy:
   allow_implicit_invocation: true

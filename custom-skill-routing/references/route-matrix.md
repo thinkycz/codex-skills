@@ -70,3 +70,12 @@ Use this quick owner map when `custom-skill-routing` needs a fast routing decisi
   `skill-maintenance-and-validation`
 - The task is export shape, flattening, cataloging, or compatibility:
   `skill-maintenance-and-validation`
+
+## Domain and personal workflow boundaries
+
+- StockFlow developer-managed recipe content or preparation guidance: `stockflow-recipes` (work). Live GoKasa names, prices, cashier buttons and modifiers: `teacha-gokasa-menu` (work). A request covering both uses each for its authorized part; product information is not cross-system write permission.
+- Vocal/instrumental extraction: `audio-cover-production` (separate). A finished new backing or singer: `audio-cover-production` (cover). Artist facts or lyric lookup stay in research rather than implying an audio-production task.
+- Finder SMB file access or Time Machine verification: `mac-network-storage-recovery` (access or backup). Apple TV recovery or older-computer Linux repurposing: `legacy-device-recovery` (apple-tv or linux). A specification comparison alone: `evidence-discovery` (research).
+- Explicit Czech–Vietnamese translation: `czech-vietnamese-translation` (work). A factual question written in either language: `evidence-discovery` (research). Translation does not silently reassess its source's claims.
+
+Choose one owner for the current requested outcome. These are conditional handoffs, not a checklist of skills to load for every task.

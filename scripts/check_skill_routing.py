@@ -31,8 +31,28 @@ def validate_contracts(root=ROOT):
         entries = migration['entries']
         if len(entries) != migration['original_count'] or len({e['old_name'] for e in entries}) != len(entries):
             errors.append('Migration does not account for every original capability exactly once.')
-        if len(packages) != migration['active_count'] or {e['replacement'] for e in entries} != packages:
-            errors.append('Migration destinations do not match active packages.')
+        schema = migration.get('schema_version', 1)
+        if type(schema) is not int or schema not in (1, 2):
+            errors.append('Unsupported migration schema version.')
+        additions = migration.get('added_packages', [])
+        if schema == 1 and 'added_packages' in migration:
+            errors.append('Added packages require migration schema version 2.')
+        if not isinstance(additions, list) or any(
+            not isinstance(name, str) or not name or Path(name).name != name
+            or name in ('.', '..') for name in additions
+        ):
+            errors.append('Added packages must be a list of package names.')
+            additions = []
+        migrated = {e['replacement'] for e in entries}
+        if len(set(additions)) != len(additions):
+            errors.append('Added packages must be unique.')
+        if set(additions) & migrated:
+            errors.append('Added packages overlap historical migration destinations.')
+        for name in additions:
+            if name not in packages or name not in owners:
+                errors.append(f'Unknown added package: {name}')
+        if len(packages) != migration['active_count'] or migrated | set(additions) != packages:
+            errors.append('Migration destinations and additions do not match active packages.')
         for entry in entries:
             owner = entry['replacement']
             if owner not in owners or entry['mode'] not in owners[owner]['modes'] or not contained_file(root, entry['reference_destination']):

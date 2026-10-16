@@ -1,9 +1,9 @@
 {
-  "schema_version": 1,
-  "migration_version": "2.0.0",
+  "schema_version": 2,
+  "migration_version": "2.1.0",
   "baseline_commit": "7f424aea359eb524bb0a9112429d75bf14e15bff",
   "original_count": 46,
-  "active_count": 26,
+  "active_count": 32,
   "external_links": "Retired entry points are removed. This map does not repair external paths.",
   "entries": [
     {
@@ -282,5 +282,13 @@
       "mode": "work",
       "reference_destination": "workflow-contract-builder/SKILL.md"
     }
+  ],
+  "added_packages": [
+    "audio-cover-production",
+    "czech-vietnamese-translation",
+    "legacy-device-recovery",
+    "mac-network-storage-recovery",
+    "stockflow-recipes",
+    "teacha-gokasa-menu"
   ]
 }

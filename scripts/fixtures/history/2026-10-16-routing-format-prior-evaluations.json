@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "evaluations": [
+    {
+      "scenario_id": "custom-skill-routing--route",
+      "method": "independent-dry-run",
+      "evaluator": "independent-skill-evaluator-3",
+      "reviewer": "primary-agent assertion review",
+      "evaluated_at": "2026-10-16T21:33:07.232292+00:00",
+      "source_fingerprint": "b4531c517fd66044269376470f4557ad7272bff9f13c68cf5f3cc960da6a28e5",
+      "response": "I’m using custom-skill-routing to select the owner. This goes directly to spec-driven-development in prepare mode: your complete acceptance checklist is a sufficient specification, and your request authorizes implementing the toggle. A separate PRD or requirements-review stage is unnecessary.\n\nBefore starting, load that owner’s SKILL.md and prepare procedure, applicable project instructions, the supplied checklist, the relevant toggle code, a canonical nearby example, existing tests and the exact required checks. Confirm repository identity and current changes so unrelated work stays intact. Keep tracking inline for this small change.\n\nUse test-driven-development only if the toggle changes meaningful behavior that needs a failing behavioral test; a trivial presentation toggle can use existing checks and rendered inspection. Load only the supporting detail that answers an actual implementation question. I haven’t inspected product code or run checks in this dry run.",
+      "observed_owner": "spec-driven-development",
+      "observed_mode": "prepare",
+      "loaded_files": [
+        "custom-skill-routing/SKILL.md",
+        "custom-skill-routing/references/mode-route.md",
+        "custom-skill-routing/references/route-matrix.md",
+        "custom-skill-routing/references/routing-details.md",
+        "spec-driven-development/SKILL.md",
+        "spec-driven-development/references/mode-prepare.md",
+        "test-driven-development/SKILL.md"
+      ],
+      "status": "passed",
+      "checks": {
+        "scope": {
+          "passed": true,
+          "evidence": "I’m using custom-skill-routing to select the owner. This goes directly to spec-driven-development in prepare mode: your complete acceptance checklist is a sufficient specification, and your request authorizes implementing the toggle. A separate PRD or requirements-review stage is unnecessary."
+        },
+        "procedure": {
+          "passed": true,
+          "evidence": "Use test-driven-development only if the toggle changes meaningful behavior that needs a failing behavioral test; a trivial presentation toggle can use existing checks and rendered inspection. Load only the supporting detail that answers an actual implementation question. I haven’t inspected product code or run checks in this dry run."
+        },
+        "overreach": {
+          "passed": true,
+          "evidence": "Before starting, load that owner’s SKILL.md and prepare procedure, applicable project instructions, the supplied checklist, the relevant toggle code, a canonical nearby example, existing tests and the exact required checks. Confirm repository identity and current changes so unrelated work stays intact. Keep tracking inline for this small change."
+        },
+        "evidence": {
+          "passed": true,
+          "evidence": "Use test-driven-development only if the toggle changes meaningful behavior that needs a failing behavioral test; a trivial presentation toggle can use existing checks and rendered inspection. Load only the supporting detail that answers an actual implementation question. I haven’t inspected product code or run checks in this dry run."
+        }
+      }
+    },
+    {
+      "scenario_id": "custom-skill-routing--stage",
+      "method": "independent-dry-run",
+      "evaluator": "independent-skill-evaluator-1",
+      "reviewer": "primary-agent assertion review",
+      "evaluated_at": "2026-10-16T21:33:07.232747+00:00",
+      "source_fingerprint": "4577cf0cfb38cdbc963b08176f291fa959f54da294ccd72a8da8c104091cc5e7",
+      "response": "The next stage is runtime verification of slice four, owned by verification-before-completion in verify mode. The first three slices and the current implementation-ready plan do not need to restart discovery, brainstorming or planning.\n\nReuse the working summary, source/repository identity, accepted criteria, plan, implementation details, canonical examples, required checks and passing evidence for slices one through three. Map slice four's outstanding acceptance claims to the actual runtime path and record its environment, dependencies and blockers. Refresh only facts invalidated by changed source, configuration, data or environment. Run the missing runtime checks and any affected required gates; do not infer completeness from green tests alone or treat source identity as deployment identity. This identifies the next action; it does not claim that runtime verification ran.",
+      "observed_owner": "custom-skill-routing",
+      "observed_mode": "stage",
+      "loaded_files": [
+        "custom-skill-routing/SKILL.md",
+        "custom-skill-routing/references/mode-stage.md",
+        "custom-skill-routing/references/stage-handoff-map.md",
+        "custom-skill-routing/references/stage-stage-detection.md"
+      ],
+      "status": "passed",
+      "checks": {
+        "scope": {
+          "passed": true,
+          "evidence": "The next stage is runtime verification of slice four, owned by verification-before-completion in verify mode. The first three slices and the current implementation-ready plan do not need to restart discovery, brainstorming or planning."
+        },
+        "procedure": {
+          "passed": true,
+          "evidence": "Reuse the working summary, source/repository identity, accepted criteria, plan, implementation details, canonical examples, required checks and passing evidence for slices one through three. Map slice four's outstanding acceptance claims to the actual runtime path and record its environment, dependencies and blockers. Refresh only facts invalidated by changed source, configuration, data or environment. Run the missing runtime checks and any affected required gates; do not infer completeness from green tests alone or treat source identity as deployment identity. This identifies the next action; it does not claim that runtime verification ran."
+        },
+        "overreach": {
+          "passed": true,
+          "evidence": "Reuse the working summary, source/repository identity, accepted criteria, plan, implementation details, canonical examples, required checks and passing evidence for slices one through three. Map slice four's outstanding acceptance claims to the actual runtime path and record its environment, dependencies and blockers. Refresh only facts invalidated by changed source, configuration, data or environment. Run the missing runtime checks and any affected required gates; do not infer completeness from green tests alone or treat source identity as deployment identity. This identifies the next action; it does not claim that runtime verification ran."
+        },
+        "evidence": {
+          "passed": true,
+          "evidence": "Reuse the working summary, source/repository identity, accepted criteria, plan, implementation details, canonical examples, required checks and passing evidence for slices one through three. Map slice four's outstanding acceptance claims to the actual runtime path and record its environment, dependencies and blockers. Refresh only facts invalidated by changed source, configuration, data or environment. Run the missing runtime checks and any affected required gates; do not infer completeness from green tests alone or treat source identity as deployment identity. This identifies the next action; it does not claim that runtime verification ran."
+        }
+      }
+    }
+  ]
+}

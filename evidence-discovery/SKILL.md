@@ -1,7 +1,7 @@
 ---
 name: evidence-discovery
-description: Answer a bounded research question or discover repository conventions before a concrete decision.
-version: 1.0.0
+description: Answer bounded research questions, compare exact product or travel options, or discover repository conventions before a decision. Separate current evidence, firsthand experience and inference.
+version: 1.1.0
 category: orchestration
 sources:
   - Supplied task evidence and applicable project conventions

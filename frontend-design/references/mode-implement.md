@@ -2,6 +2,8 @@
 
 Use confirmed design intent and canonical repository components. Match assets, typography, spacing, responsive behavior and interaction states; inspect the rendered result at relevant sizes. Check overlays, focus/keyboard behavior, loading/error/empty states and shared-component consumers. Prefer exact assets over invented approximations. A trivial presentation edit need not gain a source-string test; protect meaningful behavior and perform visual verification.
 
+For product-wide UX changes, read [product workflow acceptance](implement-product-workflows.md). Use this when navigation, feature layouts, information density or content localization are in scope; a small visual correction does not require a full product audit.
+
 ## Selected detail
 
 Read only the reference matching the current question; these are not a mandatory sequence.

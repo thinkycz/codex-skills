@@ -1,6 +1,8 @@
 # Readiness
 
-Assess evidence without changing code or deploying. Report ready, ready with explicit limitations, or blocked against the requested handoff/release target. Check requirement coverage, remaining blockers, docs freshness and environment identity. Missing live or packaged verification remains a limitation even when every automated test passes. Do not treat required blocked integrations as post-MVP work without accepted deferral.
+Assess evidence without changing code or deploying. Report ready, ready with explicit limitations, or blocked against the requested handoff/release target. Check requirement coverage, remaining blockers, docs freshness and environment identity. Missing live or packaged verification remains a limitation even when every automated test passes. Do not treat required blocked integrations as post-MVP work without accepted deferral. Preserve explicit user deferrals as acceptance boundaries: assess the remaining in-scope work without repeatedly blocking on the deferred platform/provider, while keeping that verification marked deferred and unverified. A deferral is not a passing check.
+
+For a commit/push readiness assessment, read [Git release evidence](git-release-evidence.md) to distinguish existing commits, repository gates, remote configuration and actual pushed state. Assessment stays read-only unless release execution is also requested.
 
 ## Selected detail
 

@@ -1,7 +1,7 @@
 interface:
   display_name: "Frontend Design"
-  short_description: "frontend design workflows"
-  default_prompt: "Use $frontend-design to handle the requested outcome in the appropriate mode."
+  short_description: "Audit or improve feature-appropriate product UX"
+  default_prompt: "Use $frontend-design to improve this product with feature-appropriate layouts, clear navigation, consistent components and verified localized flows."
 
 policy:
   allow_implicit_invocation: true

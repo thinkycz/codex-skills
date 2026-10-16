@@ -1,0 +1,4 @@
+interface:
+  display_name: "Legacy Device Recovery"
+  short_description: "Recover Apple TV or repurpose older computers"
+  default_prompt: "Use $legacy-device-recovery to check this device, choose a supported recovery or Linux path, preserve a restoration route, and verify the requested result."

@@ -1,7 +1,7 @@
 interface:
   display_name: "Session Handoff"
-  short_description: "session handoff workflows"
-  default_prompt: "Use $session-handoff to handle the requested outcome in the appropriate mode."
+  short_description: "Resume linked conversations against current evidence"
+  default_prompt: "Use $session-handoff to reconcile the linked conversation and latest decisions with current files, Git state and verification before resuming."
 
 policy:
   allow_implicit_invocation: true

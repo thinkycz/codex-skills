@@ -60,6 +60,87 @@ class LibraryToolsTests(unittest.TestCase):
         (self.package / 'references/detail.md').unlink()
         self.assertTrue(validate_contracts(self.root)[0])
 
+    def migration_fixture(self, schema=2, with_addition=True):
+        migration = {
+            'schema_version': schema, 'original_count': 1,
+            'active_count': 2 if with_addition else 1,
+            'entries': [{'old_name': 'historical-example', 'replacement': 'example',
+                         'mode': 'work', 'reference_destination': 'example/references/detail.md'}],
+        }
+        if with_addition:
+            self.put('added/SKILL.md', '# Added')
+            contracts = json.loads((self.root / 'routing-contracts.json').read_text())
+            contracts['skills']['added'] = {'modes': {'work': None}, 'dependencies': []}
+            self.put('routing-contracts.json', json.dumps(contracts))
+            migration['added_packages'] = ['added']
+        self.put('migration-map.json', json.dumps(migration))
+        return migration
+
+    def test_migration_v1_remains_valid(self):
+        self.migration_fixture(schema=1, with_addition=False)
+        self.assertEqual(validate_contracts(self.root)[0], [])
+
+    def test_migration_v2_addition_preserves_original_history(self):
+        migration = self.migration_fixture()
+        self.assertEqual(validate_contracts(self.root)[0], [])
+        self.assertEqual(migration['original_count'], 1)
+        self.assertEqual(len(migration['entries']), 1)
+
+    def test_migration_rejects_unregistered_addition(self):
+        migration = self.migration_fixture()
+        migration['added_packages'] = []
+        self.put('migration-map.json', json.dumps(migration))
+        self.assertTrue(validate_contracts(self.root)[0])
+
+    def test_migration_rejects_duplicate_addition(self):
+        migration = self.migration_fixture()
+        migration['added_packages'].append('added')
+        self.put('migration-map.json', json.dumps(migration))
+        self.assertIn('Added packages must be unique.', validate_contracts(self.root)[0])
+
+    def test_migration_rejects_unknown_addition(self):
+        migration = self.migration_fixture()
+        migration['added_packages'].append('missing')
+        self.put('migration-map.json', json.dumps(migration))
+        self.assertIn('Unknown added package: missing', validate_contracts(self.root)[0])
+
+    def test_migration_rejects_addition_without_owner(self):
+        self.migration_fixture()
+        contracts = json.loads((self.root / 'routing-contracts.json').read_text())
+        del contracts['skills']['added']
+        self.put('routing-contracts.json', json.dumps(contracts))
+        self.assertIn('Unknown added package: added', validate_contracts(self.root)[0])
+
+    def test_migration_rejects_overlap_with_original_destinations(self):
+        migration = self.migration_fixture()
+        migration['added_packages'].append('example')
+        self.put('migration-map.json', json.dumps(migration))
+        self.assertIn('Added packages overlap historical migration destinations.', validate_contracts(self.root)[0])
+
+    def test_migration_keeps_historical_coverage_required(self):
+        migration = self.migration_fixture()
+        migration['original_count'] = 2
+        self.put('migration-map.json', json.dumps(migration))
+        self.assertIn('Migration does not account for every original capability exactly once.', validate_contracts(self.root)[0])
+
+    def test_migration_rejects_malformed_additions(self):
+        for additions in ['added', [None], [1], ['../added'], ['..']]:
+            with self.subTest(additions=additions):
+                migration = self.migration_fixture()
+                migration['added_packages'] = additions
+                self.put('migration-map.json', json.dumps(migration))
+                self.assertIn('Added packages must be a list of package names.', validate_contracts(self.root)[0])
+
+    def test_migration_v1_cannot_smuggle_additions(self):
+        self.migration_fixture(schema=1)
+        self.assertIn('Added packages require migration schema version 2.', validate_contracts(self.root)[0])
+
+    def test_migration_rejects_unsupported_schema(self):
+        for schema in [0, 3, '2', True]:
+            with self.subTest(schema=schema):
+                self.migration_fixture(schema=schema)
+                self.assertIn('Unsupported migration schema version.', validate_contracts(self.root)[0])
+
     def test_semantic_manifest_tampering(self):
         expected = {'skills.manifest.json': {'generated_at': 'new', 'included_skill_ids': ['example']}}
         self.put('skills.manifest.json', json.dumps({'generated_at': 'old', 'included_skill_ids': ['wrong']}))

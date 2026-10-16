@@ -1,0 +1,4 @@
+interface:
+  display_name: "Audio Cover Production"
+  short_description: "Create faithful covers or separate editable stems"
+  default_prompt: "Use $audio-cover-production to produce the requested stems or finished cover, preserve the source, and verify the audio and listening limitations."

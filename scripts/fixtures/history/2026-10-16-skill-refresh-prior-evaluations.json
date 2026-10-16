@@ -1,0 +1,1132 @@
+{
+  "schema_version": 1,
+  "evaluations": [
+    {
+      "scenario_id": "failed-deployment",
+      "run": 1,
+      "method": "independent-dry-run",
+      "evaluator": "/root/revised_final1",
+      "reviewer": "/root",
+      "evaluated_at": "2026-09-05T07:30:17Z",
+      "source_fingerprint": "1901a7899d96f12701d08795764f2d0205404404711da3f4fe39d400d4c341e6",
+      "response": "Production resolution is blocked: regression tests passed on B, but deployment failed and production still runs A. The user's report does not establish a regression in B because B never became the running version. Next, inspect the deployment entrypoint, runtime versions, lockfiles and the first view-cache error. Recommend replaying the actual install, build, cache and startup commands in an isolated checkout with synthetic configuration and production-mode semantics. Record source identity, commands and exit status; do not run production migrations or restarts. Successful isolated replay would establish deployment-command evidence only. Live resolution still requires an authorized successful rollout, observed B identity and verification of the original user path.",
+      "observed_owner": "verification-before-completion",
+      "status": "passed",
+      "checks": {
+        "status": {
+          "passed": true,
+          "evidence": "Production resolution is blocked: regression tests passed on B, but deployment failed and production still runs A. The user's report does not establish a regression in B because B never became the running version. Next, inspect the deployment entrypoint, runtime versions, lockfiles and the first view-cache error. Recommend replaying the actual install, build, cache and startup commands in an isolated checkout with synthetic configuration and production-mode semantics. Record source identity, commands and exit status; do not run production migrations or restarts. Successful isolated replay would establish deployment-command evidence only. Live resolution still requires an authorized successful rollout, observed B identity and verification of the original user path."
+        },
+        "smoke": {
+          "passed": true,
+          "evidence": "Production resolution is blocked: regression tests passed on B, but deployment failed and production still runs A. The user's report does not establish a regression in B because B never became the running version. Next, inspect the deployment entrypoint, runtime versions, lockfiles and the first view-cache error. Recommend replaying the actual install, build, cache and startup commands in an isolated checkout with synthetic configuration and production-mode semantics. Record source identity, commands and exit status; do not run production migrations or restarts. Successful isolated replay would establish deployment-command evidence only. Live resolution still requires an authorized successful rollout, observed B identity and verification of the original user path."
+        },
+        "live": {
+          "passed": true,
+          "evidence": "Production resolution is blocked: regression tests passed on B, but deployment failed and production still runs A. The user's report does not establish a regression in B because B never became the running version. Next, inspect the deployment entrypoint, runtime versions, lockfiles and the first view-cache error. Recommend replaying the actual install, build, cache and startup commands in an isolated checkout with synthetic configuration and production-mode semantics. Record source identity, commands and exit status; do not run production migrations or restarts. Successful isolated replay would establish deployment-command evidence only. Live resolution still requires an authorized successful rollout, observed B identity and verification of the original user path."
+        },
+        "done": {
+          "passed": true,
+          "evidence": "Production resolution is blocked: regression tests passed on B, but deployment failed and production still runs A. The user's report does not establish a regression in B because B never became the running version. Next, inspect the deployment entrypoint, runtime versions, lockfiles and the first view-cache error. Recommend replaying the actual install, build, cache and startup commands in an isolated checkout with synthetic configuration and production-mode semantics. Record source identity, commands and exit status; do not run production migrations or restarts. Successful isolated replay would establish deployment-command evidence only. Live resolution still requires an authorized successful rollout, observed B identity and verification of the original user path."
+        },
+        "deploy": {
+          "passed": true,
+          "evidence": "Production resolution is blocked: regression tests passed on B, but deployment failed and production still runs A. The user's report does not establish a regression in B because B never became the running version. Next, inspect the deployment entrypoint, runtime versions, lockfiles and the first view-cache error. Recommend replaying the actual install, build, cache and startup commands in an isolated checkout with synthetic configuration and production-mode semantics. Record source identity, commands and exit status; do not run production migrations or restarts. Successful isolated replay would establish deployment-command evidence only. Live resolution still requires an authorized successful rollout, observed B identity and verification of the original user path."
+        },
+        "rewrite": {
+          "passed": true,
+          "evidence": "Production resolution is blocked: regression tests passed on B, but deployment failed and production still runs A. The user's report does not establish a regression in B because B never became the running version. Next, inspect the deployment entrypoint, runtime versions, lockfiles and the first view-cache error. Recommend replaying the actual install, build, cache and startup commands in an isolated checkout with synthetic configuration and production-mode semantics. Record source identity, commands and exit status; do not run production migrations or restarts. Successful isolated replay would establish deployment-command evidence only. Live resolution still requires an authorized successful rollout, observed B identity and verification of the original user path."
+        }
+      },
+      "loaded_files": [
+        "verification-before-completion/SKILL.md",
+        "verification-before-completion/references/mode-readiness.md",
+        "verification-before-completion/references/deployment-smoke.md"
+      ]
+    },
+    {
+      "scenario_id": "ui-simplification",
+      "run": 1,
+      "method": "independent-dry-run",
+      "evaluator": "/root/revised_final1",
+      "reviewer": "/root",
+      "evaluated_at": "2026-09-05T07:30:17Z",
+      "source_fingerprint": "f0615aca0d4d079cdd07766357c4c85e362bedb0ddfd0796932e463185b3ba51",
+      "response": "Use Orders as the comparison baseline for headers, toolbars, navigation, spacing and action placement. The supplied defects are reports to investigate, not observations from a completed inspection. Plan comparisons at normal and smaller native window sizes, matching zoom, role and data, with short and long content. Trace which nested panels provide real grouping before recommending their removal. Prioritize reachable checkout controls and complete dialog coverage over decorative cleanup. Inspect clipping ancestors and stacking, initial and restored focus, Escape/outside-click dismissal and scroll locking. Recommend adopting the relevant Orders conventions and removing redundant containment while preserving semantics. Record screenshots and exact states during the eventual audit; browser viewport checks alone do not establish native desktop behavior. No implementation is included.",
+      "observed_owner": "frontend-design",
+      "status": "passed",
+      "checks": {
+        "reference": {
+          "passed": true,
+          "evidence": "Use Orders as the comparison baseline for headers, toolbars, navigation, spacing and action placement. The supplied defects are reports to investigate, not observations from a completed inspection. Plan comparisons at normal and smaller native window sizes, matching zoom, role and data, with short and long content. Trace which nested panels provide real grouping before recommending their removal. Prioritize reachable checkout controls and complete dialog coverage over decorative cleanup. Inspect clipping ancestors and stacking, initial and restored focus, Escape/outside-click dismissal and scroll locking. Recommend adopting the relevant Orders conventions and removing redundant containment while preserving semantics. Record screenshots and exact states during the eventual audit; browser viewport checks alone do not establish native desktop behavior. No implementation is included."
+        },
+        "layout": {
+          "passed": true,
+          "evidence": "Use Orders as the comparison baseline for headers, toolbars, navigation, spacing and action placement. The supplied defects are reports to investigate, not observations from a completed inspection. Plan comparisons at normal and smaller native window sizes, matching zoom, role and data, with short and long content. Trace which nested panels provide real grouping before recommending their removal. Prioritize reachable checkout controls and complete dialog coverage over decorative cleanup. Inspect clipping ancestors and stacking, initial and restored focus, Escape/outside-click dismissal and scroll locking. Recommend adopting the relevant Orders conventions and removing redundant containment while preserving semantics. Record screenshots and exact states during the eventual audit; browser viewport checks alone do not establish native desktop behavior. No implementation is included."
+        },
+        "overlay": {
+          "passed": true,
+          "evidence": "Use Orders as the comparison baseline for headers, toolbars, navigation, spacing and action placement. The supplied defects are reports to investigate, not observations from a completed inspection. Plan comparisons at normal and smaller native window sizes, matching zoom, role and data, with short and long content. Trace which nested panels provide real grouping before recommending their removal. Prioritize reachable checkout controls and complete dialog coverage over decorative cleanup. Inspect clipping ancestors and stacking, initial and restored focus, Escape/outside-click dismissal and scroll locking. Recommend adopting the relevant Orders conventions and removing redundant containment while preserving semantics. Record screenshots and exact states during the eventual audit; browser viewport checks alone do not establish native desktop behavior. No implementation is included."
+        },
+        "invent": {
+          "passed": true,
+          "evidence": "Use Orders as the comparison baseline for headers, toolbars, navigation, spacing and action placement. The supplied defects are reports to investigate, not observations from a completed inspection. Plan comparisons at normal and smaller native window sizes, matching zoom, role and data, with short and long content. Trace which nested panels provide real grouping before recommending their removal. Prioritize reachable checkout controls and complete dialog coverage over decorative cleanup. Inspect clipping ancestors and stacking, initial and restored focus, Escape/outside-click dismissal and scroll locking. Recommend adopting the relevant Orders conventions and removing redundant containment while preserving semantics. Record screenshots and exact states during the eventual audit; browser viewport checks alone do not establish native desktop behavior. No implementation is included."
+        },
+        "mutate": {
+          "passed": true,
+          "evidence": "Use Orders as the comparison baseline for headers, toolbars, navigation, spacing and action placement. The supplied defects are reports to investigate, not observations from a completed inspection. Plan comparisons at normal and smaller native window sizes, matching zoom, role and data, with short and long content. Trace which nested panels provide real grouping before recommending their removal. Prioritize reachable checkout controls and complete dialog coverage over decorative cleanup. Inspect clipping ancestors and stacking, initial and restored focus, Escape/outside-click dismissal and scroll locking. Recommend adopting the relevant Orders conventions and removing redundant containment while preserving semantics. Record screenshots and exact states during the eventual audit; browser viewport checks alone do not establish native desktop behavior. No implementation is included."
+        }
+      },
+      "loaded_files": [
+        "frontend-design/SKILL.md",
+        "frontend-design/references/mode-audit.md",
+        "frontend-design/references/audit-audit-rubric.md",
+        "native-desktop-delivery/SKILL.md"
+      ]
+    },
+    {
+      "scenario_id": "custom-skill-routing--route",
+      "run": 1,
+      "method": "independent-dry-run",
+      "evaluator": "/root/revised_run1",
+      "reviewer": "/root",
+      "evaluated_at": "2026-09-05T07:30:17Z",
+      "source_fingerprint": "395d0bc948af2cb5652f025772d0ee96ab61225d4656f85b9ee98041bb480c26",
+      "response": "The specified toggle belongs to spec-driven-development in prepare mode; its complete acceptance checklist is already sufficient input. For this routing question I would use custom-skill-routing, then load that delivery owner's SKILL.md and prepare reference before implementation. I would read the relevant repository instructions and local toggle/component pattern only as needed to implement the actual behavior. Small scope supports inline tracking, proportional checks, and reuse of the acceptance checklist. No brainstorming or separate PRD is required. A helper should be loaded only for a concrete unresolved question, such as an authorization boundary or unknown test setup.",
+      "observed_owner": "custom-skill-routing",
+      "status": "passed",
+      "checks": {
+        "scope": {
+          "passed": true,
+          "evidence": "The specified toggle belongs to spec-driven-development in prepare mode; its complete acceptance checklist is already sufficient input. For this routing question I would use custom-skill-routing, then load that delivery owner's SKILL.md and prepare reference before implementation. I would read the relevant repository instructions and local toggle/component pattern only as needed to implement the actual behavior. Small scope supports inline tracking, proportional checks, and reuse of the acceptance checklist. No brainstorming or separate PRD is required. A helper should be loaded only for a concrete unresolved question, such as an authorization boundary or unknown test setup."
+        },
+        "procedure": {
+          "passed": true,
+          "evidence": "The specified toggle belongs to spec-driven-development in prepare mode; its complete acceptance checklist is already sufficient input. For this routing question I would use custom-skill-routing, then load that delivery owner's SKILL.md and prepare reference before implementation. I would read the relevant repository instructions and local toggle/component pattern only as needed to implement the actual behavior. Small scope supports inline tracking, proportional checks, and reuse of the acceptance checklist. No brainstorming or separate PRD is required. A helper should be loaded only for a concrete unresolved question, such as an authorization boundary or unknown test setup."
+        },
+        "overreach": {
+          "passed": true,
+          "evidence": "The specified toggle belongs to spec-driven-development in prepare mode; its complete acceptance checklist is already sufficient input. For this routing question I would use custom-skill-routing, then load that delivery owner's SKILL.md and prepare reference before implementation. I would read the relevant repository instructions and local toggle/component pattern only as needed to implement the actual behavior. Small scope supports inline tracking, proportional checks, and reuse of the acceptance checklist. No brainstorming or separate PRD is required. A helper should be loaded only for a concrete unresolved question, such as an authorization boundary or unknown test setup."
+        },
+        "evidence": {
+          "passed": true,
+          "evidence": "The specified toggle belongs to spec-driven-development in prepare mode; its complete acceptance checklist is already sufficient input. For this routing question I would use custom-skill-routing, then load that delivery owner's SKILL.md and prepare reference before implementation. I would read the relevant repository instructions and local toggle/component pattern only as needed to implement the actual behavior. Small scope supports inline tracking, proportional checks, and reuse of the acceptance checklist. No brainstorming or separate PRD is required. A helper should be loaded only for a concrete unresolved question, such as an authorization boundary or unknown test setup."
+        }
+      },
+      "loaded_files": [
+        "custom-skill-routing/SKILL.md",
+        "custom-skill-routing/references/mode-route.md",
+        "spec-driven-development/SKILL.md",
+        "spec-driven-development/references/mode-prepare.md"
+      ]
+    },
+    {
+      "scenario_id": "custom-skill-routing--stage",
+      "run": 1,
+      "method": "independent-dry-run",
+      "evaluator": "/root/revised_run1",
+      "reviewer": "/root",
+      "evaluated_at": "2026-09-05T07:30:17Z",
+      "source_fingerprint": "0add7b34032c6d61d7bc5eed70cf73d6d1a9806f62bf9eff7e3910ef271cec4a",
+      "response": "The next stage is runtime verification of slice four. I would reuse the current source, accepted plan, implemented slice inventory, and valid evidence for the first three slices rather than restarting preparation or implementation. The runtime check should target slice four's acceptance criteria on the correct build and environment, with required prerequisites established. If that reveals a defect, only the affected implementation and dependent evidence need reopening. Until the runtime evidence exists, slice four is implemented but unverified, and overall completion remains unestablished. The supplied facts do not justify inventing additional missing planning work.",
+      "observed_owner": "custom-skill-routing",
+      "status": "passed",
+      "checks": {
+        "scope": {
+          "passed": true,
+          "evidence": "The next stage is runtime verification of slice four. I would reuse the current source, accepted plan, implemented slice inventory, and valid evidence for the first three slices rather than restarting preparation or implementation. The runtime check should target slice four's acceptance criteria on the correct build and environment, with required prerequisites established. If that reveals a defect, only the affected implementation and dependent evidence need reopening. Until the runtime evidence exists, slice four is implemented but unverified, and overall completion remains unestablished. The supplied facts do not justify inventing additional missing planning work."
+        },
+        "procedure": {
+          "passed": true,
+          "evidence": "The next stage is runtime verification of slice four. I would reuse the current source, accepted plan, implemented slice inventory, and valid evidence for the first three slices rather than restarting preparation or implementation. The runtime check should target slice four's acceptance criteria on the correct build and environment, with required prerequisites established. If that reveals a defect, only the affected implementation and dependent evidence need reopening. Until the runtime evidence exists, slice four is implemented but unverified, and overall completion remains unestablished. The supplied facts do not justify inventing additional missing planning work."
+        },
+        "overreach": {
+          "passed": true,
+          "evidence": "The next stage is runtime verification of slice four. I would reuse the current source, accepted plan, implemented slice inventory, and valid evidence for the first three slices rather than restarting preparation or implementation. The runtime check should target slice four's acceptance criteria on the correct build and environment, with required prerequisites established. If that reveals a defect, only the affected implementation and dependent evidence need reopening. Until the runtime evidence exists, slice four is implemented but unverified, and overall completion remains unestablished. The supplied facts do not justify inventing additional missing planning work."
+        },
+        "evidence": {
+          "passed": true,
+          "evidence": "The next stage is runtime verification of slice four. I would reuse the current source, accepted plan, implemented slice inventory, and valid evidence for the first three slices rather than restarting preparation or implementation. The runtime check should target slice four's acceptance criteria on the correct build and environment, with required prerequisites established. If that reveals a defect, only the affected implementation and dependent evidence need reopening. Until the runtime evidence exists, slice four is implemented but unverified, and overall completion remains unestablished. The supplied facts do not justify inventing additional missing planning work."
+        }
+      },
+      "loaded_files": [
+        "custom-skill-routing/SKILL.md",
+        "custom-skill-routing/references/mode-stage.md"
+      ]
+    },
+    {
+      "scenario_id": "session-handoff--handoff",
+      "run": 1,
+      "method": "independent-dry-run",
+      "evaluator": "/root/revised_run1",
+      "reviewer": "/root",
+      "evaluated_at": "2026-09-05T07:30:17Z",
+      "source_fingerprint": "b51a0d5182abbcfe0d9e9ef23304095f28712ff018b945b4ccd674d603984f93",
+      "response": "Continuation handoff: slice one is verified and its existing evidence should be reused unless relevant inputs change. Slice two remains blocked on vendor access; retain the exact missing capability and access owner when known, without embedding credentials. Slice three is independent and can be the next safe work item within existing authorization. The next session should continue there while preserving slice two as blocked, not deferred or complete. Repository/branch identity, source paths, and verification commands were not supplied and should be attached from known records rather than guessed. Keep the handoff compact, with no full transcript or secrets.",
+      "observed_owner": "session-handoff",
+      "status": "passed",
+      "checks": {
+        "scope": {
+          "passed": true,
+          "evidence": "Continuation handoff: slice one is verified and its existing evidence should be reused unless relevant inputs change. Slice two remains blocked on vendor access; retain the exact missing capability and access owner when known, without embedding credentials. Slice three is independent and can be the next safe work item within existing authorization. The next session should continue there while preserving slice two as blocked, not deferred or complete. Repository/branch identity, source paths, and verification commands were not supplied and should be attached from known records rather than guessed. Keep the handoff compact, with no full transcript or secrets."
+        },
+        "procedure": {
+          "passed": true,
+          "evidence": "Continuation handoff: slice one is verified and its existing evidence should be reused unless relevant inputs change. Slice two remains blocked on vendor access; retain the exact missing capability and access owner when known, without embedding credentials. Slice three is independent and can be the next safe work item within existing authorization. The next session should continue there while preserving slice two as blocked, not deferred or complete. Repository/branch identity, source paths, and verification commands were not supplied and should be attached from known records rather than guessed. Keep the handoff compact, with no full transcript or secrets."
+        },
+        "overreach": {
+          "passed": true,
+          "evidence": "Continuation handoff: slice one is verified and its existing evidence should be reused unless relevant inputs change. Slice two remains blocked on vendor access; retain the exact missing capability and access owner when known, without embedding credentials. Slice three is independent and can be the next safe work item within existing authorization. The next session should continue there while preserving slice two as blocked, not deferred or complete. Repository/branch identity, source paths, and verification commands were not supplied and should be attached from known records rather than guessed. Keep the handoff compact, with no full transcript or secrets."
+        },
+        "evidence": {
+          "passed": true,
+          "evidence": "Continuation handoff: slice one is verified and its existing evidence should be reused unless relevant inputs change. Slice two remains blocked on vendor access; retain the exact missing capability and access owner when known, without embedding credentials. Slice three is independent and can be the next safe work item within existing authorization. The next session should continue there while preserving slice two as blocked, not deferred or complete. Repository/branch identity, source paths, and verification commands were not supplied and should be attached from known records rather than guessed. Keep the handoff compact, with no full transcript or secrets."
+        }
+      },
+      "loaded_files": [
+        "session-handoff/SKILL.md",
+        "session-handoff/references/mode-handoff.md"
+      ]
+    },
+    {
+      "scenario_id": "session-handoff--resume",
+      "run": 1,
+      "method": "independent-dry-run",
+      "evaluator": "/root/revised_run1",
+      "reviewer": "/root",
+      "evaluated_at": "2026-09-05T07:30:17Z",
+      "source_fingerprint": "967e790d24fb735dd23fb4f996e9e6467b7e282b24e503076923528ca105d24d",
+      "response": "The next session should trust the observed Git commit and clean tree over the stale 'commit pending' tracker note. Current targeted tests are valid evidence for their actual scope and environment; they do not establish untested runtime or release behavior. I would report the tracker contradiction explicitly and recommend resuming from the earliest remaining incomplete requirement after that commit. There is no evidence of uncommitted work to recreate or recommit. Because this is a restart audit only, I would not edit the tracker or continue implementation now. Any future refresh should focus on facts invalidated since the supplied checks.",
+      "observed_owner": "session-handoff",
+      "status": "passed",
+      "checks": {
+        "scope": {
+          "passed": true,
+          "evidence": "The next session should trust the observed Git commit and clean tree over the stale 'commit pending' tracker note. Current targeted tests are valid evidence for their actual scope and environment; they do not establish untested runtime or release behavior. I would report the tracker contradiction explicitly and recommend resuming from the earliest remaining incomplete requirement after that commit. There is no evidence of uncommitted work to recreate or recommit. Because this is a restart audit only, I would not edit the tracker or continue implementation now. Any future refresh should focus on facts invalidated since the supplied checks."
+        },
+        "procedure": {
+          "passed": true,
+          "evidence": "The next session should trust the observed Git commit and clean tree over the stale 'commit pending' tracker note. Current targeted tests are valid evidence for their actual scope and environment; they do not establish untested runtime or release behavior. I would report the tracker contradiction explicitly and recommend resuming from the earliest remaining incomplete requirement after that commit. There is no evidence of uncommitted work to recreate or recommit. Because this is a restart audit only, I would not edit the tracker or continue implementation now. Any future refresh should focus on facts invalidated since the supplied checks."
+        },
+        "overreach": {
+          "passed": true,
+          "evidence": "The next session should trust the observed Git commit and clean tree over the stale 'commit pending' tracker note. Current targeted tests are valid evidence for their actual scope and environment; they do not establish untested runtime or release behavior. I would report the tracker contradiction explicitly and recommend resuming from the earliest remaining incomplete requirement after that commit. There is no evidence of uncommitted work to recreate or recommit. Because this is a restart audit only, I would not edit the tracker or continue implementation now. Any future refresh should focus on facts invalidated since the supplied checks."
+        },
+        "evidence": {
+          "passed": true,
+          "evidence": "The next session should trust the observed Git commit and clean tree over the stale 'commit pending' tracker note. Current targeted tests are valid evidence for their actual scope and environment; they do not establish untested runtime or release behavior. I would report the tracker contradiction explicitly and recommend resuming from the earliest remaining incomplete requirement after that commit. There is no evidence of uncommitted work to recreate or recommit. Because this is a restart audit only, I would not edit the tracker or continue implementation now. Any future refresh should focus on facts invalidated since the supplied checks."
+        }
+      },
+      "loaded_files": [
+        "session-handoff/SKILL.md",
+        "session-handoff/references/mode-resume.md"
+      ]
+    },
+    {
+      "scenario_id": "session-handoff--lessons",
+      "run": 1,
+      "method": "independent-dry-run",
+      "evaluator": "/root/revised_run1",
+      "reviewer": "/root",
+      "evaluated_at": "2026-09-05T07:30:17Z",
+      "source_fingerprint": "dbbcb33ce923fa21aef07cded85051031b99beaa21f3256524cbdba4807b3185",
+      "response": "Two reusable lessons are supported: stale assets can make a correct source change appear broken, and shared mutable test databases can contaminate otherwise independent verification. Proposed guardrails are to establish server/build identity and asset freshness before interpreting browser results, and to isolate test databases or serialize stateful checks. Store exact project commands, incidents, and environment details in project verification documentation. If skill maintenance is later authorized, put the general procedures in the relevant verification guidance, with a brief failure mechanism and evidence expectation. Do not copy client names, URLs, secrets, or full incident logs into reusable instructions. No edits are needed for this proposal.",
+      "observed_owner": "session-handoff",
+      "status": "passed",
+      "checks": {
+        "scope": {
+          "passed": true,
+          "evidence": "Two reusable lessons are supported: stale assets can make a correct source change appear broken, and shared mutable test databases can contaminate otherwise independent verification. Proposed guardrails are to establish server/build identity and asset freshness before interpreting browser results, and to isolate test databases or serialize stateful checks. Store exact project commands, incidents, and environment details in project verification documentation. If skill maintenance is later authorized, put the general procedures in the relevant verification guidance, with a brief failure mechanism and evidence expectation. Do not copy client names, URLs, secrets, or full incident logs into reusable instructions. No edits are needed for this proposal."
+        },
+        "procedure": {
+          "passed": true,
+          "evidence": "Two reusable lessons are supported: stale assets can make a correct source change appear broken, and shared mutable test databases can contaminate otherwise independent verification. Proposed guardrails are to establish server/build identity and asset freshness before interpreting browser results, and to isolate test databases or serialize stateful checks. Store exact project commands, incidents, and environment details in project verification documentation. If skill maintenance is later authorized, put the general procedures in the relevant verification guidance, with a brief failure mechanism and evidence expectation. Do not copy client names, URLs, secrets, or full incident logs into reusable instructions. No edits are needed for this proposal."
+        },
+        "overreach": {
+          "passed": true,
+          "evidence": "Two reusable lessons are supported: stale assets can make a correct source change appear broken, and shared mutable test databases can contaminate otherwise independent verification. Proposed guardrails are to establish server/build identity and asset freshness before interpreting browser results, and to isolate test databases or serialize stateful checks. Store exact project commands, incidents, and environment details in project verification documentation. If skill maintenance is later authorized, put the general procedures in the relevant verification guidance, with a brief failure mechanism and evidence expectation. Do not copy client names, URLs, secrets, or full incident logs into reusable instructions. No edits are needed for this proposal."
+        },
+        "evidence": {
+          "passed": true,
+          "evidence": "Two reusable lessons are supported: stale assets can make a correct source change appear broken, and shared mutable test databases can contaminate otherwise independent verification. Proposed guardrails are to establish server/build identity and asset freshness before interpreting browser results, and to isolate test databases or serialize stateful checks. Store exact project commands, incidents, and environment details in project verification documentation. If skill maintenance is later authorized, put the general procedures in the relevant verification guidance, with a brief failure mechanism and evidence expectation. Do not copy client names, URLs, secrets, or full incident logs into reusable instructions. No edits are needed for this proposal."
+        }
+      },
+      "loaded_files": [
+        "session-handoff/SKILL.md",
+        "session-handoff/references/mode-lessons.md"
+      ]
+    },
+    {
+      "scenario_id": "verification-before-completion--verify",
+      "run": 1,
+      "method": "independent-dry-run",
+      "evaluator": "/root/revised_final1",
+      "reviewer": "/root",
+      "evaluated_at": "2026-09-05T07:30:17Z",
+      "source_fingerprint": "a26db27c3e97f8ab88c6d3ff5211bb9d633eb815269939de731bb7cef4664200",
+      "response": "The earlier pass does not verify the feature after the shared serializer change, and the current browser target cannot supply valid feature evidence. First establish the intended repository, source revision, server process and URL; identify the actual app before interpreting browser failures. Check runtime dependencies, architecture gates and an isolated test database, then ensure the asset build and manifest correspond to the current source. Rerun serializer-dependent feature checks and relevant shared-consumer checks, followed by the original acceptance flow on the confirmed runtime. Complete required repository gates. Retain earlier evidence only for checks whose inputs remain unaffected. Report these as planned checks until executed, with source, artifact and runtime identities attached to eventual results.",
+      "observed_owner": "verification-before-completion",
+      "status": "passed",
+      "checks": {
+        "scope": {
+          "passed": true,
+          "evidence": "The earlier pass does not verify the feature after the shared serializer change, and the current browser target cannot supply valid feature evidence. First establish the intended repository, source revision, server process and URL; identify the actual app before interpreting browser failures. Check runtime dependencies, architecture gates and an isolated test database, then ensure the asset build and manifest correspond to the current source. Rerun serializer-dependent feature checks and relevant shared-consumer checks, followed by the original acceptance flow on the confirmed runtime. Complete required repository gates. Retain earlier evidence only for checks whose inputs remain unaffected. Report these as planned checks until executed, with source, artifact and runtime identities attached to eventual results."
+        },
+        "procedure": {
+          "passed": true,
+          "evidence": "The earlier pass does not verify the feature after the shared serializer change, and the current browser target cannot supply valid feature evidence. First establish the intended repository, source revision, server process and URL; identify the actual app before interpreting browser failures. Check runtime dependencies, architecture gates and an isolated test database, then ensure the asset build and manifest correspond to the current source. Rerun serializer-dependent feature checks and relevant shared-consumer checks, followed by the original acceptance flow on the confirmed runtime. Complete required repository gates. Retain earlier evidence only for checks whose inputs remain unaffected. Report these as planned checks until executed, with source, artifact and runtime identities attached to eventual results."
+        },
+        "overreach": {
+          "passed": true,
+          "evidence": "The earlier pass does not verify the feature after the shared serializer change, and the current browser target cannot supply valid feature evidence. First establish the intended repository, source revision, server process and URL; identify the actual app before interpreting browser failures. Check runtime dependencies, architecture gates and an isolated test database, then ensure the asset build and manifest correspond to the current source. Rerun serializer-dependent feature checks and relevant shared-consumer checks, followed by the original acceptance flow on the confirmed runtime. Complete required repository gates. Retain earlier evidence only for checks whose inputs remain unaffected. Report these as planned checks until executed, with source, artifact and runtime identities attached to eventual results."
+        },
+        "evidence": {
+          "passed": true,
+          "evidence": "The earlier pass does not verify the feature after the shared serializer change, and the current browser target cannot supply valid feature evidence. First establish the intended repository, source revision, server process and URL; identify the actual app before interpreting browser failures. Check runtime dependencies, architecture gates and an isolated test database, then ensure the asset build and manifest correspond to the current source. Rerun serializer-dependent feature checks and relevant shared-consumer checks, followed by the original acceptance flow on the confirmed runtime. Complete required repository gates. Retain earlier evidence only for checks whose inputs remain unaffected. Report these as planned checks until executed, with source, artifact and runtime identities attached to eventual results."
+        }
+      },
+      "loaded_files": [
+        "verification-before-completion/SKILL.md",
+        "verification-before-completion/references/mode-verify.md"
+      ]
+    },
+    {
+      "scenario_id": "verification-before-completion--readiness",
+      "run": 1,
+      "method": "independent-dry-run",
+      "evaluator": "/root/revised_final1",
+      "reviewer": "/root",
+      "evaluated_at": "2026-09-05T07:30:17Z",
+      "source_fingerprint": "4a4b9a97b85d94d2ceba80220e23916ffab4a5da38e6dc6966627038b0adbad8",
+      "response": "The requested scope is blocked and cannot be called complete. Passing automated tests establish their covered behavior, but required vendor integration remains inaccessible and no deferral has been accepted. Report the passing evidence alongside the precise integration coverage gap; do not relabel that requirement as optional or post-MVP. The next verification requires vendor access, a confirmed target environment and execution of the required integration acceptance path, with results tied to the relevant source and runtime. Existing unaffected test evidence can be reused. A revised scope would require an explicit accepted decision; this readiness assessment neither supplies that decision nor authorizes changes, deployment or external coordination.",
+      "observed_owner": "verification-before-completion",
+      "status": "passed",
+      "checks": {
+        "scope": {
+          "passed": true,
+          "evidence": "The requested scope is blocked and cannot be called complete. Passing automated tests establish their covered behavior, but required vendor integration remains inaccessible and no deferral has been accepted. Report the passing evidence alongside the precise integration coverage gap; do not relabel that requirement as optional or post-MVP. The next verification requires vendor access, a confirmed target environment and execution of the required integration acceptance path, with results tied to the relevant source and runtime. Existing unaffected test evidence can be reused. A revised scope would require an explicit accepted decision; this readiness assessment neither supplies that decision nor authorizes changes, deployment or external coordination."
+        },
+        "procedure": {
+          "passed": true,
+          "evidence": "The requested scope is blocked and cannot be called complete. Passing automated tests establish their covered behavior, but required vendor integration remains inaccessible and no deferral has been accepted. Report the passing evidence alongside the precise integration coverage gap; do not relabel that requirement as optional or post-MVP. The next verification requires vendor access, a confirmed target environment and execution of the required integration acceptance path, with results tied to the relevant source and runtime. Existing unaffected test evidence can be reused. A revised scope would require an explicit accepted decision; this readiness assessment neither supplies that decision nor authorizes changes, deployment or external coordination."
+        },
+        "overreach": {
+          "passed": true,
+          "evidence": "The requested scope is blocked and cannot be called complete. Passing automated tests establish their covered behavior, but required vendor integration remains inaccessible and no deferral has been accepted. Report the passing evidence alongside the precise integration coverage gap; do not relabel that requirement as optional or post-MVP. The next verification requires vendor access, a confirmed target environment and execution of the required integration acceptance path, with results tied to the relevant source and runtime. Existing unaffected test evidence can be reused. A revised scope would require an explicit accepted decision; this readiness assessment neither supplies that decision nor authorizes changes, deployment or external coordination."
+        },
+        "evidence": {
+          "passed": true,
+          "evidence": "The requested scope is blocked and cannot be called complete. Passing automated tests establish their covered behavior, but required vendor integration remains inaccessible and no deferral has been accepted. Report the passing evidence alongside the precise integration coverage gap; do not relabel that requirement as optional or post-MVP. The next verification requires vendor access, a confirmed target environment and execution of the required integration acceptance path, with results tied to the relevant source and runtime. Existing unaffected test evidence can be reused. A revised scope would require an explicit accepted decision; this readiness assessment neither supplies that decision nor authorizes changes, deployment or external coordination."
+        }
+      },
+      "loaded_files": [
+        "verification-before-completion/SKILL.md",
+        "verification-before-completion/references/mode-readiness.md"
+      ]
+    },
+    {
+      "scenario_id": "verification-before-completion--handoff",
+      "run": 1,
+      "method": "independent-dry-run",
+      "evaluator": "/root/revised_final1",
+      "reviewer": "/root",
+      "evaluated_at": "2026-09-05T07:30:17Z",
+      "source_fingerprint": "6b315c5fd0ad8b45281866f9733b02192aca06ef494655a2b80b986db6dbdfa5",
+      "response": "Prepare a sandbox-only tester plan with the intended build/server identity, payment-provider test mode, webhook delivery setup and worker availability as prerequisites. Create separate accounts for both roles and isolated payment records; confirm the permission matrix before assigning allowed actions. Exercise payment creation and failure, role denial through UI and API, webhook signature rejection, duplicate delivery and retry handling. For refunds, test transient failure followed by retry and repeated submission, asserting one intended refund and consistent persisted status. Capture request/event IDs, redacted responses, database state, worker logs and relevant screenshots. Specify disposable-data cleanup without real charges or shared-data deletion. These are prepared scenarios; their execution and results remain unverified.",
+      "observed_owner": "verification-before-completion",
+      "status": "passed",
+      "checks": {
+        "scope": {
+          "passed": true,
+          "evidence": "Prepare a sandbox-only tester plan with the intended build/server identity, payment-provider test mode, webhook delivery setup and worker availability as prerequisites. Create separate accounts for both roles and isolated payment records; confirm the permission matrix before assigning allowed actions. Exercise payment creation and failure, role denial through UI and API, webhook signature rejection, duplicate delivery and retry handling. For refunds, test transient failure followed by retry and repeated submission, asserting one intended refund and consistent persisted status. Capture request/event IDs, redacted responses, database state, worker logs and relevant screenshots. Specify disposable-data cleanup without real charges or shared-data deletion. These are prepared scenarios; their execution and results remain unverified."
+        },
+        "procedure": {
+          "passed": true,
+          "evidence": "Prepare a sandbox-only tester plan with the intended build/server identity, payment-provider test mode, webhook delivery setup and worker availability as prerequisites. Create separate accounts for both roles and isolated payment records; confirm the permission matrix before assigning allowed actions. Exercise payment creation and failure, role denial through UI and API, webhook signature rejection, duplicate delivery and retry handling. For refunds, test transient failure followed by retry and repeated submission, asserting one intended refund and consistent persisted status. Capture request/event IDs, redacted responses, database state, worker logs and relevant screenshots. Specify disposable-data cleanup without real charges or shared-data deletion. These are prepared scenarios; their execution and results remain unverified."
+        },
+        "overreach": {
+          "passed": true,
+          "evidence": "Prepare a sandbox-only tester plan with the intended build/server identity, payment-provider test mode, webhook delivery setup and worker availability as prerequisites. Create separate accounts for both roles and isolated payment records; confirm the permission matrix before assigning allowed actions. Exercise payment creation and failure, role denial through UI and API, webhook signature rejection, duplicate delivery and retry handling. For refunds, test transient failure followed by retry and repeated submission, asserting one intended refund and consistent persisted status. Capture request/event IDs, redacted responses, database state, worker logs and relevant screenshots. Specify disposable-data cleanup without real charges or shared-data deletion. These are prepared scenarios; their execution and results remain unverified."
+        },
+        "evidence": {
+          "passed": true,
+          "evidence": "Prepare a sandbox-only tester plan with the intended build/server identity, payment-provider test mode, webhook delivery setup and worker availability as prerequisites. Create separate accounts for both roles and isolated payment records; confirm the permission matrix before assigning allowed actions. Exercise payment creation and failure, role denial through UI and API, webhook signature rejection, duplicate delivery and retry handling. For refunds, test transient failure followed by retry and repeated submission, asserting one intended refund and consistent persisted status. Capture request/event IDs, redacted responses, database state, worker logs and relevant screenshots. Specify disposable-data cleanup without real charges or shared-data deletion. These are prepared scenarios; their execution and results remain unverified."
+        }
+      },
+      "loaded_files": [
+        "verification-before-completion/SKILL.md",
+        "verification-before-completion/references/mode-handoff.md"
+      ]
+    },
+    {
+      "scenario_id": "evidence-discovery--repository",
+      "run": 1,
+      "method": "independent-dry-run",
+      "evaluator": "/root/revised_run1",
+      "reviewer": "/root",
+      "evaluated_at": "2026-09-05T07:30:17Z",
+      "source_fingerprint": "83efc4487ff5bf948ca0b9187587ebc2b2cb51ab712d60d91a39abb1961166ed",
+      "response": "I would reuse the working summary's app and routing identity, then inspect only the remaining prerequisites: generated-asset ownership/build steps and test-database isolation rules. Relevant repository instructions, build configuration, asset manifests, and test setup should establish what may be regenerated and how to keep disposable tests away from shared or real data. Record the findings in a compact addition to the existing summary, with unresolved details explicit. Before later browser verification, confirm that its server and assets correspond to the intended app. There is no reason to rediscover every route or inspect unrelated features before the focused UI edit.",
+      "observed_owner": "evidence-discovery",
+      "status": "passed",
+      "checks": {
+        "scope": {
+          "passed": true,
+          "evidence": "I would reuse the working summary's app and routing identity, then inspect only the remaining prerequisites: generated-asset ownership/build steps and test-database isolation rules. Relevant repository instructions, build configuration, asset manifests, and test setup should establish what may be regenerated and how to keep disposable tests away from shared or real data. Record the findings in a compact addition to the existing summary, with unresolved details explicit. Before later browser verification, confirm that its server and assets correspond to the intended app. There is no reason to rediscover every route or inspect unrelated features before the focused UI edit."
+        },
+        "procedure": {
+          "passed": true,
+          "evidence": "I would reuse the working summary's app and routing identity, then inspect only the remaining prerequisites: generated-asset ownership/build steps and test-database isolation rules. Relevant repository instructions, build configuration, asset manifests, and test setup should establish what may be regenerated and how to keep disposable tests away from shared or real data. Record the findings in a compact addition to the existing summary, with unresolved details explicit. Before later browser verification, confirm that its server and assets correspond to the intended app. There is no reason to rediscover every route or inspect unrelated features before the focused UI edit."
+        },
+        "overreach": {
+          "passed": true,
+          "evidence": "I would reuse the working summary's app and routing identity, then inspect only the remaining prerequisites: generated-asset ownership/build steps and test-database isolation rules. Relevant repository instructions, build configuration, asset manifests, and test setup should establish what may be regenerated and how to keep disposable tests away from shared or real data. Record the findings in a compact addition to the existing summary, with unresolved details explicit. Before later browser verification, confirm that its server and assets correspond to the intended app. There is no reason to rediscover every route or inspect unrelated features before the focused UI edit."
+        },
+        "evidence": {
+          "passed": true,
+          "evidence": "I would reuse the working summary's app and routing identity, then inspect only the remaining prerequisites: generated-asset ownership/build steps and test-database isolation rules. Relevant repository instructions, build configuration, asset manifests, and test setup should establish what may be regenerated and how to keep disposable tests away from shared or real data. Record the findings in a compact addition to the existing summary, with unresolved details explicit. Before later browser verification, confirm that its server and assets correspond to the intended app. There is no reason to rediscover every route or inspect unrelated features before the focused UI edit."
+        }
+      },
+      "loaded_files": [
+        "evidence-discovery/SKILL.md",
+        "evidence-discovery/references/mode-repository.md"
+      ]
+    },
+    {
+      "scenario_id": "evidence-discovery--research",
+      "run": 1,
+      "method": "independent-dry-run",
+      "evaluator": "/root/revised_run1",
+      "reviewer": "/root",
+      "evaluated_at": "2026-09-05T07:30:17Z",
+      "source_fingerprint": "d6c0be7e6a3e2d36a69ea8f9742800b1b6ed71d7f353f2250c819c46949e5b99",
+      "response": "I would start with the installed library's version and the precise serialization code path, using its tests or local documentation to establish input/output behavior. That answers the contract for the version actually in use. Consult a version-matched changelog only if the question depends on a change, deprecation, or difference from the latest release; distinguish those current-release facts from installed behavior. The answer should cite concrete source locations and identify any inference or unresolved case. No repository changes are needed. The supplied case does not identify the library or desired edge case, so I cannot honestly state a specific contract yet.",
+      "observed_owner": "evidence-discovery",
+      "status": "passed",
+      "checks": {
+        "scope": {
+          "passed": true,
+          "evidence": "I would start with the installed library's version and the precise serialization code path, using its tests or local documentation to establish input/output behavior. That answers the contract for the version actually in use. Consult a version-matched changelog only if the question depends on a change, deprecation, or difference from the latest release; distinguish those current-release facts from installed behavior. The answer should cite concrete source locations and identify any inference or unresolved case. No repository changes are needed. The supplied case does not identify the library or desired edge case, so I cannot honestly state a specific contract yet."
+        },
+        "procedure": {
+          "passed": true,
+          "evidence": "I would start with the installed library's version and the precise serialization code path, using its tests or local documentation to establish input/output behavior. That answers the contract for the version actually in use. Consult a version-matched changelog only if the question depends on a change, deprecation, or difference from the latest release; distinguish those current-release facts from installed behavior. The answer should cite concrete source locations and identify any inference or unresolved case. No repository changes are needed. The supplied case does not identify the library or desired edge case, so I cannot honestly state a specific contract yet."
+        },
+        "overreach": {
+          "passed": true,
+          "evidence": "I would start with the installed library's version and the precise serialization code path, using its tests or local documentation to establish input/output behavior. That answers the contract for the version actually in use. Consult a version-matched changelog only if the question depends on a change, deprecation, or difference from the latest release; distinguish those current-release facts from installed behavior. The answer should cite concrete source locations and identify any inference or unresolved case. No repository changes are needed. The supplied case does not identify the library or desired edge case, so I cannot honestly state a specific contract yet."
+        },
+        "evidence": {
+          "passed": true,
+          "evidence": "I would start with the installed library's version and the precise serialization code path, using its tests or local documentation to establish input/output behavior. That answers the contract for the version actually in use. Consult a version-matched changelog only if the question depends on a change, deprecation, or difference from the latest release; distinguish those current-release facts from installed behavior. The answer should cite concrete source locations and identify any inference or unresolved case. No repository changes are needed. The supplied case does not identify the library or desired edge case, so I cannot honestly state a specific contract yet."
+        }
+      },
+      "loaded_files": [
+        "evidence-discovery/SKILL.md",
+        "evidence-discovery/references/mode-research.md"
+      ]
+    },
+    {
+      "scenario_id": "frontend-design--audit",
+      "run": 1,
+      "method": "independent-dry-run",
+      "evaluator": "/root/revised_final1",
+      "reviewer": "/root",
+      "evaluated_at": "2026-09-05T07:30:17Z",
+      "source_fingerprint": "6f87ccf70074b7d53b2afec6e15923e097e0e4b0ab48745be9a6416f6bbd2e76",
+      "response": "The audit should compare settings directly with Orders using matching viewport, zoom, role and representative data. Check header and toolbar structure, navigation, spacing, form grouping and action positions across short and long content. Treat nested panels and clipped backdrop as supplied issues, with their specific cause still unverified. Recommend removing only containers that lack a grouping or interaction purpose, preserving meaningful boundaries and established semantics. Prioritize action visibility and overlay usability: inspect parent overflow, stacking contexts, backdrop coverage, scroll locking, initial/returned focus and Escape/outside-click behavior. Deliver a small ranked set of recommendations with captured state evidence when inspection occurs. This task authorizes recommendations only, not code edits or a new visual direction.",
+      "observed_owner": "frontend-design",
+      "status": "passed",
+      "checks": {
+        "scope": {
+          "passed": true,
+          "evidence": "The audit should compare settings directly with Orders using matching viewport, zoom, role and representative data. Check header and toolbar structure, navigation, spacing, form grouping and action positions across short and long content. Treat nested panels and clipped backdrop as supplied issues, with their specific cause still unverified. Recommend removing only containers that lack a grouping or interaction purpose, preserving meaningful boundaries and established semantics. Prioritize action visibility and overlay usability: inspect parent overflow, stacking contexts, backdrop coverage, scroll locking, initial/returned focus and Escape/outside-click behavior. Deliver a small ranked set of recommendations with captured state evidence when inspection occurs. This task authorizes recommendations only, not code edits or a new visual direction."
+        },
+        "procedure": {
+          "passed": true,
+          "evidence": "The audit should compare settings directly with Orders using matching viewport, zoom, role and representative data. Check header and toolbar structure, navigation, spacing, form grouping and action positions across short and long content. Treat nested panels and clipped backdrop as supplied issues, with their specific cause still unverified. Recommend removing only containers that lack a grouping or interaction purpose, preserving meaningful boundaries and established semantics. Prioritize action visibility and overlay usability: inspect parent overflow, stacking contexts, backdrop coverage, scroll locking, initial/returned focus and Escape/outside-click behavior. Deliver a small ranked set of recommendations with captured state evidence when inspection occurs. This task authorizes recommendations only, not code edits or a new visual direction."
+        },
+        "overreach": {
+          "passed": true,
+          "evidence": "The audit should compare settings directly with Orders using matching viewport, zoom, role and representative data. Check header and toolbar structure, navigation, spacing, form grouping and action positions across short and long content. Treat nested panels and clipped backdrop as supplied issues, with their specific cause still unverified. Recommend removing only containers that lack a grouping or interaction purpose, preserving meaningful boundaries and established semantics. Prioritize action visibility and overlay usability: inspect parent overflow, stacking contexts, backdrop coverage, scroll locking, initial/returned focus and Escape/outside-click behavior. Deliver a small ranked set of recommendations with captured state evidence when inspection occurs. This task authorizes recommendations only, not code edits or a new visual direction."
+        },
+        "evidence": {
+          "passed": true,
+          "evidence": "The audit should compare settings directly with Orders using matching viewport, zoom, role and representative data. Check header and toolbar structure, navigation, spacing, form grouping and action positions across short and long content. Treat nested panels and clipped backdrop as supplied issues, with their specific cause still unverified. Recommend removing only containers that lack a grouping or interaction purpose, preserving meaningful boundaries and established semantics. Prioritize action visibility and overlay usability: inspect parent overflow, stacking contexts, backdrop coverage, scroll locking, initial/returned focus and Escape/outside-click behavior. Deliver a small ranked set of recommendations with captured state evidence when inspection occurs. This task authorizes recommendations only, not code edits or a new visual direction."
+        }
+      },
+      "loaded_files": [
+        "frontend-design/SKILL.md",
+        "frontend-design/references/mode-audit.md",
+        "frontend-design/references/audit-audit-rubric.md"
+      ]
+    },
+    {
+      "scenario_id": "frontend-design--implement",
+      "run": 1,
+      "method": "independent-dry-run",
+      "evaluator": "/root/revised_final1",
+      "reviewer": "/root",
+      "evaluated_at": "2026-09-05T07:30:17Z",
+      "source_fingerprint": "5f0681a4b8f60458b959839258be0072447a158840b54fc5852a0eb1f45813a3",
+      "response": "Use the Orders toolbar's existing component and conventions after checking its action semantics and inputs against settings. Apply the confirmed correction without introducing a new shell. For the clipped dialog, inspect its containment and stacking, then place a viewport-covering overlay at the viewport layer using the established overlay mechanism; keep it as parent state unless navigation requirements say otherwise. Verify the rendered settings page at relevant sizes and long-content states, including action reachability, backdrop coverage, focus entry/return, Escape/outside-click dismissal and scrolling. Check Orders if a shared component changes. Protect meaningful interaction behavior with existing relevant checks; a presentation-only assertion is unnecessary. This decision-only response reports an implementation approach, not completed edits or browser results.",
+      "observed_owner": "frontend-design",
+      "status": "passed",
+      "checks": {
+        "scope": {
+          "passed": true,
+          "evidence": "Use the Orders toolbar's existing component and conventions after checking its action semantics and inputs against settings. Apply the confirmed correction without introducing a new shell. For the clipped dialog, inspect its containment and stacking, then place a viewport-covering overlay at the viewport layer using the established overlay mechanism; keep it as parent state unless navigation requirements say otherwise. Verify the rendered settings page at relevant sizes and long-content states, including action reachability, backdrop coverage, focus entry/return, Escape/outside-click dismissal and scrolling. Check Orders if a shared component changes. Protect meaningful interaction behavior with existing relevant checks; a presentation-only assertion is unnecessary. This decision-only response reports an implementation approach, not completed edits or browser results."
+        },
+        "procedure": {
+          "passed": true,
+          "evidence": "Use the Orders toolbar's existing component and conventions after checking its action semantics and inputs against settings. Apply the confirmed correction without introducing a new shell. For the clipped dialog, inspect its containment and stacking, then place a viewport-covering overlay at the viewport layer using the established overlay mechanism; keep it as parent state unless navigation requirements say otherwise. Verify the rendered settings page at relevant sizes and long-content states, including action reachability, backdrop coverage, focus entry/return, Escape/outside-click dismissal and scrolling. Check Orders if a shared component changes. Protect meaningful interaction behavior with existing relevant checks; a presentation-only assertion is unnecessary. This decision-only response reports an implementation approach, not completed edits or browser results."
+        },
+        "overreach": {
+          "passed": true,
+          "evidence": "Use the Orders toolbar's existing component and conventions after checking its action semantics and inputs against settings. Apply the confirmed correction without introducing a new shell. For the clipped dialog, inspect its containment and stacking, then place a viewport-covering overlay at the viewport layer using the established overlay mechanism; keep it as parent state unless navigation requirements say otherwise. Verify the rendered settings page at relevant sizes and long-content states, including action reachability, backdrop coverage, focus entry/return, Escape/outside-click dismissal and scrolling. Check Orders if a shared component changes. Protect meaningful interaction behavior with existing relevant checks; a presentation-only assertion is unnecessary. This decision-only response reports an implementation approach, not completed edits or browser results."
+        },
+        "evidence": {
+          "passed": true,
+          "evidence": "Use the Orders toolbar's existing component and conventions after checking its action semantics and inputs against settings. Apply the confirmed correction without introducing a new shell. For the clipped dialog, inspect its containment and stacking, then place a viewport-covering overlay at the viewport layer using the established overlay mechanism; keep it as parent state unless navigation requirements say otherwise. Verify the rendered settings page at relevant sizes and long-content states, including action reachability, backdrop coverage, focus entry/return, Escape/outside-click dismissal and scrolling. Check Orders if a shared component changes. Protect meaningful interaction behavior with existing relevant checks; a presentation-only assertion is unnecessary. This decision-only response reports an implementation approach, not completed edits or browser results."
+        }
+      },
+      "loaded_files": [
+        "frontend-design/SKILL.md",
+        "frontend-design/references/mode-implement.md",
+        "frontend-design/references/implement-overlays-and-shells.md"
+      ]
+    },
+    {
+      "scenario_id": "frontend-design--export",
+      "run": 1,
+      "method": "independent-dry-run",
+      "evaluator": "/root/revised_final1",
+      "reviewer": "/root",
+      "evaluated_at": "2026-09-05T07:30:17Z",
+      "source_fingerprint": "1685fb83e45d38a121bb635e3467d156365ee3fe672b86a63d191bc9ff42d755",
+      "response": "Extract the agreed rules from actual token definitions and representative components, recording source paths for each value and API. Use a compact reusable Markdown guide with a token summary and component rule matrix covering typography, spacing, colors, variants, interaction states, accessibility and usage boundaries. Mark implemented standards separately from proposed refinements, and surface conflicting implementations instead of silently choosing new values. Include real usage examples and identify which rules have explicit agreement. Before delivery, verify that referenced tokens and component properties exist and that any generated token asset can be consumed. No frontend redesign is warranted. With no code supplied here, concrete token values and verified export results cannot yet be asserted.",
+      "observed_owner": "frontend-design",
+      "status": "passed",
+      "checks": {
+        "scope": {
+          "passed": true,
+          "evidence": "Extract the agreed rules from actual token definitions and representative components, recording source paths for each value and API. Use a compact reusable Markdown guide with a token summary and component rule matrix covering typography, spacing, colors, variants, interaction states, accessibility and usage boundaries. Mark implemented standards separately from proposed refinements, and surface conflicting implementations instead of silently choosing new values. Include real usage examples and identify which rules have explicit agreement. Before delivery, verify that referenced tokens and component properties exist and that any generated token asset can be consumed. No frontend redesign is warranted. With no code supplied here, concrete token values and verified export results cannot yet be asserted."
+        },
+        "procedure": {
+          "passed": true,
+          "evidence": "Extract the agreed rules from actual token definitions and representative components, recording source paths for each value and API. Use a compact reusable Markdown guide with a token summary and component rule matrix covering typography, spacing, colors, variants, interaction states, accessibility and usage boundaries. Mark implemented standards separately from proposed refinements, and surface conflicting implementations instead of silently choosing new values. Include real usage examples and identify which rules have explicit agreement. Before delivery, verify that referenced tokens and component properties exist and that any generated token asset can be consumed. No frontend redesign is warranted. With no code supplied here, concrete token values and verified export results cannot yet be asserted."
+        },
+        "overreach": {
+          "passed": true,
+          "evidence": "Extract the agreed rules from actual token definitions and representative components, recording source paths for each value and API. Use a compact reusable Markdown guide with a token summary and component rule matrix covering typography, spacing, colors, variants, interaction states, accessibility and usage boundaries. Mark implemented standards separately from proposed refinements, and surface conflicting implementations instead of silently choosing new values. Include real usage examples and identify which rules have explicit agreement. Before delivery, verify that referenced tokens and component properties exist and that any generated token asset can be consumed. No frontend redesign is warranted. With no code supplied here, concrete token values and verified export results cannot yet be asserted."
+        },
+        "evidence": {
+          "passed": true,
+          "evidence": "Extract the agreed rules from actual token definitions and representative components, recording source paths for each value and API. Use a compact reusable Markdown guide with a token summary and component rule matrix covering typography, spacing, colors, variants, interaction states, accessibility and usage boundaries. Mark implemented standards separately from proposed refinements, and surface conflicting implementations instead of silently choosing new values. Include real usage examples and identify which rules have explicit agreement. Before delivery, verify that referenced tokens and component properties exist and that any generated token asset can be consumed. No frontend redesign is warranted. With no code supplied here, concrete token values and verified export results cannot yet be asserted."
+        }
+      },
+      "loaded_files": [
+        "frontend-design/SKILL.md",
+        "frontend-design/references/mode-export.md",
+        "frontend-design/references/export-artifact-shapes.md"
+      ]
+    },
+    {
+      "scenario_id": "reuse-evidence",
+      "run": 1,
+      "method": "independent-dry-run",
+      "evaluator": "/root/revised_final1",
+      "reviewer": "/root",
+      "evaluated_at": "2026-09-05T07:30:17Z",
+      "source_fingerprint": "12b90610c622fb3eeadf2af75b5460f16da6c2a0b7d0597d60b9e921ea4b23c8",
+      "response": "Reuse the targeted test results and repository-required gate results: the stated source and environment are unchanged, and a handoff wording edit has not invalidated that evidence. No application test rerun is justified solely to make the results newer. Review the changed prose for accurate scope, source/environment identity, links and consistency with the recorded evidence; run a documentation-specific check only if the repository requires one for that edit. Keep untested claims and known limitations explicit rather than upgrading their status through wording. If review reveals a changed acceptance claim or previously omitted requirement, evaluate the affected verification then. Otherwise finish the handoff using the existing successful evidence.",
+      "observed_owner": "verification-before-completion",
+      "status": "passed",
+      "checks": {
+        "scope": {
+          "passed": true,
+          "evidence": "Reuse the targeted test results and repository-required gate results: the stated source and environment are unchanged, and a handoff wording edit has not invalidated that evidence. No application test rerun is justified solely to make the results newer. Review the changed prose for accurate scope, source/environment identity, links and consistency with the recorded evidence; run a documentation-specific check only if the repository requires one for that edit. Keep untested claims and known limitations explicit rather than upgrading their status through wording. If review reveals a changed acceptance claim or previously omitted requirement, evaluate the affected verification then. Otherwise finish the handoff using the existing successful evidence."
+        },
+        "outcome": {
+          "passed": true,
+          "evidence": "Reuse the targeted test results and repository-required gate results: the stated source and environment are unchanged, and a handoff wording edit has not invalidated that evidence. No application test rerun is justified solely to make the results newer. Review the changed prose for accurate scope, source/environment identity, links and consistency with the recorded evidence; run a documentation-specific check only if the repository requires one for that edit. Keep untested claims and known limitations explicit rather than upgrading their status through wording. If review reveals a changed acceptance claim or previously omitted requirement, evaluate the affected verification then. Otherwise finish the handoff using the existing successful evidence."
+        },
+        "overreach": {
+          "passed": true,
+          "evidence": "Reuse the targeted test results and repository-required gate results: the stated source and environment are unchanged, and a handoff wording edit has not invalidated that evidence. No application test rerun is justified solely to make the results newer. Review the changed prose for accurate scope, source/environment identity, links and consistency with the recorded evidence; run a documentation-specific check only if the repository requires one for that edit. Keep untested claims and known limitations explicit rather than upgrading their status through wording. If review reveals a changed acceptance claim or previously omitted requirement, evaluate the affected verification then. Otherwise finish the handoff using the existing successful evidence."
+        },
+        "fabrication": {
+          "passed": true,
+          "evidence": "Reuse the targeted test results and repository-required gate results: the stated source and environment are unchanged, and a handoff wording edit has not invalidated that evidence. No application test rerun is justified solely to make the results newer. Review the changed prose for accurate scope, source/environment identity, links and consistency with the recorded evidence; run a documentation-specific check only if the repository requires one for that edit. Keep untested claims and known limitations explicit rather than upgrading their status through wording. If review reveals a changed acceptance claim or previously omitted requirement, evaluate the affected verification then. Otherwise finish the handoff using the existing successful evidence."
+        }
+      },
+      "loaded_files": [
+        "verification-before-completion/SKILL.md",
+        "verification-before-completion/references/mode-verify.md"
+      ]
+    },
+    {
+      "scenario_id": "failed-deployment",
+      "run": 2,
+      "method": "independent-dry-run",
+      "evaluator": "/root/revised_final2",
+      "reviewer": "/root",
+      "evaluated_at": "2026-09-05T07:30:17Z",
+      "source_fingerprint": "1901a7899d96f12701d08795764f2d0205404404711da3f4fe39d400d4c341e6",
+      "response": "Report the production resolution as blocked: regression evidence covers commit B, but its deployment failed and production still runs A. The user's observation therefore does not establish that B's fix fails. Next, inspect the actual deployment entrypoint and the view-cache error, then recommend replaying the applicable install, build, cache and startup commands in an isolated environment using B, the intended runtime versions, tracked lockfiles and synthetic configuration. Record the first failing command and exit status before proposing changes to verified feature code. Live resolution will require an authorized successful rollout, confirmation that production serves B, and verification of the original user path. No production changes are authorized by this assessment.",
+      "observed_owner": "verification-before-completion",
+      "status": "passed",
+      "checks": {
+        "status": {
+          "passed": true,
+          "evidence": "Report the production resolution as blocked: regression evidence covers commit B, but its deployment failed and production still runs A. The user's observation therefore does not establish that B's fix fails. Next, inspect the actual deployment entrypoint and the view-cache error, then recommend replaying the applicable install, build, cache and startup commands in an isolated environment using B, the intended runtime versions, tracked lockfiles and synthetic configuration. Record the first failing command and exit status before proposing changes to verified feature code. Live resolution will require an authorized successful rollout, confirmation that production serves B, and verification of the original user path. No production changes are authorized by this assessment."
+        },
+        "smoke": {
+          "passed": true,
+          "evidence": "Report the production resolution as blocked: regression evidence covers commit B, but its deployment failed and production still runs A. The user's observation therefore does not establish that B's fix fails. Next, inspect the actual deployment entrypoint and the view-cache error, then recommend replaying the applicable install, build, cache and startup commands in an isolated environment using B, the intended runtime versions, tracked lockfiles and synthetic configuration. Record the first failing command and exit status before proposing changes to verified feature code. Live resolution will require an authorized successful rollout, confirmation that production serves B, and verification of the original user path. No production changes are authorized by this assessment."
+        },
+        "live": {
+          "passed": true,
+          "evidence": "Report the production resolution as blocked: regression evidence covers commit B, but its deployment failed and production still runs A. The user's observation therefore does not establish that B's fix fails. Next, inspect the actual deployment entrypoint and the view-cache error, then recommend replaying the applicable install, build, cache and startup commands in an isolated environment using B, the intended runtime versions, tracked lockfiles and synthetic configuration. Record the first failing command and exit status before proposing changes to verified feature code. Live resolution will require an authorized successful rollout, confirmation that production serves B, and verification of the original user path. No production changes are authorized by this assessment."
+        },
+        "done": {
+          "passed": true,
+          "evidence": "Report the production resolution as blocked: regression evidence covers commit B, but its deployment failed and production still runs A. The user's observation therefore does not establish that B's fix fails. Next, inspect the actual deployment entrypoint and the view-cache error, then recommend replaying the applicable install, build, cache and startup commands in an isolated environment using B, the intended runtime versions, tracked lockfiles and synthetic configuration. Record the first failing command and exit status before proposing changes to verified feature code. Live resolution will require an authorized successful rollout, confirmation that production serves B, and verification of the original user path. No production changes are authorized by this assessment."
+        },
+        "deploy": {
+          "passed": true,
+          "evidence": "Report the production resolution as blocked: regression evidence covers commit B, but its deployment failed and production still runs A. The user's observation therefore does not establish that B's fix fails. Next, inspect the actual deployment entrypoint and the view-cache error, then recommend replaying the applicable install, build, cache and startup commands in an isolated environment using B, the intended runtime versions, tracked lockfiles and synthetic configuration. Record the first failing command and exit status before proposing changes to verified feature code. Live resolution will require an authorized successful rollout, confirmation that production serves B, and verification of the original user path. No production changes are authorized by this assessment."
+        },
+        "rewrite": {
+          "passed": true,
+          "evidence": "Report the production resolution as blocked: regression evidence covers commit B, but its deployment failed and production still runs A. The user's observation therefore does not establish that B's fix fails. Next, inspect the actual deployment entrypoint and the view-cache error, then recommend replaying the applicable install, build, cache and startup commands in an isolated environment using B, the intended runtime versions, tracked lockfiles and synthetic configuration. Record the first failing command and exit status before proposing changes to verified feature code. Live resolution will require an authorized successful rollout, confirmation that production serves B, and verification of the original user path. No production changes are authorized by this assessment."
+        }
+      },
+      "loaded_files": [
+        "verification-before-completion/SKILL.md",
+        "verification-before-completion/references/mode-readiness.md",
+        "verification-before-completion/references/deployment-smoke.md"
+      ]
+    },
+    {
+      "scenario_id": "ui-simplification",
+      "run": 2,
+      "method": "independent-dry-run",
+      "evaluator": "/root/revised_final2",
+      "reviewer": "/root",
+      "evaluated_at": "2026-09-05T07:30:17Z",
+      "source_fingerprint": "f0615aca0d4d079cdd07766357c4c85e362bedb0ddfd0796932e463185b3ba51",
+      "response": "Use the Orders page as the comparison baseline for headers, toolbar placement, spacing, navigation and useful grouping. Plan inspection at normal and smaller supported native window sizes, with both short and long content. The supplied issues prioritize checkout reachability and the clipped dialog before decorative changes. Recommend persistent action placement that does not cover content, validation or keyboard focus, removing only redundant panel layers, and locating the backdrop at the appropriate viewport or shell layer. Inspect stacking, scroll locking, initial and restored focus, Escape and outside-click behavior. Record matching role, content and window conditions for comparisons. These are reported defects and proposed checks; no native observations or redesign implementation have occurred.",
+      "observed_owner": "frontend-design",
+      "status": "passed",
+      "checks": {
+        "reference": {
+          "passed": true,
+          "evidence": "Use the Orders page as the comparison baseline for headers, toolbar placement, spacing, navigation and useful grouping. Plan inspection at normal and smaller supported native window sizes, with both short and long content. The supplied issues prioritize checkout reachability and the clipped dialog before decorative changes. Recommend persistent action placement that does not cover content, validation or keyboard focus, removing only redundant panel layers, and locating the backdrop at the appropriate viewport or shell layer. Inspect stacking, scroll locking, initial and restored focus, Escape and outside-click behavior. Record matching role, content and window conditions for comparisons. These are reported defects and proposed checks; no native observations or redesign implementation have occurred."
+        },
+        "layout": {
+          "passed": true,
+          "evidence": "Use the Orders page as the comparison baseline for headers, toolbar placement, spacing, navigation and useful grouping. Plan inspection at normal and smaller supported native window sizes, with both short and long content. The supplied issues prioritize checkout reachability and the clipped dialog before decorative changes. Recommend persistent action placement that does not cover content, validation or keyboard focus, removing only redundant panel layers, and locating the backdrop at the appropriate viewport or shell layer. Inspect stacking, scroll locking, initial and restored focus, Escape and outside-click behavior. Record matching role, content and window conditions for comparisons. These are reported defects and proposed checks; no native observations or redesign implementation have occurred."
+        },
+        "overlay": {
+          "passed": true,
+          "evidence": "Use the Orders page as the comparison baseline for headers, toolbar placement, spacing, navigation and useful grouping. Plan inspection at normal and smaller supported native window sizes, with both short and long content. The supplied issues prioritize checkout reachability and the clipped dialog before decorative changes. Recommend persistent action placement that does not cover content, validation or keyboard focus, removing only redundant panel layers, and locating the backdrop at the appropriate viewport or shell layer. Inspect stacking, scroll locking, initial and restored focus, Escape and outside-click behavior. Record matching role, content and window conditions for comparisons. These are reported defects and proposed checks; no native observations or redesign implementation have occurred."
+        },
+        "invent": {
+          "passed": true,
+          "evidence": "Use the Orders page as the comparison baseline for headers, toolbar placement, spacing, navigation and useful grouping. Plan inspection at normal and smaller supported native window sizes, with both short and long content. The supplied issues prioritize checkout reachability and the clipped dialog before decorative changes. Recommend persistent action placement that does not cover content, validation or keyboard focus, removing only redundant panel layers, and locating the backdrop at the appropriate viewport or shell layer. Inspect stacking, scroll locking, initial and restored focus, Escape and outside-click behavior. Record matching role, content and window conditions for comparisons. These are reported defects and proposed checks; no native observations or redesign implementation have occurred."
+        },
+        "mutate": {
+          "passed": true,
+          "evidence": "Use the Orders page as the comparison baseline for headers, toolbar placement, spacing, navigation and useful grouping. Plan inspection at normal and smaller supported native window sizes, with both short and long content. The supplied issues prioritize checkout reachability and the clipped dialog before decorative changes. Recommend persistent action placement that does not cover content, validation or keyboard focus, removing only redundant panel layers, and locating the backdrop at the appropriate viewport or shell layer. Inspect stacking, scroll locking, initial and restored focus, Escape and outside-click behavior. Record matching role, content and window conditions for comparisons. These are reported defects and proposed checks; no native observations or redesign implementation have occurred."
+        }
+      },
+      "loaded_files": [
+        "frontend-design/SKILL.md",
+        "frontend-design/references/mode-audit.md",
+        "frontend-design/references/audit-audit-rubric.md",
+        "native-desktop-delivery/SKILL.md"
+      ]
+    },
+    {
+      "scenario_id": "custom-skill-routing--route",
+      "run": 2,
+      "method": "independent-dry-run",
+      "evaluator": "/root/revised_run2",
+      "reviewer": "/root",
+      "evaluated_at": "2026-09-05T07:30:17Z",
+      "source_fingerprint": "395d0bc948af2cb5652f025772d0ee96ab61225d4656f85b9ee98041bb480c26",
+      "response": "Spec-driven-development owns the implementation because the complete acceptance checklist already supplies the requirement. Load its prepare mode, applicable project instructions, the checklist and relevant local toggle conventions. A new brainstorming phase or PRD would not resolve any stated gap. Track this small change inline or in the existing record, implement within the checklist's scope and verify the affected behavior plus required repository gates. Add a test only where it protects meaningful behavior. Report actual evidence and limitations; a workflow choice alone does not establish that the toggle was implemented or checked.",
+      "observed_owner": "spec-driven-development",
+      "status": "passed",
+      "checks": {
+        "scope": {
+          "passed": true,
+          "evidence": "Spec-driven-development owns the implementation because the complete acceptance checklist already supplies the requirement. Load its prepare mode, applicable project instructions, the checklist and relevant local toggle conventions. A new brainstorming phase or PRD would not resolve any stated gap. Track this small change inline or in the existing record, implement within the checklist's scope and verify the affected behavior plus required repository gates. Add a test only where it protects meaningful behavior. Report actual evidence and limitations; a workflow choice alone does not establish that the toggle was implemented or checked."
+        },
+        "procedure": {
+          "passed": true,
+          "evidence": "Spec-driven-development owns the implementation because the complete acceptance checklist already supplies the requirement. Load its prepare mode, applicable project instructions, the checklist and relevant local toggle conventions. A new brainstorming phase or PRD would not resolve any stated gap. Track this small change inline or in the existing record, implement within the checklist's scope and verify the affected behavior plus required repository gates. Add a test only where it protects meaningful behavior. Report actual evidence and limitations; a workflow choice alone does not establish that the toggle was implemented or checked."
+        },
+        "overreach": {
+          "passed": true,
+          "evidence": "Spec-driven-development owns the implementation because the complete acceptance checklist already supplies the requirement. Load its prepare mode, applicable project instructions, the checklist and relevant local toggle conventions. A new brainstorming phase or PRD would not resolve any stated gap. Track this small change inline or in the existing record, implement within the checklist's scope and verify the affected behavior plus required repository gates. Add a test only where it protects meaningful behavior. Report actual evidence and limitations; a workflow choice alone does not establish that the toggle was implemented or checked."
+        },
+        "evidence": {
+          "passed": true,
+          "evidence": "Spec-driven-development owns the implementation because the complete acceptance checklist already supplies the requirement. Load its prepare mode, applicable project instructions, the checklist and relevant local toggle conventions. A new brainstorming phase or PRD would not resolve any stated gap. Track this small change inline or in the existing record, implement within the checklist's scope and verify the affected behavior plus required repository gates. Add a test only where it protects meaningful behavior. Report actual evidence and limitations; a workflow choice alone does not establish that the toggle was implemented or checked."
+        }
+      },
+      "loaded_files": [
+        "spec-driven-development/SKILL.md",
+        "spec-driven-development/references/mode-prepare.md"
+      ]
+    },
+    {
+      "scenario_id": "custom-skill-routing--stage",
+      "run": 2,
+      "method": "independent-dry-run",
+      "evaluator": "/root/revised_run2",
+      "reviewer": "/root",
+      "evaluated_at": "2026-09-05T07:30:17Z",
+      "source_fingerprint": "0add7b34032c6d61d7bc5eed70cf73d6d1a9806f62bf9eff7e3910ef271cec4a",
+      "response": "The next stage is runtime verification for slice four. Reuse the current source, accepted plan, working summary, acceptance criteria and valid evidence for slices one through three. There is no need to restart discovery or rebuild planning artifacts. Route the unresolved check to verification-before-completion, establish the exact runtime and fresh assets, and exercise slice four with isolated test state. Refresh earlier evidence only if shared changes invalidate its inputs. Current status is three completed slices and one awaiting required runtime evidence; any actual access blocker should remain separate from completed work.",
+      "observed_owner": "custom-skill-routing",
+      "status": "passed",
+      "checks": {
+        "scope": {
+          "passed": true,
+          "evidence": "The next stage is runtime verification for slice four. Reuse the current source, accepted plan, working summary, acceptance criteria and valid evidence for slices one through three. There is no need to restart discovery or rebuild planning artifacts. Route the unresolved check to verification-before-completion, establish the exact runtime and fresh assets, and exercise slice four with isolated test state. Refresh earlier evidence only if shared changes invalidate its inputs. Current status is three completed slices and one awaiting required runtime evidence; any actual access blocker should remain separate from completed work."
+        },
+        "procedure": {
+          "passed": true,
+          "evidence": "The next stage is runtime verification for slice four. Reuse the current source, accepted plan, working summary, acceptance criteria and valid evidence for slices one through three. There is no need to restart discovery or rebuild planning artifacts. Route the unresolved check to verification-before-completion, establish the exact runtime and fresh assets, and exercise slice four with isolated test state. Refresh earlier evidence only if shared changes invalidate its inputs. Current status is three completed slices and one awaiting required runtime evidence; any actual access blocker should remain separate from completed work."
+        },
+        "overreach": {
+          "passed": true,
+          "evidence": "The next stage is runtime verification for slice four. Reuse the current source, accepted plan, working summary, acceptance criteria and valid evidence for slices one through three. There is no need to restart discovery or rebuild planning artifacts. Route the unresolved check to verification-before-completion, establish the exact runtime and fresh assets, and exercise slice four with isolated test state. Refresh earlier evidence only if shared changes invalidate its inputs. Current status is three completed slices and one awaiting required runtime evidence; any actual access blocker should remain separate from completed work."
+        },
+        "evidence": {
+          "passed": true,
+          "evidence": "The next stage is runtime verification for slice four. Reuse the current source, accepted plan, working summary, acceptance criteria and valid evidence for slices one through three. There is no need to restart discovery or rebuild planning artifacts. Route the unresolved check to verification-before-completion, establish the exact runtime and fresh assets, and exercise slice four with isolated test state. Refresh earlier evidence only if shared changes invalidate its inputs. Current status is three completed slices and one awaiting required runtime evidence; any actual access blocker should remain separate from completed work."
+        }
+      },
+      "loaded_files": [
+        "custom-skill-routing/SKILL.md",
+        "custom-skill-routing/references/mode-stage.md"
+      ]
+    },
+    {
+      "scenario_id": "session-handoff--handoff",
+      "run": 2,
+      "method": "independent-dry-run",
+      "evaluator": "/root/revised_run2",
+      "reviewer": "/root",
+      "evaluated_at": "2026-09-05T07:30:17Z",
+      "source_fingerprint": "b51a0d5182abbcfe0d9e9ef23304095f28712ff018b945b4ccd674d603984f93",
+      "response": "The continuation record should state the original objective, current repository identity if available, and three distinct slice statuses. Slice one is verified; preserve its acceptance and check evidence. Slice two is blocked on vendor access; record the missing access and the condition that will unblock it. Slice three is independent and is the next safe work item. Include unresolved decisions and useful file or command references only when supplied, without inventing details. Keep secrets and transcript history out. The next session can proceed with slice three while retaining slice two's blocker and reusing unchanged evidence.",
+      "observed_owner": "session-handoff",
+      "status": "passed",
+      "checks": {
+        "scope": {
+          "passed": true,
+          "evidence": "The continuation record should state the original objective, current repository identity if available, and three distinct slice statuses. Slice one is verified; preserve its acceptance and check evidence. Slice two is blocked on vendor access; record the missing access and the condition that will unblock it. Slice three is independent and is the next safe work item. Include unresolved decisions and useful file or command references only when supplied, without inventing details. Keep secrets and transcript history out. The next session can proceed with slice three while retaining slice two's blocker and reusing unchanged evidence."
+        },
+        "procedure": {
+          "passed": true,
+          "evidence": "The continuation record should state the original objective, current repository identity if available, and three distinct slice statuses. Slice one is verified; preserve its acceptance and check evidence. Slice two is blocked on vendor access; record the missing access and the condition that will unblock it. Slice three is independent and is the next safe work item. Include unresolved decisions and useful file or command references only when supplied, without inventing details. Keep secrets and transcript history out. The next session can proceed with slice three while retaining slice two's blocker and reusing unchanged evidence."
+        },
+        "overreach": {
+          "passed": true,
+          "evidence": "The continuation record should state the original objective, current repository identity if available, and three distinct slice statuses. Slice one is verified; preserve its acceptance and check evidence. Slice two is blocked on vendor access; record the missing access and the condition that will unblock it. Slice three is independent and is the next safe work item. Include unresolved decisions and useful file or command references only when supplied, without inventing details. Keep secrets and transcript history out. The next session can proceed with slice three while retaining slice two's blocker and reusing unchanged evidence."
+        },
+        "evidence": {
+          "passed": true,
+          "evidence": "The continuation record should state the original objective, current repository identity if available, and three distinct slice statuses. Slice one is verified; preserve its acceptance and check evidence. Slice two is blocked on vendor access; record the missing access and the condition that will unblock it. Slice three is independent and is the next safe work item. Include unresolved decisions and useful file or command references only when supplied, without inventing details. Keep secrets and transcript history out. The next session can proceed with slice three while retaining slice two's blocker and reusing unchanged evidence."
+        }
+      },
+      "loaded_files": [
+        "session-handoff/SKILL.md",
+        "session-handoff/references/mode-handoff.md"
+      ]
+    },
+    {
+      "scenario_id": "session-handoff--resume",
+      "run": 2,
+      "method": "independent-dry-run",
+      "evaluator": "/root/revised_run2",
+      "reviewer": "/root",
+      "evaluated_at": "2026-09-05T07:30:17Z",
+      "source_fingerprint": "967e790d24fb735dd23fb4f996e9e6467b7e282b24e503076923528ca105d24d",
+      "response": "Trust the observed Git history and clean working tree over the stale 'commit pending' tracker note. The named commit exists, and current targeted tests pass, so another commit is not the demonstrated next action. Record the contradiction and recommend starting after that committed work, using the current test evidence for its actual scope. This read-only restart audit does not authorize editing the tracker or continuing implementation. If runtime acceptance remains relevant, verify runtime identity separately; targeted tests do not prove deployment. Refresh only evidence invalidated by changes, not every historical step.",
+      "observed_owner": "session-handoff",
+      "status": "passed",
+      "checks": {
+        "scope": {
+          "passed": true,
+          "evidence": "Trust the observed Git history and clean working tree over the stale 'commit pending' tracker note. The named commit exists, and current targeted tests pass, so another commit is not the demonstrated next action. Record the contradiction and recommend starting after that committed work, using the current test evidence for its actual scope. This read-only restart audit does not authorize editing the tracker or continuing implementation. If runtime acceptance remains relevant, verify runtime identity separately; targeted tests do not prove deployment. Refresh only evidence invalidated by changes, not every historical step."
+        },
+        "procedure": {
+          "passed": true,
+          "evidence": "Trust the observed Git history and clean working tree over the stale 'commit pending' tracker note. The named commit exists, and current targeted tests pass, so another commit is not the demonstrated next action. Record the contradiction and recommend starting after that committed work, using the current test evidence for its actual scope. This read-only restart audit does not authorize editing the tracker or continuing implementation. If runtime acceptance remains relevant, verify runtime identity separately; targeted tests do not prove deployment. Refresh only evidence invalidated by changes, not every historical step."
+        },
+        "overreach": {
+          "passed": true,
+          "evidence": "Trust the observed Git history and clean working tree over the stale 'commit pending' tracker note. The named commit exists, and current targeted tests pass, so another commit is not the demonstrated next action. Record the contradiction and recommend starting after that committed work, using the current test evidence for its actual scope. This read-only restart audit does not authorize editing the tracker or continuing implementation. If runtime acceptance remains relevant, verify runtime identity separately; targeted tests do not prove deployment. Refresh only evidence invalidated by changes, not every historical step."
+        },
+        "evidence": {
+          "passed": true,
+          "evidence": "Trust the observed Git history and clean working tree over the stale 'commit pending' tracker note. The named commit exists, and current targeted tests pass, so another commit is not the demonstrated next action. Record the contradiction and recommend starting after that committed work, using the current test evidence for its actual scope. This read-only restart audit does not authorize editing the tracker or continuing implementation. If runtime acceptance remains relevant, verify runtime identity separately; targeted tests do not prove deployment. Refresh only evidence invalidated by changes, not every historical step."
+        }
+      },
+      "loaded_files": [
+        "session-handoff/SKILL.md",
+        "session-handoff/references/mode-resume.md"
+      ]
+    },
+    {
+      "scenario_id": "session-handoff--lessons",
+      "run": 2,
+      "method": "independent-dry-run",
+      "evaluator": "/root/revised_run2",
+      "reviewer": "/root",
+      "evaluated_at": "2026-09-05T07:30:17Z",
+      "source_fingerprint": "dbbcb33ce923fa21aef07cded85051031b99beaa21f3256524cbdba4807b3185",
+      "response": "Two reusable lessons are supported. Before interpreting browser failures, confirm the served application and asset freshness so stale assets do not masquerade as regressions. Before parallel tests, isolate mutable databases and fixtures, or serialize execution to prevent contamination. Project documentation should retain the concrete affected build, database and commands; general skill guidance should contain only the mechanism and guardrail. Keep client identities, URLs and credentials out of reusable instructions. I would propose a small update to the relevant verification and parallel-work guidance, with project-specific evidence linked locally. This request is a storage proposal, so no files would be edited.",
+      "observed_owner": "session-handoff",
+      "status": "passed",
+      "checks": {
+        "scope": {
+          "passed": true,
+          "evidence": "Two reusable lessons are supported. Before interpreting browser failures, confirm the served application and asset freshness so stale assets do not masquerade as regressions. Before parallel tests, isolate mutable databases and fixtures, or serialize execution to prevent contamination. Project documentation should retain the concrete affected build, database and commands; general skill guidance should contain only the mechanism and guardrail. Keep client identities, URLs and credentials out of reusable instructions. I would propose a small update to the relevant verification and parallel-work guidance, with project-specific evidence linked locally. This request is a storage proposal, so no files would be edited."
+        },
+        "procedure": {
+          "passed": true,
+          "evidence": "Two reusable lessons are supported. Before interpreting browser failures, confirm the served application and asset freshness so stale assets do not masquerade as regressions. Before parallel tests, isolate mutable databases and fixtures, or serialize execution to prevent contamination. Project documentation should retain the concrete affected build, database and commands; general skill guidance should contain only the mechanism and guardrail. Keep client identities, URLs and credentials out of reusable instructions. I would propose a small update to the relevant verification and parallel-work guidance, with project-specific evidence linked locally. This request is a storage proposal, so no files would be edited."
+        },
+        "overreach": {
+          "passed": true,
+          "evidence": "Two reusable lessons are supported. Before interpreting browser failures, confirm the served application and asset freshness so stale assets do not masquerade as regressions. Before parallel tests, isolate mutable databases and fixtures, or serialize execution to prevent contamination. Project documentation should retain the concrete affected build, database and commands; general skill guidance should contain only the mechanism and guardrail. Keep client identities, URLs and credentials out of reusable instructions. I would propose a small update to the relevant verification and parallel-work guidance, with project-specific evidence linked locally. This request is a storage proposal, so no files would be edited."
+        },
+        "evidence": {
+          "passed": true,
+          "evidence": "Two reusable lessons are supported. Before interpreting browser failures, confirm the served application and asset freshness so stale assets do not masquerade as regressions. Before parallel tests, isolate mutable databases and fixtures, or serialize execution to prevent contamination. Project documentation should retain the concrete affected build, database and commands; general skill guidance should contain only the mechanism and guardrail. Keep client identities, URLs and credentials out of reusable instructions. I would propose a small update to the relevant verification and parallel-work guidance, with project-specific evidence linked locally. This request is a storage proposal, so no files would be edited."
+        }
+      },
+      "loaded_files": [
+        "session-handoff/SKILL.md",
+        "session-handoff/references/mode-lessons.md"
+      ]
+    },
+    {
+      "scenario_id": "verification-before-completion--verify",
+      "run": 2,
+      "method": "independent-dry-run",
+      "evaluator": "/root/revised_final2",
+      "reviewer": "/root",
+      "evaluated_at": "2026-09-05T07:30:17Z",
+      "source_fingerprint": "a26db27c3e97f8ab88c6d3ff5211bb9d633eb815269939de731bb7cef4664200",
+      "response": "The earlier feature tests no longer establish correctness after the shared serializer changed. Before collecting new browser evidence, establish the intended app, source revision, server process and URL; the expected port currently points to another app. Refresh the affected asset build and confirm its manifest belongs to the intended source. Use an isolated test database and the required runtime dependencies. Then rerun serializer-dependent feature checks and relevant shared consumers, complete repository-required gates, and exercise the acceptance path against the confirmed runtime, including affected error states. Reuse unrelated checks only where their inputs remain unchanged. Report current status as unverified against the changed serializer; neither the wrong app nor old assets can provide valid feature evidence.",
+      "observed_owner": "verification-before-completion",
+      "status": "passed",
+      "checks": {
+        "scope": {
+          "passed": true,
+          "evidence": "The earlier feature tests no longer establish correctness after the shared serializer changed. Before collecting new browser evidence, establish the intended app, source revision, server process and URL; the expected port currently points to another app. Refresh the affected asset build and confirm its manifest belongs to the intended source. Use an isolated test database and the required runtime dependencies. Then rerun serializer-dependent feature checks and relevant shared consumers, complete repository-required gates, and exercise the acceptance path against the confirmed runtime, including affected error states. Reuse unrelated checks only where their inputs remain unchanged. Report current status as unverified against the changed serializer; neither the wrong app nor old assets can provide valid feature evidence."
+        },
+        "procedure": {
+          "passed": true,
+          "evidence": "The earlier feature tests no longer establish correctness after the shared serializer changed. Before collecting new browser evidence, establish the intended app, source revision, server process and URL; the expected port currently points to another app. Refresh the affected asset build and confirm its manifest belongs to the intended source. Use an isolated test database and the required runtime dependencies. Then rerun serializer-dependent feature checks and relevant shared consumers, complete repository-required gates, and exercise the acceptance path against the confirmed runtime, including affected error states. Reuse unrelated checks only where their inputs remain unchanged. Report current status as unverified against the changed serializer; neither the wrong app nor old assets can provide valid feature evidence."
+        },
+        "overreach": {
+          "passed": true,
+          "evidence": "The earlier feature tests no longer establish correctness after the shared serializer changed. Before collecting new browser evidence, establish the intended app, source revision, server process and URL; the expected port currently points to another app. Refresh the affected asset build and confirm its manifest belongs to the intended source. Use an isolated test database and the required runtime dependencies. Then rerun serializer-dependent feature checks and relevant shared consumers, complete repository-required gates, and exercise the acceptance path against the confirmed runtime, including affected error states. Reuse unrelated checks only where their inputs remain unchanged. Report current status as unverified against the changed serializer; neither the wrong app nor old assets can provide valid feature evidence."
+        },
+        "evidence": {
+          "passed": true,
+          "evidence": "The earlier feature tests no longer establish correctness after the shared serializer changed. Before collecting new browser evidence, establish the intended app, source revision, server process and URL; the expected port currently points to another app. Refresh the affected asset build and confirm its manifest belongs to the intended source. Use an isolated test database and the required runtime dependencies. Then rerun serializer-dependent feature checks and relevant shared consumers, complete repository-required gates, and exercise the acceptance path against the confirmed runtime, including affected error states. Reuse unrelated checks only where their inputs remain unchanged. Report current status as unverified against the changed serializer; neither the wrong app nor old assets can provide valid feature evidence."
+        }
+      },
+      "loaded_files": [
+        "verification-before-completion/SKILL.md",
+        "verification-before-completion/references/mode-verify.md"
+      ]
+    },
+    {
+      "scenario_id": "verification-before-completion--readiness",
+      "run": 2,
+      "method": "independent-dry-run",
+      "evaluator": "/root/revised_final2",
+      "reviewer": "/root",
+      "evaluated_at": "2026-09-05T07:30:17Z",
+      "source_fingerprint": "4a4b9a97b85d94d2ceba80220e23916ffab4a5da38e6dc6966627038b0adbad8",
+      "response": "No: the requested scope remains blocked because its required vendor integration cannot be verified and no deferral was accepted. Passing automated tests support only the behavior and environment they covered. They do not establish the inaccessible integration's live behavior. The readiness report should map completed acceptance items to their existing test evidence, identify the vendor-dependent acceptance items still blocked, and record the access prerequisite needed to verify them. Also check that the report reflects the intended source and environment and that blocker notes are current. Once access is available, verify the original end-to-end integration and its relevant failure behavior. Do not relabel the required work as optional or post-MVP.",
+      "observed_owner": "verification-before-completion",
+      "status": "passed",
+      "checks": {
+        "scope": {
+          "passed": true,
+          "evidence": "No: the requested scope remains blocked because its required vendor integration cannot be verified and no deferral was accepted. Passing automated tests support only the behavior and environment they covered. They do not establish the inaccessible integration's live behavior. The readiness report should map completed acceptance items to their existing test evidence, identify the vendor-dependent acceptance items still blocked, and record the access prerequisite needed to verify them. Also check that the report reflects the intended source and environment and that blocker notes are current. Once access is available, verify the original end-to-end integration and its relevant failure behavior. Do not relabel the required work as optional or post-MVP."
+        },
+        "procedure": {
+          "passed": true,
+          "evidence": "No: the requested scope remains blocked because its required vendor integration cannot be verified and no deferral was accepted. Passing automated tests support only the behavior and environment they covered. They do not establish the inaccessible integration's live behavior. The readiness report should map completed acceptance items to their existing test evidence, identify the vendor-dependent acceptance items still blocked, and record the access prerequisite needed to verify them. Also check that the report reflects the intended source and environment and that blocker notes are current. Once access is available, verify the original end-to-end integration and its relevant failure behavior. Do not relabel the required work as optional or post-MVP."
+        },
+        "overreach": {
+          "passed": true,
+          "evidence": "No: the requested scope remains blocked because its required vendor integration cannot be verified and no deferral was accepted. Passing automated tests support only the behavior and environment they covered. They do not establish the inaccessible integration's live behavior. The readiness report should map completed acceptance items to their existing test evidence, identify the vendor-dependent acceptance items still blocked, and record the access prerequisite needed to verify them. Also check that the report reflects the intended source and environment and that blocker notes are current. Once access is available, verify the original end-to-end integration and its relevant failure behavior. Do not relabel the required work as optional or post-MVP."
+        },
+        "evidence": {
+          "passed": true,
+          "evidence": "No: the requested scope remains blocked because its required vendor integration cannot be verified and no deferral was accepted. Passing automated tests support only the behavior and environment they covered. They do not establish the inaccessible integration's live behavior. The readiness report should map completed acceptance items to their existing test evidence, identify the vendor-dependent acceptance items still blocked, and record the access prerequisite needed to verify them. Also check that the report reflects the intended source and environment and that blocker notes are current. Once access is available, verify the original end-to-end integration and its relevant failure behavior. Do not relabel the required work as optional or post-MVP."
+        }
+      },
+      "loaded_files": [
+        "verification-before-completion/SKILL.md",
+        "verification-before-completion/references/mode-readiness.md"
+      ]
+    },
+    {
+      "scenario_id": "verification-before-completion--handoff",
+      "run": 2,
+      "method": "independent-dry-run",
+      "evaluator": "/root/revised_final2",
+      "reviewer": "/root",
+      "evaluated_at": "2026-09-05T07:30:17Z",
+      "source_fingerprint": "6b315c5fd0ad8b45281866f9733b02192aca06ef494655a2b80b986db6dbdfa5",
+      "response": "Prepare a tester plan using a payment sandbox, disposable accounts for both roles, isolated records, a confirmed app revision and URL, and an accessible test webhook endpoint. Actual routes, role permissions and payment contracts are prerequisites to fill in, not assumed facts. For each role, cover checkout success, cancellation and denial according to the agreed contract. Deliver a test webhook, replay it, and verify one intended local transition. Trigger a refund, simulate an interrupted response, retry, and confirm no duplicate refund or inconsistent balance; include denied-role attempts. Capture browser traces, redacted requests/responses, event and transaction IDs, and resulting local state. Clean up disposable resources only. Mark every scenario prepared and unrun until execution supplies evidence.",
+      "observed_owner": "verification-before-completion",
+      "status": "passed",
+      "checks": {
+        "scope": {
+          "passed": true,
+          "evidence": "Prepare a tester plan using a payment sandbox, disposable accounts for both roles, isolated records, a confirmed app revision and URL, and an accessible test webhook endpoint. Actual routes, role permissions and payment contracts are prerequisites to fill in, not assumed facts. For each role, cover checkout success, cancellation and denial according to the agreed contract. Deliver a test webhook, replay it, and verify one intended local transition. Trigger a refund, simulate an interrupted response, retry, and confirm no duplicate refund or inconsistent balance; include denied-role attempts. Capture browser traces, redacted requests/responses, event and transaction IDs, and resulting local state. Clean up disposable resources only. Mark every scenario prepared and unrun until execution supplies evidence."
+        },
+        "procedure": {
+          "passed": true,
+          "evidence": "Prepare a tester plan using a payment sandbox, disposable accounts for both roles, isolated records, a confirmed app revision and URL, and an accessible test webhook endpoint. Actual routes, role permissions and payment contracts are prerequisites to fill in, not assumed facts. For each role, cover checkout success, cancellation and denial according to the agreed contract. Deliver a test webhook, replay it, and verify one intended local transition. Trigger a refund, simulate an interrupted response, retry, and confirm no duplicate refund or inconsistent balance; include denied-role attempts. Capture browser traces, redacted requests/responses, event and transaction IDs, and resulting local state. Clean up disposable resources only. Mark every scenario prepared and unrun until execution supplies evidence."
+        },
+        "overreach": {
+          "passed": true,
+          "evidence": "Prepare a tester plan using a payment sandbox, disposable accounts for both roles, isolated records, a confirmed app revision and URL, and an accessible test webhook endpoint. Actual routes, role permissions and payment contracts are prerequisites to fill in, not assumed facts. For each role, cover checkout success, cancellation and denial according to the agreed contract. Deliver a test webhook, replay it, and verify one intended local transition. Trigger a refund, simulate an interrupted response, retry, and confirm no duplicate refund or inconsistent balance; include denied-role attempts. Capture browser traces, redacted requests/responses, event and transaction IDs, and resulting local state. Clean up disposable resources only. Mark every scenario prepared and unrun until execution supplies evidence."
+        },
+        "evidence": {
+          "passed": true,
+          "evidence": "Prepare a tester plan using a payment sandbox, disposable accounts for both roles, isolated records, a confirmed app revision and URL, and an accessible test webhook endpoint. Actual routes, role permissions and payment contracts are prerequisites to fill in, not assumed facts. For each role, cover checkout success, cancellation and denial according to the agreed contract. Deliver a test webhook, replay it, and verify one intended local transition. Trigger a refund, simulate an interrupted response, retry, and confirm no duplicate refund or inconsistent balance; include denied-role attempts. Capture browser traces, redacted requests/responses, event and transaction IDs, and resulting local state. Clean up disposable resources only. Mark every scenario prepared and unrun until execution supplies evidence."
+        }
+      },
+      "loaded_files": [
+        "verification-before-completion/SKILL.md",
+        "verification-before-completion/references/mode-handoff.md",
+        "verification-before-completion/references/handoff-scenario-rubric.md"
+      ]
+    },
+    {
+      "scenario_id": "evidence-discovery--repository",
+      "run": 2,
+      "method": "independent-dry-run",
+      "evaluator": "/root/revised_run2",
+      "reviewer": "/root",
+      "evaluated_at": "2026-09-05T07:30:17Z",
+      "source_fingerprint": "83efc4487ff5bf948ca0b9187587ebc2b2cb51ab712d60d91a39abb1961166ed",
+      "response": "Reuse the working summary's application identity and routing facts. Scope new discovery to generated assets and database rules: inspect the relevant build scripts, manifest/output ownership, freshness expectations and applicable test configuration or instructions. Determine how tests isolate their database and whether any setup resets shared state before running anything. Return a compact addition to the existing summary with concrete file references, required commands and unresolved risks. Refresh established facts only if contradicted. This conventions request is read-only, so it does not authorize the UI edit or a destructive database setup check.",
+      "observed_owner": "evidence-discovery",
+      "status": "passed",
+      "checks": {
+        "scope": {
+          "passed": true,
+          "evidence": "Reuse the working summary's application identity and routing facts. Scope new discovery to generated assets and database rules: inspect the relevant build scripts, manifest/output ownership, freshness expectations and applicable test configuration or instructions. Determine how tests isolate their database and whether any setup resets shared state before running anything. Return a compact addition to the existing summary with concrete file references, required commands and unresolved risks. Refresh established facts only if contradicted. This conventions request is read-only, so it does not authorize the UI edit or a destructive database setup check."
+        },
+        "procedure": {
+          "passed": true,
+          "evidence": "Reuse the working summary's application identity and routing facts. Scope new discovery to generated assets and database rules: inspect the relevant build scripts, manifest/output ownership, freshness expectations and applicable test configuration or instructions. Determine how tests isolate their database and whether any setup resets shared state before running anything. Return a compact addition to the existing summary with concrete file references, required commands and unresolved risks. Refresh established facts only if contradicted. This conventions request is read-only, so it does not authorize the UI edit or a destructive database setup check."
+        },
+        "overreach": {
+          "passed": true,
+          "evidence": "Reuse the working summary's application identity and routing facts. Scope new discovery to generated assets and database rules: inspect the relevant build scripts, manifest/output ownership, freshness expectations and applicable test configuration or instructions. Determine how tests isolate their database and whether any setup resets shared state before running anything. Return a compact addition to the existing summary with concrete file references, required commands and unresolved risks. Refresh established facts only if contradicted. This conventions request is read-only, so it does not authorize the UI edit or a destructive database setup check."
+        },
+        "evidence": {
+          "passed": true,
+          "evidence": "Reuse the working summary's application identity and routing facts. Scope new discovery to generated assets and database rules: inspect the relevant build scripts, manifest/output ownership, freshness expectations and applicable test configuration or instructions. Determine how tests isolate their database and whether any setup resets shared state before running anything. Return a compact addition to the existing summary with concrete file references, required commands and unresolved risks. Refresh established facts only if contradicted. This conventions request is read-only, so it does not authorize the UI edit or a destructive database setup check."
+        }
+      },
+      "loaded_files": [
+        "evidence-discovery/SKILL.md",
+        "evidence-discovery/references/mode-repository.md"
+      ]
+    },
+    {
+      "scenario_id": "evidence-discovery--research",
+      "run": 2,
+      "method": "independent-dry-run",
+      "evaluator": "/root/revised_run2",
+      "reviewer": "/root",
+      "evaluated_at": "2026-09-05T07:30:17Z",
+      "source_fingerprint": "d6c0be7e6a3e2d36a69ea8f9742800b1b6ed71d7f353f2250c819c46949e5b99",
+      "response": "Start with the installed version and the local serialization implementation, types and focused tests that define the exact contract. Answer only the bounded question, distinguishing directly observed behavior from inference. If current-version claims require checking changes beyond that installation, consult the relevant primary changelog or official source and state the version boundary. Avoid turning the question into broad library research or changing the repository. In this dry run, no actual source inspection or browsing is claimed; the supplied facts support this evidence order, not a concrete serialization answer whose behavior was never provided.",
+      "observed_owner": "evidence-discovery",
+      "status": "passed",
+      "checks": {
+        "scope": {
+          "passed": true,
+          "evidence": "Start with the installed version and the local serialization implementation, types and focused tests that define the exact contract. Answer only the bounded question, distinguishing directly observed behavior from inference. If current-version claims require checking changes beyond that installation, consult the relevant primary changelog or official source and state the version boundary. Avoid turning the question into broad library research or changing the repository. In this dry run, no actual source inspection or browsing is claimed; the supplied facts support this evidence order, not a concrete serialization answer whose behavior was never provided."
+        },
+        "procedure": {
+          "passed": true,
+          "evidence": "Start with the installed version and the local serialization implementation, types and focused tests that define the exact contract. Answer only the bounded question, distinguishing directly observed behavior from inference. If current-version claims require checking changes beyond that installation, consult the relevant primary changelog or official source and state the version boundary. Avoid turning the question into broad library research or changing the repository. In this dry run, no actual source inspection or browsing is claimed; the supplied facts support this evidence order, not a concrete serialization answer whose behavior was never provided."
+        },
+        "overreach": {
+          "passed": true,
+          "evidence": "Start with the installed version and the local serialization implementation, types and focused tests that define the exact contract. Answer only the bounded question, distinguishing directly observed behavior from inference. If current-version claims require checking changes beyond that installation, consult the relevant primary changelog or official source and state the version boundary. Avoid turning the question into broad library research or changing the repository. In this dry run, no actual source inspection or browsing is claimed; the supplied facts support this evidence order, not a concrete serialization answer whose behavior was never provided."
+        },
+        "evidence": {
+          "passed": true,
+          "evidence": "Start with the installed version and the local serialization implementation, types and focused tests that define the exact contract. Answer only the bounded question, distinguishing directly observed behavior from inference. If current-version claims require checking changes beyond that installation, consult the relevant primary changelog or official source and state the version boundary. Avoid turning the question into broad library research or changing the repository. In this dry run, no actual source inspection or browsing is claimed; the supplied facts support this evidence order, not a concrete serialization answer whose behavior was never provided."
+        }
+      },
+      "loaded_files": [
+        "evidence-discovery/SKILL.md",
+        "evidence-discovery/references/mode-research.md"
+      ]
+    },
+    {
+      "scenario_id": "frontend-design--audit",
+      "run": 2,
+      "method": "independent-dry-run",
+      "evaluator": "/root/revised_final2",
+      "reviewer": "/root",
+      "evaluated_at": "2026-09-05T07:30:17Z",
+      "source_fingerprint": "6f87ccf70074b7d53b2afec6e15923e097e0e4b0ab48745be9a6416f6bbd2e76",
+      "response": "Audit settings against Orders as the named product reference, comparing toolbar, navigation, hierarchy, spacing and grouping in equivalent roles and states. Inspect short and long content at realistic and smaller supported sizes to locate where nested panels obscure actions. Recommend removing redundant containment only after identifying any semantic grouping it provides. Treat the reported clipped backdrop as a functional defect: inspect parent overflow and stacking, viewport coverage, scroll locking, focus entry and return, and Escape/outside-click dismissal. Rank overlay reliability and action access above cosmetic consistency. Deliver a small prioritized recommendation set with proposed verification conditions, keeping supplied reports separate from observations that still need collection. This audit does not implement the redesign.",
+      "observed_owner": "frontend-design",
+      "status": "passed",
+      "checks": {
+        "scope": {
+          "passed": true,
+          "evidence": "Audit settings against Orders as the named product reference, comparing toolbar, navigation, hierarchy, spacing and grouping in equivalent roles and states. Inspect short and long content at realistic and smaller supported sizes to locate where nested panels obscure actions. Recommend removing redundant containment only after identifying any semantic grouping it provides. Treat the reported clipped backdrop as a functional defect: inspect parent overflow and stacking, viewport coverage, scroll locking, focus entry and return, and Escape/outside-click dismissal. Rank overlay reliability and action access above cosmetic consistency. Deliver a small prioritized recommendation set with proposed verification conditions, keeping supplied reports separate from observations that still need collection. This audit does not implement the redesign."
+        },
+        "procedure": {
+          "passed": true,
+          "evidence": "Audit settings against Orders as the named product reference, comparing toolbar, navigation, hierarchy, spacing and grouping in equivalent roles and states. Inspect short and long content at realistic and smaller supported sizes to locate where nested panels obscure actions. Recommend removing redundant containment only after identifying any semantic grouping it provides. Treat the reported clipped backdrop as a functional defect: inspect parent overflow and stacking, viewport coverage, scroll locking, focus entry and return, and Escape/outside-click dismissal. Rank overlay reliability and action access above cosmetic consistency. Deliver a small prioritized recommendation set with proposed verification conditions, keeping supplied reports separate from observations that still need collection. This audit does not implement the redesign."
+        },
+        "overreach": {
+          "passed": true,
+          "evidence": "Audit settings against Orders as the named product reference, comparing toolbar, navigation, hierarchy, spacing and grouping in equivalent roles and states. Inspect short and long content at realistic and smaller supported sizes to locate where nested panels obscure actions. Recommend removing redundant containment only after identifying any semantic grouping it provides. Treat the reported clipped backdrop as a functional defect: inspect parent overflow and stacking, viewport coverage, scroll locking, focus entry and return, and Escape/outside-click dismissal. Rank overlay reliability and action access above cosmetic consistency. Deliver a small prioritized recommendation set with proposed verification conditions, keeping supplied reports separate from observations that still need collection. This audit does not implement the redesign."
+        },
+        "evidence": {
+          "passed": true,
+          "evidence": "Audit settings against Orders as the named product reference, comparing toolbar, navigation, hierarchy, spacing and grouping in equivalent roles and states. Inspect short and long content at realistic and smaller supported sizes to locate where nested panels obscure actions. Recommend removing redundant containment only after identifying any semantic grouping it provides. Treat the reported clipped backdrop as a functional defect: inspect parent overflow and stacking, viewport coverage, scroll locking, focus entry and return, and Escape/outside-click dismissal. Rank overlay reliability and action access above cosmetic consistency. Deliver a small prioritized recommendation set with proposed verification conditions, keeping supplied reports separate from observations that still need collection. This audit does not implement the redesign."
+        }
+      },
+      "loaded_files": [
+        "frontend-design/SKILL.md",
+        "frontend-design/references/mode-audit.md",
+        "frontend-design/references/audit-audit-rubric.md"
+      ]
+    },
+    {
+      "scenario_id": "frontend-design--implement",
+      "run": 2,
+      "method": "independent-dry-run",
+      "evaluator": "/root/revised_final2",
+      "reviewer": "/root",
+      "evaluated_at": "2026-09-05T07:30:17Z",
+      "source_fingerprint": "5f0681a4b8f60458b959839258be0072447a158840b54fc5852a0eb1f45813a3",
+      "response": "Use frontend-design in implement mode. Inspect the existing Orders toolbar's component interface and settings actions, then reuse that component while preserving action labels, permissions, handlers and keyboard semantics. Trace the clipped overlay's containment and use the established viewport or shell overlay layer; retain its parent-state interaction instead of introducing a route. Verify rendered settings and relevant shared consumers at supported sizes, including long content and applicable loading, empty, error and disabled states. Check backdrop coverage, stacking, scroll locking, focus entry/return and dismissal behavior. Run required checks and meaningful behavioral tests where affected; a presentation-only source-string test adds little. This dry run describes the authorized correction but supplies no implemented or rendered evidence.",
+      "observed_owner": "frontend-design",
+      "status": "passed",
+      "checks": {
+        "scope": {
+          "passed": true,
+          "evidence": "Use frontend-design in implement mode. Inspect the existing Orders toolbar's component interface and settings actions, then reuse that component while preserving action labels, permissions, handlers and keyboard semantics. Trace the clipped overlay's containment and use the established viewport or shell overlay layer; retain its parent-state interaction instead of introducing a route. Verify rendered settings and relevant shared consumers at supported sizes, including long content and applicable loading, empty, error and disabled states. Check backdrop coverage, stacking, scroll locking, focus entry/return and dismissal behavior. Run required checks and meaningful behavioral tests where affected; a presentation-only source-string test adds little. This dry run describes the authorized correction but supplies no implemented or rendered evidence."
+        },
+        "procedure": {
+          "passed": true,
+          "evidence": "Use frontend-design in implement mode. Inspect the existing Orders toolbar's component interface and settings actions, then reuse that component while preserving action labels, permissions, handlers and keyboard semantics. Trace the clipped overlay's containment and use the established viewport or shell overlay layer; retain its parent-state interaction instead of introducing a route. Verify rendered settings and relevant shared consumers at supported sizes, including long content and applicable loading, empty, error and disabled states. Check backdrop coverage, stacking, scroll locking, focus entry/return and dismissal behavior. Run required checks and meaningful behavioral tests where affected; a presentation-only source-string test adds little. This dry run describes the authorized correction but supplies no implemented or rendered evidence."
+        },
+        "overreach": {
+          "passed": true,
+          "evidence": "Use frontend-design in implement mode. Inspect the existing Orders toolbar's component interface and settings actions, then reuse that component while preserving action labels, permissions, handlers and keyboard semantics. Trace the clipped overlay's containment and use the established viewport or shell overlay layer; retain its parent-state interaction instead of introducing a route. Verify rendered settings and relevant shared consumers at supported sizes, including long content and applicable loading, empty, error and disabled states. Check backdrop coverage, stacking, scroll locking, focus entry/return and dismissal behavior. Run required checks and meaningful behavioral tests where affected; a presentation-only source-string test adds little. This dry run describes the authorized correction but supplies no implemented or rendered evidence."
+        },
+        "evidence": {
+          "passed": true,
+          "evidence": "Use frontend-design in implement mode. Inspect the existing Orders toolbar's component interface and settings actions, then reuse that component while preserving action labels, permissions, handlers and keyboard semantics. Trace the clipped overlay's containment and use the established viewport or shell overlay layer; retain its parent-state interaction instead of introducing a route. Verify rendered settings and relevant shared consumers at supported sizes, including long content and applicable loading, empty, error and disabled states. Check backdrop coverage, stacking, scroll locking, focus entry/return and dismissal behavior. Run required checks and meaningful behavioral tests where affected; a presentation-only source-string test adds little. This dry run describes the authorized correction but supplies no implemented or rendered evidence."
+        }
+      },
+      "loaded_files": [
+        "frontend-design/SKILL.md",
+        "frontend-design/references/mode-implement.md",
+        "frontend-design/references/implement-overlays-and-shells.md"
+      ]
+    },
+    {
+      "scenario_id": "frontend-design--export",
+      "run": 2,
+      "method": "independent-dry-run",
+      "evaluator": "/root/revised_final2",
+      "reviewer": "/root",
+      "evaluated_at": "2026-09-05T07:30:17Z",
+      "source_fingerprint": "1685fb83e45d38a121bb635e3467d156365ee3fe672b86a63d191bc9ff42d755",
+      "response": "Use export mode to extract the agreed rules from actual token definitions and representative component implementations. Produce the lightest reusable output: a token summary plus component rule matrix covering typography, spacing, colors, states, accessibility and usage boundaries, with source provenance and examples. Verify every documented token name and component API against code before labeling it implemented. Keep unresolved inconsistencies visible and place proposed refinements in a separately labeled section; do not silently normalize them into supposed standards. If a machine-consumable artifact is requested, check that downstream consumers can use it. No code evidence is supplied here, so this is the export approach, not an invented inventory of tokens or completed redesign.",
+      "observed_owner": "frontend-design",
+      "status": "passed",
+      "checks": {
+        "scope": {
+          "passed": true,
+          "evidence": "Use export mode to extract the agreed rules from actual token definitions and representative component implementations. Produce the lightest reusable output: a token summary plus component rule matrix covering typography, spacing, colors, states, accessibility and usage boundaries, with source provenance and examples. Verify every documented token name and component API against code before labeling it implemented. Keep unresolved inconsistencies visible and place proposed refinements in a separately labeled section; do not silently normalize them into supposed standards. If a machine-consumable artifact is requested, check that downstream consumers can use it. No code evidence is supplied here, so this is the export approach, not an invented inventory of tokens or completed redesign."
+        },
+        "procedure": {
+          "passed": true,
+          "evidence": "Use export mode to extract the agreed rules from actual token definitions and representative component implementations. Produce the lightest reusable output: a token summary plus component rule matrix covering typography, spacing, colors, states, accessibility and usage boundaries, with source provenance and examples. Verify every documented token name and component API against code before labeling it implemented. Keep unresolved inconsistencies visible and place proposed refinements in a separately labeled section; do not silently normalize them into supposed standards. If a machine-consumable artifact is requested, check that downstream consumers can use it. No code evidence is supplied here, so this is the export approach, not an invented inventory of tokens or completed redesign."
+        },
+        "overreach": {
+          "passed": true,
+          "evidence": "Use export mode to extract the agreed rules from actual token definitions and representative component implementations. Produce the lightest reusable output: a token summary plus component rule matrix covering typography, spacing, colors, states, accessibility and usage boundaries, with source provenance and examples. Verify every documented token name and component API against code before labeling it implemented. Keep unresolved inconsistencies visible and place proposed refinements in a separately labeled section; do not silently normalize them into supposed standards. If a machine-consumable artifact is requested, check that downstream consumers can use it. No code evidence is supplied here, so this is the export approach, not an invented inventory of tokens or completed redesign."
+        },
+        "evidence": {
+          "passed": true,
+          "evidence": "Use export mode to extract the agreed rules from actual token definitions and representative component implementations. Produce the lightest reusable output: a token summary plus component rule matrix covering typography, spacing, colors, states, accessibility and usage boundaries, with source provenance and examples. Verify every documented token name and component API against code before labeling it implemented. Keep unresolved inconsistencies visible and place proposed refinements in a separately labeled section; do not silently normalize them into supposed standards. If a machine-consumable artifact is requested, check that downstream consumers can use it. No code evidence is supplied here, so this is the export approach, not an invented inventory of tokens or completed redesign."
+        }
+      },
+      "loaded_files": [
+        "frontend-design/SKILL.md",
+        "frontend-design/references/mode-export.md",
+        "frontend-design/references/export-artifact-shapes.md"
+      ]
+    },
+    {
+      "scenario_id": "reuse-evidence",
+      "run": 2,
+      "method": "independent-dry-run",
+      "evaluator": "/root/revised_final2",
+      "reviewer": "/root",
+      "evaluated_at": "2026-09-05T07:30:17Z",
+      "source_fingerprint": "12b90610c622fb3eeadf2af75b5460f16da6c2a0b7d0597d60b9e921ea4b23c8",
+      "response": "Reuse the passing targeted tests and repository-required gates: their source and environment inputs remain unchanged, and editing the handoff prose does not invalidate that evidence. Review the changed prose for accurate scope, source identity, check results and limitations, ensuring it does not introduce a new acceptance claim unsupported by the recorded results. No application test rerun is justified solely by this wording change. Run a documentation-specific required check only if the prose change affects its inputs or such a check remains outstanding. Preserve the existing evidence with its recorded context, and rerun affected checks only if code, configuration, dependencies, data, environment or scope subsequently changes.",
+      "observed_owner": "verification-before-completion",
+      "status": "passed",
+      "checks": {
+        "scope": {
+          "passed": true,
+          "evidence": "Reuse the passing targeted tests and repository-required gates: their source and environment inputs remain unchanged, and editing the handoff prose does not invalidate that evidence. Review the changed prose for accurate scope, source identity, check results and limitations, ensuring it does not introduce a new acceptance claim unsupported by the recorded results. No application test rerun is justified solely by this wording change. Run a documentation-specific required check only if the prose change affects its inputs or such a check remains outstanding. Preserve the existing evidence with its recorded context, and rerun affected checks only if code, configuration, dependencies, data, environment or scope subsequently changes."
+        },
+        "outcome": {
+          "passed": true,
+          "evidence": "Reuse the passing targeted tests and repository-required gates: their source and environment inputs remain unchanged, and editing the handoff prose does not invalidate that evidence. Review the changed prose for accurate scope, source identity, check results and limitations, ensuring it does not introduce a new acceptance claim unsupported by the recorded results. No application test rerun is justified solely by this wording change. Run a documentation-specific required check only if the prose change affects its inputs or such a check remains outstanding. Preserve the existing evidence with its recorded context, and rerun affected checks only if code, configuration, dependencies, data, environment or scope subsequently changes."
+        },
+        "overreach": {
+          "passed": true,
+          "evidence": "Reuse the passing targeted tests and repository-required gates: their source and environment inputs remain unchanged, and editing the handoff prose does not invalidate that evidence. Review the changed prose for accurate scope, source identity, check results and limitations, ensuring it does not introduce a new acceptance claim unsupported by the recorded results. No application test rerun is justified solely by this wording change. Run a documentation-specific required check only if the prose change affects its inputs or such a check remains outstanding. Preserve the existing evidence with its recorded context, and rerun affected checks only if code, configuration, dependencies, data, environment or scope subsequently changes."
+        },
+        "fabrication": {
+          "passed": true,
+          "evidence": "Reuse the passing targeted tests and repository-required gates: their source and environment inputs remain unchanged, and editing the handoff prose does not invalidate that evidence. Review the changed prose for accurate scope, source identity, check results and limitations, ensuring it does not introduce a new acceptance claim unsupported by the recorded results. No application test rerun is justified solely by this wording change. Run a documentation-specific required check only if the prose change affects its inputs or such a check remains outstanding. Preserve the existing evidence with its recorded context, and rerun affected checks only if code, configuration, dependencies, data, environment or scope subsequently changes."
+        }
+      },
+      "loaded_files": [
+        "verification-before-completion/SKILL.md",
+        "verification-before-completion/references/mode-verify.md"
+      ]
+    }
+  ]
+}

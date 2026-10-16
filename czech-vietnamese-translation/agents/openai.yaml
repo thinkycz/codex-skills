@@ -1,0 +1,4 @@
+interface:
+  display_name: "Czech–Vietnamese Translation"
+  short_description: "Translate practical Czech and Vietnamese faithfully"
+  default_prompt: "Use $czech-vietnamese-translation to translate this text naturally, preserving its facts, quantities, uncertainty, terminology and tone."

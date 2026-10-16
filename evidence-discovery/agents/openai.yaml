@@ -1,4 +1,4 @@
 interface:
   display_name: "Evidence Discovery"
-  short_description: "evidence discovery workflows"
-  default_prompt: "Use $evidence-discovery to handle the requested outcome in the appropriate mode."
+  short_description: "Research exact variants and compare current evidence"
+  default_prompt: "Use $evidence-discovery to answer this question or compare these options using exact variants, current evidence and clearly stated uncertainty."

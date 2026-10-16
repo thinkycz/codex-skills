@@ -116,9 +116,10 @@ compact; add `--verbose` for fixture and command details.
 
 ## Consolidated library
 
-There are 26 active custom packages. [migration-map.json](migration-map.json)
-accounts for all 46 original entry points, their replacement mode and guidance
-destination. Retired entry points are removed, not redirects; external paths
+There are 32 active custom packages. [migration-map.json](migration-map.json)
+preserves all 46 original entry points, their replacement mode and guidance
+destination, and separately registers six packages added after consolidation.
+Retired entry points are removed, not redirects; external paths
 must be updated by their callers. Git retains their history.
 
 [routing-contracts.json](routing-contracts.json) declares owners, modes and local

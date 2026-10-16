@@ -1,0 +1,4 @@
+interface:
+  display_name: "Teacha GoKasa Menu"
+  short_description: "Manage drinks and options across GoKasa branches"
+  default_prompt: "Use $teacha-gokasa-menu to add or update these drinks on the requested branches and verify their prices, cashier buttons, sugar, ice and topping options."
