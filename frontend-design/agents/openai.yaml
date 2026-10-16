@@ -1,7 +1,7 @@
 interface:
   display_name: "Frontend Design"
-  short_description: "Audit or improve feature-appropriate product UX"
-  default_prompt: "Use $frontend-design to improve this product with feature-appropriate layouts, clear navigation, consistent components and verified localized flows."
+  short_description: "Verify product themes, workflows and game interactions"
+  default_prompt: "Use $frontend-design to implement or audit the confirmed product direction, respecting its theme contract and verifying rendered workflows or game controls at relevant sizes."
 
 policy:
   allow_implicit_invocation: true

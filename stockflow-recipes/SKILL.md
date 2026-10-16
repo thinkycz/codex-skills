@@ -1,7 +1,7 @@
 ---
 name: stockflow-recipes
 description: Add, revise or audit StockFlow developer-managed Markdown recipes, including ingredient logic, localized content, lookup and guided preparation. Live GoKasa menu changes belong to teacha-gokasa-menu.
-version: 1.0.0
+version: 1.0.1
 category: operations
 sources:
   - Reviewed user-confirmed workflows and current source artifacts
@@ -13,6 +13,7 @@ avoid_when:
 artifacts:
   - SKILL.md
   - agents/openai.yaml
+  - agents/
   - references/
 quality_gates:
   - Authored amounts, variants, recipe URLs and all supported languages remain consistent.

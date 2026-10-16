@@ -1,4 +1,4 @@
 interface:
   display_name: "Custom Skill Routing"
-  short_description: "Choose one owner for software and personal workflows"
-  default_prompt: "Use $custom-skill-routing to choose the appropriate owner and mode for this request without expanding its scope or loading unrelated workflows."
+  short_description: "Choose precise delivery, research or operations owners"
+  default_prompt: "Use $custom-skill-routing to select the owner and mode for this requested outcome, separating source delivery, verification, client explanations and live operations."

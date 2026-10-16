@@ -1,14 +1,19 @@
 {
-  "reviewed_at": "2026-09-05",
-  "window_start": "2026-08-22",
-  "window_end": "2026-09-05",
-  "source": "Accessible local histories and recent ChatGPT conversations exposed by the app; screening followed by targeted investigation, not a complete account export or exhaustive turn review.",
-  "histories_screened": 129,
-  "prior_local_tasks": 59,
-  "worker_histories": 45,
-  "recent_chatgpt_conversations": 25,
-  "empty_archived_tasks": 1,
+  "reviewed_at": "2026-10-17",
+  "source": "Recent accessible conversation review plus partial Computer History summaries and focused source checks; not a complete account export or model evaluation.",
+  "threads_reviewed": 50,
+  "codex_threads": 18,
+  "recent_chatgpt_conversations": 32,
+  "computer_history_window_start": "2026-10-10",
+  "computer_history_window_end": "2026-10-16",
+  "computer_history_coverage": "partial",
   "skill_turn_mentions": {},
+  "routing_signals": [
+    "Preserve existing package-manager and equivalent-check boundaries.",
+    "Distinguish upgrade migration, email delivery and payment fulfillment evidence.",
+    "Separate roster, inventory review, delivery menus and correspondence ownership.",
+    "Apply latest explicit corrections without making project choices global defaults."
+  ],
   "previous_reviews": [
     {
       "reviewed_at": "2026-08-03",
@@ -38,6 +43,18 @@
         "clarify-before-plan": 3,
         "frontend-redesign-audit": 2
       }
+    },
+    {
+      "reviewed_at": "2026-09-05",
+      "window_start": "2026-08-22",
+      "window_end": "2026-09-05",
+      "source": "Accessible local histories and recent ChatGPT conversations exposed by the app; screening followed by targeted investigation, not a complete account export or exhaustive turn review.",
+      "histories_screened": 129,
+      "prior_local_tasks": 59,
+      "worker_histories": 45,
+      "recent_chatgpt_conversations": 25,
+      "empty_archived_tasks": 1,
+      "skill_turn_mentions": {}
     }
   ]
 }

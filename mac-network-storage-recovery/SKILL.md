@@ -1,7 +1,7 @@
 ---
 name: mac-network-storage-recovery
 description: Diagnose Mac Finder SMB access and Time Machine network destinations, including AirPort Time Capsule and Synology. Verify file access and backup completion as separate outcomes.
-version: 1.0.0
+version: 1.0.1
 category: device-support
 sources:
   - Reviewed user-confirmed workflows and current source artifacts
@@ -13,6 +13,7 @@ avoid_when:
 artifacts:
   - SKILL.md
   - agents/openai.yaml
+  - agents/
   - references/
 quality_gates:
   - Current device identity, macOS version and intended storage use are established.

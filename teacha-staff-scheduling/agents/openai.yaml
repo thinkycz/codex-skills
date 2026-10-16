@@ -1,0 +1,4 @@
+interface:
+  display_name: "Teacha Staff Scheduling"
+  short_description: "Review availability and verify branch-specific shifts"
+  default_prompt: "Use $teacha-staff-scheduling to complete this requested workflow with current branch context, existing authorization and verified saved outcomes."

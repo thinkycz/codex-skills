@@ -16,6 +16,7 @@
         "czech-vietnamese-translation",
         "design-to-traversable-app",
         "docs-driven-execution",
+        "env-file-mutation-guard",
         "evidence-discovery",
         "figma",
         "frontend-design",
@@ -34,7 +35,11 @@
         "spec-driven-development",
         "stockflow-recipes",
         "systematic-debugging",
+        "teacha-business-communications",
+        "teacha-delivery-menus",
         "teacha-gokasa-menu",
+        "teacha-inventory-review",
+        "teacha-staff-scheduling",
         "test-driven-development",
         "ticket-driven-delivery",
         "two-axis-review",
@@ -124,7 +129,8 @@
     "evidence-discovery": {
       "modes": {
         "repository": "references/mode-repository.md",
-        "research": "references/mode-research.md"
+        "research": "references/mode-research.md",
+        "explain": "references/mode-explain.md"
       },
       "dependencies": []
     },
@@ -293,6 +299,37 @@
       ]
     },
     "czech-vietnamese-translation": {
+      "modes": {
+        "work": null
+      },
+      "dependencies": []
+    },
+    "teacha-staff-scheduling": {
+      "modes": {
+        "work": null
+      },
+      "dependencies": []
+    },
+    "teacha-inventory-review": {
+      "modes": {
+        "work": null
+      },
+      "dependencies": []
+    },
+    "teacha-delivery-menus": {
+      "modes": {
+        "work": null
+      },
+      "dependencies": []
+    },
+    "teacha-business-communications": {
+      "modes": {
+        "correspondence": "references/correspondence.md",
+        "reviews": "references/reviews.md"
+      },
+      "dependencies": []
+    },
+    "env-file-mutation-guard": {
       "modes": {
         "work": null
       },

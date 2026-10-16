@@ -1,7 +1,7 @@
 ---
 name: systematic-debugging
 description: Prove the cause of a bug or failing flow before making an authorized fix.
-version: 1.9.0
+version: 1.10.0
 category: quality
 sources:
   - Supplied task evidence and applicable project conventions
@@ -38,3 +38,5 @@ Read only what the current task needs; supporting references do not mandate extr
 - [Root Cause Tracing](references/root-cause-tracing.md): for root cause tracing.
 - [Skill Routing](references/skill-routing.md): for skill routing.
 - [Verification](references/verification.md): for verification.
+
+- [Service Latency](references/service-latency.md): for intermittent proxy/API/database delays and correlated Supabase evidence.

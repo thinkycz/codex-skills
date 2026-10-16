@@ -1,9 +1,9 @@
 {
   "schema_version": 2,
-  "migration_version": "2.1.0",
+  "migration_version": "2.2.0",
   "baseline_commit": "7f424aea359eb524bb0a9112429d75bf14e15bff",
   "original_count": 46,
-  "active_count": 32,
+  "active_count": 37,
   "external_links": "Retired entry points are removed. This map does not repair external paths.",
   "entries": [
     {
@@ -289,6 +289,11 @@
     "legacy-device-recovery",
     "mac-network-storage-recovery",
     "stockflow-recipes",
-    "teacha-gokasa-menu"
+    "teacha-gokasa-menu",
+    "teacha-staff-scheduling",
+    "teacha-inventory-review",
+    "teacha-delivery-menus",
+    "teacha-business-communications",
+    "env-file-mutation-guard"
   ]
 }

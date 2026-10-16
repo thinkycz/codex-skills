@@ -1,7 +1,7 @@
 interface:
   display_name: "Ticket Driven Delivery"
-  short_description: "ticket driven delivery workflows"
-  default_prompt: "Use $ticket-driven-delivery to handle the requested outcome in the appropriate mode."
+  short_description: "Deliver scoped tickets and actionable mobile handoffs"
+  default_prompt: "Use $ticket-driven-delivery to deliver the requested tickets while preserving project tooling, checking relevant gates and preparing an accurate platform-specific handoff."
 
 policy:
   allow_implicit_invocation: true

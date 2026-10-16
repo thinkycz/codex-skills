@@ -1,7 +1,7 @@
 interface:
   display_name: "Skill Maintenance And Validation"
-  short_description: "skill maintenance and validation workflows"
-  default_prompt: "Use $skill-maintenance-and-validation to handle the requested outcome in the appropriate mode."
+  short_description: "Refresh skills from evidence and validate the library"
+  default_prompt: "Use $skill-maintenance-and-validation to review or refresh the custom library from supplied evidence, preserve workflow boundaries and validate packages, routing and honest evaluation status."
 
 policy:
   allow_implicit_invocation: true

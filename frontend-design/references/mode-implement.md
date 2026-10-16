@@ -15,3 +15,5 @@ Read only the reference matching the current question; these are not a mandatory
 - [Overlays And Shells](implement-overlays-and-shells.md): for overlays and shells.
 - [Shared Components And Email](implement-shared-components-and-email.md): for shared components and email.
 - [Ui Quality Checklist](implement-ui-quality-checklist.md): for ui quality checklist.
+
+For a game playfield or HUD, read [game interaction acceptance](implement-game-interactions.md).

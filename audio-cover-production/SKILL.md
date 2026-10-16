@@ -1,7 +1,7 @@
 ---
 name: audio-cover-production
 description: Separate audio stems or create a melody-preserving cover with a new backing or synthesized singer, using source audio and reference recordings. Choose separation versus cover production from the requested deliverable.
-version: 1.0.0
+version: 1.0.1
 category: creative-production
 sources:
   - Reviewed user-confirmed workflows and current source artifacts
@@ -13,6 +13,7 @@ avoid_when:
 artifacts:
   - SKILL.md
   - agents/openai.yaml
+  - agents/
   - references/
 quality_gates:
   - The original recording remains unchanged and the requested vocal treatment is explicit.

@@ -1,7 +1,7 @@
 ---
 name: ticket-driven-delivery
 description: Collect ticket evidence, plan or implement ticket changes, and post an explicitly requested closeout.
-version: 2.0.0
+version: 2.1.0
 category: execution
 sources:
   - Supplied task evidence and applicable project conventions

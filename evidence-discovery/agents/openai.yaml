@@ -1,4 +1,4 @@
 interface:
   display_name: "Evidence Discovery"
-  short_description: "Research exact variants and compare current evidence"
-  default_prompt: "Use $evidence-discovery to answer this question or compare these options using exact variants, current evidence and clearly stated uncertainty."
+  short_description: "Research exact options and explain product capabilities"
+  default_prompt: "Use $evidence-discovery to research this question or explain current product capabilities with source-backed facts, relevant runtime observations and explicit uncertainty."

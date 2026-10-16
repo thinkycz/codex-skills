@@ -1,7 +1,7 @@
 ---
 name: legacy-device-recovery
 description: Recover an older Apple TV or repurpose an older Mac/Chromebook with Linux, using exact hardware and firmware evidence plus a recoverable installation path.
-version: 1.0.0
+version: 1.0.1
 category: device-support
 sources:
   - Reviewed user-confirmed workflows and current source artifacts
@@ -12,6 +12,7 @@ avoid_when:
 artifacts:
   - SKILL.md
   - agents/openai.yaml
+  - agents/
   - references/
 quality_gates:
   - Exact device, firmware, boot and graphics constraints are checked before choosing a procedure.

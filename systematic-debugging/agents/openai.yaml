@@ -1,4 +1,4 @@
 interface:
   display_name: "Systematic Debugging"
-  short_description: "systematic debugging workflows"
-  default_prompt: "Use $systematic-debugging for the requested work within its stated boundary."
+  short_description: "Trace failures and correlate service latency evidence"
+  default_prompt: "Use $systematic-debugging to trace this failure or latency spike across the actual runtime boundaries, separating measured causes from hypotheses before an authorized fix."

@@ -1002,6 +1002,162 @@
           ]
         }
       ]
+    },
+    {
+      "name": "activity-informed operations and delivery boundaries",
+      "skills": [
+        {
+          "id": "teacha-staff-scheduling",
+          "dependencies": [],
+          "fixtures": [
+            {
+              "prompt": "Dry run only. Assign an afternoon shift for Worker A on 12 November 2027 at Branch East. The open roster is Branch West, October 2027. No start/end times were specified; an old chat used 16:00–21:00. Explain the next actions without saving anything.",
+              "expected_owner": "teacha-staff-scheduling",
+              "mode": "work"
+            },
+            {
+              "prompt": "Dry run only. Approve a requested shift at Branch East, 12 November 2027, Worker A, 16:00–21:00. An exact assignment is already saved. Another requested date overlaps a different assignment, and no overlap override was authorized. The UI timed out on a previous save. Describe handling and verification.",
+              "expected_owner": "teacha-staff-scheduling",
+              "mode": "work"
+            }
+          ]
+        },
+        {
+          "id": "teacha-inventory-review",
+          "dependencies": [],
+          "fixtures": [
+            {
+              "prompt": "Dry run only. A branch counted 12 kg of an ingredient last week and 8 kg today. Expected stock is missing, a delivery may have occurred, and a recipe lists amounts per cup. Review this discrepancy; do not change records.",
+              "expected_owner": "teacha-inventory-review",
+              "mode": "work"
+            }
+          ]
+        },
+        {
+          "id": "teacha-delivery-menus",
+          "dependencies": [],
+          "fixtures": [
+            {
+              "prompt": "Dry run only. Publish a two-drink bundle in a separate Bundles category on Wolt Branch East and Foodora Branch West. The approved M-size base prices are 75 Kč and 95 Kč with a 10 Kč bundle discount. Keep sugar, ice and optional toppings. Foodora has a matching draft pending moderation. Describe the edits, price and verification.",
+              "expected_owner": "teacha-delivery-menus",
+              "mode": "work"
+            }
+          ]
+        },
+        {
+          "id": "teacha-business-communications",
+          "dependencies": [],
+          "fixtures": [
+            {
+              "prompt": "Dry run only. Reply to unanswered Google Maps reviews for the specified branch: one in English, one in Traditional Chinese and one textless rating. The merchant interface is Czech. The user has authorized posting this batch but no refunds; another review already has a reply. Describe reply languages and the posting/verification approach.",
+              "expected_owner": "teacha-business-communications",
+              "mode": "reviews"
+            },
+            {
+              "prompt": "Draft only. Thank a delivery partner for reducing Branch East commission, say we will consider launching Branch West, and compare conditions generally with other platforms. The offer also proposes exclusivity, which we have not accepted. Use a friendly Czech tone; do not send.",
+              "expected_owner": "teacha-business-communications",
+              "mode": "correspondence"
+            }
+          ]
+        },
+        {
+          "id": "verification-before-completion",
+          "dependencies": [],
+          "fixtures": [
+            {
+              "prompt": "Dry run only. Passwordless registration passes on a fresh database. On a previously deployed database, user creation fails because passwords are still NOT NULL; someone edited only the old create-users migration. Existing accounts have passwords, credits and provider IDs. Explain the fix verification and rollout acceptance, without database writes.",
+              "expected_owner": "verification-before-completion",
+              "mode": "verify"
+            },
+            {
+              "prompt": "Dry run only. A staging registration API returns success but email delivery is untested. A current Mailpit inbox is available; verification links are intentionally repeatable and login links are one-time. A newly delivered login link currently gets HTTP 500 and the UI says invalid token. Explain the scenarios and evidence needed.",
+              "expected_owner": "verification-before-completion",
+              "mode": "verify"
+            },
+            {
+              "prompt": "Dry run only. A new sandbox purchase becomes paid, grants credits and emails an access link. An older provider-paid checkout is still NEW, and its report now belongs to another account. The new contract starts processing in the backend even after the browser closes. No replay was authorized. Describe acceptance and the unresolved record.",
+              "expected_owner": "verification-before-completion",
+              "mode": "verify"
+            }
+          ]
+        },
+        {
+          "id": "systematic-debugging",
+          "dependencies": [],
+          "fixtures": [
+            {
+              "prompt": "Dry run only. An authenticated endpoint intermittently takes 60 seconds in REST spans, while an off-incident primary-key SQL lookup takes 0.2 ms. Total PostgreSQL connections are below their maximum, HTTP calls eventually return 200, and event-loop delay is small. Production-terminal access is prohibited. Explain what is known and how to discriminate causes.",
+              "expected_owner": "systematic-debugging",
+              "mode": "work"
+            }
+          ]
+        },
+        {
+          "id": "ticket-driven-delivery",
+          "dependencies": [],
+          "fixtures": [
+            {
+              "prompt": "Dry run only. Implement a scoped email feature in an npm project. Staging and production Make targets call identical effective scripts with the same relevant inputs, and the user says one equivalent check is enough. A second repository explicitly requires five environment checks. Explain tooling and validation choices.",
+              "expected_owner": "ticket-driven-delivery",
+              "mode": "deliver"
+            },
+            {
+              "prompt": "Dry run only. Prepare the authorized Czech ticket handoff for a backend change exposing is_visible, while can_confirm describes a different action. Mobile code was not changed and real push delivery is untested. Include practical client implementation and post-deployment tests without posting here.",
+              "expected_owner": "ticket-driven-delivery",
+              "mode": "closeout"
+            }
+          ]
+        },
+        {
+          "id": "evidence-discovery",
+          "dependencies": [],
+          "fixtures": [
+            {
+              "prompt": "Prepare a read-only client walkthrough. The admin has an empty verification queue, a disabled mobile prompt, and referral defaults copied into new codes at creation. Runtime mobile behavior is unavailable. Explain sections and mobile relationships; no settings changes or spreadsheet were requested.",
+              "expected_owner": "evidence-discovery",
+              "mode": "explain"
+            }
+          ]
+        },
+        {
+          "id": "frontend-design",
+          "dependencies": [],
+          "fixtures": [
+            {
+              "prompt": "Dry run only. This product must remain light-only. On a dark-preference OS, portal dialogs show white text on white backgrounds. Fix all affected shared consumers without adding a theme feature. Describe implementation and rendered verification.",
+              "expected_owner": "frontend-design",
+              "mode": "implement"
+            },
+            {
+              "prompt": "Dry run only. Replace the artillery game sliders with approved hold-to-charge/release-to-fire controls and smooth terrain rendering. Physics is authoritative on the server and the grid contains craters and floating islands. Explain input, rendering and acceptance checks without changing gameplay rules.",
+              "expected_owner": "frontend-design",
+              "mode": "implement"
+            }
+          ]
+        },
+        {
+          "id": "skill-maintenance-and-validation",
+          "dependencies": [],
+          "fixtures": [
+            {
+              "prompt": "Audit only. Review the latest 50 chats plus Computer History for skill opportunities. The sidebar list is capped, one transcript is compressed, history summaries have gaps, and an old assistant claim conflicts with a later user correction. Describe intake and recommendations without editing skills or accessing production apps.",
+              "expected_owner": "skill-maintenance-and-validation",
+              "mode": "portfolio"
+            }
+          ]
+        },
+        {
+          "id": "env-file-mutation-guard",
+          "dependencies": [],
+          "fixtures": [
+            {
+              "prompt": "Dry run only. While implementing a feature, you find a credential in an existing environment template and a generator would rewrite .env.local. The user approved the feature but did not request environment-file changes. Describe handling without printing the secret.",
+              "expected_owner": "env-file-mutation-guard",
+              "mode": "work"
+            }
+          ]
+        }
+      ]
     }
   ],
   "schema_version": 2

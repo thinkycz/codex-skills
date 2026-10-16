@@ -1,0 +1,4 @@
+interface:
+  display_name: "Teacha Delivery Menus"
+  short_description: "Maintain delivery menus and approved bundle pricing"
+  default_prompt: "Use $teacha-delivery-menus to complete this requested workflow with current branch context, existing authorization and verified saved outcomes."

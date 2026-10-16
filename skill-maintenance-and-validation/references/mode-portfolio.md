@@ -8,3 +8,5 @@ Read only the reference matching the current question; these are not a mandatory
 
 - [Context Budget Heuristics](portfolio-context-budget-heuristics.md): for context budget heuristics.
 - [Stocktake Rubric](portfolio-stocktake-rubric.md): for stocktake rubric.
+
+When recent chats or Computer History are the requested evidence, read [activity-informed review](activity-informed-review.md).

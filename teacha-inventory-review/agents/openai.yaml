@@ -1,0 +1,4 @@
+interface:
+  display_name: "Teacha Inventory Review"
+  short_description: "Explain stock differences without changing inventory"
+  default_prompt: "Use $teacha-inventory-review to complete this requested workflow with current branch context, existing authorization and verified saved outcomes."

@@ -1,7 +1,7 @@
 ---
 name: skill-maintenance-and-validation
-description: Review, edit, validate or export the custom skill library without touching vendor-managed packages.
-version: 3.0.0
+description: Review, edit, validate or export the custom skill library, including updates grounded in recent chats and computer activity, without touching vendor-managed packages.
+version: 3.1.0
 category: skill-ops
 sources:
   - Supplied task evidence and applicable project conventions

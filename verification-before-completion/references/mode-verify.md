@@ -14,3 +14,5 @@ Read only the reference matching the current question; these are not a mandatory
 - [Deployment Smoke](deployment-smoke.md): for deployment smoke.
 - [Exact Path And Parity](exact-path-and-parity.md): for exact path and parity.
 - [Verification Layers](verification-layers.md): for verification layers.
+
+For schema evolution, read [upgrade verification](upgrade-verification.md). For registration, recovery, passwordless access or payment-triggered entitlements, read [email and checkout journeys](email-checkout-journeys.md). Load only the reference relevant to the requested acceptance claim.

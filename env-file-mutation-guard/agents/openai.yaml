@@ -1,0 +1,4 @@
+interface:
+  display_name: "Env File Mutation Guard"
+  short_description: "Require explicit scope before editing environment files"
+  default_prompt: "Use $env-file-mutation-guard to protect .env files and environment templates from unrequested changes."

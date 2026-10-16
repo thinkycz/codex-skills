@@ -22,3 +22,7 @@ Observe successful deployment completion, the intended artifact/commit, required
 | Live behavior verified | Affected user path observed against that target, including dependent workers/providers where relevant. |
 
 These are separate claims. A local smoke pass does not authorize deployment; a pushed commit does not establish deployment; a failed rollout does not establish that the new code ran.
+
+## Equivalent environment checks
+
+Compare the effective target commands, runtime/dependency versions, flags and relevant configuration before repeating environment checks. Reuse one result for truly equivalent inputs; an environment name alone does not justify duplicate runs. Distinct configuration branches, data assumptions or explicit repository requirements still need their applicable checks. This equivalence never proves that separately deployed environments have the same schema, worker or build.

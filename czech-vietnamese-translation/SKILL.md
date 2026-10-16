@@ -1,7 +1,7 @@
 ---
 name: czech-vietnamese-translation
 description: Translate supplied Czech and Vietnamese practical, technical or operational text in either direction while preserving facts, units, uncertainty and tone. Factual research is a separate task.
-version: 1.0.0
+version: 1.0.1
 category: communication
 sources:
   - Reviewed user-confirmed workflows and current source artifacts
@@ -13,6 +13,7 @@ avoid_when:
 artifacts:
   - SKILL.md
   - agents/openai.yaml
+  - agents/
 quality_gates:
   - Numbers, units, names, conditions, negations and certainty match the source.
   - The target text is natural and adds no unsupported factual or operational instructions.

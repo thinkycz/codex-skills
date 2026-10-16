@@ -1,7 +1,7 @@
 ---
 name: verification-before-completion
 description: Verify a completed change, assess release evidence, or prepare an executable tester handoff.
-version: 2.1.0
+version: 2.2.0
 category: quality
 sources:
   - Supplied task evidence and applicable project conventions

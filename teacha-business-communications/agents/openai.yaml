@@ -1,0 +1,4 @@
+interface:
+  display_name: "Teacha Business Communications"
+  short_description: "Draft partner replies and respond in review language"
+  default_prompt: "Use $teacha-business-communications to complete this requested workflow with current branch context, existing authorization and verified saved outcomes."

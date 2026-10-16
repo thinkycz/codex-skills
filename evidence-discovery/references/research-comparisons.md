@@ -10,3 +10,5 @@ Establish the decision and the facts that distinguish candidates. Reuse known co
 - Present a concise comparison with the factors that matter and a recommendation when requested. Mark inference and conflicting evidence explicitly. Preserve the user's response language unless translation is requested separately.
 
 Research does not book, buy, send, change device settings or implement code. Move to an execution workflow only within the user's actual authorized request.
+
+For regulated products, separate technical specifications from legal classification, registration, insurance, licensing and road-use approval. Identify jurisdiction and effective date, then verify each conclusion with current primary sources and exact variant/homologation evidence. A speed, power or weight threshold for one obligation does not establish an exemption from all others. Keep conflicting or missing specifications unresolved rather than converting probable classification into a definite legal conclusion.

@@ -10,3 +10,5 @@ Translate the confirmed direction into the daily tasks users perform. A product-
 - Inspect real populated, empty, loading and error states at the relevant desktop/mobile widths and themes. Use isolated representative data. Seed a shared or operational database only within explicit scope; do not make the app look populated by changing unrelated data.
 
 Report workflow and rendered evidence proportionally to the request, including any pages or states still unverified. A successful build alone does not establish improved usability.
+
+Respect an explicit light-only or dark-only product contract across portals, dialogs, shared components, native controls and system-preference changes. Verify foreground and background colors together in actual overlays; do not add a theme toggle or dark-mode variant to a light-only app as part of a contrast fix. A theme rule applies to that product, not every project.
